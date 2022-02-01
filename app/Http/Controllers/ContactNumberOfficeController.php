@@ -1,0 +1,211 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\ContactNumberOffice;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Department;
+use Intervention\Image\ImageManagerStatic as Image;
+
+class ContactNumberOfficeController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAdmin($department){
+        $contact_number_offices = ContactNumberOffice::where('department_id', '=', $department)->get();
+        $user = Auth::user();
+        $id = Auth::id();
+        $departmentUser = $user->department_admin_model_id;
+        // dd($departmentUser);
+        return view('admin.contact_number_office', [
+            'contact_number_offices'=> $contact_number_offices, 
+            'department' => $departmentUser,
+            'idPage' => $department,
+        ]);
+    }
+    public function index()
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+        if ($department =='super_admin') {
+            # code...
+            $contact_number_offices = ContactNumberOffice::all();
+        }else{
+            $contact_number_offices = ContactNumberOffice::where('department_id', '=', $department)->get();
+        }
+        $listRequest = Department::withCount('contactNumberOffice')->get();
+        // dd($listRequest);
+        if ($department =='super_admin') {
+            return view('admin.before.index', [
+                'updates'=> $contact_number_offices, 
+                'department' => $department,
+                'listRequests' => $listRequest,
+                'pageName' => 'Contact Number Office',
+                'pagePrefix' => 'contact-number-office'
+            ]);
+        }else{
+            return view('admin.contact_number_office', [
+                'contact_number_offices'=> $contact_number_offices, 
+                'department' => $department,
+                'listRequests' => $listRequest,
+                'pageName' => 'Contact Number Office',
+                // 'idPage' => $department,
+            ]);
+ 
+        }
+        // return view('admin.contact_number_office', ['contact_number_offices'=> $contact_number_offices,'department' => $department]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+     
+      
+        $contact_number_offices = ContactNumberOffice::all();
+        $member = new ContactNumberOffice;
+        $member->number = $request->number;
+        $member->name = $request->number;
+        $member->network = $request->network;
+        $member->user_id = $id;
+        $member->is_approved = 2;
+        $member->department_id = $department;
+        $member->save();
+        session()->flash('success', 'successfully added new contact number of office');
+        return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);
+    }
+
+    public function approve($idPost)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+
+        if ($department =='super_admin') {
+            # code...
+            $contact_number_offices = ContactNumberOffice::all();
+        }else{
+            $contact_number_offices = ContactNumberOffice::where('department_ID', '=', $department)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);  
+        }
+        $find = ContactNumberOffice::find($idPost);
+        $find->is_approved = 1;
+        $find->remarks = "";
+        $find->save();
+
+
+        session()->flash('success', 'successfully approved contact number office');
+        return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);  
+    }
+
+    public function remove(Request $request, $idPost,$idPage)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+
+        if ($department =='super_admin') {
+            # code...
+            $contact_number_offices = ContactNumberOffice::all();
+        }else{
+            $contact_number_offices = ContactNumberOffice::where('department_id', '=', $department)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);  
+        }
+
+        $find = ContactNumberOffice::find($idPost);
+        $find->is_approved = 3;
+        $find->remarks = $request->remarks;
+        $find->save();
+
+        session()->flash('success', 'successfully removed contact number office');
+        return redirect("/contact-number-office/$idPage");
+        // return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);  
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
