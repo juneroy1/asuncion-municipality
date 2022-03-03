@@ -1,35 +1,38 @@
+@extends('layouts.master', ['title' => 'welcome', 'subtitle' => ''])
 
-        @extends('layouts.master', ['title' => 'welcome', 'subtitle' => ''])
+@section('content')
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            @foreach ($landingImage as $key => $image)
 
-        @section('content')
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                @foreach ($landingImage as $key => $image)
-                    
                 @if ($key == 0)
-                <div class="carousel-item active">
-                @else
-                <div class="carousel-item">
+                    <div class="carousel-item active">
+                    @else
+                        <div class="carousel-item">
                 @endif
 
-                <div id="header" style="background: url(landing_images/{{$image->image}}) center center no-repeat;" class="header">
+                <div id="header" style="background: url(landing_images/{{ $image->image }}) center center no-repeat;"
+                    class="header">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    
+
                                     <div style="background-color: #113448;
-                                    border: solid;
-                                    border-radius: 10px;
-                                    border-color: rgb(39 81 105);" class="text-container">
-                                        
-                                        <h1 style='font: 700 3.5rem/4rem "Poppins";'>{{$image->title}} </h1>
-                                        <p style="color:white">{{$image->subtitle}}</p>
+                                                                            border: solid;
+                                                                            border-radius: 10px;
+                                                                            border-color: rgb(39 81 105);"
+                                        class="text-container">
+                                        <a style="text-decoration: none" href="/landingImage-view/{{ $image->id }}"
+                                            target="_blank">
+                                            <h1 style='font: 700 3.5rem/4rem "Poppins";'>{{ $image->title }} </h1>
+                                            <p style="color:white">{{ $image->subtitle }}</p>
+                                        </a>
                                         {{-- <h1>OFFICIAL WEBSITE</h1>
                                         <p style="color:white">OF</p>
                                         <h1>LGU ASUNCION</h1> --}}
@@ -37,11 +40,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
-              </div>
-              @endforeach
-              {{-- <div class="carousel-item">
+        </div>
+        @endforeach
+        {{-- <div class="carousel-item">
                 <div id="header" class="header2">
                     <div class="header-content">
                         <div style="margin-top: 280px;" class="container">
@@ -68,7 +71,7 @@
                 </div>
                 
               </div> --}}
-              {{-- <div class="carousel-item">
+        {{-- <div class="carousel-item">
                 <div id="header" class="header3">
                     <div class="header-content">
                         <div style="margin-top: 280px;" class="container">
@@ -92,369 +95,396 @@
                 </div>
                 
               </div> --}}
-            
-              
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
 
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="container p-3 m-3">
-                    <h1>EMERGENCY HOTLINE NUMBER</h1>
-                    <table style="border: solid" class="table">
-                        <thead>
-                          <tr>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container p-3 m-3">
+                <h1>EMERGENCY HOTLINE NUMBER</h1>
+                <table style="border: solid" class="table">
+                    <thead>
+                        <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Number</th>
                             <th scope="col">Network</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($emergencyHotlines as $emergencyHotline)
-                                
-                            
-                        <tr class="table-style">
-                            <th scope="row">#</th>
-                            <td style="color:red">{{$emergencyHotline->name}}</td>
-                            <td><b>{{$emergencyHotline->number}}</b></td>
-                            <td>{{$emergencyHotline->network}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($emergencyHotlines as $emergencyHotline)
+
+
+                            <tr class="table-style">
+                                <th scope="row">#</th>
+                                <td style="color:red">{{ $emergencyHotline->name }}</td>
+                                <td><b>{{ $emergencyHotline->number }}</b></td>
+                                <td>{{ $emergencyHotline->network }}</td>
                             </tr>
-                            @endforeach
-                        </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-        <!-- end of header -->
-        <!-- end of header -->
-        <div class="filter"> 
-            <div style="cursor: pointer;" class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        {{-- <div class="section-title">UPDATES</div> --}}
-                        {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                        <h1  style="text-align: center">HISTORICAL BACKGROUND</h1>
-                        <div style="text-align: center;display: flex;
-                        justify-items: center;
-                        align-items: center;
-                        align-content: center;">
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end of header -->
+    <!-- end of header -->
+    <div class="filter">
+        <div style="cursor: pointer;" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{-- <div class="section-title">UPDATES</div> --}}
+                    {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
+                    <h1 style="text-align: center">HISTORICAL BACKGROUND</h1>
+                    <div style="text-align: center;display: flex;
+                                                                justify-items: center;
+                                                                align-items: center;
+                                                                align-content: center;">
                         {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
                         <div style="display: inline-block;">
                             <a style="text-decoration: none" href="/historical" target="_blank" rel="noopener noreferrer">
-                            {{-- <h3>TITLE</h3> --}}
-                        
-                            {{-- <h2></h2> --}}
-                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
-                            {{-- <p >The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
+                                {{-- <h3>TITLE</h3> --}}
+
+                                {{-- <h2></h2> --}}
+                                {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
+                                {{-- <p >The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
                                 endorsed... <span style="color:blue">Read More</span>
                             </p> --}}
-                            <div style="text-align: left;" class="ex-basic-2">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-container">
-                                                {{-- <h3>Private Data We Receive And Collect</h3> --}}
-                                                {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
-                                                <p style="color:black"><b>The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
-                                                    endorsed by the Provincial Board of Davao under Resolution Numbers 297 and 393. Two (2) districts were created: The District of Camansa and the District of Saug.
-                                                Each District consists of five (5) barrios:</b></p>
-                                                <div style="display: flex;
-                                                flex-direction: row;
-                                                justify-content: space-around;">
-                                                    <div>
-                                                        <p>District of Camansa</p>
-                                                        <ul>
-                                                            <li>Macgum (Central)</li>
-                                                            <li>Camansa</li>
-                                                            <li>Buan</li>
-                                                            <li>Kilagdin and</li>
-                                                            <li>Madgao</li>
-                                                        </ul>
+                                <div style="text-align: left;" class="ex-basic-2">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-container">
+                                                    {{-- <h3>Private Data We Receive And Collect</h3> --}}
+                                                    {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
+                                                    <p style="color:black"><b>The Municipality of Asuncion became a regular
+                                                            municipal district of February 23, 1921 by virtue of Executuve
+                                                            Order No. 8, signed by Governor General Francis Burton F.
+                                                            Harrison, duly
+                                                            endorsed by the Provincial Board of Davao under Resolution
+                                                            Numbers 297 and 393. Two (2) districts were created: The
+                                                            District of Camansa and the District of Saug.
+                                                            Each District consists of five (5) barrios:</b></p>
+                                                    <div style="display: flex;
+                                                                                        flex-direction: row;
+                                                                                        justify-content: space-around;">
+                                                        <div>
+                                                            <p>District of Camansa</p>
+                                                            <ul>
+                                                                <li>Macgum (Central)</li>
+                                                                <li>Camansa</li>
+                                                                <li>Buan</li>
+                                                                <li>Kilagdin and</li>
+                                                                <li>Madgao</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div>
+                                                            <p>District of Saug</p>
+                                                            <ul>
+                                                                <li>Cambanogoy (Central)</li>
+                                                                <li>Limbaan</li>
+                                                                <li>Canatan</li>
+                                                                <li>Sagayen and</li>
+                                                                <li>Napungas</li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <p>District of Saug</p>
-                                                        <ul>
-                                                            <li>Cambanogoy (Central)</li>
-                                                            <li>Limbaan</li>
-                                                            <li>Canatan</li>
-                                                            <li>Sagayen and</li>
-                                                            <li>Napungas</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <p style="color:black"><b>In the early part of 1948, Executive Order No. 156 promulgated by President Elpidio Quirino, made Asuncion a regular town and originally 
-                                                    named Municipality New Leyte. On September of the same year, Executive Order No. 173 was issued changing its name to Municipality of Saug.</b></p>
-                                                
-                                                <p style="color:black"><b>Republic Act No. 1675 was passed in Congress on June 20, 1957 renaming the Municipality of Saug to Municipality if Asuncion in honor of its
-                                                    Patron Saint Nuestra Senora dela Asuncion.</b></p>
-                                                
-                                                
-                                                <p style="color:black"><b>The early inhabitants of the Municipality were the Aetas and Mandayas. In the early 1930s, migrants from Leyte, Bohol, Cebu and other parts
-                                                    of the Visayas settled in the town and lived peacefully with the early settlers.</b></p>
-                                                
-                                                
-                                                <p style="color:black"><b>On June 18, 1966, two new municipalities were created and segregated from the land area of Asuncion. New Corella was created under R.A No. 4747 and
-                                                    the Municipality of Montevista which was created under R.A 4808.</b></p>
-                        
-                                                <p style="color:black"><b>Again, on March 7, 1979, Batasang Pambansa Blg. 23, created the Municipality of San Vicente (Laak), segregating 15 regular
-                                                    barangays of the Municipality.</b></p>
-                                                
-                                                
-                                                <p style="color:black"><b>The Municipality is composed of 26 barangays with a total land area of 41,152 has. On March 15, 2004, President Gloria Macapagal Arroyo signed into Law R.A 9265
-                                                    which created the Municipality of San Isidro. The Law was ratified on June 27, 2004. Due to the creation of the Municipality of San Isidro, six (6) barangays were detached from the
-                                                Municipality of Asuncion.</b></p>
-                        
-                                                <p style="color:black"><b>At present, the Municipality of Asuncion has twenty (20) barangays (see table 1) with a total land area of 30,422 hectares representing 8.4% of the total land area of the
-                                                    Province of Davao del Norte.</b></p>
-                        
-                        
+                                                    <p style="color:black"><b>In the early part of 1948, Executive Order No.
+                                                            156 promulgated by President Elpidio Quirino, made Asuncion a
+                                                            regular town and originally
+                                                            named Municipality New Leyte. On September of the same year,
+                                                            Executive Order No. 173 was issued changing its name to
+                                                            Municipality of Saug.</b></p>
+
+                                                    <p style="color:black"><b>Republic Act No. 1675 was passed in Congress
+                                                            on June 20, 1957 renaming the Municipality of Saug to
+                                                            Municipality if Asuncion in honor of its
+                                                            Patron Saint Nuestra Senora dela Asuncion.</b></p>
+
+
+                                                    <p style="color:black"><b>The early inhabitants of the Municipality were
+                                                            the Aetas and Mandayas. In the early 1930s, migrants from Leyte,
+                                                            Bohol, Cebu and other parts
+                                                            of the Visayas settled in the town and lived peacefully with the
+                                                            early settlers.</b></p>
+
+
+                                                    <p style="color:black"><b>On June 18, 1966, two new municipalities were
+                                                            created and segregated from the land area of Asuncion. New
+                                                            Corella was created under R.A No. 4747 and
+                                                            the Municipality of Montevista which was created under R.A
+                                                            4808.</b></p>
+
+                                                    <p style="color:black"><b>Again, on March 7, 1979, Batasang Pambansa
+                                                            Blg. 23, created the Municipality of San Vicente (Laak),
+                                                            segregating 15 regular
+                                                            barangays of the Municipality.</b></p>
+
+
+                                                    <p style="color:black"><b>The Municipality is composed of 26 barangays
+                                                            with a total land area of 41,152 has. On March 15, 2004,
+                                                            President Gloria Macapagal Arroyo signed into Law R.A 9265
+                                                            which created the Municipality of San Isidro. The Law was
+                                                            ratified on June 27, 2004. Due to the creation of the
+                                                            Municipality of San Isidro, six (6) barangays were detached from
+                                                            the
+                                                            Municipality of Asuncion.</b></p>
+
+                                                    <p style="color:black"><b>At present, the Municipality of Asuncion has
+                                                            twenty (20) barangays (see table 1) with a total land area of
+                                                            30,422 hectares representing 8.4% of the total land area of the
+                                                            Province of Davao del Norte.</b></p>
+
+
                                                     <br>
                                                     <br>
                                                     <br>
-                                                <h3>Table 1. Legal Basis and Date of Creation per Barangay</h3>
-                                                <table class="table">
-                                                    <thead>
-                                                        <th>Barangays</th>
-                                                        <th>Basis of Creation</th>
-                                                        <th>Basis Created</th>
-                                                    </thead>
-                                                    <tr>
-                                                        <td>1. Binancian</td>
-                                                        <td>Provincial Board Res. No. 138</td>
-                                                        <td>May 8, 1968</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2. Buan</td>
-                                                        <td>Executive Order No. 8</td>
-                                                        <td> February 23, 1921</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3. Buclad</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4. Cabaywa</td>
-                                                        <td>Provincial Board Resolution</td>
-                                                        <td> April 30, 1968</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>5. Camansa</td>
-                                                        <td>Executive Order No. 8</td>
-                                                        <td>February 27, 1921</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>6. Cambanogoy (Pob.)</td>
-                                                        <td>Executive Order No. 8</td>
-                                                        <td>February 23, 1921</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>7. Camoning</td>
-                                                        <td>Provincial Board Resolution No. 398</td>
-                                                        <td>October 21, 1965</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8. Canatan</td>
-                                                        <td>Executive Order No. 8</td>
-                                                        <td>February 23, 1921</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>9. Concepcion</td>
-                                                        <td>Municipal Council Resolution No. 1046</td>
-                                                        <td>June 12, 1954</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10. Dona Andrea</td>
-                                                        <td>Provincial Board Resolution No. 478</td>
-                                                        <td>July 2, 1964</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11. Magatos</td>
-                                                        <td></td>
-                                                        <td>June 16, 1935</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>12. Napungas</td>
-                                                        <td>Executive Order No. 08</td>
-                                                        <td>1921</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>13. New Bantayan</td>
-                                                        <td>Resolution No. 20</td>
-                                                        <td>September 11, 1968</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>14. New Loon</td>
-                                                        <td>Resolution No. 138</td>
-                                                        <td>February 12, 1985</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15. New Santiago</td>
-                                                        <td>Provincial Board Res. No. 294</td>
-                                                        <td>July 22, 1965</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>16. Pamacaun</td>
-                                                        <td>
-                                                            <p>Barangay Resolution No. 27,</p>
-                                                            <p>Municipal Resolution No. 152,</p>
-                                                            <p>Provincial Resolution No. 288</p>
-                                                        </td>
-                                                        <td>March 16, 1967</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>17. Sagayen</td>
-                                                        <td>Republic Act 3590(Barrio Chapter)</td>
-                                                        <td>1963</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>18. San Vicente</td>
-                                                        <td>Resolution No. 421</td>
-                                                        <td>June 18, 1968</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>19. Sta. Felomina</td>
-                                                        <td>
-                                                            <p>Barangay Resolution No. 137 Series of 1969,</p>
-                                                            <p>Provincial Board Resolution No. 287</p>
-                                                        </td>
-                                                        <td>October 29, 1969</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>20. Sonlon</td>
-                                                        <td>Provincial Board Resolution No. 373</td>
-                                                        <td>November 18, 1970</td>
-                                                    </tr>
-                                                </table>
-                        
-                                                <p><i>Source: Department of Interior and Local Government (DILG)</i></p>
-                        
-                                                <br>
-                                                <p><b>Different leaders have managed the Municipality from 1921 to present as follows:</b></p>
-                                                <table class="table">
-                                                    <tr>
-                                                        <td>Ganza Mandaya</td>
-                                                        <td>-</td>
-                                                        <td>1921-1926</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Betunlan Ganza</td>
-                                                        <td>-</td>
-                                                        <td>1926-1930</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Marcelo Bonghanoy</td>
-                                                        <td>-</td>
-                                                        <td>1930-1934</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Mamerto Confesor</td>
-                                                        <td>-</td>
-                                                        <td>1934-1936</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Felino Ayala</td>
-                                                        <td>-</td>
-                                                        <td>1936-1937</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Zacarias Solon</td>
-                                                        <td>-</td>
-                                                        <td>1937-1938</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Segundo Atanoza</td>
-                                                        <td>-</td>
-                                                        <td>1938-1939</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Pedro Ramos</td>
-                                                        <td>-</td>
-                                                        <td>1939-1940</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Nemesio Irig</td>
-                                                        <td>-</td>
-                                                        <td>1940-1941</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Dalmacio Fernandez</td>
-                                                        <td>-</td>
-                                                        <td>1941-1951</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Francisco Javines</td>
-                                                        <td>-</td>
-                                                        <td>1951-1952</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Eulogio Aboyme</td>
-                                                        <td>-</td>
-                                                        <td>1952-1967</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jose P. Dela Vega</td>
-                                                        <td>-</td>
-                                                        <td>1967-1971</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bruno R. Callejo</td>
-                                                        <td>-</td>
-                                                        <td>1972-1979</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Robinson A. Raiz</td>
-                                                        <td>-</td>
-                                                        <td>1979-1984</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Angel S. Ferraris, Sr.</td>
-                                                        <td>-</td>
-                                                        <td>1984-1986</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Eduardo A. Encarnacion</td>
-                                                        <td>-</td>
-                                                        <td>1986-1988</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Arnulfo H. Fernandez</td>
-                                                        <td>-</td>
-                                                        <td>1988-1988</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Tomas R. Abelita, Jr.</td>
-                                                        <td>-</td>
-                                                        <td>1988-1998</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Leopoldo A. Monteroso, Sr.</td>
-                                                        <td>-</td>
-                                                        <td>1998-2007</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Joseph Nilo F. Parrenas</td>
-                                                        <td>-</td>
-                                                        <td>2007-2015</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Eufracio P. Dayaday , Jr.</td>
-                                                        <td>-</td>
-                                                        <td>2016-Present</td>
-                                                    </tr>
-                                                </table>
-                                                <span style="color:blue">Read More</span>
-                                                {{-- <p></p> --}}
-                                                {{-- <div class="row">
+                                                    <h3>Table 1. Legal Basis and Date of Creation per Barangay</h3>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <th>Barangays</th>
+                                                            <th>Basis of Creation</th>
+                                                            <th>Basis Created</th>
+                                                        </thead>
+                                                        <tr>
+                                                            <td>1. Binancian</td>
+                                                            <td>Provincial Board Res. No. 138</td>
+                                                            <td>May 8, 1968</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2. Buan</td>
+                                                            <td>Executive Order No. 8</td>
+                                                            <td> February 23, 1921</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3. Buclad</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4. Cabaywa</td>
+                                                            <td>Provincial Board Resolution</td>
+                                                            <td> April 30, 1968</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5. Camansa</td>
+                                                            <td>Executive Order No. 8</td>
+                                                            <td>February 27, 1921</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>6. Cambanogoy (Pob.)</td>
+                                                            <td>Executive Order No. 8</td>
+                                                            <td>February 23, 1921</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>7. Camoning</td>
+                                                            <td>Provincial Board Resolution No. 398</td>
+                                                            <td>October 21, 1965</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>8. Canatan</td>
+                                                            <td>Executive Order No. 8</td>
+                                                            <td>February 23, 1921</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>9. Concepcion</td>
+                                                            <td>Municipal Council Resolution No. 1046</td>
+                                                            <td>June 12, 1954</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>10. Dona Andrea</td>
+                                                            <td>Provincial Board Resolution No. 478</td>
+                                                            <td>July 2, 1964</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>11. Magatos</td>
+                                                            <td></td>
+                                                            <td>June 16, 1935</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>12. Napungas</td>
+                                                            <td>Executive Order No. 08</td>
+                                                            <td>1921</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>13. New Bantayan</td>
+                                                            <td>Resolution No. 20</td>
+                                                            <td>September 11, 1968</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>14. New Loon</td>
+                                                            <td>Resolution No. 138</td>
+                                                            <td>February 12, 1985</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>15. New Santiago</td>
+                                                            <td>Provincial Board Res. No. 294</td>
+                                                            <td>July 22, 1965</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>16. Pamacaun</td>
+                                                            <td>
+                                                                <p>Barangay Resolution No. 27,</p>
+                                                                <p>Municipal Resolution No. 152,</p>
+                                                                <p>Provincial Resolution No. 288</p>
+                                                            </td>
+                                                            <td>March 16, 1967</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>17. Sagayen</td>
+                                                            <td>Republic Act 3590(Barrio Chapter)</td>
+                                                            <td>1963</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>18. San Vicente</td>
+                                                            <td>Resolution No. 421</td>
+                                                            <td>June 18, 1968</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>19. Sta. Felomina</td>
+                                                            <td>
+                                                                <p>Barangay Resolution No. 137 Series of 1969,</p>
+                                                                <p>Provincial Board Resolution No. 287</p>
+                                                            </td>
+                                                            <td>October 29, 1969</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>20. Sonlon</td>
+                                                            <td>Provincial Board Resolution No. 373</td>
+                                                            <td>November 18, 1970</td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <p><i>Source: Department of Interior and Local Government (DILG)</i></p>
+
+                                                    <br>
+                                                    <p><b>Different leaders have managed the Municipality from 1921 to
+                                                            present as follows:</b></p>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Ganza Mandaya</td>
+                                                            <td>-</td>
+                                                            <td>1921-1926</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Betunlan Ganza</td>
+                                                            <td>-</td>
+                                                            <td>1926-1930</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Marcelo Bonghanoy</td>
+                                                            <td>-</td>
+                                                            <td>1930-1934</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mamerto Confesor</td>
+                                                            <td>-</td>
+                                                            <td>1934-1936</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Felino Ayala</td>
+                                                            <td>-</td>
+                                                            <td>1936-1937</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Zacarias Solon</td>
+                                                            <td>-</td>
+                                                            <td>1937-1938</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Segundo Atanoza</td>
+                                                            <td>-</td>
+                                                            <td>1938-1939</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pedro Ramos</td>
+                                                            <td>-</td>
+                                                            <td>1939-1940</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Nemesio Irig</td>
+                                                            <td>-</td>
+                                                            <td>1940-1941</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dalmacio Fernandez</td>
+                                                            <td>-</td>
+                                                            <td>1941-1951</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Francisco Javines</td>
+                                                            <td>-</td>
+                                                            <td>1951-1952</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Eulogio Aboyme</td>
+                                                            <td>-</td>
+                                                            <td>1952-1967</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jose P. Dela Vega</td>
+                                                            <td>-</td>
+                                                            <td>1967-1971</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bruno R. Callejo</td>
+                                                            <td>-</td>
+                                                            <td>1972-1979</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Robinson A. Raiz</td>
+                                                            <td>-</td>
+                                                            <td>1979-1984</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Angel S. Ferraris, Sr.</td>
+                                                            <td>-</td>
+                                                            <td>1984-1986</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Eduardo A. Encarnacion</td>
+                                                            <td>-</td>
+                                                            <td>1986-1988</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Arnulfo H. Fernandez</td>
+                                                            <td>-</td>
+                                                            <td>1988-1988</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tomas R. Abelita, Jr.</td>
+                                                            <td>-</td>
+                                                            <td>1988-1998</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Leopoldo A. Monteroso, Sr.</td>
+                                                            <td>-</td>
+                                                            <td>1998-2007</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Joseph Nilo F. Parrenas</td>
+                                                            <td>-</td>
+                                                            <td>2007-2015</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Eufracio P. Dayaday , Jr.</td>
+                                                            <td>-</td>
+                                                            <td>2016-Present</td>
+                                                        </tr>
+                                                    </table>
+                                                    <span style="color:blue">Read More</span>
+                                                    {{-- <p></p> --}}
+                                                    {{-- <div class="row">
                                                     <div class="col-md-6">
                                                         <ul class="list-unstyled li-space-lg indent">
                                                             <li class="media">
@@ -482,8 +512,8 @@
                                                                 <div class="media-body">Other information submitted by you or your organizational representatives via various methods</div>
                                                             </li>
                                                         </ul>
-                                                    </div>  --}}
-                        
+                                                    </div> --}}
+
                                                     {{-- <div class="col-md-6">
                                                         <ul class="list-unstyled li-space-lg indent">
                                                             <li class="media">
@@ -503,53 +533,53 @@
                                                                 <div class="media-body">Information (such as messages, posts, comments, pages, profiles, images) we may receive relating to communications you send us, such as queries or comments concerning</div>
                                                             </li>
                                                         </ul>
-                                                    </div>  --}}
+                                                    </div> --}}
                                                 </div>
                                             </div> <!-- end of text-container-->
-                            
-                                                               
-                                  
+
+
+
                                         </div> <!-- end of col-->
                                     </div> <!-- end of row -->
                                 </div> <!-- end of container -->
-                            </div>
+                        </div>
                         </a>
-                        </div>
-                    
-                        </div>
-                    </div> <!-- end of col -->
+                    </div>
+
                 </div>
-            </div>  
-           
-            <div style="margin: auto;
-            width: 80%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            justify-items: center;">
-               
-                <div style="cursor: pointer;" class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            {{-- <div class="section-title">UPDATES</div> --}}
-                            {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                            <h1  style="text-align: center">MISSION</h1>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div style="text-align: justify;
-                            display: flex;
-                            justify-items: center;
-                            align-items: center;
-                            align-content: center;
-                            width: 50%;
-                            margin: auto;">
-                            {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
-                            <div style="display: inline-block;">
-                                
-                                {{-- <h3>TITLE</h3> --}}
-                                <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
+            </div> <!-- end of col -->
+        </div>
+    </div>
+
+    <div style="margin: auto;
+                                                    width: 80%;
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    justify-content: space-around;
+                                                    justify-items: center;">
+
+        <div style="cursor: pointer;" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{-- <div class="section-title">UPDATES</div> --}}
+                    {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
+                    <h1 style="text-align: center">MISSION</h1>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div style="text-align: justify;
+                                                                    display: flex;
+                                                                    justify-items: center;
+                                                                    align-items: center;
+                                                                    align-content: center;
+                                                                    width: 50%;
+                                                                    margin: auto;">
+                        {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
+                        <div style="display: inline-block;">
+
+                            {{-- <h3>TITLE</h3> --}}
+                            <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
                                 {{-- <h2></h2> --}}
                                 {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
                                 {{-- <p >To increase individual income by 20% per year ECONOMIC, To develop our human resources through better health, education, and skills development SOCIAL... <span style="color:blue">Read More</span> --}}
@@ -565,7 +595,8 @@
                                         <li>Imprastruktura sa kalambuan</li>
                                     </ul>
                                     <h3>MISSION II</h3>
-                                    <p>To develop our human resources through better health,  education, and skills development <b>SOCIAL</b> </p>
+                                    <p>To develop our human resources through better health, education, and skills
+                                        development <b>SOCIAL</b> </p>
                                     <ul>
                                         <li>Himsog nga panglawas</li>
                                         <li>Edukasyon para sa tanan</li>
@@ -574,154 +605,198 @@
                                         <li>Pa-ugnat sa Kusog</li>
                                     </ul>
                                     <h3>MISSION III</h3>
-                                    <p>To make individual and communities resilent to climate change and disaster risk <b>ENVIRONMENT</p>
-                                        <ul>
-                                            <li>Hinanaling pagbangon</li>
-                                            <li>Pagatiman sa kinaiyahan</li>
-                                            <li>Andam sa kanunay</li>
-                                        </ul>
+                                    <p>To make individual and communities resilent to climate change and disaster risk
+                                        <b>ENVIRONMENT
+                                    </p>
+                                    <ul>
+                                        <li>Hinanaling pagbangon</li>
+                                        <li>Pagatiman sa kinaiyahan</li>
+                                        <li>Andam sa kanunay</li>
+                                    </ul>
                                     <h3>MISSION IV</h3>
-                                    <p>To push for clean, effective, efficient and people - centered governance <b>GOVERNANCE</b> </p>
+                                    <p>To push for clean, effective, efficient and people - centered governance
+                                        <b>GOVERNANCE</b>
+                                    </p>
                                     <ul>
                                         <li>Maayong pang gogyerno</li>
                                         <li>Gikan sa inyo, para kaninyo</li>
                                     </ul>
                                     ...<span style="color:blue">View Page</span>
-                
-                                                   
-                      
-                            </div>
-                                </a>
-                            </div>
-                        
-                            </div>
-                            
-                        </div> <!-- end of col -->
+
+
+
+                                </div>
+                            </a>
+                        </div>
+
                     </div>
-                </div> 
-                <div style="cursor: pointer;" class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            {{-- <div class="section-title">UPDATES</div> --}}
-                            {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                            <h1  style="text-align: center">VISION</h1>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div style="text-align: justify;
-                            display: flex;
-                            justify-items: center;
-                            align-items: center;
-                            align-content: center;
-                            width: 50%;
-                            margin: auto;">
-                            {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
-                            <div style="display: inline-block;">
-                                <a href="/vision" target="_blank" rel="noopener noreferrer">
-                                {{-- <h3>TITLE</h3> --}}
-                            
-                                {{-- <h2></h2> --}}
-                                {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
-                                <p style="color:black"><b>WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, 
-                                    PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL CALAMITIES AND MAN MADE SHOCKS 
-                                    UNDER A TRUSTWORTHY, RESPONSIVE, EFFICIENT AND PEOPLE-CENTERED GOVERNANCE.</b></p> ... <span style="color:blue">View Page</span>
-                                </p>
-                                </a>
-                            </div>
-                        
-                            </div>
-                        </div> <!-- end of col -->
-                    </div>
-                </div> 
+
+                </div> <!-- end of col -->
             </div>
-           
-          
-            
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div style="cursor: pointer;" class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        {{-- <div class="section-title">UPDATES</div> --}}
-                        {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                        <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer">
-                        <h1  style="text-align: center">EXECUTIVE AGENDA</h1>
-                        <div style="text-align: center;
-                        justify-items: center;
-                        align-items: center;
-                        align-content: center;">
+        </div>
+        <div style="cursor: pointer;" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{-- <div class="section-title">UPDATES</div> --}}
+                    {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
+                    <h1 style="text-align: center">VISION</h1>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div style="text-align: justify;
+                                                                    display: flex;
+                                                                    justify-items: center;
+                                                                    align-items: center;
+                                                                    align-content: center;
+                                                                    width: 50%;
+                                                                    margin: auto;">
                         {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
                         <div style="display: inline-block;">
-                            
-                            {{-- <h3>TITLE</h3> --}}
-                            
-                            {{-- <h2></h2> --}}
-                            
-                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
-                            <p style="text-align: center" >View Executive Agenda...
-                            </p>
-                            
+                            <a href="/vision" target="_blank" rel="noopener noreferrer">
+                                {{-- <h3>TITLE</h3> --}}
+
+                                {{-- <h2></h2> --}}
+                                {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
+                                <p style="color:black"><b>WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE
+                                        ARE GOD-FEARING,
+                                        PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL
+                                        CALAMITIES AND MAN MADE SHOCKS
+                                        UNDER A TRUSTWORTHY, RESPONSIVE, EFFICIENT AND PEOPLE-CENTERED GOVERNANCE.</b></p>
+                                ... <span style="color:blue">View Page</span>
+                                </p>
+                            </a>
                         </div>
-                    
-                        </div>
-                    </a>
-                    </div> <!-- end of col -->
-                </div>
+
+                    </div>
+                </div> <!-- end of col -->
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div class="filter"> 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3  style="text-align: center">ASUNCION TOURIST DESTINATION</h3>
-                        <video style="width: 100%" controls>
-                            <source src="video/Day6 Asuncion final njud ni sure na ha.mp4" type="video/mp4">
-                            <source src="video/Day6 Asuncion final njud ni sure na ha.mp4">
-                            Your browser does not support HTML video.
-                          </video>
-                    </div> <!-- end of col -->
-                </div>
-            </div>  
+    </div>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="cursor: pointer;" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{-- <div class="section-title">UPDATES</div> --}}
+                {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
+                <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank"
+                    rel="noopener noreferrer">
+                    <h1 style="text-align: center">EXECUTIVE AGENDA</h1>
+                    <div style="text-align: center;
+                                                                justify-items: center;
+                                                                align-items: center;
+                                                                align-content: center;">
+                        {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
+                        <div style="display: inline-block;">
+
+                            {{-- <h3>TITLE</h3> --}}
+
+                            {{-- <h2></h2> --}}
+
+                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
+                            <p style="text-align: center">View Executive Agenda...
+                            </p>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div> <!-- end of col -->
         </div>
-        
-        <!-- Details 1 -->
-        <div class="filter"> 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">UPDATES</div>
-                        <h2>SEE OUR LATEST UPDATE</h2>
-                    </div> <!-- end of col -->
-                </div>
-            </div>  
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="cursor: pointer;" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{-- <div class="section-title">UPDATES</div> --}}
+                {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
+                <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank"
+                    rel="noopener noreferrer">
+                    <h1 style="text-align: center">LEGISLATIVE AGENDA</h1>
+                    <div style="text-align: center;
+                                                                justify-items: center;
+                                                                align-items: center;
+                                                                align-content: center;">
+                        {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
+                        <div style="display: inline-block;">
+
+                            {{-- <h3>TITLE</h3> --}}
+
+                            {{-- <h2></h2> --}}
+
+                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
+                            <p style="text-align: center">View Legislative Agenda...
+                            </p>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div> <!-- end of col -->
         </div>
-        <div id="details" class="accordion">
-           
-            @foreach ($latestUpdate as $key => $latest)
-                
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="filter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 style="text-align: center">ASUNCION TOURIST DESTINATION</h3>
+                    <video style="width: 100%" controls>
+                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4" type="video/mp4">
+                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div> <!-- end of col -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Details 1 -->
+    <div class="filter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">UPDATES</div>
+                    <h2>SEE OUR LATEST UPDATE</h2>
+                </div> <!-- end of col -->
+            </div>
+        </div>
+    </div>
+    <div style="display: flex;" id="details" class="accordion">
+
+        @foreach ($latestUpdate as $key => $latest)
+
             @if ($key == 0)
-                
-            {{-- background: url('/images/{{$latest->image}}') center center no-repeat !important; --}}
-            <div style="
-            
-            background-size: cover;" class="area-1">
-            <img style="width: 100%;" src="/updates/{{$latest->image}}" alt="">
-            </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2">
-                
-                <!-- Accordion -->
-                <div class="accordion-container" id="accordionOne">
-                    <h2>{{$latest->title}}</h2>
-                    <div class="item">
-                        <p>{{$latest->description}}</p>
-                        <p><i>{{$latest->description_local}}</i></p>
-                        {{-- <div id="headingOne">
+
+                {{-- background: url('/images/{{$latest->image}}') center center no-repeat !important; --}}
+                <div style="
+                                                    
+                                                    background-size: cover;" class="area-1">
+                    <img style="width: 100%;" src="/updates/{{ $latest->image }}" alt="">
+                </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space -->
+                <div class="area-2">
+
+                    <!-- Accordion -->
+                    <div class="accordion-container" id="accordionOne">
+                        <h2>{{ $latest->title }}</h2>
+                        <div class="item">
+                            <p>{{ $latest->description }}</p>
+                            <p><i>{{ $latest->description_local }}</i></p>
+                            {{-- <div id="headingOne">
                             <span data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" role="button">
                                 <span class="circle-numbering">1</span><span class="accordion-title">{{$latest->description}}</span>
                             </span>
@@ -731,9 +806,9 @@
                                 {{$latest->description_local}}
                             </div>
                         </div> --}}
-                    </div> <!-- end of item -->
-                
-                    {{-- <div class="item">
+                        </div> <!-- end of item -->
+
+                        {{-- <div class="item">
                         <div id="headingTwo">
                             <span class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="button">
                                 <span class="circle-numbering">2</span><span class="accordion-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
@@ -745,8 +820,7 @@
                             </div>
                         </div>
                     </div> <!-- end of item --> --}}
-{{--                 
-                    <div class="item">
+                        {{-- <div class="item">
                         <div id="headingThree">
                             <span class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="button">
                                 <span class="circle-numbering">3</span><span class="accordion-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
@@ -758,22 +832,22 @@
                             </div>
                         </div>
                     </div> <!-- end of item --> --}}
-                </div> <!-- end of accordion-container -->
-                <!-- end of accordion -->
-                @endif
-                @endforeach
-            </div> <!-- end of area-2 -->
-        </div> <!-- end of accordion -->
-         <!-- Details 2 -->
-         @foreach ($latestUpdate as $key => $latest)
-                
-            @if ($key == 1)
-         <div class="tabs">
-            <div class="area-1">
-                <div class="tabs-container">
-                    
-                    <!-- Tabs Links -->
-                    {{-- <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
+                    </div> <!-- end of accordion-container -->
+                    <!-- end of accordion -->
+            @endif
+        @endforeach
+    </div> <!-- end of area-2 -->
+    </div> <!-- end of accordion -->
+    <!-- Details 2 -->
+    @foreach ($latestUpdate as $key => $latest)
+
+        @if ($key == 1)
+            <div style="display: flex;" class="tabs">
+                <div class="area-1">
+                    <div class="tabs-container">
+
+                        <!-- Tabs Links -->
+                        {{-- <ul class="nav nav-tabs" id="ariaTabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-th"></i> Business</a>
                         </li>
@@ -784,18 +858,18 @@
                             <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><i class="fas fa-th"></i> Quality</a>
                         </li>
                     </ul> --}}
-                    <!-- end of tabs links -->
-                    
-                    <!-- Tabs Content -->
-                    <div class="tab-content" id="ariaTabsContent">
-    
-                        <!-- Tab -->
-                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                            <h4>{{$latest->title}}</h4>
-                            <p>{{$latest->description}}</p>
-                            <p><i>{{$latest->description_local}}</i></p>
-                            
-                            {{-- <!-- Progress Bars -->
+                        <!-- end of tabs links -->
+
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="ariaTabsContent">
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                                <h4>{{ $latest->title }}</h4>
+                                <p>{{ $latest->description }}</p>
+                                <p><i>{{ $latest->description_local }}</i></p>
+
+                                {{-- <!-- Progress Bars -->
                             <div class="progress-container">
                                 <div class="title">Business Development 100%</div>
                                 <div class="progress">
@@ -810,123 +884,141 @@
                                     <div class="progress-bar third" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div> <!-- end of progress-container --> --}}
-                            <!-- end of progress bars -->
-                            
-                        </div> <!-- end of tab-pane --> 
-                        <!-- end of tab -->
-    
-                        <!-- Tab -->
-                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-                            <ul class="list-unstyled li-space-lg first">
-                                <li class="media">
-                                    <div class="media-bullet">1</div>
-                                    <div class="media-body"><strong>High quality</strong> is on top of our list when it comes to the way we deliver the services</div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-bullet">2</div>
-                                    <div class="media-body"><strong>Maximum impact</strong> is what we look for in our actions</div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-bullet">3</div>
-                                    <div class="media-body"><strong>Quality standards</strong> are important but meant to be exceeded</div>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled li-space-lg last">
-                                <li class="media">
-                                    <div class="media-bullet">4</div>
-                                    <div class="media-body"><strong>We're always looking</strong> for industry leaders to help them win their market position</div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-bullet">5</div>
-                                    <div class="media-body"><strong>Evaluation</strong> is a key aspect of this business and important</div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-bullet">6</div>
-                                    <div class="media-body"><strong>Ethic</strong> procedures ar alwasy at the base of everything we do</div>
-                                </li>
-                            </ul>
-                        </div> <!-- end of tab-pane -->
-                        <!-- end of tab -->
-    
-                        <!-- Tab -->
-                        <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-                            <p><strong>We strive to achieve</strong> 100% customer satisfaction for both types of customers: hiring companies and job seekers. Types of customers: <a class="green" href="#your-link">with huge potential</a></p>
-                            <p><strong>Our goal is to help</strong> your company achieve its full potential and establish long term stability for <a class="green" href="#your-link">the stakeholders</a></p>
-                            <ul class="list-unstyled li-space-lg">
-                                <li class="media">
-                                    <i class="fas fa-square"></i>
-                                    <div class="media-body">It's easy to get a quotation, just call our office anytime</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-square"></i>
-                                    <div class="media-body">We'll get back to you with an initial estimate soon</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-square"></i>
-                                    <div class="media-body">Get ready to see results even after only 30 days</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-square"></i>
-                                    <div class="media-body">Ask for a quote and start improving your business</div>
-                                </li>
-                                <li class="media">
-                                    <i class="fas fa-square"></i>
-                                    <div class="media-body">Just fill out the form and we'll call you right away</div>
-                                </li>
-                            </ul>
-                        </div> <!-- end of tab-pane -->
-                        <!-- end of tab -->
-    
-                    </div> <!-- end of tab-content -->
-                    <!-- end of tabs content -->
-    
-                </div> <!-- end of tabs-container -->
-                {{-- background: url('/images/{{$latest->image}}') center center no-repeat !important; --}}
-            </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div  style="height: 27rem;
-            
-            background-size: cover;" class="area-2">
-            <img style="width: 100%;" src="/updates/{{$latest->image}}" alt="">    
-        </div> <!-- end of area-2 -->
-        </div> <!-- end of tabs -->
-        <!-- end of details 2 -->
+                                <!-- end of progress bars -->
+
+                            </div> <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                <ul class="list-unstyled li-space-lg first">
+                                    <li class="media">
+                                        <div class="media-bullet">1</div>
+                                        <div class="media-body"><strong>High quality</strong> is on top of our list when
+                                            it comes to the way we deliver the services</div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-bullet">2</div>
+                                        <div class="media-body"><strong>Maximum impact</strong> is what we look for in
+                                            our actions</div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-bullet">3</div>
+                                        <div class="media-body"><strong>Quality standards</strong> are important but
+                                            meant to be exceeded</div>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled li-space-lg last">
+                                    <li class="media">
+                                        <div class="media-bullet">4</div>
+                                        <div class="media-body"><strong>We're always looking</strong> for industry
+                                            leaders to help them win their market position</div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-bullet">5</div>
+                                        <div class="media-body"><strong>Evaluation</strong> is a key aspect of this
+                                            business and important</div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-bullet">6</div>
+                                        <div class="media-body"><strong>Ethic</strong> procedures ar alwasy at the base
+                                            of everything we do</div>
+                                    </li>
+                                </ul>
+                            </div> <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+                                <p><strong>We strive to achieve</strong> 100% customer satisfaction for both types of
+                                    customers: hiring companies and job seekers. Types of customers: <a
+                                        class="green" href="#your-link">with huge potential</a></p>
+                                <p><strong>Our goal is to help</strong> your company achieve its full potential and
+                                    establish long term stability for <a class="green" href="#your-link">the
+                                        stakeholders</a></p>
+                                <ul class="list-unstyled li-space-lg">
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body">It's easy to get a quotation, just call our office
+                                            anytime</div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body">We'll get back to you with an initial estimate soon
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body">Get ready to see results even after only 30 days</div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body">Ask for a quote and start improving your business</div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body">Just fill out the form and we'll call you right away
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> <!-- end of tab-pane -->
+                            <!-- end of tab -->
+
+                        </div> <!-- end of tab-content -->
+                        <!-- end of tabs content -->
+
+                    </div> <!-- end of tabs-container -->
+                    {{-- background: url('/images/{{$latest->image}}') center center no-repeat !important; --}}
+                </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space -->
+                <div style="height: 27rem;
+                                                    
+                                                    background-size: cover;" class="area-2">
+                    <img style="width: 100%;" src="/updates/{{ $latest->image }}" alt="">
+                </div> <!-- end of area-2 -->
+            </div> <!-- end of tabs -->
+            <!-- end of details 2 -->
         @endif
-        @endforeach
-        <!-- end of details 1 -->
-              <!-- Projects -->
-              <br>
-              <br>
-              <br>
-        <div id="projects" class="filter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">PROJECTS</div>
-                        <h2>Projects That We're Proud Of</h2>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Filter -->
-                        <div class="button-group filters-button-group">
-                            <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-                            @foreach ($updates as $update)
-                            <a class="button" data-filter=".{{$update->id}}"><span>{{$update->title}}</span></a>
-                            @endforeach
-                           
-                            {{-- <a class="button" data-filter=".asuncion_action"><span>ASUNCION ACTION</span></a>
+    @endforeach
+    <!-- end of details 1 -->
+    <!-- Projects -->
+    <br>
+    <br>
+    <br>
+    <div id="projects" class="filter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">PROJECTS</div>
+                    <h2>Projects That We're Proud Of</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Filter -->
+                    <div class="button-group filters-button-group">
+                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        @foreach ($updates as $update)
+                            <a class="button"
+                                data-filter=".{{ $update->id }}"><span>{{ $update->title }}</span></a>
+                        @endforeach
+
+                        {{-- <a class="button" data-filter=".asuncion_action"><span>ASUNCION ACTION</span></a>
                             
                             <a class="button" data-filter=".blessingandturnover"><span>BLESSING AND TURNOVER</span></a>
                             <a class="button" data-filter=".vaccination"><span>VACCINATION @ BUCLAD GYM</span></a> --}}
-                        </div> 
+                    </div>
 
-                       
-                        <div class="grid">
-                            @foreach ($updates as $update)
-                            <div class="element-item {{$update->id}}">
-                                <a class="popup-with-move-anim" href="#{{$update->id}}"><div class="element-item-overlay"><span>{{$update->title}}</span></div><img src="/updates/{{$update->image}}" alt="alternative"></a>
-                             </div>
-                             
-                          
+
+                    <div class="grid">
+                        @foreach ($updates as $update)
+                            <div class="element-item {{ $update->id }}">
+                                <a class="popup-with-move-anim" href="#{{ $update->id }}">
+                                    <div class="element-item-overlay"><span>{{ $update->title }}</span></div><img
+                                        src="/updates/{{ $update->image }}" alt="alternative">
+                                </a>
+                            </div>
+
+
                             {{-- <div class="element-item wedding">
                                 <a class="popup-with-move-anim" href="#project-1-wedding-2"><div class="element-item-overlay"><span>1ST WEDDING</span></div><img src="images/IMG_1538.JPG" alt="alternative"></a>
                             </div>
@@ -948,21 +1040,21 @@
                             <div class="element-item vaccination">
                                 <a class="popup-with-move-anim" href="#project-4-vaccination-2"><div class="element-item-overlay"><span>VACCINATION</span></div><img src="images/vaccination/vaccination_2.JPG" alt="alternative"></a>
                             </div> --}}
-                            @endforeach  
-                        </div> 
-                        
-                        @foreach ($updates as $update)
-                        <div id="{{$update->id}}" class="lightbox-basic zoom-anim-dialog mfp-hide">
+                        @endforeach
+                    </div>
+
+                    @foreach ($updates as $update)
+                        <div id="{{ $update->id }}" class="lightbox-basic zoom-anim-dialog mfp-hide">
                             <div class="row">
                                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                                 <div class="col-lg-8">
-                                    <img class="img-fluid" src="/updates/{{$update->image}}" alt="alternative">
+                                    <img class="img-fluid" src="/updates/{{ $update->image }}" alt="alternative">
                                 </div> <!-- end of col -->
                                 <div class="col-lg-4">
-                                    <h3>{{$update->title}}</h3>
+                                    <h3>{{ $update->title }}</h3>
                                     <hr class="line-heading">
-                                    <h6>{{$update->description}}</h6>
-                                    <h6>{{$update->description_local}}</h6>
+                                    <h6>{{ $update->description }}</h6>
+                                    <h6>{{ $update->description_local }}</h6>
                                     <br>
                                     <br>
                                     <br>
@@ -978,20 +1070,21 @@
                                         <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
                                         <p class="testimonial-author">General Manager</p>
                                     </div> --}}
-                                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+                                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a
+                                        class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a>
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div>
-                        @endforeach
-                        <!-- end of filter -->
-                        
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of filter -->
-        <!-- end of projects -->
-    
-        {{-- <!-- Intro -->
+                    @endforeach
+                    <!-- end of filter -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of filter -->
+    <!-- end of projects -->
+
+    {{-- <!-- Intro -->
         <div id="intro" class="basic-1">
             <div class="container">
                 <div class="row">
@@ -1013,9 +1106,9 @@
             </div> <!-- end of container -->
         </div> <!-- end of basic-1 -->
         <!-- end of intro --> --}}
-    
-    
-        {{-- <!-- Description -->
+
+
+    {{-- <!-- Description -->
         <div class="cards-1">
             <div class="container">
                 <div class="row">
@@ -1065,12 +1158,12 @@
             </div> <!-- end of container -->
         </div> <!-- end of cards-1 -->
         <!-- end of description --> --}}
-    
-        
-        {{-- juneroy announcemtn --}}
-        
-        <!-- Services -->
-        {{-- <div id="services" class="cards-2">
+
+
+    {{-- juneroy announcemtn --}}
+
+    <!-- Services -->
+    {{-- <div id="services" class="cards-2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -1124,12 +1217,12 @@
                     </div>
                 </div> 
             </div> 
-        </div>  --}}
-        <!-- end of cards-2 -->
-        <!-- end of services -->
-        
-    
-        {{-- <!-- Details 1 -->
+        </div> --}}
+    <!-- end of cards-2 -->
+    <!-- end of services -->
+
+
+    {{-- <!-- Details 1 -->
         <div id="details" class="accordion">
             <div class="area-1">
             </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2">
@@ -1181,9 +1274,9 @@
             </div> <!-- end of area-2 -->
         </div> <!-- end of accordion -->
         <!-- end of details 1 --> --}}
-    
-    
-        {{-- <!-- Details 2 -->
+
+
+    {{-- <!-- Details 2 -->
         <div class="tabs">
             <div class="area-1">
                 <div class="tabs-container">
@@ -1299,10 +1392,10 @@
             </div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2"></div> <!-- end of area-2 -->
         </div> <!-- end of tabs -->
         <!-- end of details 2 --> --}}
-    
-    
-        <!-- Testimonials -->
-        {{-- <div id="officials1" class="lightbox-basic zoom-anim-dialog mfp-hide">
+
+
+    <!-- Testimonials -->
+    {{-- <div id="officials1" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1318,8 +1411,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div> 
-        </div>  --}}
-        {{-- <div id="officials2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials2" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1335,8 +1428,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div>
-        </div>  --}}
-        {{-- <div id="officials3" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials3" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1352,8 +1445,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div> 
-        </div>  --}}
-        {{-- <div id="officials4" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials4" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1369,8 +1462,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div> 
-        </div>  --}}
-        {{-- <div id="officials5" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials5" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1386,8 +1479,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div> 
-        </div>  --}}
-        {{-- <div id="officials6" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials6" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1403,8 +1496,8 @@
                     <a class="btn-solid-reg" href="/officials">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
                 </div> 
             </div> 
-        </div>  --}}
-        {{-- <div id="officials7" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        </div> --}}
+    {{-- <div id="officials7" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1421,7 +1514,7 @@
                 </div> 
             </div> 
         </div> --}}
-        {{-- <div id="officials8" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    {{-- <div id="officials8" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1438,7 +1531,7 @@
                 </div> 
             </div> 
         </div> --}}
-        {{-- <div id="officials10" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    {{-- <div id="officials10" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1455,7 +1548,7 @@
                 </div> 
             </div>
         </div> --}}
-        {{-- <div id="officials11" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    {{-- <div id="officials11" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1470,7 +1563,7 @@
                 </div>
             </div> 
         </div> --}}
-        {{-- <div id="officials12" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    {{-- <div id="officials12" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1485,7 +1578,7 @@
                 </div>
             </div>
         </div> --}}
-        {{-- <div id="officials13" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    {{-- <div id="officials13" class="lightbox-basic zoom-anim-dialog mfp-hide">
             <div class="row">
                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                 <div class="col-lg-8">
@@ -1500,76 +1593,91 @@
                 </div>
             </div>
         </div> --}}
-        
-        <div class="slider">
-            {{-- <div class="container"> --}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>THE OFFICIALS</h2>
-                        <p class="p-heading">THESE ARE THE OFFICIALS OF ASUNCION DAVAO</p>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-                <div class="row">
-                    <div class="col-lg-12">
-    
-                        <!-- Card Slider -->
-                      
-                        <div class="slider-container">
-                            <div class="swiper-container card-slider">
-                                <div class="swiper-wrapper">
-                                    @foreach ($officials as $key => $official)
-                                    <div class="swiper-slide">
-                                        <div class="card">
-                                            <a style="margin-left: 50px;
-                                            margin-right: 50px;"  class="popup-with-move-anim" href="#officials{{$key}}">
-                                            <img class="card-image" src="/officials/{{$official->image}}" alt="alternative">
+
+    <div class="slider">
+        {{-- <div class="container"> --}}
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>THE OFFICIALS</h2>
+                <p class="p-heading">THESE ARE THE OFFICIALS OF ASUNCION DAVAO</p>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Card Slider -->
+
+                <div class="slider-container">
+                    <div class="swiper-container card-slider">
+                        <div class="swiper-wrapper">
+                            @foreach ($officials as $key => $official)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <a style="margin-left: 50px; text-decoration: none;
+                                                                                    margin-right: 50px;"
+                                            class="popup-with-move-anim" href="#officials{{ $key }}">
+                                            <img class="card-image" src="/officials/{{ $official->image }}"
+                                                alt="alternative">
                                             <div class="card-body">
                                                 {{-- <div class="testimonial-text">My goals for using Aria's services seemed high when I first set them but they've met them with no problems.</div> --}}
-                                                <div class="testimonial-author"><h3 >{{$official->first_name}} {{$official->last_name}}</h3>
-                
-                                                    <h3>{{$official->position}}</h3></div>
+                                                <div class="testimonial-author">
+                                                    <h3 style="text-transform: uppercase;">{{ $official->first_name }}
+                                                        {{ $official->last_name }}</h3>
+
+                                                    <h3>{{ $official->position }}</h3>
+                                                </div>
                                             </div>
-                                            </a>
-                                            <div id="officials{{$key}}" class="lightbox-basic zoom-anim-dialog mfp-hide">
-                                                <div class="row">
-                                                    <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                                                    <div class="col-lg-5">
-                                                        <img class="img-fluid" src="/officials/{{$official->image}}" alt="alternative">
-                                                    </div> <!-- end of col -->
-                                                    <div class="col-lg-7">
-                                                        <h2>{{$official->first_name}} {{$official->last_name}}</h2>
-                                                        <hr class="line-heading">
-                                                        <h6>{{$official->position}}</p>
-                                                    <div class="container" style="display: inline-block; margin-bottom:140px;">
-                                                        <h3>PERSONAL PROFILE</h3>
-                                    
-                                                        <table>
-                                                            <tr>
-                                                                <td>Address:</td>
-                                                                <td style="font-style: italic;">{{$official->address}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Birthdate:</td>
-                                                                <td style="font-style: italic;">{{$official->birthdate}}</td>
-                                                            </tr>
-                                                            
-                                                            <tr>
-                                                                <td>Term-of-office <br>
-                                                                <td style="font-style: italic;">{{$official->term_of_service}} <br></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><br></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Elective title experience:</td>
-                                                                <td style="font-style: italic;">{{html_entity_decode($official->elective_title_experience) }} <br></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><br></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            {{-- <tr>
+                                        </a>
+                                        <div id="officials{{ $key }}"
+                                            class="lightbox-basic zoom-anim-dialog mfp-hide">
+                                            <div class="row">
+                                                <button title="Close (Esc)" type="button"
+                                                    class="mfp-close x-button">×</button>
+                                                <div class="col-lg-5">
+                                                    <img class="img-fluid" src="/officials/{{ $official->image }}"
+                                                        alt="alternative">
+                                                </div> <!-- end of col -->
+                                                <div class="col-lg-7">
+                                                    <h2>{{ $official->first_name }} {{ $official->last_name }}</h2>
+                                                    <hr class="line-heading">
+                                                    <h6>{{ $official->position }}</p>
+                                                        <div class="container"
+                                                            style="display: inline-block; margin-bottom:140px;">
+                                                            <h3>PERSONAL PROFILE</h3>
+
+                                                            <table>
+                                                                <tr>
+                                                                    <td>Address:</td>
+                                                                    <td style="font-style: italic;">
+                                                                        {{ $official->address }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Birthdate:</td>
+                                                                    <td style="font-style: italic;">
+                                                                        {{ $official->birthdate }}</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>Term-of-office <br>
+                                                                    <td style="font-style: italic;">
+                                                                        {{ $official->term_of_service }} <br></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><br></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Elective title experience:</td>
+                                                                    <td style="font-style: italic;">
+                                                                        {{ html_entity_decode($official->elective_title_experience) }}
+                                                                        <br>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><br></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                {{-- <tr>
                                                                 <td>Educational background:</td>
                                                                 <td></td>
                                                             </tr>
@@ -1602,50 +1710,53 @@
                                                                 <td>Committee Membership:</td>
                                                                 <td>{{$official->committee_membership}}</td>
                                                             </tr> --}}
-                                                            <tr>
-                                                                <td>QUOTATION:</td>
-                                                                <td style="font-style: italic;">{{$official->quotation}}</td>
-                                                            </tr>
-                                                            {{-- <tr>
+                                                                <tr>
+                                                                    <td>QUOTATION:</td>
+                                                                    <td style="font-style: italic;">
+                                                                        {{ $official->quotation }}</td>
+                                                                </tr>
+                                                                {{-- <tr>
                                                                 <td>Other significant information:</td>
                                                                 <td>{{$official->others}}</td>
                                                             </tr> --}}
-                                                        </table>
-                                                    </div>
+                                                            </table>
+                                                        </div>
                                                         {{-- <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
                                                         <div class="testimonial-container">
                                                             <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
                                                             <p class="testimonial-author">General Manager</p>
                                                         </div> --}}
-                                                        <a class="btn-solid-reg" href="/officials-view">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                                                    </div> <!-- end of col -->
-                                                </div> <!-- end of row -->
-                                            </div>
-                                        </div>        
+                                                        <a class="btn-solid-reg" href="/officials-view">SEE ALL
+                                                            OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button"
+                                                            href="#projects">BACK</a>
+                                                </div> <!-- end of col -->
+                                            </div> <!-- end of row -->
+                                        </div>
                                     </div>
-                                    @endforeach
-                                   
-                                   
+                                </div>
+                            @endforeach
 
 
-                                   
-                                       
-                                    {{-- </a> --}}
-                                   
-                                </div> <!-- end of swiper-wrapper -->
-            
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                                <!-- end of add arrows -->
-            
-                            </div> <!-- end of swiper-container -->
-                        </div> <!-- end of sliedr-container -->
-                        <!-- end of card slider -->
-    
-                    </div> <!-- end of col -->
-                </div> 
-                {{-- <div class="row">
+
+
+
+
+                            {{-- </a> --}}
+
+                        </div> <!-- end of swiper-wrapper -->
+
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <!-- end of add arrows -->
+
+                    </div> <!-- end of swiper-container -->
+                </div> <!-- end of sliedr-container -->
+                <!-- end of card slider -->
+
+            </div> <!-- end of col -->
+        </div>
+        {{-- <div class="row">
                     <div class="col-lg-12">
     
                      
@@ -1862,78 +1973,90 @@
                         
     
                     </div> 
-                </div>  --}}
-            {{-- </div> <!-- end of container --> --}}
-        </div> <!-- end of slider -->
-        <!-- end of testimonials -->
+                </div> --}}
+        {{-- </div> <!-- end of container --> --}}
+    </div> <!-- end of slider -->
+    <!-- end of testimonials -->
 
-         <!-- Testimonials -->
-         <div class="slider">
-            <div >
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>THE PUNONG BARANGAY</h2>
-                        <p class="p-heading">SEE OUR LATEST PUNONG BARANGAY</p>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-                <div class="row">
-                    <div class="col-lg-12">
-    
-                        <!-- Card Slider -->
-                        <div class="slider-container">
-                            <div class="swiper-container card-slider">
-                                <div class="swiper-wrapper">
-                                    @foreach ($barangay_officials as $key => $barangay_official)
-                                        
-                                 
+    <!-- Testimonials -->
+    <div class="slider">
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>THE PUNONG BARANGAY</h2>
+                    <p class="p-heading">SEE OUR LATEST PUNONG BARANGAY</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                @foreach ($barangay_officials as $key => $barangay_official)
+
+
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="card">
-                                            <a style="margin-left: 50px;
-                                            margin-right: 50px;"  class="popup-with-move-anim" href="#barangaysOfficial{{$key}}">
-                                            <img class="card-image" src="/barangay_officials/{{$barangay_official->image}}" alt="alternative">
-                                            <div class="card-body">
-                                                {{-- <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div> --}}
-                                                <div class="testimonial-author">{{$barangay_official->first_name}} {{$barangay_official->last_name}}</div>
-                                            </div>
+                                            <a style="margin-left: 50px; text-decoration: none;
+                                                                                    margin-right: 50px;"
+                                                class="popup-with-move-anim" href="#barangaysOfficial{{ $key }}">
+                                                <img class="card-image"
+                                                    src="/barangay_officials/{{ $barangay_official->image }}"
+                                                    alt="alternative">
+                                                <div class="card-body">
+                                                    {{-- <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div> --}}
+                                                    <div style="text-transform: uppercase;" class="testimonial-author">
+                                                        {{ $barangay_official->first_name }}
+                                                        {{ $barangay_official->last_name }}</div>
+                                                </div>
                                             </a>
                                         </div>
                                     </div> <!-- end of swiper-slide -->
-                                    <div id="barangaysOfficial{{$key}}" class="lightbox-basic zoom-anim-dialog mfp-hide">
+                                    <div id="barangaysOfficial{{ $key }}"
+                                        class="lightbox-basic zoom-anim-dialog mfp-hide">
                                         <div class="row">
                                             <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                                             <div class="col-lg-5">
-                                                <img class="img-fluid" src="/barangay_officials/{{$barangay_official->image}}" alt="alternative">
+                                                <img class="img-fluid"
+                                                    src="/barangay_officials/{{ $barangay_official->image }}"
+                                                    alt="alternative">
                                             </div> <!-- end of col -->
                                             <div class="col-lg-7">
-                                                <h3>{{$barangay_official->first_name}} {{$barangay_official->last_name}}</h3>
+                                                <h3>{{ $barangay_official->first_name }}
+                                                    {{ $barangay_official->last_name }}</h3>
                                                 <hr class="line-heading">
-                                                <h6>{{$barangay_official->position}}</p>
-                                            <div class="container" style="display: inline-block;margin-bottom: 140px;">
-                                                <h2>PERSONAL PROFILE</h2>
-                            
-                                                <table>
-                                                    <tr>
-                                                        <td>Address:</td>
-                                                        <td>{{$barangay_official->address}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Birthdate:</td>
-                                                        <td>{{$barangay_official->birthdate}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><br></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Term-of-office <br>
-                                                        <td>{{$barangay_official->term_of_service}} <br></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Elective title experience:</td>
-                                                        <td>{{$barangay_official->elective_title_experience}} <br></td>
-                                                    </tr>
-                                                    {{-- <tr>
+                                                <h6>{{ $barangay_official->position }}</p>
+                                                    <div class="container"
+                                                        style="display: inline-block;margin-bottom: 140px;">
+                                                        <h2>PERSONAL PROFILE</h2>
+
+                                                        <table>
+                                                            <tr>
+                                                                <td>Address:</td>
+                                                                <td>{{ $barangay_official->address }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Birthdate:</td>
+                                                                <td>{{ $barangay_official->birthdate }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><br></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Term-of-office <br>
+                                                                <td>{{ $barangay_official->term_of_service }} <br></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Elective title experience:</td>
+                                                                <td>{{ $barangay_official->elective_title_experience }}
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                            {{-- <tr>
                                                         <td>Educational background:</td>
                                                         <td></td>
                                                     </tr>
@@ -1966,82 +2089,83 @@
                                                         <td>Committee Membership:</td>
                                                         <td>{{$barangay_official->committee_membership}}</td>
                                                     </tr> --}}
-                                                    <tr>
-                                                        <td>QUOTATION:</td>
-                                                        <td>{{$barangay_official->quotation}}</td>
-                                                    </tr>
-                                                    {{-- <tr>
+                                                            <tr>
+                                                                <td>QUOTATION:</td>
+                                                                <td>{{ $barangay_official->quotation }}</td>
+                                                            </tr>
+                                                            {{-- <tr>
                                                         <td>Other significant information:</td>
                                                         <td>{{$barangay_official->others}}</td>
                                                     </tr> --}}
-                                                </table>
-                                            </div>
-                                                {{-- <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
+                                                        </table>
+                                                    </div>
+                                                    {{-- <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
                                                 <div class="testimonial-container">
                                                     <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
                                                     <p class="testimonial-author">General Manager</p>
                                                 </div> --}}
-                                                <a class="btn-solid-reg" href="/officials-view">SEE ALL OFFICIALS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+                                                    <a class="btn-solid-reg" href="/officials-view">SEE ALL OFFICIALS</a>
+                                                    <a class="btn-outline-reg mfp-close as-button"
+                                                        href="#projects">BACK</a>
                                             </div> <!-- end of col -->
                                         </div> <!-- end of row -->
                                     </div>
                                     <!-- end of slide -->
-                                    @endforeach
-                                   
-                                </div> <!-- end of swiper-wrapper -->
-            
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                                <!-- end of add arrows -->
-            
-                            </div> <!-- end of swiper-container -->
-                        </div> <!-- end of sliedr-container -->
-                        <!-- end of card slider -->
-    
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of slider -->
-        <!-- end of testimonials -->
-        <br>
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="text-center">
-                                <h2>BARANGAYS OF ASUNCION</h2>
-                            </div>
-                            
-                        </div> <!-- end of col -->
-                    </div>
-                </div>
-                <br>
-                <div style="padding: 90px;" class="text-center">
-                    {{-- <div style="display: flex"> --}}
-                        @foreach ($barangays as $barangay)
-                        <div style="display: inline-block;;
-                        width: 200px;">
-                            <img style="width:200px" src="barangay/{{$barangay->image}}"  alt="...">
-                        <label for="">{{$barangay->name}}</label>
+                                @endforeach
+
+                            </div> <!-- end of swiper-wrapper -->
+
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of sliedr-container -->
+                    <!-- end of card slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider -->
+    <!-- end of testimonials -->
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h2>BARANGAYS OF ASUNCION</h2>
                         </div>
-                        
-                        @endforeach
-                        
-                        {{-- <br>
+
+                    </div> <!-- end of col -->
+                </div>
+            </div>
+            <br>
+            <div style="padding: 90px;" class="text-center">
+                {{-- <div style="display: flex"> --}}
+                @foreach ($barangays as $barangay)
+                    <div style="display: inline-block;;
+                                                                width: 200px;">
+                        <img style="width:200px" src="barangay/{{ $barangay->image }}" alt="...">
+                        <label for="">{{ $barangay->name }}</label>
+                    </div>
+
+                @endforeach
+
+                {{-- <br>
                         <label for="">sdaasdasdadsadas</label> --}}
-                        {{-- <p>Barangay Binancian</p>   --}}
-                    {{-- </div> --}}
-                    
-                    
-                  </div>
+                {{-- <p>Barangay Binancian</p> --}}
+                {{-- </div> --}}
+
+
             </div>
         </div>
-{{--     
-        <!-- Call Me -->
+    </div>
+    {{-- <!-- Call Me -->
         <div id="callMe" class="form-1">
             <div class="container">
                 <div class="row">
@@ -2112,316 +2236,340 @@
             </div> <!-- end of container -->
         </div> <!-- end of form-1 -->
         <!-- end of call me --> --}}
-    
-    
-  
-    
-    
-        <!-- Project Lightboxes -->
-        <!-- Lightbox -->
-        <div id="project-1-wedding" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/IMG_1578.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>FIRST WEDDING</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    {{-- <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
+
+
+
+
+
+    <!-- Project Lightboxes -->
+    <!-- Lightbox -->
+    <div id="project-1-wedding" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/IMG_1578.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>FIRST WEDDING</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                {{-- <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
                     <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
                     <div class="testimonial-container">
                         <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
                         <p class="testimonial-author">General Manager</p>
                     </div> --}}
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <div id="project-1-wedding-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/IMG_1538.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>FIRST WEDDING</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div>
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-2-asuncion-action" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/asuncion_action/asuncion_action.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>ASUNCION ACTION</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <div id="project-1-wedding-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/IMG_1538.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>FIRST WEDDING</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div>
+    <!-- end of lightbox -->
 
-         <!-- Lightbox -->
-         <div id="project-2-asuncion-action-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/asuncion_action/asuncion_action_2.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>ASUNCION ACTION</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-3-blessings_turnover" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/blessings_turnover/blessings_turnover_1.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>BLESSINGS AND TURN OVER</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-         <!-- Lightbox -->
-         <div id="project-3-blessings_turnover-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/blessings_turnover/blessings_turnover.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>BLESSINGS AND TURN OVER</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-4-vaccination" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/vaccination/vaccination.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>VACCINATION</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-        <!-- Lightbox -->
-        <div id="project-4-vaccination-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/vaccination/vaccination_2.JPG" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>VACCINATION</h3>
-                    <hr class="line-heading">
-                    <h6>Getting information</h6>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/project-5.jpg" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>Joy Moments</h3>
-                    <hr class="line-heading">
-                    <h6>Strategy Development</h6>
-                    <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                    <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                    <div class="testimonial-container">
-                        <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                        <p class="testimonial-author">General Manager</p>
-                    </div>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-6" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/project-6.jpg" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>Spark Events</h3>
-                    <hr class="line-heading">
-                    <h6>Strategy Development</h6>
-                    <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                    <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                    <div class="testimonial-container">
-                        <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                        <p class="testimonial-author">General Manager</p>
-                    </div>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-7" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/project-7.jpg" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>Casual Wear</h3>
-                    <hr class="line-heading">
-                    <h6>Strategy Development</h6>
-                    <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                    <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                    <div class="testimonial-container">
-                        <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                        <p class="testimonial-author">General Manager</p>
-                    </div>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-    
-        <!-- Lightbox -->
-        <div id="project-8" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-8">
-                    <img class="img-fluid" src="images/project-8.jpg" alt="alternative">
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <h3>Zazoo Apps</h3>
-                    <hr class="line-heading">
-                    <h6>Strategy Development</h6>
-                    <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                    <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                    <div class="testimonial-container">
-                        <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                        <p class="testimonial-author">General Manager</p>
-                    </div>
-                    <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of lightbox -->
-        <!-- end of project lightboxes -->
-    
-    
-        {{-- <!-- Team -->
+    <!-- Lightbox -->
+    <div id="project-2-asuncion-action" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/asuncion_action/asuncion_action.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>ASUNCION ACTION</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-2-asuncion-action-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/asuncion_action/asuncion_action_2.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>ASUNCION ACTION</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-3-blessings_turnover" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/blessings_turnover/blessings_turnover_1.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>BLESSINGS AND TURN OVER</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- Lightbox -->
+    <div id="project-3-blessings_turnover-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/blessings_turnover/blessings_turnover.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>BLESSINGS AND TURN OVER</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-4-vaccination" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/vaccination/vaccination.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>VACCINATION</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- Lightbox -->
+    <div id="project-4-vaccination-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/vaccination/vaccination_2.JPG" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>VACCINATION</h3>
+                <hr class="line-heading">
+                <h6>Getting information</h6>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-5" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-5.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Joy Moments</h3>
+                <hr class="line-heading">
+                <h6>Strategy Development</h6>
+                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your
+                    current needs</p>
+                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in
+                    touch with us.</p>
+                <div class="testimonial-container">
+                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you
+                        manage sales and meet your current requirements.</p>
+                    <p class="testimonial-author">General Manager</p>
+                </div>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-6" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-6.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Spark Events</h3>
+                <hr class="line-heading">
+                <h6>Strategy Development</h6>
+                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your
+                    current needs</p>
+                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in
+                    touch with us.</p>
+                <div class="testimonial-container">
+                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you
+                        manage sales and meet your current requirements.</p>
+                    <p class="testimonial-author">General Manager</p>
+                </div>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-7" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-7.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Casual Wear</h3>
+                <hr class="line-heading">
+                <h6>Strategy Development</h6>
+                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your
+                    current needs</p>
+                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in
+                    touch with us.</p>
+                <div class="testimonial-container">
+                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you
+                        manage sales and meet your current requirements.</p>
+                    <p class="testimonial-author">General Manager</p>
+                </div>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-8" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-8.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Zazoo Apps</h3>
+                <hr class="line-heading">
+                <h6>Strategy Development</h6>
+                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your
+                    current needs</p>
+                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in
+                    touch with us.</p>
+                <div class="testimonial-container">
+                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you
+                        manage sales and meet your current requirements.</p>
+                    <p class="testimonial-author">General Manager</p>
+                </div>
+                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button"
+                    href="#projects">BACK</a>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- end of project lightboxes -->
+
+
+    {{-- <!-- Team -->
         <div class="basic-2">
             <div class="container">
                 <div class="row">
@@ -2534,9 +2682,9 @@
             </div> <!-- end of container -->
         </div> <!-- end of basic-2 -->
         <!-- end of team --> --}}
-    
-    
-        {{-- <!-- About -->
+
+
+    {{-- <!-- About -->
         <div id="about" class="counter">
             <div class="container">
                 <div class="row">
@@ -2584,24 +2732,25 @@
             </div> <!-- end of container -->
         </div> <!-- end of counter -->
         <!-- end of about --> --}}
-    
-    
-        <!-- Contact -->
-        <div id="contact" class="form-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <div class="section-title">CONTACT</div>
-                            <h2>Get In Touch Using The Form</h2>
-                            <p>You can stop by our office for a cup of coffee and just use the contact form below for any questions and inquiries</p>
-                            {{-- <ul class="list-unstyled li-space-lg">
+
+
+    <!-- Contact -->
+    <div id="contact" class="form-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <div class="section-title">CONTACT</div>
+                        <h2>Get In Touch Using The Form</h2>
+                        <p>You can stop by our office for a cup of coffee and just use the contact form below for any
+                            questions and inquiries</p>
+                        {{-- <ul class="list-unstyled li-space-lg">
                                 <li class="address"><i class="fas fa-map-marker-alt"></i>22nd Innovative Street, San Francisco, CA 94043, US</li>
                                 <li><i class="fas fa-phone"></i><a href="tel:003024630820">+81 720 22 126</a></li>
                                 <li><i class="fas fa-phone"></i><a href="tel:003024630820">+81 720 22 128</a></li>
                                 <li><i class="fas fa-envelope"></i><a href="mailto:office@aria.com">office@aria.com</a></li>
                             </ul> --}}
-                            {{-- <h3>Follow Aria On Social Media</h3>
+                        {{-- <h3>Follow Aria On Social Media</h3>
     
                             <span class="fa-stack">
                                 <a href="#your-link">
@@ -2639,51 +2788,53 @@
                                     <i class="fab fa-behance fa-stack-1x"></i>
                                 </a>
                             </span> --}}
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
-                    <div class="col-lg-6">
-                        
-                        <!-- Contact Form -->
-                        <form id="contactForm" data-toggle="validator" data-focus="false">
-                            <div class="form-group">
-                                <input type="text" class="form-control-input" id="cname" required>
-                                <label class="label-control" for="cname">Name</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control-input" id="cemail" required>
-                                <label class="label-control" for="cemail">Email</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control-textarea" id="cmessage" required></textarea>
-                                <label class="label-control" for="cmessage">Your message</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group checkbox">
-                                <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I agree with Aria's stated <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
-                            </div>
-                            <div class="form-message">
-                                <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                            </div>
-                        </form>
-                        <!-- end of contact form -->
-    
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div>
-        <style>
-            .table-style{
-                font-size: 25px;
-                font-weight: bolder;
-            }
-        </style>
-        <!-- end of form-2 -->
-        <!-- end of contact -->
-        @stop
-    
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+
+                    <!-- Contact Form -->
+                    <form id="contactForm" data-toggle="validator" data-focus="false">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Name</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Your message</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I agree with Aria's stated
+                            <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms
+                                Conditions</a>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div>
+    <style>
+        .table-style {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+    </style>
+    <!-- end of form-2 -->
+    <!-- end of contact -->
+@stop

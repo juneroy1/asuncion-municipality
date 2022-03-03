@@ -39,7 +39,8 @@
                                             justify-items: center;
                                             align-items: center;
                                             align-content: center;">
-                            <img style="display: inline; width:40%" src="{{$department->image? '/departments/'.$department->image:'landing_images/1631172177.jpg'}}" alt="..."
+                                            {{-- '/departments/'.$department->image --}}
+                            <img style="display: inline; width:40%" src="{{$department->image? 'landing_images/1631172177.jpg':'landing_images/1631172177.jpg'}}" alt="..."
                                 class="img-thumbnail">
                             <div style="display: inline-block;margin-left: 40px;">
                                 <h1>{{$department->name}}</h1>
