@@ -807,13 +807,15 @@ input[type='checkbox'] {
 	background-size: cover;
 }
 
+/* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/officials/group/IMG_1210.JPG') center center no-repeat; */
 .headerMayorOffice {
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/officials/group/IMG_1210.JPG') center center no-repeat;
+	background-color: #afc2cd;
 	background-size: cover;
 }
 
+/* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/officials/group/IMG_1215.JPG') center center no-repeat; */
 .headerMayorOffice2 {
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/officials/group/IMG_1215.JPG') center center no-repeat;
+	background-color: #afc2cd;
 	background-size: cover;
 }
 
