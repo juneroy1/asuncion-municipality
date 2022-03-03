@@ -14,6 +14,13 @@ class LandingImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function viewLandingImage($id){
+        $landingImage = LandingImage::find($id);
+        return view('announcement.view', [
+            'update'=> $landingImage, 
+        ]);
+        // dd($landingImage);
+    }
     public function indexAdmin($department){
         $landingImage = LandingImage::where('department_id', '=', $department)->get();
         $user = Auth::user();

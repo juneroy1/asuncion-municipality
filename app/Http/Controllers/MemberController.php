@@ -85,17 +85,21 @@ class MemberController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-        $imageName = time().'.'.$request->image->extension(); 
-        $request->image->move(public_path('images'), $imageName);
+        
         // echo $imageName;die;
         $members = Member::all();
         $member = new Member;
-        $member->image = $imageName;
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension(); 
+            $request->image->move(public_path('images'), $imageName);
+            $member->image = $imageName;
+        }
+        
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
         $member->position = $request->position;
@@ -104,10 +108,10 @@ class MemberController extends Controller
         $member->religion = $request->religion;
         $member->educational_attainment = $request->educational_attainment;
         $member->course = $request->course;
-        $member->others = $request->others;
+        $member->others = $request->others? $request->others: '';
         $member->user_id = $id;
-        $member->is_approved = 0;
-        $member->department = $department;
+        $member->is_approved = 1;
+        $member->department_id = $department;
         $member->save();
         session()->flash('success', 'successfully added new member');
         return redirect()->back()->with(['members'=>$members]);  
@@ -118,7 +122,7 @@ class MemberController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
@@ -127,7 +131,7 @@ class MemberController extends Controller
             # code...
             $members = Member::all();
         }else{
-            $members = Member::where('department', '=', $department)->get();
+            $members = Member::where('department_id', '=', $department)->get();
         }
 
         if ($department !='super_admin') {

@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'department' => ['required', 'string', 'max:255'],
+            'department_admin_model_id' => ['required', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -66,10 +66,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd($data['department_admin_model_id']);
         return User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
-            'department_admin_model_id' => $data['department'],
+            'department_admin_model_id' => $data['department_admin_model_id'],
             'is_approved' => 1,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

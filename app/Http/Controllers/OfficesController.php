@@ -42,7 +42,7 @@ class OfficesController extends Controller
 
         
         $contactNumberOffices = ContactNumberOffice::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
-        $organizationalChart = OrganizationalChart::where('department_id', '=', $id)->where('is_approved', '=', 1)->first();
+        $organizationalChart = OrganizationalChart::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
         // get first functionality
         
         // get all announcement per department
