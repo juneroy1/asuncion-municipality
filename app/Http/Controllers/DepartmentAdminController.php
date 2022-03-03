@@ -14,6 +14,24 @@ class DepartmentAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function section()
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+        if ($department =='super_admin') {
+            # code...
+            $departments = DepartmentAdminModel::all();
+        }else{
+            $departments = DepartmentAdminModel::where('department_name', '=', $department)->with('department')->get();
+        }
+
+        $getAlldepartments = DepartmentAdminModel::all();
+
+        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> true, 'getAlldepartments' => $getAlldepartments]);
+    }
     public function index()
     {
         //
@@ -25,10 +43,11 @@ class DepartmentAdminController extends Controller
             # code...
             $departments = DepartmentAdminModel::all();
         }else{
-            $departments = DepartmentAdminModel::where('department_name', '=', $department)->get();
+            $departments = DepartmentAdminModel::where('department_name', '=', $department)->with('department')->get();
         }
-
-        return view('admin.department', ['departments'=> $departments,'department' => $department]);
+        // dd($departments[3]);
+        $getAlldepartments = DepartmentAdminModel::all();
+        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> false, 'getAlldepartments' => $getAlldepartments]);
     }
 
     /**
@@ -96,6 +115,10 @@ class DepartmentAdminController extends Controller
                 $member->image_womask = $imageName_image_womask;
             }
         
+
+            if ($request->department_id) {
+               $member->department_id = $request->department_id;
+            }
 
 
         $member->name = $request->name;

@@ -27,6 +27,7 @@ Route::get('/', 'OfficesController@welcome')->name('welcome');
 Route::get('/officials-view', 'OfficialsAdminController@showAllOfficials');
 Route::get('/legislative', 'OfficialsAdminController@showAllLegislative');
 Route::get('/view-official/{type}/{id}', 'OfficialsAdminController@viewOfficial');
+Route::get('/view-head-office/{id}', 'OfficialsAdminController@viewOfficialHead');
 
 // Route::get('/legislative', function () {
 //     return view('legislative');
@@ -200,11 +201,21 @@ Route::get('/announcement-remarks/{id}', 'AdminController@removePage')->name('re
 // members
 
 Route::get('/admin-member', 'MemberController@index')->name('members');
+
+Route::get('/admin-member-personnel', 'MemberController@indexPersonnel')->name('members-personnel');
+Route::post('/admin-member-personnel', 'MemberController@createPersonnel')->name('createPersonnel');
+Route::post('/admin-member-personnel-approve', 'MemberController@approvePersonnel')->name('approvePersonnel');
+Route::get('/admin-member-personnel-disapprove-redirect', 'MemberController@disapprovePersonnelPage')->name('disapprovePersonnel');
+Route::post('/admin-member-personnel-disapprove', 'MemberController@disapprovePersonnel')->name('disapprovePersonnel');
+Route::get('/admin-member-personnel-edit/{id}', 'MemberController@editPersonnel')->name('editPersonnel');
+Route::post('/admin-member-personnel-update/{idPost}', 'MemberController@createPersonnel')->name('updatePersonnel');
+
 Route::get('/admin-member/{department}', 'MemberController@indexAdmin')->name('admin-announcement');
 Route::post('/member', 'MemberController@store')->name('members_create');
 Route::get('/approve-member/{id}', 'MemberController@approve')->name('approve-member');
 Route::post('/remove-member/{id}/{idPage}', 'MemberController@remove')->name('remove-member');
-Route::post('/edit-member/{id}', 'MemberController@edit')->name('remove-member');
+Route::post('/update-member/{id}', 'MemberController@store')->name('remove-member');
+Route::get('/edit-member/{id}', 'MemberController@editMember')->name('remove-member');
 
 
 // officials admin
@@ -263,6 +274,7 @@ Route::post('/remove-org-chart-office/{id}/{idPage}', 'OrganizationalChartContro
 
 // list of department
 Route::get('/department-list', 'DepartmentAdminController@index')->name('department-list');
+Route::get('/department-section', 'DepartmentAdminController@section')->name('department-section');
 Route::get('/department-edit/{id}', 'DepartmentAdminController@edit')->name('department-list');
 Route::post('/department-create', 'DepartmentAdminController@store')->name('org-chart-office-create');
 Route::post('/department-update/{id}', 'DepartmentAdminController@update')->name('org-chart-office-create');

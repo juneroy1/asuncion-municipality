@@ -14,23 +14,25 @@
             <div class="carousel-item active">
                 {{-- in this div insert this --}}
                 {{-- style="background-image: url({{ $department->image_wmask? '../../departments_image_wmask/' . $department->image_wmask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice"
-                    >
+                <div id="header" class="headerMayorOffice">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
                                 <div class="col-lg-12">
 
                                     <div style="background-color: #113448;
-                                                
-                                                        border: solid;
-                                                        border-radius: 10px;
-                                                        border-color: rgb(39 81 105);" class="text-container">
+                                                        
+                                                                border: solid;
+                                                                border-radius: 10px;
+                                                                border-color: rgb(39 81 105);" class="text-container">
                                         {{-- <h1>WELCOME TO THE OFFICIAL WEBSITE OF ASUNCION <span id="js-rotating"></span></h1> --}}
 
                                         {{-- <h1>{{ $department->d_head_name }}</h1> --}}
                                         <br>
                                         <h2 style="color:white">{{ $department->name }}</h2>
+                                        <h5 style="color:white">
+                                            {{ $department->department ? $department->department->name . ' Section' : '' }}
+                                        </h5>
                                         <br>
 
                                         {{-- <h2 style="color:white">And Office Personnel</h2> --}}
@@ -46,17 +48,16 @@
             <div class="carousel-item">
                 {{-- in this div insert this --}}
                 {{-- style="background-image: url({{ $department->image_womask? '../../departments_image_womask/' . $department->image_womask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice2"
-                    >
+                <div id="header" class="headerMayorOffice2">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
                                 <div class="col-lg-12">
 
                                     <div style="background-color: #113448;
-                                                    border: solid;
-                                                    border-radius: 10px;
-                                                    border-color: rgb(39 81 105);" class="text-container">
+                                                            border: solid;
+                                                            border-radius: 10px;
+                                                            border-color: rgb(39 81 105);" class="text-container">
                                         {{-- <h1>WELCOME TO THE OFFICIAL WEBSITE OF ASUNCION <span id="js-rotating"></span></h1> --}}
 
                                         {{-- <h1>{{ $department->d_head_name }}</h1> --}}
@@ -193,34 +194,36 @@
 
     <br>
     <div style="background-color: #eef5f9;
-                padding: 80px;
-                border: 1px solid #d7dfe3;
-                border-radius: 4px;
-                -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                color: #455a64;" class="container">
+                        padding: 80px;
+                        border: 1px solid #d7dfe3;
+                        border-radius: 4px;
+                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                        color: #455a64;" class="container">
         {{-- <h2 style="text-align: center">OFFICE PERSONNEL</h2> --}}
         <div style="text-align: center;
-                    justify-items: center;
-                    align-items: center;
-                    align-content: center;">
+                            justify-items: center;
+                            align-items: center;
+                            align-content: center;">
             @foreach ($members as $member)
                 <div style=" display: flex;
-                    justify-content: center;
-                    align-items: center;">
+                            justify-content: center;
+                            align-items: center;">
                     {{-- <img style="display: inline;
         width: 20%;
         border-radius: 50%;
         border-color: black;
         height: 200px;" src="../images/{{$member->image}}" alt="..." class="img-thumbnail"> --}}
                     <img style="display: inline;
-                    width: 20%;
-                    border-radius: 50%;
-                    border-color: black;
-                    height: 200px;" src="{{$member->image? '/images/'.$member->image:'/images/img_avatar2.png'}}" alt="..." class="img-thumbnail">
+                            width: 20%;
+                            border-radius: 50%;
+                            border-color: black;
+                            height: 200px;"
+                        src="{{ $member->image ? '/images/' . $member->image : '/images/img_avatar2.png' }}" alt="..."
+                        class="img-thumbnail">
                     {{-- <img style="width: 70%;" src="/images/img_avatar2.png" alt=""> --}}
                     <div style="display: block;margin-left: 10px;">
-                        <h3>{{ $member->first_name }} {{ $member->last_name }}</h3>
+                        <h3><a href="/view-head-office/{{ $member->id }}" style="color: black; text-decoration: none;">{{ $member->first_name }} {{ $member->last_name }}</a></h3>
                         <p>{{ $member->position }}</p>
                         {{-- <h2></h2> --}}
                         {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
@@ -237,17 +240,17 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div style="background-color: #eef5f9;
-                                                    padding: 80px;
-                                                    border: 1px solid #d7dfe3;
-                                                    border-radius: 4px;
-                                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                    color: #455a64;" class="container">
+                                                            padding: 80px;
+                                                            border: 1px solid #d7dfe3;
+                                                            border-radius: 4px;
+                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                            color: #455a64;" class="container">
                     <h2 style="text-align: center">OFFICE MANDATE</h2>
                     <div style="text-align: center;display: flex;
-                                                        justify-items: center;
-                                                        align-items: center;
-                                                        align-content: center;">
+                                                                justify-items: center;
+                                                                align-items: center;
+                                                                align-content: center;">
                         <div style="display: inline-block;">
 
 
@@ -269,32 +272,31 @@
     <div class="row">
         <div class="col-md-12 col-xs-12">
             <div style="background-color: #eef5f9;
-                                padding: 80px;
-                                border: 1px solid #d7dfe3;
-                                border-radius: 4px;
-                                -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                color: #455a64;" class="container">
+                                        padding: 80px;
+                                        border: 1px solid #d7dfe3;
+                                        border-radius: 4px;
+                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                        color: #455a64;" class="container">
                 <h2 style="text-align: center">OFFICE PERSONNEL</h2>
                 <div style="text-align: center;
-                                    justify-items: center;
-                                    align-items: center;
-                                    align-content: center;">
+                                            justify-items: center;
+                                            align-items: center;
+                                            align-content: center;">
 
 
 
                     <div style=" display: flex;
-                                    justify-content: center;
-                                    align-items: center;">
-                        @if ($organizationalChart != null)
-                            @if($department->id == 2)
+                                            justify-content: center;
+                                            align-items: center;">
+
+                        {{-- @if ($department->id == 2)
                             <img style="width: 100%;" src="/images/IMG_1215.jpg"
                             alt=""> 
-                            @endif
-                            {{-- <img style="width: 70%;" src="/organizational_charts/{{ $organizationalChart->image }}"
-                                alt=""> --}}
-                        @else
-                        @endif
+                            @endif --}}
+                        <img style="width: 100%;" src="/personnel/{{ $personnel->image }}" alt="">
+                        {{-- <img style="width: 70%;" src="/organizational_charts/{{ $organizationalChart->image }}"
+                      
                         {{-- <img style="display: inline;
                 width: 20%;
 
@@ -316,30 +318,29 @@
             <br>
             <br>
             <div style="background-color: #eef5f9;
-                                padding: 80px;
-                                border: 1px solid #d7dfe3;
-                                border-radius: 4px;
-                                -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                color: #455a64;" class="container">
+                                        padding: 80px;
+                                        border: 1px solid #d7dfe3;
+                                        border-radius: 4px;
+                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                        color: #455a64;" class="container">
                 <h2 style="text-align: center">ORGANIZATIONAL CHART</h2>
                 <div style="text-align: center;
-                                    justify-items: center;
-                                    align-items: center;
-                                    align-content: center;">
+                                            justify-items: center;
+                                            align-items: center;
+                                            align-content: center;">
 
 
 
                     <div style=" display: flex;
-                                flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;">
-                        @foreach($organizationalChart as $org)
-                        @if ($org != null)
-                            <img style="width: auto;" src="/organizational_charts/{{ $org->image }}"
-                                alt="">
-                        @else
-                        @endif
+                                        flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;">
+                        @foreach ($organizationalChart as $org)
+                            @if ($org != null)
+                                <img style="width: auto;" src="/organizational_charts/{{ $org->image }}" alt="">
+                            @else
+                            @endif
                         @endforeach
                         {{-- <img style="display: inline;
                 width: 20%;
@@ -363,18 +364,18 @@
             <br>
             <br>
             <div style="background-color: #eef5f9;
-                                                        padding: 80px;
-                                                        border: 1px solid #d7dfe3;
-                                                        border-radius: 4px;
-                                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                        color: #455a64;" class="container">
+                                                                padding: 80px;
+                                                                border: 1px solid #d7dfe3;
+                                                                border-radius: 4px;
+                                                                -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                color: #455a64;" class="container">
                 <h2 style="text-align: center">ACHIEVEMENTS AND PROJECTS</h2>
                 @foreach ($updates as $update)
                     <div style="text-align: center;display: flex;
-                                                            justify-items: center;
-                                                            align-items: center;
-                                                            align-content: center;">
+                                                                    justify-items: center;
+                                                                    align-items: center;
+                                                                    align-content: center;">
                         <img style="display: inline; width:40%" src="/updates/{{ $update->image }}" alt="..."
                             class="img-thumbnail">
                         <div style="display: inline-block; margin-left: 20px">
@@ -397,12 +398,12 @@
             <br>
             <br>
             <div style="background-color: #eef5f9;
-                                    padding: 80px;
-                                    border: 1px solid #d7dfe3;
-                                    border-radius: 4px;
-                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                    color: #455a64;" class="container">
+                                            padding: 80px;
+                                            border: 1px solid #d7dfe3;
+                                            border-radius: 4px;
+                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                            color: #455a64;" class="container">
                 <h2 style="text-align: center">OUR ARCHIVES</h2>
                 <div style="text-align: center;">
                     {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
@@ -445,9 +446,9 @@
                             <a style="text-decoration: none" href="#">
                                 <div class="container" style="cursor: pointer">
                                     <div style="flex-direction:column;text-align: center;display: flex;
-                                        justify-items: center;
-                                        align-items: center;
-                                        align-content: center;">
+                                                justify-items: center;
+                                                align-items: center;
+                                                align-content: center;">
                                         @foreach ($archives as $archive)
                                             <img src="/images/fileupload.png" width="150" />
                                             <a href="/archives/{{ $archive->file }}" target="_blank"
@@ -498,17 +499,17 @@
             <br>
             <div style="display:flex">
                 <div style="background-color: #eef5f9;
-                                                                    padding: 80px;
-                                                                    border: 1px solid #d7dfe3;
-                                                                    border-radius: 4px;
-                                                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                    color: #455a64;" class="container">
+                                                                            padding: 80px;
+                                                                            border: 1px solid #d7dfe3;
+                                                                            border-radius: 4px;
+                                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            color: #455a64;" class="container">
                     <h2 style="text-align: center">CONTACT US</h2>
                     <div style="text-align: center;display: flex;
-                                                            justify-items: center;
-                                                            align-items: center;
-                                                            align-content: center;">
+                                                                    justify-items: center;
+                                                                    align-items: center;
+                                                                    align-content: center;">
                         {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
                         <div style="display: inline-block;">
 
@@ -546,17 +547,17 @@
                     </div>
                 </div>
                 <div style="background-color: #eef5f9;
-                                                                    padding: 80px;
-                                                                    border: 1px solid #d7dfe3;
-                                                                    border-radius: 4px;
-                                                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                    color: #455a64;" class="container">
+                                                                            padding: 80px;
+                                                                            border: 1px solid #d7dfe3;
+                                                                            border-radius: 4px;
+                                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            color: #455a64;" class="container">
                     <h2 style="text-align: center">Online Transaction</h2>
                     <div style="text-align: center;display: flex;
-                                                            justify-items: center;
-                                                            align-items: center;
-                                                            align-content: center;">
+                                                                    justify-items: center;
+                                                                    align-items: center;
+                                                                    align-content: center;">
                         {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
                         <div style="display: inline-block;">
 
@@ -588,12 +589,12 @@
             <!-- Services -->
             <div id="services" class="cards-2">
                 <div style="background-color: #eef5f9;
-                                                            padding: 80px;
-                                                            border: 1px solid #d7dfe3;
-                                                            border-radius: 4px;
-                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                            color: #455a64;" class="container">
+                                                                    padding: 80px;
+                                                                    border: 1px solid #d7dfe3;
+                                                                    border-radius: 4px;
+                                                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                    color: #455a64;" class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             {{-- <div class="section-title">ANNOUNCEMENT</div> --}}

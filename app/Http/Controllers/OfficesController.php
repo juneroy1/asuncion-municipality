@@ -14,6 +14,7 @@ use App\ContactNumberOffice;
 use App\OrganizationalChart;
 use App\ArchiveDepartment;
 use App\DepartmentAdminModel;
+use App\Personnel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -43,6 +44,7 @@ class OfficesController extends Controller
         
         $contactNumberOffices = ContactNumberOffice::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
         $organizationalChart = OrganizationalChart::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
+        $personnel = Personnel::where('department_id', '=', $id)->where('is_approved', '=', 1)->first();
         // get first functionality
         
         // get all announcement per department
@@ -55,7 +57,7 @@ class OfficesController extends Controller
        
             $archives = ArchiveDepartment::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
        
-
+        // dd($id);
         // return view('archive', ['archives'=> $archives,'department' => $department]);
 
         return view('offices.'.$name.'.'.$name, [
@@ -66,7 +68,8 @@ class OfficesController extends Controller
             'contactNumberOffices'=>$contactNumberOffices,
             'organizationalChart' => $organizationalChart,
             'archives' => $archives,
-            'department' => $department
+            'department' => $department,
+            'personnel' => $personnel
         ]);
     }
 

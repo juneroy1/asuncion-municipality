@@ -60,8 +60,17 @@ class OfficialsAdminController extends Controller
         $official = OfficialsAdmin::find($idOfficial);
         return view('view_official', ['official'=> $official,'department' => $department,'type' => $type,]);
     }
+    public function viewOfficialHead($idOfficial){
 
-    
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department;
+        $official = Member::find($idOfficial);
+        return view('view_official_head', ['official'=> $official,'department' => $department,'type' => 'head_office',]);
+    }
+
+
+
     
     public function index()
     {
