@@ -28,6 +28,8 @@ class MemberController extends Controller
             'members'=> $members, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'member' => false,
+            "edit" => false,
         ]);
     }
     public function indexPersonnel(){

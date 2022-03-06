@@ -27,7 +27,7 @@ class OrganizationalChartController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
 
@@ -43,6 +43,7 @@ class OrganizationalChartController extends Controller
         }
 
         $listRequest = Department::withCount('organizationalChart')->get();
+        $update = $idPost? OrganizationalChart::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -58,6 +59,8 @@ class OrganizationalChartController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Organizational Chart',
+                'update' => $update,
+                'edit' => $idPost? true:false,
                 // 'idPage' => $department,
             ]);
  
@@ -83,38 +86,44 @@ class OrganizationalChartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost)
     {
         //
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
-        //
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-        $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('uploadImage/'.$department), $imageName);
-        $image = $request->image;
-        $destinationPath = public_path('organizational_charts/');
-        // \File::mkdir($destinationPath);
-        $img = Image::make($image->getRealPath());
-        $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
-        // $img->move($destinationPath, $imageName);
-        // $destinationPath = public_path('uploadImage/'.$department);
-        // $image->move($destinationPath, $imageName);
-        // echo $imageName;die;
         $org_charts = OrganizationalChart::all();
-        $update = new OrganizationalChart;
-        $update->image = $imageName;
+        $update = $idPost? OrganizationalChart::find($idPost): new OrganizationalChart;
+
+        if ($request->image) {
+            //
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ]);
+            $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('uploadImage/'.$department), $imageName);
+            $image = $request->image;
+            $destinationPath = public_path('organizational_charts/');
+            // \File::mkdir($destinationPath);
+            $img = Image::make($image->getRealPath());
+            $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
+            // $img->move($destinationPath, $imageName);
+            // $destinationPath = public_path('uploadImage/'.$department);
+            // $image->move($destinationPath, $imageName);
+            // echo $imageName;die;
+            
+            $update->image = $imageName;
+        }
+       
         $update->name = $request->name;
         $update->discription = $request->discription;
         $update->user_id = $id;
         $update->is_approved = 2;
         $update->department_id = $department;
+        $update->remarks = $request->remarks;
         $update->save();
-        session()->flash('success', 'successfully added new organizational chart');
-        return redirect()->back()->with(['org_charts'=> $org_charts,'department' => $department]); 
+        session()->flash('success', $idPost?'successfully update organizational chart':'successfully added new organizational chart');
+        return redirect('/org-chart-office')->with(['org_charts'=> $org_charts,'department' => $department]); 
     }
 
     public function approve($idPost)

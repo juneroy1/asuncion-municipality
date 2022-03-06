@@ -26,7 +26,7 @@ class ContactNumberOfficeController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost= false)
     {
         //
         $user = Auth::user();
@@ -40,6 +40,7 @@ class ContactNumberOfficeController extends Controller
             $contact_number_offices = ContactNumberOffice::where('department_id', '=', $department)->get();
         }
         $listRequest = Department::withCount('contactNumberOffice')->get();
+        $update = $idPost? ContactNumberOffice::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -55,6 +56,8 @@ class ContactNumberOfficeController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Contact Number Office',
+                'update' => $update,
+                'edit' => $idPost? true:false,
                 // 'idPage' => $department,
             ]);
  
@@ -78,7 +81,7 @@ class ContactNumberOfficeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost)
     {
         //
         $user = Auth::user();
@@ -87,16 +90,17 @@ class ContactNumberOfficeController extends Controller
      
       
         $contact_number_offices = ContactNumberOffice::all();
-        $member = new ContactNumberOffice;
+        $member = $idPost? ContactNumberOffice::find($idPost): new ContactNumberOffice;
         $member->number = $request->number;
         $member->name = $request->number;
         $member->network = $request->network;
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;
+        $member->remarks = $request->remarks;
         $member->save();
-        session()->flash('success', 'successfully added new contact number of office');
-        return redirect()->back()->with(['contact_number_offices'=>$contact_number_offices]);
+        session()->flash('success', $idPost? 'successfully update contact number for office':'successfully added new contact number for office');
+        return redirect('/contact-number-office')->with(['contact_number_offices'=>$contact_number_offices]);
     }
 
     public function approve($idPost)

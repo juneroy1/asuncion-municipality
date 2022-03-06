@@ -33,7 +33,7 @@ class LandingImageController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -47,6 +47,7 @@ class LandingImageController extends Controller
             $landingImage = LandingImage::where('department_id', '=', $department)->get();
         }
 
+        $update = $idPost? LandingImage::find($idPost):false;
         $listRequest = Department::withCount('landingImage')->get();
         // dd($listRequest);
         if ($department =='super_admin') {
@@ -62,7 +63,9 @@ class LandingImageController extends Controller
                 'landingImage'=> $landingImage, 
                 'department' => $department,
                 'listRequests' => $listRequest,
-                'pageName' => 'Landing Image'
+                'pageName' => 'Landing Image',
+                'update' => $update,
+                'edit' => $idPost? true:false,
             ]);
         }
 
@@ -102,38 +105,44 @@ class LandingImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost = false)
     {
         //
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
+        $landingImage = LandingImage::all();
+        $update = $idPost? LandingImage::find($idPost): new LandingImage;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-        $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('uploadImage/'.$department), $imageName);
-        $image = $request->image;
-        $destinationPath = public_path('landing_images/');
-        // \File::mkdir($destinationPath);
-        $img = Image::make($image->getRealPath());
-        $img->resize(2000,null,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
-        // $img->move($destinationPath, $imageName);
-        // $destinationPath = public_path('uploadImage/'.$department);
-        // $image->move($destinationPath, $imageName);
-        // echo $imageName;die;
-        $landingImage = LandingImage::all();
-        $update = new LandingImage;
-        $update->image = $imageName;
+        if ($request->image) {
+            # code...
+            $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('uploadImage/'.$department), $imageName);
+            $image = $request->image;
+            $destinationPath = public_path('landing_images/');
+            // \File::mkdir($destinationPath);
+            $img = Image::make($image->getRealPath());
+            $img->resize(2000,null,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
+            // $img->move($destinationPath, $imageName);
+            // $destinationPath = public_path('uploadImage/'.$department);
+            // $image->move($destinationPath, $imageName);
+            // echo $imageName;die;
+            
+            $update->image = $imageName;
+        }
+       
         $update->title = $request->title;
         $update->subtitle = $request->subtitle;
         $update->user_id = $id;
         $update->is_approved = 2;
         $update->department_id = $department;
+        $update->remarks = $request->remarks;
         $update->save();
-        session()->flash('success', 'successfully added new lading pages');
-        return redirect()->back()->with(['landingImage'=> $landingImage,'department' => $department]); 
+        session()->flash('success', $idPost?'successfully update lading image':'successfully added new lading image');
+        return redirect('/admin-landingImage')->with(['landingImage'=> $landingImage,'department' => $department]); 
     }
 
     public function approve($idPost)

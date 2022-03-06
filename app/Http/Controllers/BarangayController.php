@@ -31,7 +31,7 @@ class BarangayController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
          //
@@ -47,6 +47,7 @@ class BarangayController extends Controller
          }
         
          $listRequest = Department::withCount('barangays')->get();
+         $update = $idPost? BarangayModel::find($idPost):false;
         //  dd($listRequest);
          if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -62,6 +63,8 @@ class BarangayController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Barangay',
+                'update' => $update,
+                'edit' => $idPost? true:false,
                 // 'idPage' => $department,
             ]);
  
@@ -86,36 +89,43 @@ class BarangayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost)
     {
         //
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
-        //
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-        // $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('images'), $imageName);
-        $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('uploadImage/'.$department), $imageName);
-        $image = $request->image;
-        $destinationPath = public_path('barangay/');
-        // \File::mkdir($destinationPath);
-        $img = Image::make($image->getRealPath());
-        $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
-        // echo $imageName;die;
         $barangays = BarangayModel::all();
-        $member = new BarangayModel;
-        $member->image = $imageName;
+        $member = $idPost? BarangayModel::find($idPost):  new BarangayModel;
+
+        if ($request->image) {
+            # code...
+            //
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ]);
+            // $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('images'), $imageName);
+            $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('uploadImage/'.$department), $imageName);
+            $image = $request->image;
+            $destinationPath = public_path('barangay/');
+            // \File::mkdir($destinationPath);
+            $img = Image::make($image->getRealPath());
+            $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
+            // echo $imageName;die;
+        
+            $member->image = $imageName;
+        }
+        
         $member->name = $request->name;
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;
+        $member->remarks = $request->remarks;
         $member->save();
-        session()->flash('success', 'successfully added new barangay');
-        return redirect()->back()->with(['barangays'=>$barangays]);
+        session()->flash('success', $idPost? 'successfully update barangay':'successfully added new barangay');
+        return redirect('/admin-barangay')->with(['barangays'=>$barangays]);
     }
 
     public function approve($idPost)

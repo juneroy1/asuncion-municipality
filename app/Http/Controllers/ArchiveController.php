@@ -70,14 +70,16 @@ class ArchiveController extends Controller
         $user = Auth::user();
         $id = Auth::id();
         $departmentUser = $user->department_admin_model_id;
+        
         // dd($departmentUser);
         return view('admin.archive_department', [
             'archives'=> $archives, 
             'department' => $departmentUser,
             'idPage' => $department,
+            
         ]);
     }
-    public function indexDepartment()
+    public function indexDepartment($idPost = false)
     {
         //
         $user = Auth::user();
@@ -91,7 +93,7 @@ class ArchiveController extends Controller
             $archives = ArchiveDepartment::where('department_id', '=', $department)->get();
         }
         $listRequest = Department::withCount('archiveDepartments')->get();
-
+        $update = $idPost ? ArchiveDepartment::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -107,6 +109,8 @@ class ArchiveController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Archive Department',
+                'update' => $update,
+                'edit' => $idPost? true:false,
                 // 'idPage' => $department,
             ]);
  
@@ -160,32 +164,39 @@ class ArchiveController extends Controller
         return redirect()->back()->with(['archives'=>$archives]);
     }
 
-    public function storeDepartment(Request $request){
+    public function storeDepartment(Request $request, $idPost =false){
         
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
-        //
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-        // $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('images'), $imageName);
-        $fileName = time().'.'.$request->file->extension(); 
-        $request->file->move(public_path('archives/'), $fileName);
-        
-        // echo $imageName;die;
         $archives = ArchiveDepartment::all();
-        $member = new ArchiveDepartment;
-        $member->file = $fileName;
+        $member = $idPost? ArchiveDepartment::find($idPost):  new ArchiveDepartment;
+
+        if ($request->file) {
+            # code...
+            //
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ]);
+            // $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('images'), $imageName);
+            $fileName = time().'.'.$request->file->extension(); 
+            $request->file->move(public_path('archives/'), $fileName);
+            
+            // echo $imageName;die;
+            
+            $member->file = $fileName;
+        }
+        
         $member->title = $request->title;
         $member->description = $request->description;
         $member->user_id = $id;
-        $member->is_approved = 1;
+        $member->is_approved = 2;
         $member->department_id = $department;
+        $member->remarks = $request->remarks;
         $member->save();
-        session()->flash('success', 'successfully added new archive for official');
-        return redirect()->back()->with(['archives'=>$archives]);
+        session()->flash('success', $idPost?'successfully update  archive ':'successfully added new archive ');
+        return redirect('/admin-department-archive')->with(['archives'=>$archives]);
     }
     public function approve($idPost)
     {

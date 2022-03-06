@@ -28,7 +28,7 @@ class EmergencyHotlineController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -42,6 +42,7 @@ class EmergencyHotlineController extends Controller
             $emergencyHotlines = EmergencyHotline::where('department_id', '=', $department)->get();
         }
         $listRequest = Department::withCount('emergencyHotlines')->get();
+        $update = $idPost? EmergencyHotline::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -57,6 +58,8 @@ class EmergencyHotlineController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Emergency Hotlines',
+                'update' => $update,
+                'edit' => $idPost? true:false
                 // 'idPage' => $department,
             ]);
  
@@ -148,7 +151,7 @@ class EmergencyHotlineController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost = false)
     {
         //
         $user = Auth::user();
@@ -157,16 +160,17 @@ class EmergencyHotlineController extends Controller
        
         
         $emergencyHotlines = EmergencyHotline::all();
-        $update = new EmergencyHotline;
+        $update =  $idPost? EmergencyHotline::find($idPost): new EmergencyHotline;
         $update->name = $request->name;
         $update->number = $request->number;
         $update->network = $request->network;
         $update->user_id = $id;
         $update->is_approved = 2;
         $update->department_id = $department;
+        $update->remarks = $request->remarks;
         $update->save();
-        session()->flash('success', 'successfully added new mergency hotline');
-        return redirect()->back()->with(['emergencyHotlines'=> $emergencyHotlines,'department' => $department]); 
+        session()->flash('success', $idPost?'successfully update mergency hotline':'successfully added new mergency hotline');
+        return redirect('/emergencyHotlines')->with(['emergencyHotlines'=> $emergencyHotlines,'department' => $department]); 
     }
 
     /**

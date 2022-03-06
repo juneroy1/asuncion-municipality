@@ -8,23 +8,25 @@
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
-                    <h3 class="page-title mb-0 p-0">Create Emergency Hotline</h3>
+                    <h3 class="page-title mb-0 p-0">{{ $edit ? 'Update Emergency Hotline' : 'Create Emergency Hotline' }}
+                    </h3>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Create Emergency Hotline</li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{ $edit ? 'Update Emergency Hotline' : 'Create Emergency Hotline' }}</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
                 <!-- <div class="col-md-6 col-4 align-self-center">
-                                <div class="text-end upgrade-btn">
-                                    <a href="https://www.wrappixel.com/templates/materialpro/"
-                                        class="btn btn-danger d-none d-md-inline-block text-white" target="_blank">Upgrade to
-                                        Pro</a>
-                                </div>
-                            </div> -->
+                                            <div class="text-end upgrade-btn">
+                                                <a href="https://www.wrappixel.com/templates/materialpro/"
+                                                    class="btn btn-danger d-none d-md-inline-block text-white" target="_blank">Upgrade to
+                                                    Pro</a>
+                                            </div>
+                                        </div> -->
             </div>
         </div>
         <!-- ============================================================== -->
@@ -47,10 +49,9 @@
                     </div>
                 @endif
                 @if ($department != 'super_admin')
-
-
-                    <form method="POST" action="/emergencyHotlines-submit" enctype="multipart/form-data"
-                        class="row">
+                    <form method="POST"
+                        action="{{ $edit ? '/emergencyHotlines-update/' . $update->id : '/emergencyHotlines-submit' }}"
+                        enctype="multipart/form-data" class="row">
                         @csrf
                         <!-- Column -->
                         {{-- <div class="col-lg-4 col-xlg-3 col-md-5">
@@ -72,48 +73,63 @@
                                 <div class="card-body">
                                     <div class="form-horizontal form-material mx-2">
                                         <!-- <div class="form-group">
-                                                <label class="col-md-12 mb-0">Full Name</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="Johnathan Doe"
-                                                        class="form-control ps-0 form-control-line">
-                                                </div>
-                                            </div> -->
+                                                            <label class="col-md-12 mb-0">Full Name</label>
+                                                            <div class="col-md-12">
+                                                                <input type="text" placeholder="Johnathan Doe"
+                                                                    class="form-control ps-0 form-control-line">
+                                                            </div>
+                                                        </div> -->
                                         <!-- <div class="form-group">
-                                                <label for="example-email" class="col-md-12">Email</label>
-                                                <div class="col-md-12">
-                                                    <input type="email" placeholder="johnathan@admin.com"
-                                                        class="form-control ps-0 form-control-line" name="example-email"
-                                                        id="example-email">
-                                                </div>
-                                            </div> -->
+                                                            <label for="example-email" class="col-md-12">Email</label>
+                                                            <div class="col-md-12">
+                                                                <input type="email" placeholder="johnathan@admin.com"
+                                                                    class="form-control ps-0 form-control-line" name="example-email"
+                                                                    id="example-email">
+                                                            </div>
+                                                        </div> -->
                                         <!-- <div class="form-group">
-                                                <label class="col-md-12 mb-0">Password</label>
-                                                <div class="col-md-12">
-                                                    <input type="password" value="password"
-                                                        class="form-control ps-0 form-control-line">
-                                                </div>
-                                            </div> -->
+                                                            <label class="col-md-12 mb-0">Password</label>
+                                                            <div class="col-md-12">
+                                                                <input type="password" value="password"
+                                                                    class="form-control ps-0 form-control-line">
+                                                            </div>
+                                                        </div> -->
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Name</label>
                                             <div class="col-md-12">
-                                                <input name="name" type="text" placeholder="Title of the update"
+                                                <input name="name" value="{{ $update ? $update->name : '' }}" type="text"
+                                                    placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Number</label>
                                             <div class="col-md-12">
-                                                <input name="number" type="number" placeholder="Title of the update"
+                                                <input name="number" value="{{ $update ? $update->number : '' }}"
+                                                    type="number" placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Network</label>
                                             <div class="col-md-12">
-                                                <input name="network" type="text" placeholder="Title of the update"
+                                                <input name="network" type="text"
+                                                    value="{{ $update ? $update->network : '' }}"
+                                                    placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
+                                        @if ($edit)
+                                            <div class="form-group">
+                                                <label class="col-md-12 mb-0">Remarks
+                                                    <span style="color:red">*</span>
+                                                </label>
+                                                <div class="col-md-12">
+                                                    <textarea name="remarks" rows="5"
+                                                        class="form-control ps-0 form-control-line">{{ $edit ? $update->remarks : '' }}</textarea>
+                                                </div>
+                                            </div>
+                                        @endif
                                         {{-- <div class="form-group">
                                 <label class="col-md-12 mb-0">Add Native Language</label>
                                 <div class="col-md-12">
@@ -121,17 +137,17 @@
                                 </div>
                             </div> --}}
                                         <!-- <div class="form-group">
-                                                <label class="col-sm-12">Select Country</label>
-                                                <div class="col-sm-12 border-bottom">
-                                                    <select class="form-select shadow-none ps-0 border-0 form-control-line">
-                                                        <option>London</option>
-                                                        <option>India</option>
-                                                        <option>Usa</option>
-                                                        <option>Canada</option>
-                                                        <option>Thailand</option>
-                                                    </select>
-                                                </div>
-                                            </div> -->
+                                                            <label class="col-sm-12">Select Country</label>
+                                                            <div class="col-sm-12 border-bottom">
+                                                                <select class="form-select shadow-none ps-0 border-0 form-control-line">
+                                                                    <option>London</option>
+                                                                    <option>India</option>
+                                                                    <option>Usa</option>
+                                                                    <option>Canada</option>
+                                                                    <option>Thailand</option>
+                                                                </select>
+                                                            </div>
+                                                        </div> -->
                                         <div class="form-group">
                                             <div class="col-sm-12 d-flex">
                                                 <button type="submit"
@@ -145,68 +161,74 @@
                         </div>
                     </form>
                 @endif
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">List of Emergency Hotline</h4>
-                            <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-                            <div class="table-responsive">
-                                <table class="table user-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0">Name</th>
-                                            <th class="border-top-0">Number</th>
-                                            <th class="border-top-0">Network</th>
-                                            <th class="border-top-0">remarks</th>
-                                            <th class="border-top-0">status</th>
-                                            {{-- <th class="border-top-0">created by</th> --}}
-                                            <th class="border-top-0">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach ($emergencyHotlines as $key => $emergency_hotline)
+                @if (!$edit)
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">List of Emergency Hotline</h4>
+                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                                <div class="table-responsive">
+                                    <table class="table user-table">
+                                        <thead>
                                             <tr>
-
-
-                                                <td>{{ $emergency_hotline->name }}</td>
-                                                <td>{{ $emergency_hotline->number }}</td>
-                                                <td>{{ $emergency_hotline->network }}</td>
-                                                <td>{{ $emergency_hotline->remarks }}</td>
-                                                <td style="{{$emergency_hotline->is_approved == 1 ? 'background:blue;color:white':($emergency_hotline->is_approved== 2? 'background:green;color:white': 'background:red;color:white')}}">
-                                                    {{$emergency_hotline->is_approved == 1 ? 'Approved':($emergency_hotline->is_approved== 2? 'Pending': 'Disapproved')}}
-                                                    {{-- {{$update->is_approved == 3 ?$update->remarks:''}} --}}
-                                                </td>
-                                                {{-- <td>{{$functionality->description}}</td> --}}
-                                                <td>
-                                                    @if ($department == 'super_admin')
-                                                        {{--  --}}
-                                                        {{-- @if ($emergency_hotline->is_approved == 0) --}}
-                                                        {{-- href="/remove-emergencyHotlines/{{ $emergency_hotline->id }}" --}}
-                                                        {{-- href="/approve-emergencyHotlines/{{ $emergency_hotline->id }}" --}}
-                                                        <a class="btn btn-primary"
-                                                            onclick="approve({{ $emergency_hotline->id }},{{ $idPage }})"
-                                                            style="color:white">Approve</a>
-                                                        <a class="btn btn-danger"
-                                                            onclick="disapprove({{ $emergency_hotline->id }},{{ $idPage }})"
-                                                            style="color:white">Disapprove</a>
-                                                    @else
-                                                        <a class="btn btn-primary" style="color:white">Edit</a>
-                                                        <a class="btn btn-danger" style="color:white">Delete</a>
-                                                        {{-- @endif --}}
-                                                    @endif
-
-
-
-                                                </td>
+                                                <th class="border-top-0">Name</th>
+                                                <th class="border-top-0">Number</th>
+                                                <th class="border-top-0">Network</th>
+                                                <th class="border-top-0">remarks</th>
+                                                <th class="border-top-0">status</th>
+                                                {{-- <th class="border-top-0">created by</th> --}}
+                                                <th class="border-top-0">Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach ($emergencyHotlines as $key => $emergency_hotline)
+                                                <tr>
+
+
+                                                    <td>{{ $emergency_hotline->name }}</td>
+                                                    <td>{{ $emergency_hotline->number }}</td>
+                                                    <td>{{ $emergency_hotline->network }}</td>
+                                                    <td>{{ $emergency_hotline->remarks }}</td>
+                                                    <td
+                                                        style="{{ $emergency_hotline->is_approved == 1? 'background:blue;color:white': ($emergency_hotline->is_approved == 2? 'background:green;color:white': 'background:red;color:white') }}">
+                                                        {{ $emergency_hotline->is_approved == 1? 'Approved': ($emergency_hotline->is_approved == 2? 'Pending': 'Disapproved') }}
+                                                        {{-- {{$update->is_approved == 3 ?$update->remarks:''}} --}}
+                                                    </td>
+                                                    {{-- <td>{{$functionality->description}}</td> --}}
+                                                    <td>
+                                                        @if ($department == 'super_admin')
+                                                            {{--  --}}
+                                                            {{-- @if ($emergency_hotline->is_approved == 0) --}}
+                                                            {{-- href="/remove-emergencyHotlines/{{ $emergency_hotline->id }}" --}}
+                                                            {{-- href="/approve-emergencyHotlines/{{ $emergency_hotline->id }}" --}}
+                                                            <a class="btn btn-primary"
+                                                                onclick="approve({{ $emergency_hotline->id }},{{ $idPage }})"
+                                                                style="color:white">Approve</a>
+                                                            <a class="btn btn-danger"
+                                                                onclick="disapprove({{ $emergency_hotline->id }},{{ $idPage }})"
+                                                                style="color:white">Disapprove</a>
+                                                        @else
+                                                            <a class="btn btn-primary"
+                                                                href="/emergencyHotlines-edit/{{ $emergency_hotline->id }}"
+                                                                style="color:white">Edit</a>
+                                                            {{-- <a class="btn btn-danger" style="color:white">Delete</a> --}}
+                                                            {{-- @endif --}}
+                                                        @endif
+
+
+
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
                 <!-- Column -->
             </div>
             <!-- Row -->

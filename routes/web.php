@@ -179,7 +179,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/admin', 'AdminController@store')->name('admin_create');
 Route::get('/admin-edit/{id}', 'AdminController@edit')->name('admin_edit');
-Route::post('/admin-update/{id}', 'AdminController@update')->name('admin_update');
+Route::post('/admin-update/{id}', 'AdminController@store')->name('admin_update');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin-index/{department}', 'AdminController@indexAdmin')->name('indexAdmin');
 Route::get('/admin-list', 'AdminController@list')->name('admin-list');
@@ -190,6 +190,8 @@ Route::get('/admin-remarks/{id}/{idPage}/{model}', 'AdminController@removePage')
 
 // get announcements
 Route::get('/admin-announcement', 'AnnouncementController@index')->name('admin-announcement');
+Route::get('/admin-announcement-edit/{idPost}', 'AnnouncementController@index')->name('admin-announcement');
+Route::post('/admin-announcement-update/{idPost}', 'AnnouncementController@store')->name('admin-announcement');
 Route::get('/admin-announcement/{department}', 'AnnouncementController@indexAdmin')->name('admin-announcement');
 Route::get('/admin-announcement-rd', 'AnnouncementController@indexAnnouncement')->name('admin-announcement-rd');
 
@@ -236,6 +238,8 @@ Route::get('/remove-officials-archive/{id}', 'ArchiveController@remove')->name('
 
 // depatment archive admin
 Route::get('/admin-department-archive', 'ArchiveController@indexDepartment')->name('department-archive');
+Route::get('/admin-department-archive-edit/{id}', 'ArchiveController@indexDepartment')->name('department-archive');
+Route::post('/admin-department-archive-update/{id}', 'ArchiveController@storeDepartment')->name('department-archive');
 Route::get('/admin-department-archive/{department}', 'ArchiveController@indexDepartmentAdmin')->name('department-archive');
 Route::post('/department-admin-archive', 'ArchiveController@storeDepartment')->name('department-archive_create');
 Route::get('/approve-department-archive/{id}', 'ArchiveController@approveDepartment')->name('approve-department-archive');
@@ -243,6 +247,8 @@ Route::post('/remove-department-archive/{id}/{idPage}', 'ArchiveController@remov
 
 // barangay officials admin
 Route::get('/admin-barangay-officials', 'BarangayOfficialsController@index')->name('members');
+Route::get('/admin-barangay-officials-edit/{idPost}', 'BarangayOfficialsController@index')->name('members');
+Route::post('/admin-barangay-officials-update/{idPost}', 'BarangayOfficialsController@store')->name('members');
 Route::get('/admin-barangay-officials/{department}', 'BarangayOfficialsController@indexAdmin')->name('members');
 Route::post('/admin-barangay-officials-create', 'BarangayOfficialsController@store')->name('members_create');
 Route::get('/approve-admin-barangay-officials/{id}', 'BarangayOfficialsController@approve')->name('approve-member');
@@ -250,6 +256,8 @@ Route::post('/remove-admin-barangay-officials/{id}/{idPage}', 'BarangayOfficials
 
 // baranga list
 Route::get('/admin-barangay', 'BarangayController@index')->name('barangay');
+Route::get('/admin-barangay-edit/{idPost}', 'BarangayController@index')->name('barangay');
+Route::post('/admin-barangay-update/{idPost}', 'BarangayController@store')->name('barangay');
 Route::get('/admin-barangay/{department}', 'BarangayController@indexAdmin')->name('barangay');
 Route::post('/admin-barangay', 'BarangayController@store')->name('barangay_create');
 Route::get('/approve-admin-barangay/{id}', 'BarangayController@approve')->name('approve-barangay');
@@ -258,6 +266,8 @@ Route::post('/remove-admin-barangay/{id}/{idPage}', 'BarangayController@remove')
 
 // contact # office list
 Route::get('/contact-number-office', 'ContactNumberOfficeController@index')->name('contact-number-office');
+Route::get('/contact-number-office-edit/{idPost}', 'ContactNumberOfficeController@index')->name('contact-number-office');
+Route::post('/contact-number-office-update/{idPost}', 'ContactNumberOfficeController@store')->name('contact-number-office');
 Route::get('/contact-number-office/{department}', 'ContactNumberOfficeController@indexAdmin')->name('contact-number-office');
 Route::post('/contact-number-office-create', 'ContactNumberOfficeController@store')->name('contact-number-office-create');
 Route::get('/approve-admin-contact-number/{id}', 'ContactNumberOfficeController@approve')->name('approve-contact-number-office');
@@ -266,6 +276,8 @@ Route::post('/remove-admin-contact-number/{id}/{idPage}', 'ContactNumberOfficeCo
 
 // org chart list
 Route::get('/org-chart-office', 'OrganizationalChartController@index')->name('org-chart-office');
+Route::get('/org-chart-office-edit/{idPost}', 'OrganizationalChartController@index')->name('org-chart-office');
+Route::post('/org-chart-office-update/{idPost}', 'OrganizationalChartController@store')->name('org-chart-office');
 Route::get('/org-chart-office/{department}', 'OrganizationalChartController@indexAdmin')->name('org-chart-office');
 Route::post('/org-chart-office-create', 'OrganizationalChartController@store')->name('org-chart-office-create');
 Route::get('/approve-org-chart-office/{id}', 'OrganizationalChartController@approve')->name('approve-org-chart-office');
@@ -290,6 +302,8 @@ Route::get('/remove-national/{id}', 'NationalOfficeController@remove')->name('re
 // head
 
 Route::get('/admin-functionalities', 'DepartmentFunctionalityController@index')->name('functionalities');
+Route::get('/admin-functionalities-edit/{idPost}', 'DepartmentFunctionalityController@index')->name('functionalities');
+Route::post('/admin-functionalities-update/{idPost}', 'DepartmentFunctionalityController@store')->name('functionalities');
 Route::get('/admin-functionalities/{department}', 'DepartmentFunctionalityController@indexAdmin')->name('functionalities');
 Route::post('/functionalities', 'DepartmentFunctionalityController@store')->name('functionalities_create');
 Route::get('/approve-functionalities/{id}', 'DepartmentFunctionalityController@approve')->name('approve-functionalities');
@@ -298,6 +312,8 @@ Route::post('/remove-functionalities/{id}/{idPage}', 'DepartmentFunctionalityCon
 // landing images
 
 Route::get('/admin-landingImage', 'LandingImageController@index')->name('landing-image');
+Route::get('/admin-landingImage-edit/{id}', 'LandingImageController@index')->name('landing-image');
+Route::post('/admin-landingImage-update/{id}', 'LandingImageController@store')->name('landing-image');
 Route::get('/admin-landingImage/{department}', 'LandingImageController@indexAdmin')->name('landing-image');
 Route::get('/admin-landingImage-rd', 'LandingImageController@indexRd')->name('landing-image-rd');
 Route::post('/landingImage', 'LandingImageController@store')->name('landing-image-create');
@@ -307,6 +323,8 @@ Route::post('/remove-landingImage/{id}/{idPage}', 'LandingImageController@remove
 
 
 Route::get('/emergencyHotlines', 'EmergencyHotlineController@index')->name('emergency-Hotlines');
+Route::get('/emergencyHotlines-edit/{id}', 'EmergencyHotlineController@index')->name('emergency-Hotlines');
+Route::post('/emergencyHotlines-update/{id}', 'EmergencyHotlineController@store')->name('emergency-Hotlines');
 Route::get('/emergencyHotlines/{department}', 'EmergencyHotlineController@indexAdmin')->name('emergency-Hotlines');
 Route::post('/emergencyHotlines-submit', 'EmergencyHotlineController@store')->name('emergency-Hotlines-create');
 Route::get('/approve-emergencyHotlines/{id}', 'EmergencyHotlineController@approve')->name('approve-emergency-Hotlines');

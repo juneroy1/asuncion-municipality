@@ -62,6 +62,8 @@ class AdminController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
+                'update'=> false,
+                'edit' => false
                 // 'idPage' => $department,
             ]);
             //         // $allDepartments = DepartmentAdminModel::all();
@@ -133,7 +135,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost)
     {
         $user = Auth::user();
         $id = Auth::id();
@@ -142,31 +144,38 @@ class AdminController extends Controller
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-        $imageName = time() . '.' . $request->image->extension();
-        // $request->image->move(public_path('uploadImage/'.$department), $imageName);
-        $image = $request->image;
-        $destinationPath = public_path('updates/');
-        // \File::mkdir($destinationPath);
-        $img = Image::make($image->getRealPath());
-        $img->resize(null, 600, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath . '/' . $imageName);
-        // $img->move($destinationPath, $imageName);
-        // $destinationPath = public_path('uploadImage/'.$department);
-        // $image->move($destinationPath, $imageName);
-        // echo $imageName;die;
+
         $updates = Update::all();
-        $update = new Update;
-        $update->image = $imageName;
+        $update = $idPost? Update::find($idPost): new Update;
+
+        if ($request->image) {
+            $imageName = time() . '.' . $request->image->extension();
+            // $request->image->move(public_path('uploadImage/'.$department), $imageName);
+            $image = $request->image;
+            $destinationPath = public_path('updates/');
+            // \File::mkdir($destinationPath);
+            $img = Image::make($image->getRealPath());
+            $img->resize(null, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $imageName);
+            // $img->move($destinationPath, $imageName);
+            // $destinationPath = public_path('uploadImage/'.$department);
+            // $image->move($destinationPath, $imageName);
+            // echo $imageName;die;
+            
+            $update->image = $imageName;
+        }
+        
         $update->title = $request->title;
         $update->description = $request->description;
         $update->description_local = $request->description_local;
+        $update->remarks = $request->remarks;
         $update->user_id = $id;
         $update->is_approved = 2;
         $update->department_id = $department;
         $update->save();
-        session()->flash('success', 'successfully added new updates');
-        return redirect()->back()->with(['updates' => $updates]);
+        session()->flash('success', $idPost?'successfully updated':'successfully added new updates');
+        return redirect('/admin')->with(['updates' => $updates]);
     }
 
     public function approve($idPost, $idPage)
@@ -295,16 +304,80 @@ class AdminController extends Controller
     public function edit($idPost)
     {
         //
+        // $user = Auth::user();
+        // $id = Auth::id();
+        // $department = $user->department;
+        // $find = Update::find($idPost);
+
+        // // echo $find->title; die;
+        // return view('admin.edit_update', [
+        //     'update' => $find,
+        //     'department' => $department,
+        // ]);
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
-        $find = Update::find($idPost);
+        $department = $user->department_admin_model_id;
+        //
+        if ($department == 'super_admin') {
+            # code...
+            $updates = Update::all();
+            // $listRequest = Department::withCount('updates')->get();
+        } else {
 
-        // echo $find->title; die;
-        return view('admin.edit_update', [
-            'update' => $find,
-            'department' => $department,
-        ]);
+            $updates = Update::where('department_id', '=', $department)->withCount('department')->get();
+            // $listRequest = Department::where('department_id', '=', $department)->withCount('updates')->get();
+        }
+        $listRequest = Department::withCount('updates')->get();
+        $update = Update::find($idPost);
+        // dd($listRequest);
+        if ($department == 'super_admin') {
+            return view('admin.before.index', [
+                'updates' => $updates,
+                'department' => $department,
+                'listRequests' => $listRequest,
+                'pageName' => 'Update',
+                'pagePrefix' => 'admin-index'
+            ]);
+        } else {
+            return view('admin.index', [
+                'updates' => $updates,
+                'department' => $department,
+                'listRequests' => $listRequest,
+                'pageName' => 'Update',
+                'update'=> $update,
+                'edit' => true
+                // 'idPage' => $department,
+            ]);
+            //         // $allDepartments = DepartmentAdminModel::all();
+            //         $users = DB::table('updates')
+            //         ->select('updates.id as last_post_created_at','department',DB::raw('count(department) as count'))
+            //         // ->select('user_id', DB::raw('MAX(created_at) as last_post_created_at'))
+            //         // ->where('is_published', true)
+            //         ->groupBy('name');
+
+            //     $users2 = DB::table('departments')
+            //     ->joinSub($users, 'updates', function ($join) {
+            //         $join->on('departments.department', '=', 'updates.department');
+            //     })->get();
+
+            //     $users1 = DB::table('updates')
+            //     ->select('updates.id as last_post_created_at','department',DB::raw('count(department) as count'))
+            //     // ->select('user_id', DB::raw('MAX(created_at) as last_post_created_at'))
+            //     // ->where('is_published', true)
+            //     ->groupBy('department');
+
+            // $users22 = DB::table('departments')
+            // ->joinSub($users1, 'updates', function ($join) {
+            //     $join->on('departments.department', '!=', 'updates.department');
+            // })->get();
+            //         dd($users22);
+
+            //         return view('admin.indexDepartmentList', [
+            //             'updates'=> $updates, 
+            //             'department' => $department,
+            //             'allDepartments' => $allDepartments
+            //         ]);
+        }
     }
 
     /**

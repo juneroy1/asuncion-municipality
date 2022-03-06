@@ -31,7 +31,7 @@ class BarangayOfficialsController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -44,7 +44,8 @@ class BarangayOfficialsController extends Controller
         }else{
             $barangay_officials = BarangayOfficialModel::where('department_id', '=', $department)->get();
         }
-
+        
+        $update = $idPost ? BarangayOfficialModel::find($idPost):false;
         $listRequest = Department::withCount('barangayOfficials')->get();
 
         if ($department =='super_admin') {
@@ -61,6 +62,8 @@ class BarangayOfficialsController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Barangay Officials',
+                'update' => $update,
+                'edit' => $idPost? true:false,
                 // 'idPage' => $department,
             ]);
  
@@ -85,44 +88,50 @@ class BarangayOfficialsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost)
     {
         //
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
+        $barangay_officials = BarangayOfficialModel::all();
+        $member = $idPost? BarangayOfficialModel::find($idPost):new BarangayOfficialModel;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
         // $imageName = time().'.'.$request->image->extension(); 
         // $request->image->move(public_path('images'), $imageName);
-        $imageName = time().'.'.$request->image->extension(); 
-        // $request->image->move(public_path('uploadImage/'.$department), $imageName);
-        $image = $request->image;
-        $destinationPath = public_path('barangay_officials/');
-        // \File::mkdir($destinationPath);
-        $img = Image::make($image->getRealPath());
-        $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
-        // echo $imageName;die;
-        $barangay_officials = BarangayOfficialModel::all();
-        $member = new BarangayOfficialModel;
-        $member->image = $imageName;
+
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension(); 
+            // $request->image->move(public_path('uploadImage/'.$department), $imageName);
+            $image = $request->image;
+            $destinationPath = public_path('barangay_officials/');
+            // \File::mkdir($destinationPath);
+            $img = Image::make($image->getRealPath());
+            $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
+            // echo $imageName;die;
+            
+            $member->image = $imageName;
+        }
+        
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
-        // $member->position = $request->position;
-        // $member->address = $request->address;
-        // $member->birthdate = $request->birthdate;
-        // $member->religion = $request->religion;
-        // $member->educational_attainment = $request->educational_attainment;
-        // $member->course = $request->course;
-        // $member->others = $request->others;
+        $member->position = $request->position;
+        $member->address = $request->address;
+        $member->birthdate = $request->birthdate;
+        $member->religion = $request->religion;
+        $member->educational_attainment = $request->educational_attainment;
+        $member->course = $request->course;
+        $member->others = $request->others;
+        $member->remarks = $request->remarks;
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;
         $member->save();
-        session()->flash('success', 'successfully added new barangay officials');
-        return redirect()->back()->with(['barangay_officials'=>$barangay_officials]);
+        session()->flash('success', $idPost? 'successfully update barangay official':'successfully added new barangay officials');
+        return redirect('/admin-barangay-officials')->with(['barangay_officials'=>$barangay_officials]);
     }
 
     public function approve($idPost)

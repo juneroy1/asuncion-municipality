@@ -29,7 +29,7 @@ class DepartmentFunctionalityController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -44,6 +44,7 @@ class DepartmentFunctionalityController extends Controller
         }
         $listRequest = Department::withCount('officeMandate')->get();
         
+        $update = $idPost? DepartmentFunctionality::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -58,7 +59,9 @@ class DepartmentFunctionalityController extends Controller
                 'functionalities'=> $functionalities, 
                 'department' => $department,
                 'listRequests' => $listRequest,
-                'pageName' => 'Office Mandate'
+                'pageName' => 'Office Mandate',
+                'update' => $update,
+                'edit' => $idPost? true:false,
             ]);
         }
         // return view('admin.functionalities', ['functionalities'=> $functionalities, 'department' => $department]);
@@ -80,7 +83,7 @@ class DepartmentFunctionalityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost = false)
     {
         //
         $user = Auth::user();
@@ -90,18 +93,18 @@ class DepartmentFunctionalityController extends Controller
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-       
         // echo $imageName;die;
         $functionalities = DepartmentFunctionality::all();
-        $functionality = new DepartmentFunctionality;
+        $functionality = $idPost? DepartmentFunctionality::find($idPost): new DepartmentFunctionality;
         $functionality->description = $request->description;
         
         $functionality->user_id = $id;
         $functionality->is_approved = 2;
         $functionality->department_id = $department;
+        $functionality->remarks = $request->remarks?$request->remarks:'' ;
         $functionality->save();
-        session()->flash('success', 'successfully added new functionalities');
-        return redirect()->back()->with(['functionalities'=>$functionalities]); 
+        session()->flash('success', $idPost?'successfully update office mandate':'successfully added new office mandate');
+        return redirect('/admin-functionalities')->with(['functionalities'=>$functionalities]); 
     }
 
     public function approve($idPost)

@@ -31,7 +31,7 @@ class AnnouncementController extends Controller
             'idPage' => $department,
         ]);
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -46,6 +46,7 @@ class AnnouncementController extends Controller
         }
         $listRequest = Department::withCount('announcement')->get();
 
+        $update = Announcement::find($idPost);
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -60,7 +61,9 @@ class AnnouncementController extends Controller
                 'anns'=> $anns, 
                 'department' => $department,
                 'listRequests' => $listRequest,
-                'pageName' => 'Announcement'
+                'pageName' => 'Announcement',
+                'edit' => $idPost? true: false,
+                'update' => $idPost?$update: false,
             ]);
         }
         
@@ -96,29 +99,32 @@ class AnnouncementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost = false)
     {
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department_admin_model_id;
-        $imageName = time().'.'.$request->image->extension(); 
-        $request->image->move(public_path('images'), $imageName);
-
         $anns = Announcement::all();
         // save announcement
-        $ann = new Announcement;
+        $ann = $idPost? Announcement::find($idPost): new Announcement;
+        $department = $user->department_admin_model_id;
+
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension(); 
+            $request->image->move(public_path('images'), $imageName);
+            $ann->image = $imageName;
+        }
         
-        $ann->image = $imageName;
         $ann->title = $request->title;
         $ann->description = $request->description;
         $ann->is_approved = 2;
         $ann->user_id = $id;
         $ann->department_id = $department;
+        $ann->remarks = $request->remarks;
         $ann->save();
 
         session()->flash('success', 'successfully added new announcement');
-        return redirect()->back()->with(['anns'=>$anns]);  
+        return redirect('/admin-announcement')->with(['anns'=>$anns]);  
     }
 
     public function approve($idPost)
