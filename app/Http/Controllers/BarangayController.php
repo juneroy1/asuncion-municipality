@@ -29,6 +29,9 @@ class BarangayController extends Controller
             'barangays'=> $barangays, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -55,7 +58,10 @@ class BarangayController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Barangay',
-                'pagePrefix' => 'admin-barangay'
+                'pagePrefix' => 'admin-barangay',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.baranggay', [
@@ -65,6 +71,7 @@ class BarangayController extends Controller
                 'pageName' => 'Barangay',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

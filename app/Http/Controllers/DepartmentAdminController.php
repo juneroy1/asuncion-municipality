@@ -47,7 +47,15 @@ class DepartmentAdminController extends Controller
         }
         // dd($departments[3]);
         $getAlldepartments = DepartmentAdminModel::all();
-        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> false, 'getAlldepartments' => $getAlldepartments]);
+        return view('admin.department', [
+            'departments'=> $departments,
+            'department' => $department, 
+            'showDepartmentsPart'=> false, 
+            'getAlldepartments' => $getAlldepartments,
+            'updateTotal' => false,
+            'update'=> false,
+            'edit' => false,
+        ]);
     }
 
     /**
@@ -235,6 +243,12 @@ class DepartmentAdminController extends Controller
     public function update(Request $request, $idPost)
     {
         //
+        $this->validate($request,[
+            'image'=>'required',
+            'description'=>'required',
+            'department_name'=>'required',
+            'remarks'=>'required',
+         ]);
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
@@ -286,7 +300,7 @@ class DepartmentAdminController extends Controller
 
 
         $member->name = $request->name;
-        $member->d_head_name = $request->d_head_name;
+        // $member->d_head_name = $request->d_head_name;
         $member->description = $request->description;
         $member->user_id = $id;
         $member->is_approved = 2;

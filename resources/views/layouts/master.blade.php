@@ -30,7 +30,7 @@
         <link href="{{asset('css/styles.css')}}" rel="stylesheet">
         <style>
             .test{
-                background-image: url("/images/Municipal Logo.png") !important;
+                background-image: url("/images/MunicipalLogo2.png") !important;
                 background-size: cover;
             }
         </style>

@@ -24,6 +24,9 @@ class ContactNumberOfficeController extends Controller
             'contact_number_offices'=> $contact_number_offices, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost= false)
@@ -48,7 +51,10 @@ class ContactNumberOfficeController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Contact Number Office',
-                'pagePrefix' => 'contact-number-office'
+                'pagePrefix' => 'contact-number-office',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.contact_number_office', [
@@ -58,6 +64,7 @@ class ContactNumberOfficeController extends Controller
                 'pageName' => 'Contact Number Office',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

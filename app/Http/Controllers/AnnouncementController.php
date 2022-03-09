@@ -29,6 +29,9 @@ class AnnouncementController extends Controller
             'anns'=> $anns, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -54,7 +57,10 @@ class AnnouncementController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Announcement',
-                'pagePrefix' => 'admin-announcement'
+                'pagePrefix' => 'admin-announcement',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.announcement', [
@@ -64,6 +70,7 @@ class AnnouncementController extends Controller
                 'pageName' => 'Announcement',
                 'edit' => $idPost? true: false,
                 'update' => $idPost?$update: false,
+                'updateTotal' => false,
             ]);
         }
         
@@ -80,6 +87,9 @@ class AnnouncementController extends Controller
         return view('admin.announcement', [
             'anns'=> $anns, 
             'department' => $departmentUser,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
 

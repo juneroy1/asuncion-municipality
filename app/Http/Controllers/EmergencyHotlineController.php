@@ -26,6 +26,9 @@ class EmergencyHotlineController extends Controller
             'emergencyHotlines'=> $emergencyHotlines, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -50,7 +53,10 @@ class EmergencyHotlineController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Emergency Hotlines',
-                'pagePrefix' => 'emergencyHotlines'
+                'pagePrefix' => 'emergencyHotlines',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.emergency_hotline', [
@@ -59,7 +65,8 @@ class EmergencyHotlineController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Emergency Hotlines',
                 'update' => $update,
-                'edit' => $idPost? true:false
+                'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

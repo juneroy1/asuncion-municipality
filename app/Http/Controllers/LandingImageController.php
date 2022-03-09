@@ -31,6 +31,9 @@ class LandingImageController extends Controller
             'landingImage'=> $landingImage, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -56,7 +59,10 @@ class LandingImageController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Landing Image',
-                'pagePrefix' => 'admin-landingImage'
+                'pagePrefix' => 'admin-landingImage',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.landingImage', [
@@ -66,6 +72,7 @@ class LandingImageController extends Controller
                 'pageName' => 'Landing Image',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
             ]);
         }
 

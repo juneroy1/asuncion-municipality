@@ -62,7 +62,7 @@ class ArchiveController extends Controller
             $archives = Archive::where('department_id', '=', $department)->get();
         }
 
-        return view('admin.archive', ['archives'=> $archives,'department' => $department]);
+        return view('admin.archive', ['archives'=> $archives,'department' => $department, 'updateTotal' => false,]);
     }
 
     public function indexDepartmentAdmin($department){
@@ -76,6 +76,10 @@ class ArchiveController extends Controller
             'archives'=> $archives, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
+            
             
         ]);
     }
@@ -101,7 +105,10 @@ class ArchiveController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Archive Department',
-                'pagePrefix' => 'admin-department-archive'
+                'pagePrefix' => 'admin-department-archive',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.archive_department', [
@@ -111,6 +118,7 @@ class ArchiveController extends Controller
                 'pageName' => 'Archive Department',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

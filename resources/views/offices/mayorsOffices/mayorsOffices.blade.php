@@ -13,8 +13,9 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 {{-- in this div insert this --}}
+                {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
                 {{-- style="background-image: url({{ $department->image_wmask? '../../departments_image_wmask/' . $department->image_wmask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice">
+                <div id="header" class="headerMayorOffice" style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" >
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
@@ -48,8 +49,9 @@
             </div>
             <div class="carousel-item">
                 {{-- in this div insert this --}}
+                {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
                 {{-- style="background-image: url({{ $department->image_womask? '../../departments_image_womask/' . $department->image_womask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice2">
+                <div id="header" class="headerMayorOffice2" style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
@@ -328,6 +330,9 @@
 
                     {{-- <img class="card-image" src="images/officials/IMG_0614.JPG" alt="alternative"> --}}
                 </div>
+            </div>
+        </div>
+    </div>
                 <br>
                 <br>
                 <div style="background-color: #eef5f9;
@@ -666,7 +671,5 @@
 
 
                 <br>
-            </div>
-        </div>
-
+            
     @stop

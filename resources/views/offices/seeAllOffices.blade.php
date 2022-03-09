@@ -40,7 +40,9 @@
                                             align-items: center;
                                             align-content: center;">
                                             {{-- '/departments/'.$department->image --}}
-                            <img style="display: inline; width:40%" src="{{$department->image? 'landing_images/1631172177.jpg':'landing_images/1631172177.jpg'}}" alt="..."
+                                            {{-- landing_images/1631172177.jpg --}}
+                                            {{-- /images/Municipal Logo.png --}}
+                            <img style="display: inline; width:40%" src="{{$department->image? '/landing_images/'.$department->image:'/images/Municipal Logo.png'}}" alt="..."
                                 class="img-thumbnail">
                             <div style="display: inline-block;margin-left: 40px;">
                                 <h1>{{$department->name}}</h1>

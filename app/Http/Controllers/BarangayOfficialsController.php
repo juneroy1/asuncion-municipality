@@ -29,6 +29,9 @@ class BarangayOfficialsController extends Controller
             'barangay_officials'=> $barangay_officials, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -54,7 +57,10 @@ class BarangayOfficialsController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Barangay Officials',
-                'pagePrefix' => 'admin-barangay-officials'
+                'pagePrefix' => 'admin-barangay-officials',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.baranggay_officials', [
@@ -64,6 +70,7 @@ class BarangayOfficialsController extends Controller
                 'pageName' => 'Barangay Officials',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

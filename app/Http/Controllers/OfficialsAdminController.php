@@ -86,7 +86,11 @@ class OfficialsAdminController extends Controller
             $officials = OfficialsAdmin::where('department_id', '=', $department)->get();
         }
 
-        return view('admin.officials_admin', ['officials'=> $officials,'department' => $department]);
+        return view('admin.officials_admin', ['officials'=> $officials,'department' => $department,
+        'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,    
+    ]);
     }
 
     /**

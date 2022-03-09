@@ -25,6 +25,9 @@ class OrganizationalChartController extends Controller
             'org_charts'=> $org_charts, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -51,7 +54,10 @@ class OrganizationalChartController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Organizational Chart',
-                'pagePrefix' => 'org-chart-office'
+                'pagePrefix' => 'org-chart-office',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.organizational_chart', [
@@ -61,6 +67,7 @@ class OrganizationalChartController extends Controller
                 'pageName' => 'Organizational Chart',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
  

@@ -29,7 +29,9 @@ class MemberController extends Controller
             'department' => $departmentUser,
             'idPage' => $department,
             'member' => false,
-            "edit" => false,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function indexPersonnel(){
@@ -54,6 +56,9 @@ class MemberController extends Controller
                 'pageName' => 'Personnel',
                 'pagePrefix' => 'admin-member',
                 'showDepartments' => true,
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.member_image', [
@@ -64,6 +69,7 @@ class MemberController extends Controller
                 'showDepartments' => true,
                 'member'=> false,
                 'edit'=> false,
+                'updateTotal' => false,
             ]);
         }
     }
@@ -91,6 +97,9 @@ class MemberController extends Controller
                 'pageName' => 'Member',
                 'pagePrefix' => 'admin-member',
                 'showDepartments' => false,
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.member', [
@@ -101,6 +110,7 @@ class MemberController extends Controller
                 'showDepartments' => false,
                 'member' => false,
                 "edit" => false,
+                'updateTotal' => false,
             ]);
         }
         // return view('admin.member', ['members'=> $members,'department' => $department]);
@@ -131,6 +141,9 @@ class MemberController extends Controller
                 'pageName' => 'Member',
                 'pagePrefix' => 'admin-member',
                 'showDepartments' => false,
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.member', [
@@ -141,6 +154,7 @@ class MemberController extends Controller
                 'showDepartments' => false,
                 'member' => $member,
                 "edit" => true,
+                'updateTotal' => false,
             ]);
         }
         // return view('admin.member', ['members'=> $members,'department' => $department]);
@@ -162,7 +176,7 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function createPersonnel(Request $request, $idPost)
+    public function createPersonnel(Request $request, $idPost = false)
     {
         $user = Auth::user();
         $id = Auth::id();
@@ -186,7 +200,7 @@ class MemberController extends Controller
         $member->remarks = $request->remarks;
        
         $member->user_id = $id;
-        $member->is_approved = 2;
+        $member->is_approved = 1;
         $member->department_id = $department;
         $member->save();
         session()->flash('success', $idPost?'successfully update personnal group image':'successfully added new personnal group image');
@@ -407,6 +421,8 @@ class MemberController extends Controller
             'pageName' => 'Personnel',
             'member' => $member,
             'edit' => true,
+            'update'=> false,
+            'edit' => false,
         ]);
     }
     /**

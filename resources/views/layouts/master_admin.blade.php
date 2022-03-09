@@ -156,7 +156,11 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin" aria-expanded="false">
                                 <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Upload
-                                    Update</span></a>
+                                    Update <span style="border-radius: 50px;
+                                    color: white;
+                                    background-color: red;
+                                    width: 100px;
+                                    height: 100px;">{{ $updateTotal > 0 ? $updateTotal : '' }}</span></span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-announcement" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
@@ -165,8 +169,9 @@
                                 href="/admin-member" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Office Head</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/admin-member-personnel" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Office Personnel</span></a></li>
+                                href="/admin-member-personnel" aria-expanded="false"><i
+                                    class="mdi me-2 mdi-table"></i><span class="hide-menu">Office
+                                    Personnel</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-functionalities" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Office

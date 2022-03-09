@@ -1,4 +1,8 @@
-@extends('layouts.master_admin', ['title' => 'landingImage', 'subtitle' => ''])
+@extends('layouts.master_admin', [
+    'title' => 'landingImage',
+     'subtitle' => '',
+     'updateTotal' => $updateTotal?$updateTotal:0,
+     ])
 
 @section('content')
         <!-- ============================================================== -->

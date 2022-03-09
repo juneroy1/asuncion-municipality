@@ -27,6 +27,9 @@ class DepartmentFunctionalityController extends Controller
             'functionalities'=> $functionalities, 
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function index($idPost = false)
@@ -52,7 +55,10 @@ class DepartmentFunctionalityController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Office Mandate',
-                'pagePrefix' => 'admin-functionalities'
+                'pagePrefix' => 'admin-functionalities',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         }else{
             return view('admin.functionalities', [
@@ -62,6 +68,7 @@ class DepartmentFunctionalityController extends Controller
                 'pageName' => 'Office Mandate',
                 'update' => $update,
                 'edit' => $idPost? true:false,
+                'updateTotal' => false,
             ]);
         }
         // return view('admin.functionalities', ['functionalities'=> $functionalities, 'department' => $department]);

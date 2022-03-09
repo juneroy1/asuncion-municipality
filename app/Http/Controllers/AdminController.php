@@ -7,6 +7,10 @@ use App\Update;
 use App\Department;
 use App\Announcement;
 use App\Member;
+use App\Archive;
+use App\Councilors;
+use App\DepartmentAdminModel;
+use App\OfficialsAdmin;
 use App\DepartmentFunctionality;
 use App\LandingImage;
 use App\EmergencyHotline;
@@ -47,14 +51,34 @@ class AdminController extends Controller
         }
         $listRequest = Department::withCount('updates')->get();
 
-        // dd($listRequest);
+
+        $updateTotal = Update::where('is_approved', '=', '2')->count();
+        $AnnouncementTotal = Announcement::where('is_approved', '=', '2')->count();
+        $ArchiveTotal = Archive::where('is_approved', '=', '2')->count();
+        $ArchiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '2')->count();
+        $BarangayModelTotal = BarangayModel::where('is_approved', '=', '2')->count();
+        $BarangayOfficialModelTotal = BarangayOfficialModel::where('is_approved', '=', '2')->count();
+        $ContactNumberOfficeTotal = ContactNumberOffice::where('is_approved', '=', '2')->count();
+        $CouncilorsTotal = Councilors::where('is_approved', '=', '2')->count();
+        $DepartmentTotal = Department::where('is_approved', '=', '2')->count();
+        $DepartmentAdminModelTotal = DepartmentAdminModel::where('is_approved', '=', '2')->count();
+        $DepartmentFunctionalityTotal = DepartmentFunctionality::where('is_approved', '=', '2')->count();
+        $EmergencyHotlineTotal = EmergencyHotline::where('is_approved', '=', '2')->count();
+        $LandingImageTotal = LandingImage::where('is_approved', '=', '2')->count();
+        $MemberTotal = Member::where('is_approved', '=', '2')->count();
+        $OfficialsAdminTotal = OfficialsAdmin::where('is_approved', '=', '2')->count();
+        $OrganizationalChartTotal = OrganizationalChart::where('is_approved', '=', '2')->count();
+        // dd($updateTotal);
         if ($department == 'super_admin') {
             return view('admin.before.index', [
                 'updates' => $updates,
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
-                'pagePrefix' => 'admin-index'
+                'pagePrefix' => 'admin-index',
+                'updateTotal' => $updateTotal,
+                'update'=> false,
+                'edit' => false,
             ]);
         } else {
             return view('admin.index', [
@@ -63,7 +87,8 @@ class AdminController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
                 'update'=> false,
-                'edit' => false
+                'edit' => false,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
             //         // $allDepartments = DepartmentAdminModel::all();
@@ -109,6 +134,9 @@ class AdminController extends Controller
             'updates' => $updates,
             'department' => $departmentUser,
             'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
 
@@ -137,6 +165,20 @@ class AdminController extends Controller
      */
     public function store(Request $request, $idPost)
     {
+        if ($idPost) {
+            $this->validate($request,[
+                'remarks'=>'required',
+                'title'=>'required',
+                'description'=>'required',
+                'description_local'=>'required',
+             ]);
+        }else{
+            $this->validate($request,[
+                'title'=>'required',
+                'description'=>'required',
+                'description_local'=>'required',
+             ]);
+        }
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
@@ -244,6 +286,8 @@ class AdminController extends Controller
             'department' => $department,
             'idPage' => $idPage,
             'model' => $model,
+            'edit' => false,
+            'updateTotal' => false,
         ]);
     }
     public function remove(Request $request, $idPost, $idPage)
@@ -336,7 +380,10 @@ class AdminController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
-                'pagePrefix' => 'admin-index'
+                'pagePrefix' => 'admin-index',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
             ]);
         } else {
             return view('admin.index', [
@@ -345,7 +392,8 @@ class AdminController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
                 'update'=> $update,
-                'edit' => true
+                'edit' => true,
+                'updateTotal' => false,
                 // 'idPage' => $department,
             ]);
             //         // $allDepartments = DepartmentAdminModel::all();

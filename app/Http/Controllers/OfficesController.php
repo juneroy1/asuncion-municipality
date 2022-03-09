@@ -69,7 +69,10 @@ class OfficesController extends Controller
             'organizationalChart' => $organizationalChart,
             'archives' => $archives,
             'department' => $department,
-            'personnel' => $personnel
+            'personnel' => $personnel,
+            'updateTotal' => false,
+            'update'=> false,
+                'edit' => false,
         ]);
     }
 
@@ -112,7 +115,10 @@ class OfficesController extends Controller
             'contactNumberOffices'=>$contactNumberOffices,
             'organizationalChart' => $organizationalChart,
             'archives' => $archives,
-            'department' => $department
+            'department' => $department,
+            'updateTotal' => false,
+            'update'=> false,
+                'edit' => false,
         ]);
     }
 
@@ -137,6 +143,9 @@ class OfficesController extends Controller
             'officials'=> $officials,
             'barangay_officials'=> $barangay_officials,
             'barangays'=> $barangays,
+            'updateTotal' => false,
+            'update'=> false,
+                'edit' => false,
         ]);
     }
 }
