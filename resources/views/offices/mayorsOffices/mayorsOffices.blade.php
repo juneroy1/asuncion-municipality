@@ -15,7 +15,7 @@
                 {{-- in this div insert this --}}
                 {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
                 {{-- style="background-image: url({{ $department->image_wmask? '../../departments_image_wmask/' . $department->image_wmask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice" style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" >
+                <div id="header" class="headerMayorOffice" style="background-image: url({{ $department->image? '/departments/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" >
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
@@ -51,7 +51,7 @@
                 {{-- in this div insert this --}}
                 {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
                 {{-- style="background-image: url({{ $department->image_womask? '../../departments_image_womask/' . $department->image_womask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice2" style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important">
+                <div id="header" class="headerMayorOffice2" style="background-image: url({{ $department->image? '/departments/' . $department->image: '/landing_images/1631172177.jpg' }}) !important">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">

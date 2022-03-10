@@ -207,7 +207,7 @@ class MemberController extends Controller
         return redirect('/admin-member-personnel')->with(['members'=>$members]);  
     }
 
-    public function store(Request $request, $idPost)
+    public function store(Request $request, $idPost=false)
     {
         //
         $user = Auth::user();

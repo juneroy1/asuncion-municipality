@@ -30,7 +30,11 @@ class DepartmentAdminController extends Controller
 
         $getAlldepartments = DepartmentAdminModel::all();
 
-        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> true, 'getAlldepartments' => $getAlldepartments]);
+        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> true, 'getAlldepartments' => $getAlldepartments,
+        'updateTotal' => false,
+        'update'=> false,
+        'edit' => false,
+    ]);
     }
     public function index()
     {
@@ -229,7 +233,10 @@ class DepartmentAdminController extends Controller
         
         $admint_department  = DepartmentAdminModel::find($idPost);
         // dd($admint_department);
-        return view('admin.edit_department', ['admint_department'=> $admint_department,'department' => $department]);
+        return view('admin.edit_department', ['admint_department'=> $admint_department,'department' => $department,
+        'updateTotal' => false,
+        'update'=> false,
+        'edit' => false,]);
 
     }
 
@@ -246,8 +253,6 @@ class DepartmentAdminController extends Controller
         $this->validate($request,[
             'image'=>'required',
             'description'=>'required',
-            'department_name'=>'required',
-            'remarks'=>'required',
          ]);
         $user = Auth::user();
         $id = Auth::id();

@@ -163,7 +163,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $idPost)
+    public function store(Request $request, $idPost = false)
     {
         if ($idPost) {
             $this->validate($request,[
