@@ -271,6 +271,9 @@ class AdminController extends Controller
         }else if($model== 'ArchiveDepartment'){
             $find = ArchiveDepartment::find($idPost);
             
+        }else if($model== 'ArchiveOfficials'){
+            $find = Archive::find($idPost);
+            
         }else if($model == 'BarangayOfficialModel'){
             $find = BarangayOfficialModel::find($idPost);
         }else if($model == 'BarangayModel'){

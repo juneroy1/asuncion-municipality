@@ -48,7 +48,7 @@ class ArchiveController extends Controller
         return view('archive', ['archives'=> $archives,'department' => $department]);
         // $archives = Archive::where('department', 'LIKE', "$searchArchive%")->get();
     }
-    public function index()
+    public function index($idPost = false)
     {
         //
         $user = Auth::user();
@@ -62,7 +62,30 @@ class ArchiveController extends Controller
             $archives = Archive::where('department_id', '=', $department)->get();
         }
 
-        return view('admin.archive', ['archives'=> $archives,'department' => $department, 'updateTotal' => false,]);
+        $update = $idPost? Archive::find($idPost):false;
+        $listRequest = Department::withCount('archives')->get();
+        if ($department =='super_admin') {
+            return view('admin.before.index', [
+                'updates'=> $archives, 
+                'department' => $department,
+                'listRequests' => $listRequest,
+                'pageName' => 'Archive Official',
+                'pagePrefix' => 'admin-officials-archive',
+                'updateTotal' => false,
+                'update'=> false,
+                'edit' => false,
+            ]);
+        }else{
+            return view('admin.archive', [
+                'archives'=> $archives,
+                'department' => $department, 
+                'idPage' => $department,
+                'update' => $update,
+                'edit' => $idPost? true:false,
+                'updateTotal' => false,
+            ]);
+        }
+       
     }
 
     public function indexDepartmentAdmin($department){
@@ -73,6 +96,24 @@ class ArchiveController extends Controller
         
         // dd($departmentUser);
         return view('admin.archive_department', [
+            'archives'=> $archives, 
+            'department' => $departmentUser,
+            'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => false,
+            
+            
+        ]);
+    }
+    public function indexOfficialAdmin($department){
+        $archives = Archive::where('department_id', '=', $department)->get();
+        $user = Auth::user();
+        $id = Auth::id();
+        $departmentUser = $user->department_admin_model_id;
+        
+        // dd($departmentUser);
+        return view('admin.archive', [
             'archives'=> $archives, 
             'department' => $departmentUser,
             'idPage' => $department,
@@ -103,6 +144,7 @@ class ArchiveController extends Controller
             return view('admin.before.index', [
                 'updates'=> $archives, 
                 'department' => $department,
+                'idPage' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Archive Department',
                 'pagePrefix' => 'admin-department-archive',
@@ -119,7 +161,7 @@ class ArchiveController extends Controller
                 'update' => $update,
                 'edit' => $idPost? true:false,
                 'updateTotal' => false,
-                // 'idPage' => $department,
+                'idPage' => $department,
             ]);
  
         }
@@ -142,34 +184,53 @@ class ArchiveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idPost = false)
     {
+        if ($idPost) {
+            $this->validate($request,[
+                'title'=>'required',
+                'description'=>'required',
+                'remarks'=>'required',
+             ]);
+        }else{
+            $this->validate($request,[
+                'file'=>'required',
+                'title'=>'required',
+                'description'=>'required',
+             ]);
+        }
+        
         //
 
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
+
+        $archives = Archive::all();
+        $member = $idPost? Archive::find($idPost):new Archive;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
         // $imageName = time().'.'.$request->image->extension(); 
         // $request->image->move(public_path('images'), $imageName);
-        $fileName = time().'.'.$request->file->extension(); 
-        $request->file->move(public_path('archives/'), $fileName);
+        if ($request->file) {
+            $fileName = time().'.'.$request->file->extension(); 
+            $request->file->move(public_path('archives/'), $fileName);
+            
+            // echo $imageName;die;
+            
+            $member->file = $fileName;
+        }
         
-        // echo $imageName;die;
-        $archives = Archive::all();
-        $member = new Archive;
-        $member->file = $fileName;
         $member->title = $request->title;
         $member->description = $request->description;
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;
         $member->save();
-        session()->flash('success', 'successfully added new archive for official');
-        return redirect()->back()->with(['archives'=>$archives]);
+        session()->flash('success', $idPost ? 'successfully update archive for official': 'successfully added new archive for official');
+        return redirect('/admin-officials-archive')->with(['archives'=>$archives]);
     }
 
     public function storeDepartment(Request $request, $idPost =false){

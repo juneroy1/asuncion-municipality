@@ -110,7 +110,12 @@ class OfficialsAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $this->validate($request,[
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'position'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();
@@ -254,7 +259,12 @@ class OfficialsAdminController extends Controller
             $officials = OfficialsAdmin::where('department', '=', $department)->get();
         }
 
-        return view('admin.officials_admin_edit', ['officials'=> $officials,'official'=> $official,'department' => $department]);
+        return view('admin.officials_admin_edit', [
+            'officials'=> $officials,
+            'official'=> $official,
+            'department' => $department,
+            'updateTotal' => false
+        ]);
 
     }
 
@@ -267,6 +277,14 @@ class OfficialsAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+     
+        $this->validate($request,[
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'position'=>'required',
+            ]);
+      
         //
         $user = Auth::user();
         $idUser = Auth::id();
@@ -298,21 +316,21 @@ class OfficialsAdminController extends Controller
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
         $member->position = $request->position;
-        $member->address = $request->address;//$request->address;
-        $member->birthdate = $request->birthdate; //$request->birthdate;
-        $member->religion = $request->religion;//$request->religion;
-        $member->term_of_service = $request->term_of_service;//$request->religion;
-        $member->elective_title_experience	 = $request->elective_title_experience	;//$request->religion;
-        $member->eb_primary	 = $request->eb_primary	;//$request->religion;
-        $member->eb_secondary	 = $request->eb_secondary	;//$request->religion;
-        $member->eb_college	 = $request->eb_college	;//$request->religion;
-        $member->chairmanship	 = $request->chairmanship	;//$request->religion;
-        $member->vice_chairmanship	 = $request->vice_chairmanship	;//$request->religion;
-        $member->committee_membership	 = $request->committee_membership	;//$request->religion;
-        $member->quotation	 = $request->quotation	;//$request->religion;
+        $member->address = $request->address? $request->address: '';//$request->address;
+        $member->birthdate = $request->birthdate? $request->birthdate: ''; //$request->birthdate;
+        $member->religion = $request->religion? $request->religion: '';//$request->religion;
+        $member->term_of_service = $request->term_of_service? $request->term_of_service: '';//$request->religion;
+        $member->elective_title_experience	 = $request->elective_title_experience? $request->elective_title_experience: ''	;//$request->religion;
+        $member->eb_primary	 = $request->eb_primary ? $request->eb_primary: ''	;//$request->religion;
+        $member->eb_secondary	 = $request->eb_secondary ? $request->eb_secondary: ''	;//$request->religion;
+        $member->eb_college	 = $request->eb_college ? $request->eb_college: ''	;//$request->religion;
+        $member->chairmanship	 = $request->chairmanship ? $request->chairmanship: ''	;//$request->religion;
+        $member->vice_chairmanship	 = $request->vice_chairmanship ? $request->vice_chairmanship: ''	;//$request->religion;
+        $member->committee_membership	 = $request->committee_membership ? $request->committee_membership: ''	;//$request->religion;
+        $member->quotation	 = $request->quotation ? $request->quotation: ''	;//$request->religion;
         // $member->educational_attainment =''; //$request->educational_attainment;
-        $member->course = $request->course;//$request->course;
-        $member->others = $request->others;//$request->others;
+        $member->course = $request->course ? $request->course: '';//$request->course;
+        $member->others = $request->others ? $request->others: '';//$request->others;
         $member->user_id = $idUser;
         $member->is_approved = 2;
         $member->department_id = $department;

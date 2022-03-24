@@ -51,6 +51,11 @@ class Department extends Model
         return $this->hasMany(ArchiveDepartment::class)->where('is_approved', 2);
     }
 
+    public function archives()
+    {
+        return $this->hasMany(Archive::class)->where('is_approved', 2);
+    }
+
     public function barangayOfficials()
     {
         return $this->hasMany(BarangayOfficialModel::class)->where('is_approved', 2);

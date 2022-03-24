@@ -15,12 +15,12 @@
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
-                    <h3 class="page-title mb-0 p-0">Create Archive</h3>
+                    <h3 class="page-title mb-0 p-0">{{$edit? 'Update Archive':'Create Archive'}}</h3>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Create Archive</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{$edit? 'Update Archive':'Create Archive'}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -53,15 +53,29 @@
                         </ul>
                     </div>
                 @endif
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @if ($department != 'super_admin')
-                    <form method="POST" action="/officials-admin-archive" enctype="multipart/form-data"
+                    <form method="POST" action="{{$edit? '/officials-admin-archive-update/'.$update->id:'/officials-admin-archive'}}" enctype="multipart/form-data"
                         class="row">
                         @csrf
                         <!-- Column -->
                         <div class="col-lg-4 col-xlg-3 col-md-5">
                             <div class="card">
                                 <div class="card-body profile-card">
-                                    <center class="mt-4"> <img src="/images/fileupload.png" width="150" />
+                                    <center class="mt-4"> 
+                                        @if($edit)
+                                        <label for="">current file:&nbsp;</label><a href="/archives/{{ $update->file }}">{{ $update->file }}</a>
+                                        @endif
+                                        
+                                        <img src="/images/fileupload.png" width="150" />
                                         <h4 class="card-title mt-2">Upload an File</h4>
                                         <input type="file" name="file" class="form-control">
                                         <!-- <h6 class="card-subtitle"></h6> -->
@@ -113,17 +127,29 @@
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Title</label>
                                             <div class="col-md-12">
-                                                <input name="title" type="text" placeholder="Title of the update"
+                                                <input name="title" type="text" value="{{$edit?$update->title:''}}" placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Description</label>
                                             <div class="col-md-12">
-                                                <input name="description" type="text" placeholder="Title of the update"
+                                                <input name="description" type="text" value="{{$edit?$update->description:''}}" placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
+
+                                        @if ($edit)
+                                            <div class="form-group">
+                                                <label class="col-md-12 mb-0">Remarks
+                                                    <span style="color:red">*</span>
+                                                </label>
+                                                <div class="col-md-12">
+                                                    <textarea name="remarks" rows="5"
+                                                        class="form-control ps-0 form-control-line">{{ $edit ? $update->remarks : '' }}</textarea>
+                                                </div>
+                                            </div>
+                                        @endif
 
                                         <!-- <div class="form-group">
                                             <label class="col-sm-12">Select Country</label>
@@ -152,6 +178,8 @@
 
                     </form>
                 @endif
+
+                @if(!$edit)
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
@@ -191,11 +219,16 @@
                                                 <td>
                                                     @if ($department == 'super_admin')
                                                         {{-- @if ($archive->is_approved == 0) --}}
-                                                        <a href="/approve-list/{{ $archive->id }}">Approve</a>
+                                                        <!-- href="/approve-officials-archive/{{ $archive->id }}" -->
+                                                        <a class="btn btn-primary" style="color:white"
+                                                                onclick="approve({{ $archive->id }},{{ $idPage }})" >Approve</a>
                                                         {{-- @else --}}
-                                                        <a href="/remove-list/{{ $archive->id }}">Disapprove</a>
+                                                        <!-- href="/remove-officials-archive/{{ $archive->id }}" -->
+                                                        <a class="btn btn-danger" style="color:white"
+                                                                onclick="disapprove({{ $archive->id }},{{ $idPage }})" >Disapprove</a>
                                                         {{-- @endif --}}
-
+                                                    @else
+                                                    <a class="btn btn-default" style="color:white" href="/admin-officials-archive-edit/{{$archive->id}}">Edit/Show</a>
                                                     @endif
 
                                                 </td>
@@ -208,6 +241,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <!-- Column -->
             </div>
             <!-- Row -->
@@ -238,7 +272,7 @@
         function disapprove(id, idpage) {
             let confirm_Final = confirm("Do you really want to DISAPPROVE?");
             if (confirm_Final) {
-                window.location.href = "/admin-remarks/" + id + "/" + idpage
+                window.location.href = "/admin-remarks/" + id + "/" + idpage+ "/ArchiveOfficials"
             }
 
             // alert(id+" "+idpage);
@@ -248,7 +282,7 @@
         function approve(id, idpage) {
             let confirm_Final = confirm("Do you really want to APPROVE?");
             if (confirm_Final) {
-                window.location.href = "/approve-list/" + id + "/" + idpage
+                window.location.href = "/admin-officials-archive/" + id
             }
 
             // alert(id+" "+idpage);

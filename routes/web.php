@@ -231,7 +231,10 @@ Route::get('/remove-officials/{id}', 'OfficialsAdminController@remove')->name('r
 
 // officials archive admin
 Route::get('/admin-officials-archive', 'ArchiveController@index')->name('officials-archive');
+Route::get('/admin-officials-archive-edit/{id}', 'ArchiveController@index')->name('officials-archive');
 Route::post('/officials-admin-archive', 'ArchiveController@store')->name('admin-archive_create');
+Route::post('/officials-admin-archive-update/{id}', 'ArchiveController@store')->name('admin-archive_create');
+Route::get('/admin-officials-archive/{department}', 'ArchiveController@indexOfficialAdmin')->name('department-archive');
 Route::get('/approve-officials-archive/{id}', 'ArchiveController@approve')->name('approve-officials-archive');
 Route::get('/remove-officials-archive/{id}', 'ArchiveController@remove')->name('remove-officials-archive');
 

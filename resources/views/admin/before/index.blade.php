@@ -140,6 +140,13 @@
                                                     </div></a>   
                                                 @endif
 
+                                                @if ($pageName == 'Archive Official')
+                                                    <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
+                                                        <div class="{{$listRequest->archives_count > 0? 'notif-container':''}}">
+                                                        {{$listRequest->archives_count}}
+                                                    </div></a>   
+                                                @endif
+
                                                 @if ($pageName == 'Barangay Officials')
                                                     <a href="{{$pagePrefix}}/{{$listRequest->id}}">
                                                         <div class="{{$listRequest->barangay_officials_count > 0? 'notif-container':''}}">

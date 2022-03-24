@@ -230,16 +230,16 @@ class MemberController extends Controller
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
         $member->position = $request->position;
-        $member->address = $request->address;
-        $member->birthdate = $request->birthdate;
-        $member->religion = $request->religion;
-        $member->educational_attainment = $request->educational_attainment;
-        $member->course = $request->course;
+        $member->address = $request->address?$request->address: '' ;
+        $member->birthdate = $request->birthdate?$request->birthdate: '' ;
+        $member->religion = $request->religion ?$request->religion: '' ;
+        $member->educational_attainment = $request->educational_attainment ?$request->educational_attainment: '' ;
+        $member->course = $request->course ?$request->course: '' ;
         $member->others = $request->others? $request->others: '';
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;
-        $member->remarks = $request->remarks;
+        $member->remarks = $request->remarks?$request->remarks: '' ;
         $member->save();
         session()->flash('success', $idPost?'successfully update member':'successfully added new member');
         return redirect('/admin-member')->with(['members'=>$members]);  
@@ -421,8 +421,8 @@ class MemberController extends Controller
             'pageName' => 'Personnel',
             'member' => $member,
             'edit' => true,
-            'update'=> false,
-            'edit' => false,
+            'update'=> true,
+            'updateTotal' => false,
         ]);
     }
     /**
