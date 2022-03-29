@@ -23,18 +23,21 @@ class DepartmentAdminController extends Controller
         //
         if ($department =='super_admin') {
             # code...
-            $departments = DepartmentAdminModel::all();
+            $departments = DepartmentAdminModel::whereNotNull('department_id')->get();
         }else{
-            $departments = DepartmentAdminModel::where('department_name', '=', $department)->with('department')->get();
+            $departments = DepartmentAdminModel::where('department_name', '=', $department)->whereNotNull('department_id')->with('department')->get();
         }
-
+        // dd($departments[3]);
         $getAlldepartments = DepartmentAdminModel::all();
-
-        return view('admin.department', ['departments'=> $departments,'department' => $department, 'showDepartmentsPart'=> true, 'getAlldepartments' => $getAlldepartments,
-        'updateTotal' => false,
-        'update'=> false,
-        'edit' => false,
-    ]);
+        return view('admin.department', [
+            'departments'=> $departments,
+            'department' => $department, 
+            'showDepartmentsPart'=> false, 
+            'getAlldepartments' => $getAlldepartments,
+            'updateTotal' => false,
+            'update'=> false,
+            'edit' => false,
+        ]);
     }
     public function index()
     {
@@ -45,9 +48,9 @@ class DepartmentAdminController extends Controller
         //
         if ($department =='super_admin') {
             # code...
-            $departments = DepartmentAdminModel::all();
+            $departments = DepartmentAdminModel::whereNull('department_id')->get();
         }else{
-            $departments = DepartmentAdminModel::where('department_name', '=', $department)->with('department')->get();
+            $departments = DepartmentAdminModel::where('department_name', '=', $department)->whereNull('department_id')->with('department')->get();
         }
         // dd($departments[3]);
         $getAlldepartments = DepartmentAdminModel::all();
@@ -232,11 +235,14 @@ class DepartmentAdminController extends Controller
         $department = $user->department_admin_model_id;
         
         $admint_department  = DepartmentAdminModel::find($idPost);
+        $getAlldepartments = DepartmentAdminModel::all();
         // dd($admint_department);
         return view('admin.edit_department', ['admint_department'=> $admint_department,'department' => $department,
         'updateTotal' => false,
         'update'=> false,
-        'edit' => false,]);
+        'edit' => false,
+        'getAlldepartments' => $getAlldepartments
+    ]);
 
     }
 

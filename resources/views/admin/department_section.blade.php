@@ -1,4 +1,4 @@
-@extends('layouts.master_admin', ['title' => 'landingImage', 'subtitle' => ''])
+@extends('layouts.master_admin', ['title' => 'department_section', 'subtitle' => ''])
 
 @section('content')
     <!-- ============================================================== -->
@@ -151,7 +151,7 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                                        {{$department}}
                                         @if ($showDepartmentsPart)
                                             <div class="form-group">
                                                 <label class="col-md-12 mb-0">Select Department Part</label>

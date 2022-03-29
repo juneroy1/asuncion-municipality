@@ -98,16 +98,18 @@
                                 </center>
                             </div>
 
-                            <div class="card-body profile-card">
+                            <!-- <div class="card-body profile-card">
                                 <center class="mt-4">
-                                    {{-- class="rounded-circle" --}}
                                     <img src="{{ $admint_department->image_wmask? '/departments_image_wmask/' . $admint_department->image_wmask: '/foradmin/assets/images/users/5.jpg' }}"
                                         width="150" />
                                     <h4 class="card-title mt-2">Upload an Image for with mask</h4>
                                     <label for=""><em>Note: the new file image update here will be replace the current
                                             image</em></label>
                                     <input type="file" name="image_wmask" class="form-control">
-                                    <!-- <h6 class="card-subtitle"></h6> -->
+                                    
+                                </center>
+                            </div> -->
+                            <!-- <h6 class="card-subtitle"></h6> -->
                                     <!-- <div class="row text-center justify-content-center">
                                                     <div class="col-4">
                                                         <a href="javascript:void(0)" class="link">
@@ -120,19 +122,19 @@
                                                             <span class="value-digit">54</span>
                                                         </a></div>
                                                 </div> -->
-                                </center>
-                            </div>
 
-                            <div class="card-body profile-card">
+                            <!-- <div class="card-body profile-card">
                                 <center class="mt-4">
-                                    {{-- class="rounded-circle" --}}
                                     <img src="{{ $admint_department->image_womask? '/departments_image_womask/' . $admint_department->image_womask: '/foradmin/assets/images/users/5.jpg' }}"
                                         width="150" />
                                     <h4 class="card-title mt-2">Upload an Image for w/o mask</h4>
                                     <label for=""><em>Note: the new file image update here will be replace the current
                                             image</em></label>
                                     <input type="file" name="image_womask" class="form-control">
-                                    <!-- <h6 class="card-subtitle"></h6> -->
+                                    
+                                </center>
+                            </div> -->
+                            <!-- <h6 class="card-subtitle"></h6> -->
                                     <!-- <div class="row text-center justify-content-center">
                                                     <div class="col-4">
                                                         <a href="javascript:void(0)" class="link">
@@ -145,8 +147,6 @@
                                                             <span class="value-digit">54</span>
                                                         </a></div>
                                                 </div> -->
-                                </center>
-                            </div>
                         </div>
                     </div>
                     <!-- Column -->
@@ -217,6 +217,18 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 mb-0">Select Department Part</label>
+                                        <div class="col-md-12">
+                                            <select name="department_id" class="form-select"
+                                                aria-label="Default select example">
+                                                @foreach ($getAlldepartments as $department)
+                                                    <option value="{{ $department->id }}" >
+                                                        {{ $department->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
 
 
@@ -245,7 +257,7 @@
 
 
                 </form>
-                {{-- @endif/ --}}
+                {{-- @endif --}}
 
                 <!-- Column -->
             </div>
