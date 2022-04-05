@@ -23,12 +23,12 @@ class OfficesController extends Controller
 {
     //
     public function listLegislative(){
-        $departments = DepartmentAdminModel::where('type_office', '2')->where('is_approved', '1')->get();
+        $departments = DepartmentAdminModel::where('type_office', '2')->where('is_approved', '1')->whereNull('deleted_at')->get();
         return view('offices.seeAllOffices',["departments"=> $departments]); 
     }
     public function list()
     {
-        $departments = DepartmentAdminModel::where('type_office', '1')->where('is_approved', '1')->get();
+        $departments = DepartmentAdminModel::where('type_office', '1')->where('is_approved', '1')->whereNull('deleted_at')->get();
         return view('offices.seeAllOffices',["departments"=> $departments]);
     }
 

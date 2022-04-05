@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\User;
 use App\Announcement;
 use App\Member;
@@ -11,11 +12,22 @@ use App\DepartmentFunctionality;
 
 class Department extends Model
 {
+    use SoftDeletes;
     //
     protected $fillable = ['image', 'name', 'description',"is_approved","department", "user_id"];
+    protected $dates = ['deleted_at'];
     protected $table = "departments";
 
-
+    function toArray() {
+        return [
+            'image'        =>    $this->image,
+            'name'        =>    $this->name,
+            'description'        =>    $this->description,
+            'is_approved'        =>    $this->is_approved,
+            'department'        =>    $this->department,
+            'user_id'        =>    $this->user_id,
+        ];
+    }
     public function updates()
     {
         return $this->hasMany(Update::class)->where('is_approved', 2);
