@@ -223,7 +223,7 @@ class OfficialsAdminController extends Controller
         $find->save();
 
         session()->flash('success', 'successfully removed Official');
-        return redirect('/admin')->with(['officials'=>$officials]);  
+        return redirect()->back()->with(['officials'=>$officials]);  
     }
 
     /**
@@ -283,6 +283,7 @@ class OfficialsAdminController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'position'=>'required',
+            'remarks'=>'required',
             ]);
       
         //
