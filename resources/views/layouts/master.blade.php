@@ -57,7 +57,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
     
             <!-- Image Logo -->
-                <a style="display:contents" class="navbar-brand logo-image" href="index.html">
+                <a style="display:contents" class="navbar-brand logo-image" href="/">
                     {{--  --}}
                     {{-- <img style="display: inline" src="/images/logo/cambanogoy.JPG" width="100" height="500" alt="alternative"> --}}
                     <div style='width: 100px; height: 100px;' class="test"></div>
