@@ -236,8 +236,10 @@ class DepartmentAdminController extends Controller
         
         $admint_department  = DepartmentAdminModel::find($idPost);
         $getAlldepartments = DepartmentAdminModel::all();
-        // dd($admint_department);
-        return view('admin.edit_department', ['admint_department'=> $admint_department,'department' => $department,
+        // dd($department);
+        return view('admin.edit_department', [
+        'admint_department'=> $admint_department,
+        'department' => $department,
         'updateTotal' => false,
         'update'=> false,
         'edit' => false,
@@ -257,8 +259,8 @@ class DepartmentAdminController extends Controller
     {
         //
         $this->validate($request,[
-            'image'=>'required',
             'description'=>'required',
+            'name'=>'required',
          ]);
         $user = Auth::user();
         $id = Auth::id();
@@ -317,6 +319,7 @@ class DepartmentAdminController extends Controller
         $member->is_approved = 2;
         $member->department_name = $department;
         $member->type_office = $request->type_office;
+        $member->department_id = $request->department_id? $request->department_id: null;
         $member->save();
         session()->flash('success', 'successfully updated departments');
         return redirect()->back()->with(['departments'=>$departments]);
