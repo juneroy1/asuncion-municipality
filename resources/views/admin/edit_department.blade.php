@@ -13,6 +13,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
                     <h3 class="page-title mb-0 p-0">Create Department</h3>
+                    <!-- {{$department}} -->
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -66,7 +67,6 @@
                         </ul>
                     </div>
                 @endif
-                {{-- @if ($department != 'super_admin') --}}
                 <form method="POST" action="/department-update/{{ $admint_department->id }}" enctype="multipart/form-data"
                     class="row">
                     @csrf
@@ -210,10 +210,15 @@
                                         <div class="col-md-12">
                                             <select name="type_office" class="form-select"
                                                 aria-label="Default select example">
-                                                <option selected="{{ $admint_department->type_office == 1 ? true : false }}"
-                                                    value="1" selected>Executive</option>
-                                                <option selected="{{ $admint_department->type_office == 2 ? true : false }}"
-                                                    value="2">Legislative</option>
+                                                <option 
+                                                    value="1"
+                                                    @if($admint_department->type_office == 1) selected @endif
+                                                    >Executive</option>
+                                                <option  
+                                                
+                                                    value="2" 
+                                                    @if($admint_department->type_office == 2) selected @endif
+                                                    >Legislative {{$admint_department->type_office }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -222,9 +227,13 @@
                                         <div class="col-md-12">
                                             <select name="department_id" class="form-select"
                                                 aria-label="Default select example">
-                                                @foreach ($getAlldepartments as $department)
-                                                    <option value="{{ $department->id }}" >
-                                                        {{ $department->name }}</option>
+                                                <option value="" >
+                                                        Select Department Head</option>
+                                                @foreach ($getAlldepartments as $department_name)
+                                                    <option value="{{ $department_name->id }}"
+                                                    @if($admint_department->department_id ==  $department_name->id ) selected @endif
+                                                     >
+                                                        {{ $department_name->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

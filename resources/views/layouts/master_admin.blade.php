@@ -152,12 +152,13 @@
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/department-list" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">List Department</span></a></li>
-                            
-                        @endif
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/department-section" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">List of
                                     MMO; division/section</span></a></li>
+                            
+                        @endif
+                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="/admin-officials-archive" aria-expanded="false"><i
                                         class="mdi me-2 mdi-table"></i><span class="hide-menu">Archive for
