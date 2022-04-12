@@ -43,10 +43,19 @@
             <!-- ============================================================== -->
             <!-- Row -->
             <div class="row">
-                @if (\Session::has('success'))
+            @if (\Session::has('success'))
                     <div class="alert alert-success">
                         <ul>
                             <li>{!! \Session::get('success') !!}</li>
+                        </ul>
+                    </div>
+                @endif
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 @endif
@@ -151,16 +160,19 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                                       
                                         @if ($showDepartmentsPart)
+                                        <input type="hidden" name="department_request" value="true">
                                             <div class="form-group">
                                                 <label class="col-md-12 mb-0">Select Department Part</label>
                                                 <div class="col-md-12">
                                                     <select name="department_id" class="form-select"
                                                         aria-label="Default select example">
-                                                        @foreach ($getAlldepartments as $department)
-                                                            <option value="{{ $department->id }}" >
-                                                                {{ $department->name }}</option>
+                                                        <option value="" >
+                                                        Select Department Head</option>
+                                                        @foreach ($getAlldepartments as $department_name)
+                                                            <option value="{{ $department_name->id }}" >
+                                                                {{ $department_name->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

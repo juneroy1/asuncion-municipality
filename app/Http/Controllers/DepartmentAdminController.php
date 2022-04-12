@@ -32,7 +32,7 @@ class DepartmentAdminController extends Controller
         return view('admin.department', [
             'departments'=> $departments,
             'department' => $department, 
-            'showDepartmentsPart'=> false, 
+            'showDepartmentsPart'=> true, 
             'getAlldepartments' => $getAlldepartments,
             'updateTotal' => false,
             'update'=> false,
@@ -84,6 +84,18 @@ class DepartmentAdminController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->department_request) {
+            $this->validate($request,[
+                'name'=>'required',
+                'description'=>'required',
+                'department_id'=>'required',
+                ]);
+        }else{
+            $this->validate($request,[
+                'name'=>'required',
+                'description'=>'required',
+                ]);
+        }
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
@@ -143,6 +155,7 @@ class DepartmentAdminController extends Controller
         $member->is_approved = 2;
         $member->department_name = $department;
         $member->type_office = $request->type_office;
+        $member->department_id = $request->department_request? $request->department_id:null;
         $member->save();
         session()->flash('success', 'successfully added new departments');
         return redirect()->back()->with(['departments'=>$departments]);

@@ -236,7 +236,7 @@ Route::post('/officials-admin-archive', 'ArchiveController@store')->name('admin-
 Route::post('/officials-admin-archive-update/{id}', 'ArchiveController@store')->name('admin-archive_create');
 Route::get('/admin-officials-archive/{department}', 'ArchiveController@indexOfficialAdmin')->name('department-archive');
 Route::get('/approve-officials-archive/{id}', 'ArchiveController@approve')->name('approve-officials-archive');
-Route::get('/remove-officials-archive/{id}', 'ArchiveController@remove')->name('remove-officials-archive');
+Route::post('/remove-officials-archive/{id}/{idPage}', 'ArchiveController@remove')->name('remove-officials-archive');
 
 
 // depatment archive admin

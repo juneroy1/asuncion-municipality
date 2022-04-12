@@ -45,10 +45,26 @@
             <!-- ============================================================== -->
             <!-- Row -->
             <div class="row">
-                @if (\Session::has('success'))
+            @if (\Session::has('success'))
                     <div class="alert alert-success">
                         <ul>
                             <li>{!! \Session::get('success') !!}</li>
+                        </ul>
+                    </div>
+                @endif
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if (\Session::has('error'))
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{!! \Session::get('error') !!}</li>
                         </ul>
                     </div>
                 @endif
@@ -79,6 +95,10 @@
                                         @elseif($model== 'ArchiveDepartment')
                                             <form method="POST"
                                                 action="/remove-department-archive/{{ $update->id }}/{{ $idPage }}"
+                                                enctype="multipart/form-data" class="row">
+                                                @elseif($model== 'ArchiveOfficials')
+                                            <form method="POST"
+                                                action="/remove-officials-archive/{{ $update->id }}/{{ $idPage }}"
                                                 enctype="multipart/form-data" class="row">
                                             @elseif($model== 'BarangayOfficialModel')
                                                 <form method="POST"

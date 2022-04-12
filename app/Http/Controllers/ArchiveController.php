@@ -329,8 +329,12 @@ class ArchiveController extends Controller
         return redirect()->back()->with(['archives'=>$archives]);  
     }
 
-    public function remove($idPost)
+    public function remove(Request $request, $idPost, $idPage)
     {
+
+        $this->validate($request,[
+            'remarks'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();
@@ -353,16 +357,19 @@ class ArchiveController extends Controller
         }
 
         $find = Archive::find($idPost);
-        $find->is_approved = 1;
-        $find->remarks = "";
+        $find->is_approved = 3;
+        $find->remarks = $request->remarks;
         $find->save();
 
         session()->flash('success', 'successfully removed archives');
-        return redirect()->back()->with(['archives'=>$archives]);  
+         return redirect("/admin-officials-archive/$idPage"); 
     }
 
     public function removeDepartment(Request $request, $idPost, $idPage)
     {
+        $this->validate($request,[
+            'remarks'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();
