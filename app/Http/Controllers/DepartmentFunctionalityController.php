@@ -92,6 +92,9 @@ class DepartmentFunctionalityController extends Controller
      */
     public function store(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'description'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();

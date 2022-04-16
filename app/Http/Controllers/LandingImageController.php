@@ -114,6 +114,11 @@ class LandingImageController extends Controller
      */
     public function store(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'image'=>'required',
+            'title'=>'required',
+            'subtitle'=>'required',
+         ]);
         //
         $user = Auth::user();
         $id = Auth::id();

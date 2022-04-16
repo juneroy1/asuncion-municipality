@@ -160,6 +160,11 @@ class EmergencyHotlineController extends Controller
      */
     public function store(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'name'=>'required',
+            'number'=>'required',
+            'network'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();

@@ -95,8 +95,15 @@ class BarangayOfficialsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $idPost)
+    public function store(Request $request, $idPost = false)
     {
+       
+            $this->validate($request,[
+                'first_name'=>'required',
+                'last_name'=>'required',
+                'position'=>'required',
+             ]);
+       
         //
         $user = Auth::user();
         $id = Auth::id();
@@ -126,13 +133,13 @@ class BarangayOfficialsController extends Controller
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
         $member->position = $request->position;
-        $member->address = $request->address;
-        $member->birthdate = $request->birthdate;
-        $member->religion = $request->religion;
-        $member->educational_attainment = $request->educational_attainment;
-        $member->course = $request->course;
-        $member->others = $request->others;
-        $member->remarks = $request->remarks;
+        $member->address = $request->address?$request->address:'';
+        $member->birthdate = $request->birthdate?$request->birthdate:'';
+        $member->religion = $request->religion?$request->religion:'';
+        $member->educational_attainment = $request->educational_attainment?$request->educational_attainment:'';
+        $member->course = $request->course?$request->course:'';
+        $member->others = $request->others?$request->others:'';
+        $member->remarks = $request->remarks?$request->remarks:'';
         $member->user_id = $id;
         $member->is_approved = 2;
         $member->department_id = $department;

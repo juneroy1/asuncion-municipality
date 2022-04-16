@@ -178,6 +178,11 @@ class MemberController extends Controller
      */
     public function createPersonnel(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'title'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+            ]);
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
@@ -209,6 +214,12 @@ class MemberController extends Controller
 
     public function store(Request $request, $idPost=false)
     {
+
+        $this->validate($request,[
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'position'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();

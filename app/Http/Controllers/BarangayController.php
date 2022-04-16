@@ -96,9 +96,13 @@ class BarangayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $idPost)
+    public function store(Request $request, $idPost = false)
     {
         //
+        $this->validate($request,[
+            'name'=>'required',
+            'image'=>'required',
+         ]);
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;

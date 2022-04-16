@@ -88,8 +88,13 @@ class ContactNumberOfficeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $idPost)
+    public function store(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'number'=>'required',
+            'network'=>'required',
+            'name'=>'required',
+         ]);
         //
         $user = Auth::user();
         $id = Auth::id();
@@ -99,7 +104,7 @@ class ContactNumberOfficeController extends Controller
         $contact_number_offices = ContactNumberOffice::all();
         $member = $idPost? ContactNumberOffice::find($idPost): new ContactNumberOffice;
         $member->number = $request->number;
-        $member->name = $request->number;
+        $member->name = $request->name;
         $member->network = $request->network;
         $member->user_id = $id;
         $member->is_approved = 2;

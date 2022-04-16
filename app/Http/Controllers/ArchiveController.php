@@ -235,6 +235,19 @@ class ArchiveController extends Controller
 
     public function storeDepartment(Request $request, $idPost =false){
         
+        if ($idPost) {
+            $this->validate($request,[
+                'title'=>'required',
+                'description'=>'required',
+                'remarks'=>'required',
+             ]);
+        }else{
+            $this->validate($request,[
+                'file'=>'required',
+                'title'=>'required',
+                'description'=>'required',
+             ]);
+        }
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;

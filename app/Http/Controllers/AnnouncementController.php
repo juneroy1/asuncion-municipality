@@ -111,6 +111,11 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request, $idPost = false)
     {
+        $this->validate($request,[
+            'title'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+            ]);
         //
         $user = Auth::user();
         $id = Auth::id();
