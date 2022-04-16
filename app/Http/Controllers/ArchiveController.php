@@ -31,7 +31,23 @@ class ArchiveController extends Controller
             $archives = Archive::all();
        
 
-        return view('archive', ['archives'=> $archives,'department' => $department]);
+        return view('archive', [
+            'archives'=> $archives,
+            'department' => $department,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
     public function showArchiveSubmit(Request $request){
         $user = Auth::user();
@@ -45,7 +61,23 @@ class ArchiveController extends Controller
         }else{
             $archives = Archive::all();
         }
-        return view('archive', ['archives'=> $archives,'department' => $department]);
+        return view('archive', [
+            'archives'=> $archives,
+            'department' => $department,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
         // $archives = Archive::where('department', 'LIKE', "$searchArchive%")->get();
     }
     public function index($idPost = false)
@@ -98,7 +130,19 @@ class ArchiveController extends Controller
                 'idPage' => $department,
                 'update' => $update,
                 'edit' => $idPost? true:false,
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
             ]);
         }
        
@@ -117,7 +161,19 @@ class ArchiveController extends Controller
             'idPage' => $department,
             'update'=> false,
             'edit' => false,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
             
             
         ]);
@@ -135,7 +191,19 @@ class ArchiveController extends Controller
             'idPage' => $department,
             'update'=> false,
             'edit' => false,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
             
             
         ]);
@@ -164,7 +232,19 @@ class ArchiveController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Archive Department',
                 'pagePrefix' => 'admin-department-archive',
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -176,7 +256,19 @@ class ArchiveController extends Controller
                 'pageName' => 'Archive Department',
                 'update' => $update,
                 'edit' => $idPost? true:false,
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 'idPage' => $department,
             ]);
  
