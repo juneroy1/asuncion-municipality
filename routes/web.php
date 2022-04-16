@@ -33,6 +33,10 @@ Route::get('/view-head-office/{id}', 'OfficialsAdminController@viewOfficialHead'
 //     return view('legislative');
 // });
 
+// messages
+Route::get('/messages', 'MessageController@index');
+Route::post('/messages-submit', 'MessageController@store');
+
 Route::get('/archive', 'ArchiveController@showArchive');
 Route::post('/archive-submit', 'ArchiveController@showArchiveSubmit');
 Route::post('/archive-submit-department/{name}/{id}', 'OfficesController@goToOfficeSearch');

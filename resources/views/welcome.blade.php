@@ -2791,30 +2791,56 @@
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
-
+                    @if (\Session::has('error'))
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>{!! \Session::get('error') !!}</li>
+                            </ul>
+                        </div>
+                    @endif
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (\Session::has('success'))
+                        <div class="alert alert-success">
+                            <ul>
+                                <li>{!! \Session::get('success') !!}</li>
+                            </ul>
+                        </div>
+                    @endif
                     <!-- Contact Form -->
-                    <form id="contactForm" data-toggle="validator" data-focus="false">
+                    <!-- id="contactForm" -->
+                    <!-- data-toggle="validator"  -->
+                    <!-- data-focus="false" -->
+                    <form method="POST" action="messages-submit" >
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
+                            <input type="text" name="name" class="form-control-input" id="cname" required>
                             <label class="label-control" for="cname">Name</label>
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
+                            <input type="email"   name="email" class="form-control-input" id="cemail" required>
                             <label class="label-control" for="cemail">Email</label>
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <textarea  name="message" class="form-control-textarea" id="cmessage" required></textarea>
                             <label class="label-control" for="cmessage">Your message</label>
                             <div class="help-block with-errors"></div>
                         </div>
-                        <div class="form-group checkbox">
+                        <!-- <div class="form-group checkbox">
                             <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I agree with Aria's stated
                             <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms
                                 Conditions</a>
                             <div class="help-block with-errors"></div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
                         </div>
