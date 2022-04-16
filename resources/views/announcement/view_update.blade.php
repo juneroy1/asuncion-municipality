@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Announcement - {{ $update->title }}</h1>
+                    <h1>{{ $update->title }}</h1>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -40,12 +40,12 @@
                                                     justify-items: center;
                                                     align-items: center;
                                                     align-content: center;">
-                        <img style="display: inline; width:40%" src="/landing_images/{{ $update->image }}" alt="..."
+                        <img style="display: inline; width:40%" src="/updates/{{ $update->image }}" alt="..."
                             class="img-thumbnail">
                         <div style="display: inline-block;margin-left: 40px;">
                             <h3>{{ $update->title }}</h3>
-                            <p>{{ $update->subtitle }}</p>
-                            <!-- <p>{{ $update->description_local }}</p> -->
+                            <p>{{ $update->description }}</p>
+                            <p ><i>{{ $update->description_local }}</i></p>
 
                             {{-- <h2>Municipal Mayor's Office</h2> --}}
                             {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
@@ -63,13 +63,13 @@
                             <div class="row">
                                 <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
                                 <div class="col-lg-8">
-                                    <img class="img-fluid" src="/landing_images/{{ $update->image }}" alt="alternative">
+                                    <img class="img-fluid" src="/updates/{{ $update->image }}" alt="alternative">
                                 </div> <!-- end of col -->
                                 <div class="col-lg-4">
                                     <h3>{{ $update->title }}</h3>
                                     <hr style="width: inherit;" class="line-heading">
-                                    <h6>{{ $update->subtitle }}</h6>
-                                    <h6>{{ $update->description_local }}</h6>
+                                    <h6>{{ $update->description }}</h6>
+                                    <h6> <i>{{ $update->description_local }}</i> </h6>
                                     <br>
                                     <br>
                                     <br>

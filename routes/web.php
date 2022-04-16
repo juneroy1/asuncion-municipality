@@ -328,6 +328,7 @@ Route::get('/admin-landingImage-rd', 'LandingImageController@indexRd')->name('la
 Route::post('/landingImage', 'LandingImageController@store')->name('landing-image-create');
 Route::get('/approve-landingImage/{id}', 'LandingImageController@approve')->name('approve-landingImage');
 Route::get('/landingImage-view/{id}', 'LandingImageController@viewLandingImage')->name('view.landingImage');
+Route::get('/update-view/{id}', 'LandingImageController@viewUpdateImage')->name('view.landingImage');
 Route::post('/remove-landingImage/{id}/{idPage}', 'LandingImageController@remove')->name('remove-landingImage');
 
 

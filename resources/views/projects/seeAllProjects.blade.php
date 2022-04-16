@@ -35,7 +35,7 @@
            @foreach ($updates as $update)
                
            
-        <a style="text-decoration: none" href="#">
+        <a style="text-decoration: none" href="/update-view/{{$update->id}}">
             <div class="container" style="cursor: pointer">
                 <div style="text-align: center;display: flex;
                 justify-items: center;

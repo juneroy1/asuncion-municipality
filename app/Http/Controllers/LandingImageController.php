@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\LandingImage;
 use App\Department;
+use App\Update;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 class LandingImageController extends Controller
@@ -33,6 +34,25 @@ class LandingImageController extends Controller
             'organizationalChartTotal' => $this->organizationalChartTotal(),
         ]);
         // dd($landingImage);
+    }
+    public function viewUpdateImage($id){
+        $landingImage = Update::find($id);
+        return view('announcement.view_update', [
+            'update'=> $landingImage, 
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
     public function indexAdmin($department){
         $landingImage = LandingImage::where('department_id', '=', $department)->get();
