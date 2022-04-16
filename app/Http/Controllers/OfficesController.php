@@ -125,12 +125,17 @@ class OfficesController extends Controller
         ->where('is_approved', '=', 1)->get();
         $members = Member::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
         $functionality = DepartmentFunctionality::where('department_id', '=', $id)->where('is_approved', '=', 1)->first();
+        $department = DepartmentAdminModel::where('id', '=', $id)->where('is_approved', '=', 1)->first();
+
+        
         $contactNumberOffices = ContactNumberOffice::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
-        $organizationalChart = OrganizationalChart::where('department_id', '=', $id)->where('is_approved', '=', 1)->first();
+        $organizationalChart = OrganizationalChart::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
+        $personnel = Personnel::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
         // get first functionality
         
         // get all announcement per department
         $announcements = Announcement::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
+
         
         $user = Auth::user();
         // $id = Auth::id();
@@ -140,7 +145,7 @@ class OfficesController extends Controller
         // dd($id);
         if ($request->search) {
             $search =  $request->search;
-             $archives = DB::table('archive_departments')->where('department_id', '=', $id)->orWhere('title', 'LIKE', "%$search%")->orWhere('description', 'LIKE', "%$search%")->get();
+             $archives = DB::table('archive_departments')->where('department_id', '=', $id)->where('title', 'LIKE', "%$search%")->orWhere('description', 'LIKE', "%$search%")->get();
              // print_r($archives);die;
          }else{
              $archives = ArchiveDepartment::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
@@ -158,6 +163,7 @@ class OfficesController extends Controller
             'organizationalChart' => $organizationalChart,
             'archives' => $archives,
             'department' => $department,
+            'personnel' => $personnel,
             'updateTotal' => $this->updateTotal(),
             'archiveTotal' => $this->archiveTotal(),
             'announcementTotal' => $this->announcementTotal(),
