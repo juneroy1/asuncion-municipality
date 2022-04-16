@@ -160,59 +160,203 @@
                         @endif
                         
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                    href="/admin-officials-archive" aria-expanded="false"><i
-                                        class="mdi me-2 mdi-table"></i><span class="hide-menu">Archive for
-                                        officials</span></a></li>
+                                    href="/admin-officials-archive" aria-expanded="false">
+                                    <i class="mdi me-2 mdi-table"></i>
+                                    <span class="hide-menu">Archive for
+                                        officials
+                                        <!-- {{ $archiveTotal > 0 ? $archiveTotal : '' }} -->
+                                    </span>
+                                    <span style="border-radius: 50px;
+                                        color: white;
+                                        position: absolute;
+                                        background-color: red;
+                                        right: 10px;
+                                        bottom: 3px;
+                                        width: 20px;
+                                        text-align: center;
+                                         ">{{ $archiveTotal > 0 ? $archiveTotal : '' }}
+                                    </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin" aria-expanded="false">
                                 <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Upload
-                                    Update <span style="border-radius: 50px;
-                                    color: white;
-                                    background-color: red;
-                                    width: 100px;
-                                    height: 100px;">{{ $updateTotal > 0 ? $updateTotal : '' }}</span></span></a>
+                                    Update </span>
+                                    <span style="border-radius: 50px;
+                                        color: white;
+                                        position: absolute;
+                                        background-color: red;
+                                        right: 10px;
+                                        bottom: 3px;
+                                        width: 20px;
+                                        text-align: center;
+                                         ">{{ $updateTotal > 0 ? $updateTotal : '' }}
+                                    </span>
+                                </a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-announcement" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Announcement</span></a></li>
+                                    class="hide-menu">Announcement</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $announcementTotal > 0 ? $announcementTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-member" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Office Head</span></a></li>
+                                    class="hide-menu">Office Head</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $memberTotal > 0 ? $memberTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-member-personnel" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Office
-                                    Personnel</span></a></li>
+                                    Personnel</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $personnelTotal > 0 ? $personnelTotal : '' }}
+                                </span>
+                                
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-functionalities" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Office
-                                    Mandate</span></a></li>
+                                    Mandate</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $departmentFunctionalityTotal > 0 ? $departmentFunctionalityTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-landingImage" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Landing Images</span></a></li>
+                                    class="hide-menu">Landing Images</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $landingImageTotal > 0 ? $landingImageTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/emergencyHotlines" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Emergency Hotlines</span></a></li>
+                                    class="hide-menu">Emergency Hotlines</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $emergencyHotlineTotal > 0 ? $emergencyHotlineTotal : '' }}
+                                </span>
+                                </a></li>
 
                         <li class="sidebar-item"> <a
                                 class="sidebar-link waves-effect waves-dark sidebar-link {{ $title == 'archive_department' ? 'active' : '' }}"
                                 href="/admin-department-archive" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Archive for
-                                    department</span></a></li>
+                                    department</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $archiveDepartmentTotal > 0 ? $archiveDepartmentTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-barangay-officials" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Barangay
-                                    Officials</span></a></li>
+                                    Officials</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $barangayOfficialModelTotal > 0 ? $barangayOfficialModelTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a
                                 class="sidebar-link waves-effect waves-dark sidebar-link {{ $title == 'barangay' ? 'active' : '' }}"
                                 href="/admin-barangay" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Barangay</span></a></li>
+                                    class="hide-menu">Barangay</span>
+                                
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $barangayModelTotal > 0 ? $barangayModelTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/contact-number-office" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Office Contact
-                                    Number</span></a></li>
+                                    Number</span>
+                                <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $contactNumberOfficeTotal > 0 ? $contactNumberOfficeTotal : '' }}
+                                </span>
+                                </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/org-chart-office" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
-                                    class="hide-menu">Office Organizational Chart</span></a></li>
+                                    class="hide-menu">Office Organizational Chart</span>
+                                    <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $organizationalChartTotal > 0 ? $organizationalChartTotal : '' }}
+                                </span>
+                                </a></li>
                         
 
                         {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

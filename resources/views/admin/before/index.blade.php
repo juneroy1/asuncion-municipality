@@ -2,6 +2,20 @@
     'title' => 'landingImage',
      'subtitle' => '',
      'updateTotal' => $updateTotal?$updateTotal:0,
+     'archiveTotal' => $archiveTotal?$archiveTotal:0,
+     'announcementTotal' => $announcementTotal?$announcementTotal:0,
+     'memberTotal' => $memberTotal?$memberTotal:0,
+     'personnelTotal' => $personnelTotal?$personnelTotal:0,
+     'departmentFunctionalityTotal' => $departmentFunctionalityTotal?$departmentFunctionalityTotal:0,
+     'landingImageTotal' => $landingImageTotal?$landingImageTotal:0,
+     'emergencyHotlineTotal' => $emergencyHotlineTotal?$emergencyHotlineTotal:0,
+     'archiveDepartmentTotal' => $archiveDepartmentTotal?$archiveDepartmentTotal:0,
+     'barangayOfficialModelTotal' => $barangayOfficialModelTotal?$barangayOfficialModelTotal:0,
+     'barangayModelTotal' => $barangayModelTotal?$barangayModelTotal:0,
+     'contactNumberOfficeTotal' => $contactNumberOfficeTotal?$contactNumberOfficeTotal:0,
+     'organizationalChartTotal' => $organizationalChartTotal?$organizationalChartTotal:0,
+     
+     
      ])
 
 @section('content')

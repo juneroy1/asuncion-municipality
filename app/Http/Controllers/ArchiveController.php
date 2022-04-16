@@ -50,6 +50,8 @@ class ArchiveController extends Controller
     }
     public function index($idPost = false)
     {
+
+        // dd($this->announcementTotal());
         //
         $user = Auth::user();
         $id = Auth::id();
@@ -64,6 +66,7 @@ class ArchiveController extends Controller
 
         $update = $idPost? Archive::find($idPost):false;
         $listRequest = Department::withCount('archives')->get();
+        // dd($this->archiveTotal());
         if ($department =='super_admin') {
             return view('admin.before.index', [
                 'updates'=> $archives, 
@@ -71,7 +74,20 @@ class ArchiveController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Archive Official',
                 'pagePrefix' => 'admin-officials-archive',
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
+                
                 'update'=> false,
                 'edit' => false,
             ]);
