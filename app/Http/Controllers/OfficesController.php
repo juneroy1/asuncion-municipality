@@ -24,12 +24,42 @@ class OfficesController extends Controller
     //
     public function listLegislative(){
         $departments = DepartmentAdminModel::where('type_office', '2')->where('is_approved', '1')->whereNull('deleted_at')->get();
-        return view('offices.seeAllOffices',["departments"=> $departments]); 
+        return view('offices.seeAllOffices',[
+            "departments"=> $departments,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]); 
     }
     public function list()
     {
         $departments = DepartmentAdminModel::where('type_office', '1')->where('is_approved', '1')->whereNull('deleted_at')->get();
-        return view('offices.seeAllOffices',["departments"=> $departments]);
+        return view('offices.seeAllOffices',[
+            "departments"=> $departments,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     public function goToOffice($name, $id)
@@ -70,7 +100,19 @@ class OfficesController extends Controller
             'archives' => $archives,
             'department' => $department,
             'personnel' => $personnel,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
             'update'=> false,
                 'edit' => false,
         ]);
@@ -116,7 +158,19 @@ class OfficesController extends Controller
             'organizationalChart' => $organizationalChart,
             'archives' => $archives,
             'department' => $department,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
             'update'=> false,
                 'edit' => false,
         ]);
@@ -124,7 +178,22 @@ class OfficesController extends Controller
 
     public function seeProjects(){
         $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
-        return view('projects.seeAllProjects', ['updates'=> $updates]);
+        return view('projects.seeAllProjects', [
+            'updates'=> $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     public function welcome(){
@@ -143,7 +212,19 @@ class OfficesController extends Controller
             'officials'=> $officials,
             'barangay_officials'=> $barangay_officials,
             'barangays'=> $barangays,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
             'update'=> false,
                 'edit' => false,
         ]);

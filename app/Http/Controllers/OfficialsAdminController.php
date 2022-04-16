@@ -32,7 +32,23 @@ class OfficialsAdminController extends Controller
         //     $officials = OfficialsAdmin::where('department', '=', $department)->get();
         // }
 
-        return view('officials', ['officials'=> $officials,'department' => $department]);
+        return view('officials', [
+            'officials'=> $officials,
+            'department' => $department,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     public function showAllLegislative()
@@ -49,7 +65,23 @@ class OfficialsAdminController extends Controller
         //     $officials = OfficialsAdmin::where('department', '=', $department)->get();
         // }
 
-        return view('legislative', ['officials'=> $officials,'department' => $department]);
+        return view('legislative', [
+            'officials'=> $officials,
+            'department' => $department,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     public function viewOfficial($type,$idOfficial){
@@ -58,7 +90,24 @@ class OfficialsAdminController extends Controller
         $id = Auth::id();
         $department = $user->department;
         $official = OfficialsAdmin::find($idOfficial);
-        return view('view_official', ['official'=> $official,'department' => $department,'type' => $type,]);
+        return view('view_official', [
+            'official'=> $official,
+            'department' => $department,
+            'type' => $type,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
     public function viewOfficialHead($idOfficial){
 
@@ -66,7 +115,24 @@ class OfficialsAdminController extends Controller
         $id = Auth::id();
         $department = $user->department;
         $official = Member::find($idOfficial);
-        return view('view_official_head', ['official'=> $official,'department' => $department,'type' => 'head_office',]);
+        return view('view_official_head', [
+            'official'=> $official,
+            'department' => $department,
+            'type' => 'head_office',
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
 
@@ -89,7 +155,19 @@ class OfficialsAdminController extends Controller
         return view('admin.officials_admin', ['officials'=> $officials,'department' => $department,
         'update'=> false,
             'edit' => false,
-            'updateTotal' => false,    
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
     ]);
     }
 
@@ -263,7 +341,19 @@ class OfficialsAdminController extends Controller
             'officials'=> $officials,
             'official'=> $official,
             'department' => $department,
-            'updateTotal' => false
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
         ]);
 
     }

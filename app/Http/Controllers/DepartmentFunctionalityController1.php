@@ -30,7 +30,23 @@ class DepartmentFunctionalityController extends Controller
             $functionalities = DepartmentFunctionality::where('department', '=', $department)->get();
         }
         
-        return view('admin.functionalities', ['functionalities'=> $functionalities, 'department' => $department]);
+        return view('admin.functionalities', [
+            'functionalities'=> $functionalities, 
+            'department' => $department,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     /**
