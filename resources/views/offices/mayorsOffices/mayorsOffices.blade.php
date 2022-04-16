@@ -391,6 +391,7 @@
                                                                             color: #455a64;" class="container">
                     <h2 style="text-align: center">ACHIEVEMENTS AND PROJECTS</h2>
                     @foreach ($updates as $update)
+                    <a style="text-decoration: none"  href="/update-view/{{$update->id}}">
                         <div style="text-align: center;display: flex;
                                                                                 justify-items: center;
                                                                                 align-items: center;
@@ -401,13 +402,13 @@
 
                                 <h3>{{ $update->title }}</h3>
 
-                                {{-- <h2></h2> --}}
                                 <p>{{ $update->description }}</p>
                                 <p>{{ $update->description_local }}</p>
 
                             </div>
 
                         </div>
+                        </a>
                         <br>
                     @endforeach
 
