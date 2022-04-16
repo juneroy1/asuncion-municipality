@@ -356,7 +356,7 @@
        
     
         <!-- Footer -->
-        <div class="footer">
+        <!-- <div class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -365,8 +365,8 @@
                             <p class="white" href="#your-link">
                                 REPUBLIC OF THE PHILIPPINES
                                 All content is in the public domain unless otherwise stated.</p>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
+                        </div> 
+                    </div> 
                     <div class="col-md-2">
                         <div class="text-container">
                             <h4>ABOUT GOVPH</h4>
@@ -379,15 +379,10 @@
                                             Open Data Portal
                                             Official Gazette</p>
                                 </li>
-                                {{-- <li>
-                                    <a class="white" href="terms-conditions.html">Terms & Conditions</a>
-                                </li>
-                                <li>
-                                    <a class="white" href="privacy-policy.html">Privacy Policy</a>
-                                </li> --}}
+                             
                             </ul>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
+                        </div> 
+                    </div> 
                     <div class="col-md-2">
                         <div class="text-container">
                             <h4>GOVERNMENT LINKS</h4>
@@ -403,15 +398,10 @@
                                     Court of Appeals
                                     Sandiganbayan</p>
                                 </li>
-                                {{-- <li>
-                                   <a class="white" href="#your-link">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                </li>
-                                <li class="media">
-                                    <a class="white" href="#your-link">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                </li> --}}
+                                
                             </ul>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
+                        </div> 
+                    </div> 
                     <div class="col-md-2">
                         <div class="text-container">
                             <h4>Partners</h4>
@@ -421,19 +411,14 @@
                                         REPUBLIC OF THE PHILIPPINES
                                         All content is in the public domain unless otherwise stated.</p>
                                 </li>
-                                {{-- <li>
-                                    <a class="white" href="#your-link">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                </li>
-                                <li>
-                                    <a class="white" href="#your-link">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                </li> --}}
+                               
                             </ul>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of footer -->  
-        <!-- end of footer -->
+                        </div> 
+                    </div>
+                </div> 
+            </div> 
+        </div> -->
+       
     
     
         <!-- Copyright -->
@@ -441,7 +426,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="p-small">© The Official Website of Municipality Government of Asuncion. All Right Reserved 2021</a></p>
+                        <p class="p-small">© The Official Website of Municipality Government of Asuncion. All Right Reserved 2022</a></p>
                     </div> <!-- end of col -->
                 </div> <!-- enf of row -->
             </div> <!-- end of container -->

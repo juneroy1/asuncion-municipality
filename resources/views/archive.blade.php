@@ -57,16 +57,21 @@
             <div class="container" style="cursor: pointer">
                 <div style="text-align: center;display: flex;
                 justify-items: center;
+                
                 align-items: center;
                 align-content: center;">
                 @foreach ($archives as $archive)
-                <img src="/images/fileupload.png"
-                                        width="150" />
+                <div >
+                    <img src="/images/fileupload.png"
+                                            width="150" />
+                
+                <div style="display: inline-block;margin-left: 40px;">
                 <a href="/archives/{{$archive->file}}" target="_blank" rel="noopener noreferrer">{{$archive->file}}</a>
-               <div style="display: inline-block;margin-left: 40px;">
-                    <h4>{{$archive->title}}</h4>
-                    <p>{{$archive->description}}</p>
+                        <h4>{{$archive->title}}</h4>
+                        <p>{{$archive->description}}</p>
+                    </div>
                 </div>
+            
                 @endforeach
                 
             
