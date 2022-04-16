@@ -357,6 +357,20 @@
                                         ">{{ $organizationalChartTotal > 0 ? $organizationalChartTotal : '' }}
                                 </span>
                                 </a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/messages" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                    class="hide-menu">Messages</span>
+                                    <span style="border-radius: 50px;
+                                    color: white;
+                                    position: absolute;
+                                    background-color: red;
+                                    right: 10px;
+                                    bottom: 3px;
+                                    width: 20px;
+                                    text-align: center;
+                                        ">{{ $organizationalChartTotal > 0 ? $organizationalChartTotal : '' }}
+                                </span>
+                                </a></li>
                         
 
                         {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

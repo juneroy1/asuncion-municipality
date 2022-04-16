@@ -13,7 +13,7 @@ class ArchiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['showArchive']]);
     }
     /**
      * Display a listing of the resource.
@@ -23,9 +23,9 @@ class ArchiveController extends Controller
     public function showArchive()
     {
         //
-        $user = Auth::user();
-        $id = Auth::id();
-        $department = $user->department;
+        // $user = Auth::user();
+        // $id = Auth::id();
+        // $department = $user->department;
         //
        
             $archives = Archive::all();
@@ -33,7 +33,7 @@ class ArchiveController extends Controller
 
         return view('archive', [
             'archives'=> $archives,
-            'department' => $department,
+            'department' => false,
             'updateTotal' => $this->updateTotal(),
             'archiveTotal' => $this->archiveTotal(),
             'announcementTotal' => $this->announcementTotal(),

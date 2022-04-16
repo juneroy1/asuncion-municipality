@@ -36,6 +36,8 @@ Route::get('/view-head-office/{id}', 'OfficialsAdminController@viewOfficialHead'
 // messages
 Route::get('/messages', 'MessageController@index');
 Route::post('/messages-submit', 'MessageController@store');
+Route::get('/messages-done/{id}', 'MessageController@done');
+Route::get('/messages-read/{id}', 'MessageController@read');
 
 Route::get('/archive', 'ArchiveController@showArchive');
 Route::post('/archive-submit', 'ArchiveController@showArchiveSubmit');

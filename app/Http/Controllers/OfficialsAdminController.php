@@ -11,7 +11,7 @@ class OfficialsAdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => ['showAllOfficials','showAllLegislative']]);
     }
     /**
      * Display a listing of the resource.
@@ -21,9 +21,9 @@ class OfficialsAdminController extends Controller
     public function showAllOfficials()
     {
         //
-        $user = Auth::user();
-        $id = Auth::id();
-        $department = $user->department;
+        // $user = Auth::user();
+        // $id = Auth::id();
+        // $department = $user->department;
         //
         // if ($department =='super_admin') {
             # code...
@@ -34,7 +34,7 @@ class OfficialsAdminController extends Controller
 
         return view('officials', [
             'officials'=> $officials,
-            'department' => $department,
+            'department' => false,
             'updateTotal' => $this->updateTotal(),
             'archiveTotal' => $this->archiveTotal(),
             'announcementTotal' => $this->announcementTotal(),
@@ -54,9 +54,9 @@ class OfficialsAdminController extends Controller
     public function showAllLegislative()
     {
         //
-        $user = Auth::user();
-        $id = Auth::id();
-        $department = $user->department;
+        // $user = Auth::user();
+        // $id = Auth::id();
+        // $department = $user->department;
         //
         // if ($department =='super_admin') {
             # code...
@@ -67,7 +67,7 @@ class OfficialsAdminController extends Controller
 
         return view('legislative', [
             'officials'=> $officials,
-            'department' => $department,
+            'department' => false,
             'updateTotal' => $this->updateTotal(),
             'archiveTotal' => $this->archiveTotal(),
             'announcementTotal' => $this->announcementTotal(),

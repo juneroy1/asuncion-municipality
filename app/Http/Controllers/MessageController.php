@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use Illuminate\Support\Facades\Auth;
 class MessageController extends Controller
 {
     public function __construct()
@@ -15,9 +16,44 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $idPost = false)
     {
         //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+      
+            $messages = Message::all();
+
+        $update = $idPost? Message::find($idPost):false;
+        // $listRequest = EmergencyHotline::where('is_read', '=', '0')->get();
+        // dd($listRequest);
+
+        // $messages = EmergencyHotline::where('is_read', '=', '0')->get();
+
+          return view('admin.messages', [
+            'messages'=> $messages, 
+            'idPage' => $department,
+            'department' => $department,
+            'pageName' => 'Messages',
+            'update' => $update,
+            'edit' => $idPost? true:false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            // 'idPage' => $department,
+        ]);
     }
 
     /**
@@ -28,6 +64,7 @@ class MessageController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
