@@ -52,22 +52,6 @@ class AdminController extends Controller
         $listRequest = Department::withCount('updates')->get();
 
 
-        $updateTotal = Update::where('is_approved', '=', '2')->count();
-        $AnnouncementTotal = Announcement::where('is_approved', '=', '2')->count();
-        $ArchiveTotal = Archive::where('is_approved', '=', '2')->count();
-        $ArchiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '2')->count();
-        $BarangayModelTotal = BarangayModel::where('is_approved', '=', '2')->count();
-        $BarangayOfficialModelTotal = BarangayOfficialModel::where('is_approved', '=', '2')->count();
-        $ContactNumberOfficeTotal = ContactNumberOffice::where('is_approved', '=', '2')->count();
-        $CouncilorsTotal = Councilors::where('is_approved', '=', '2')->count();
-        $DepartmentTotal = Department::where('is_approved', '=', '2')->count();
-        $DepartmentAdminModelTotal = DepartmentAdminModel::where('is_approved', '=', '2')->count();
-        $DepartmentFunctionalityTotal = DepartmentFunctionality::where('is_approved', '=', '2')->count();
-        $EmergencyHotlineTotal = EmergencyHotline::where('is_approved', '=', '2')->count();
-        $LandingImageTotal = LandingImage::where('is_approved', '=', '2')->count();
-        $MemberTotal = Member::where('is_approved', '=', '2')->count();
-        $OfficialsAdminTotal = OfficialsAdmin::where('is_approved', '=', '2')->count();
-        $OrganizationalChartTotal = OrganizationalChart::where('is_approved', '=', '2')->count();
         // dd($updateTotal);
         if ($department == 'super_admin') {
             return view('admin.before.index', [
@@ -76,7 +60,19 @@ class AdminController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
                 'pagePrefix' => 'admin-index',
-                'updateTotal' => $updateTotal,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -88,7 +84,19 @@ class AdminController extends Controller
                 'pageName' => 'Update',
                 'update'=> false,
                 'edit' => false,
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 // 'idPage' => $department,
             ]);
             //         // $allDepartments = DepartmentAdminModel::all();
@@ -136,7 +144,19 @@ class AdminController extends Controller
             'idPage' => $department,
             'update'=> false,
             'edit' => false,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
         ]);
     }
 
@@ -144,7 +164,22 @@ class AdminController extends Controller
     {
         //
         $updates = Update::all();
-        return view('admin.list', ['updates' => $updates]);
+        return view('admin.list', [
+            'updates' => $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+        ]);
     }
 
     /**
@@ -291,7 +326,19 @@ class AdminController extends Controller
             'idPage' => $idPage,
             'model' => $model,
             'edit' => false,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
         ]);
     }
     public function remove(Request $request, $idPost, $idPage)
@@ -385,7 +432,19 @@ class AdminController extends Controller
                 'listRequests' => $listRequest,
                 'pageName' => 'Update',
                 'pagePrefix' => 'admin-index',
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -397,7 +456,19 @@ class AdminController extends Controller
                 'pageName' => 'Update',
                 'update'=> $update,
                 'edit' => true,
-                'updateTotal' => false,
+                'updateTotal' => $this->updateTotal(),
+                'archiveTotal' => $this->archiveTotal(),
+                'announcementTotal' => $this->announcementTotal(),
+                'memberTotal' => $this->memberTotal(),
+                'personnelTotal' => $this->personnelTotal(),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+                'landingImageTotal' => $this->landingImageTotal(),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+                'barangayModelTotal' => $this->barangayModelTotal(),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+                'organizationalChartTotal' => $this->organizationalChartTotal(),
                 // 'idPage' => $department,
             ]);
             //         // $allDepartments = DepartmentAdminModel::all();
