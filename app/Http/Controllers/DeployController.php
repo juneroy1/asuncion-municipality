@@ -2,57 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Message;
+use App\Deploy;
 use Illuminate\Support\Facades\Auth;
-class MessageController extends Controller
+
+use Illuminate\Http\Request;
+
+class DeployController extends Controller
 {
+
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['store','notfound']]);
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function notfound() 
-    { 
-        $user = Auth::user();
-      
-        if ($user) {
-            # code...
-            $id = Auth::id();
-            $department = $user->department_admin_model_id;
-        }
-
-        return view('errors.404', [
-            'department' => $user? $department: false,
-        ]); 
-    }
-    public function index(Request $request, $idPost = false)
+    public function index()
     {
-        //
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
         //
       
-            $messages = Message::all();
+            $deploy = Deploy::first();
+            if (!$deploy) {
+                # code...
+                $deploy = new Deploy;
+                $deploy->is_deploy = 0;
+                $deploy->message = 0;
+                $deploy->user_id = 'department';
+                $deploy->save();
+            }
+            $deploys = Deploy::all();
+            // foreach ($deploys as $key => $deploy) {
+            //     # code...
+            //     $update = Deploy::find($deploy->id);
+            //     $
+            // }
+            // dd($deploy);
 
-        $update = $idPost? Message::find($idPost):false;
-        // $listRequest = EmergencyHotline::where('is_read', '=', '0')->get();
-        // dd($listRequest);
-
-        // $messages = EmergencyHotline::where('is_read', '=', '0')->get();
-
-          return view('admin.messages', [
-            'messages'=> $messages, 
-            'idPage' => $department,
+        //
+         return view('admin.deploy', [
+            'deploy'=> $deploy, 
             'department' => $department,
-            'pageName' => 'Messages',
-            'update' => $update,
-            'edit' => $idPost? true:false,
+            'pageName' => 'Deploy',
+            'pagePrefix' => 'deploy',
             'updateTotal' => $this->updateTotal(),
             'archiveTotal' => $this->archiveTotal(),
             'announcementTotal' => $this->announcementTotal(),
@@ -66,7 +62,8 @@ class MessageController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
-            // 'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
         ]);
     }
 
@@ -75,10 +72,52 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
 
+        $deploy = Deploy::first();
+        $deploy_id = $deploy->id;
+
+        if ($department != 'super_admin') {
+            # code...
+            session()->flash('error', 'only the super admin can access the deployment');
+            return redirect()->back();
+        }
+
+        $update = Deploy::find($deploy_id);
+        $update->is_deploy = 1;
+        $update->save();
+
+        session()->flash('success', 'Successfully deploy the website, please check it in the home');
+        return redirect()->back();  
+        //
+    }
+
+    public function revert(Request $request)
+    {
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+
+        $deploy = Deploy::first();
+        $deploy_id = $deploy->id;
+
+        if ($department != 'super_admin') {
+            # code...
+            session()->flash('error', 'only the super admin can access the deployment');
+            return redirect()->back();
+        }
+
+        $update = Deploy::find($deploy_id);
+        $update->is_deploy = 0;
+        $update->save();
+
+        session()->flash('success', 'Successfully REVERT DEPLOY the website, please check it in the home');
+        return redirect()->back();  
+        //
     }
 
     /**
@@ -89,32 +128,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('daadadadada')
         //
-        $message = new Message;
-        $message->name = $request->name;
-        $message->email = $request->email;
-        $message->message = $request->message;
-        $message->save();
-
-        session()->flash('success', 'Successfully submitted the message, we will give a feedback and message for this, please wait for the email or text');
-        return redirect()->back();  
-    }
-
-    public function read(Request $request, $idPost){
-        $message = Message::find($idPost);
-        $message->is_read = 1;
-        $message->save();
-        session()->flash('success', 'Successfully updated the message');
-        return redirect()->back();  
-    }
-
-    public function done(Request $request, $idPost){
-        $message = Message::find($idPost);
-        $message->is_done = 1;
-        $message->save();
-        session()->flash('success', 'Successfully done the message');
-        return redirect()->back();  
     }
 
     /**

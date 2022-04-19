@@ -156,6 +156,10 @@
                                 href="/department-section" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">List of
                                     MMO; division/section</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/admin-deploy-status" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                    class="hide-menu">Deploy Settings</span>
+                                </a></li>
                             
                         @endif
                         
@@ -371,7 +375,7 @@
                                         ">{{ $organizationalChartTotal > 0 ? $organizationalChartTotal : '' }}
                                 </span>
                                 </a></li>
-                        
+                       
 
                         {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="/national-list" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span

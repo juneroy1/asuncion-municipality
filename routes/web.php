@@ -1,5 +1,7 @@
 <?php
 
+use App\Announcement;
+use App\Deploy;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,163 +25,7 @@
 // Route::get('/admin/list', function () {
 //     return view('admin.list');
 // });
-Route::get('/', 'OfficesController@welcome')->name('welcome');
-Route::get('/officials-view', 'OfficialsAdminController@showAllOfficials');
-Route::get('/legislative', 'OfficialsAdminController@showAllLegislative');
-Route::get('/view-official/{type}/{id}', 'OfficialsAdminController@viewOfficial');
-Route::get('/view-head-office/{id}', 'OfficialsAdminController@viewOfficialHead');
-
-// Route::get('/legislative', function () {
-//     return view('legislative');
-// });
-
-// messages
-Route::get('/messages', 'MessageController@index');
-Route::post('/messages-submit', 'MessageController@store');
-Route::get('/messages-done/{id}', 'MessageController@done');
-Route::get('/messages-read/{id}', 'MessageController@read');
-
-Route::get('/archive', 'ArchiveController@showArchive');
-Route::post('/archive-submit', 'ArchiveController@showArchiveSubmit');
-Route::post('/archive-submit-department/{name}/{id}', 'OfficesController@goToOfficeSearch');
-
-Route::get('/see-all-offices', 'OfficesController@list')->name('offices-list');
-
-Route::get('/see-all-offices/{name}/{id}', 'OfficesController@goToOffice')->name('offices-name');
-
-Route::get('/see-all-offices-legislative', 'OfficesController@listLegislative')->name('offices-list');
-Route::get('/see-all-offices-legislative/{name}', 'OfficesController@goToOfficeLegislative')->name('offices-list');
-
-// Route::get('/see-all-offices', function () {
-//     return view('offices.seeAllOffices');
-// });
-
-// Route::get('/see-all-projects', function () {
-//     return view('projects.seeAllProjects');
-// });
-
-Route::get('/see-all-projects', 'OfficesController@seeProjects')->name('offices-list');
-
-Route::get('/vision', function () {
-    return view('vision');
-});
-
-Route::get('/historical', function () {
-    return view('historical');
-});
-
-Route::get('/executive', function () {
-    return view('executive');
-});
-
-Route::get('/mission', function () {
-    return view('mission');
-});
-
-Route::get('/mayorsOffice', function () {
-    return view('offices.mayorsOffices');
-});
-
-
-
-
-
-Route::get('/mado', function () {
-    return view('offices.mado.mado');
-});
-
-
-Route::get('/MHRMO', function () {
-    return view('offices.MHRMO.mhrmo');
-});
-
-
-Route::get('/OIC-MPDC', function () {
-    return view('offices.OIC-MPDC.mpdc');
-});
-
-
-Route::get('/LDRRMO', function () {
-    return view('offices.LDRRMO.ldrrmo');
-});
-
-Route::get('/mgso', function () {
-    return view('offices.MGSO.mgso');
-});
-
-
-Route::get('/MBO', function () {
-    return view('offices.MBO.mbo');
-});
-
-Route::get('/macco', function () {
-    return view('offices.MACCO.macco');
-});
-
-Route::get('/mtof', function () {
-    return view('offices.MTOF.mtof');
-});
-
-Route::get('/mswdo', function () {
-    return view('offices.MSWDO.mswdo');
-});
-
-
-Route::get('/mao', function () {
-    return view('offices.MAO.mao');
-});
-
-Route::get('/meo', function () {
-    return view('offices.MEO.meo');
-});
-
-Route::get('/mcr', function () {
-    return view('offices.MCR.mcr');
-});
-
-Route::get('/masso', function () {
-    return view('offices.MASSO.masso');
-});
-
-Route::get('/meedmo', function () {
-    return view('offices.MEEDMO.meedmo');
-});
-
-Route::get('/peso', function () {
-    return view('offices.PESO.peso');
-});
-
-Route::get('/ABE-FAP', function () {
-    return view('offices.ABE-FAP.abe_fap');
-});
-
-Route::get('/mnao', function () {
-    return view('offices.MNAO.mnao');
-});
-
-Route::get('/meppio', function () {
-    return view('offices.MEPPIO.meppio');
-});
-
-Route::get('/AMUNTRICO', function () {
-    return view('offices.AMUNTRICO.amuntrico');
-});
-
-
-Route::get('/tourism', function () {
-    return view('offices.TOURISM.tourism');
-});
-
-
-Route::get('/pcic', function () {
-    return view('offices.PCIC.pcic');
-});
-
-Route::get('/healthOffice', function () {
-    return view('offices.OIC MHO.healthOffice');
-});
-
-
+$var = Announcement::all();
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -339,3 +185,182 @@ Route::get('/emergencyHotlines/{department}', 'EmergencyHotlineController@indexA
 Route::post('/emergencyHotlines-submit', 'EmergencyHotlineController@store')->name('emergency-Hotlines-create');
 Route::get('/approve-emergencyHotlines/{id}', 'EmergencyHotlineController@approve')->name('approve-emergency-Hotlines');
 Route::post('/remove-emergencyHotlines/{id}/{idPage}', 'EmergencyHotlineController@remove')->name('remove-emergency-Hotlines');
+Route::get('/messages', 'MessageController@index');
+Route::get('/admin-deploy-status', 'DeployController@index');
+Route::post('/admin-deploy-status-submit', 'DeployController@create');
+Route::get('/admin-deploy-status-submit-get', 'DeployController@create');
+Route::get('/admin-deploy-status-submit-get-revert', 'DeployController@revert');
+
+Route::get('/messages-done/{id}', 'MessageController@done');
+Route::get('/messages-read/{id}', 'MessageController@read');
+
+$deploy = Deploy::first();
+if ($deploy->is_deploy == 0) {
+    // Auth::routes();
+    # code...
+
+
+
+Route::any('{catchall}', 'MessageController@notfound')->where('catchall', '.*');
+
+}else{
+// dd($var);
+// Route::any('{catchall}', 'MessageController@notfound')->where('catchall', '.*');
+Route::get('/', 'OfficesController@welcome')->name('welcome');
+Route::get('/officials-view', 'OfficialsAdminController@showAllOfficials');
+Route::get('/legislative', 'OfficialsAdminController@showAllLegislative');
+Route::get('/view-official/{type}/{id}', 'OfficialsAdminController@viewOfficial');
+Route::get('/view-head-office/{id}', 'OfficialsAdminController@viewOfficialHead');
+
+// Route::get('/legislative', function () {
+//     return view('legislative');
+// });
+
+// messages
+Route::post('/messages-submit', 'MessageController@store');
+
+
+Route::get('/archive', 'ArchiveController@showArchive');
+Route::post('/archive-submit', 'ArchiveController@showArchiveSubmit');
+Route::post('/archive-submit-department/{name}/{id}', 'OfficesController@goToOfficeSearch');
+
+Route::get('/see-all-offices', 'OfficesController@list')->name('offices-list');
+
+Route::get('/see-all-offices/{name}/{id}', 'OfficesController@goToOffice')->name('offices-name');
+
+Route::get('/see-all-offices-legislative', 'OfficesController@listLegislative')->name('offices-list');
+Route::get('/see-all-offices-legislative/{name}', 'OfficesController@goToOfficeLegislative')->name('offices-list');
+
+// Route::get('/see-all-offices', function () {
+//     return view('offices.seeAllOffices');
+// });
+
+// Route::get('/see-all-projects', function () {
+//     return view('projects.seeAllProjects');
+// });
+
+Route::get('/see-all-projects', 'OfficesController@seeProjects')->name('offices-list');
+
+Route::get('/vision', function () {
+    return view('vision');
+});
+
+Route::get('/historical', function () {
+    return view('historical');
+});
+
+Route::get('/executive', function () {
+    return view('executive');
+});
+
+Route::get('/mission', function () {
+    return view('mission');
+});
+
+Route::get('/mayorsOffice', function () {
+    return view('offices.mayorsOffices');
+});
+
+
+
+
+
+Route::get('/mado', function () {
+    return view('offices.mado.mado');
+});
+
+
+Route::get('/MHRMO', function () {
+    return view('offices.MHRMO.mhrmo');
+});
+
+
+Route::get('/OIC-MPDC', function () {
+    return view('offices.OIC-MPDC.mpdc');
+});
+
+
+Route::get('/LDRRMO', function () {
+    return view('offices.LDRRMO.ldrrmo');
+});
+
+Route::get('/mgso', function () {
+    return view('offices.MGSO.mgso');
+});
+
+
+Route::get('/MBO', function () {
+    return view('offices.MBO.mbo');
+});
+
+Route::get('/macco', function () {
+    return view('offices.MACCO.macco');
+});
+
+Route::get('/mtof', function () {
+    return view('offices.MTOF.mtof');
+});
+
+Route::get('/mswdo', function () {
+    return view('offices.MSWDO.mswdo');
+});
+
+
+Route::get('/mao', function () {
+    return view('offices.MAO.mao');
+});
+
+Route::get('/meo', function () {
+    return view('offices.MEO.meo');
+});
+
+Route::get('/mcr', function () {
+    return view('offices.MCR.mcr');
+});
+
+Route::get('/masso', function () {
+    return view('offices.MASSO.masso');
+});
+
+Route::get('/meedmo', function () {
+    return view('offices.MEEDMO.meedmo');
+});
+
+Route::get('/peso', function () {
+    return view('offices.PESO.peso');
+});
+
+Route::get('/ABE-FAP', function () {
+    return view('offices.ABE-FAP.abe_fap');
+});
+
+Route::get('/mnao', function () {
+    return view('offices.MNAO.mnao');
+});
+
+Route::get('/meppio', function () {
+    return view('offices.MEPPIO.meppio');
+});
+
+Route::get('/AMUNTRICO', function () {
+    return view('offices.AMUNTRICO.amuntrico');
+});
+
+
+Route::get('/tourism', function () {
+    return view('offices.TOURISM.tourism');
+});
+
+
+Route::get('/pcic', function () {
+    return view('offices.PCIC.pcic');
+});
+
+Route::get('/healthOffice', function () {
+    return view('offices.OIC MHO.healthOffice');
+});
+
+
+
+}
+
