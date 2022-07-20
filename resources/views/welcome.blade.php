@@ -110,7 +110,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="container p-3 m-3">
+            <div class="container p-3 m-4">
                 <h1>EMERGENCY HOTLINE NUMBER</h1>
                 <table style="border: solid" class="table">
                     <thead>
@@ -139,6 +139,8 @@
         <div class="col-md-6">
           
 
+
+       
         <div style="cursor: pointer; margin: 20px; padding:50px;padding-bottom: 20px;" class="container-fluid m-10">
             <div class="row">
                 <div class="col-lg-12">
@@ -169,17 +171,19 @@
                 </div> <!-- end of col -->
             </div>
         </div>
+ 
         </div>
     </div>
-    <hr>
     <!-- end of header -->
     <!-- end of header -->
     {{-- class="container" --}}
     <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+         <div class="card" style="padding: 40px; margin-bottom:30px">
         <div style="cursor: pointer;" >
             <div class="row">
                 <div class="col-lg-6">
-                    <h3 style="text-align: center">HISTORICAL BACKGROUND</h3>
+                   
+                        <h3 style="text-align: center">HISTORICAL BACKGROUND</h3>
                     <div style="text-align: center;display: flex;
                                                                 justify-items: center;
                                                                 align-items: center;
@@ -215,6 +219,8 @@
                         </div>
                        
                     </div>
+                   
+                    
 
                 </div>
                 <div class="col-lg-6">
@@ -272,9 +278,9 @@
                 </div>
             </div> <!-- end of col -->
         </div>
+         </div>
     </div>
     </div>
-    <hr>
     <div class="filter">
         <div class="container">
             <div class="row">
