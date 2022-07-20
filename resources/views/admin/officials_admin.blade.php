@@ -169,8 +169,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Elective title experience:</label>
                                         <div class="col-md-12">
-                                            <input name="elective_title_experience" type="text" placeholder="Enter elective title experience"
-                                                class="form-control ps-0 form-control-line">
+                                        <textarea name="elective_title_experience"  rows="5" class="form-control ps-0 form-control-line"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

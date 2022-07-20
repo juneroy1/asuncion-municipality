@@ -11,7 +11,7 @@ class OfficialsAdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth',['except' => ['showAllOfficials','showAllLegislative']]);
+        $this->middleware('auth',['except' => ['showAllOfficials','showAllLegislative', 'viewOfficial']]);
     }
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OfficialsAdminController extends Controller
         //
         // if ($department =='super_admin') {
             # code...
-            $officials = OfficialsAdmin::all();
+            $officials = OfficialsAdmin::where('is_approved', '1')->get();
         // }else{
         //     $officials = OfficialsAdmin::where('department', '=', $department)->get();
         // }
@@ -88,7 +88,7 @@ class OfficialsAdminController extends Controller
 
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user?$user->department_admin_model_id:false;
         $official = OfficialsAdmin::find($idOfficial);
         return view('view_official', [
             'official'=> $official,
@@ -113,7 +113,7 @@ class OfficialsAdminController extends Controller
 
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user?$user->department_admin_model_id:false;
         $official = Member::find($idOfficial);
         return view('view_official_head', [
             'official'=> $official,
@@ -204,6 +204,7 @@ class OfficialsAdminController extends Controller
         // ]);
         // $imageName = time().'.'.$request->image->extension(); 
         // $request->image->move(public_path('images'), $imageName);
+        if ($request->image) {
         $imageName = time().'.'.$request->image->extension(); 
         // $request->image->move(public_path('uploadImage/'.$department), $imageName);
         $image = $request->image;
@@ -211,10 +212,13 @@ class OfficialsAdminController extends Controller
         // \File::mkdir($destinationPath);
         $img = Image::make($image->getRealPath());
         $img->resize(null,800,function($constraint){ $constraint->aspectRatio(); })->save($destinationPath.'/'.$imageName);
+        }
         // echo $imageName;die;
         $officials = OfficialsAdmin::all();
         $member = new OfficialsAdmin;
+        if ($request->image) {
         $member->image = $imageName;
+        }
         $member->first_name = $request->first_name;
         $member->last_name = $request->last_name;
         $member->position = $request->position;
@@ -235,7 +239,7 @@ class OfficialsAdminController extends Controller
         $member->others = $request->others;//$request->others;
         $member->user_id = $id;
         $member->is_approved = 1;
-        $member->departmen_id = $department;
+        $member->department_id = $department;
         $member->save();
         session()->flash('success', 'successfully added new officials');
         return redirect()->back()->with(['officials'=>$officials]);

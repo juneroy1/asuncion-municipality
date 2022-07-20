@@ -16,6 +16,7 @@
         <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
         <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
         <meta property="og:type" content="article" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     
         <!-- Website Title -->
         <title>Municipality of Asuncion </title>

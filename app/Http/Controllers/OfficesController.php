@@ -39,6 +39,7 @@ class OfficesController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            "title" => "THE LEGISLATIVE OFFICES"
         ]); 
     }
     public function list()
@@ -59,6 +60,7 @@ class OfficesController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            "title" => "THE EXECUTIVE OFFICES"
         ]);
     }
 
