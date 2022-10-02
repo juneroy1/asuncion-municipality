@@ -12,6 +12,36 @@ use App\AgendaModel;
 
 class ExecutiveBranchFileController extends Controller
 {
+    public function approveDepartment($idPost)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+        if ($department =='super_admin') {
+            # code...
+            $agendas = AgendaModel::where('is_executive', '=', 1)->get();
+        }else{
+            $agendas = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['agendas'=>$agendas]);  
+        }
+        $find = AgendaModel::find($idPost);
+        $find->is_approved = 1;
+        $find->remarks = "";
+        $find->save();
+
+
+        session()->flash('success', 'successfully approved executive files');
+        return redirect()->back()->with(['agendas'=>$agendas]);  
+    }
     public function removeDepartment(Request $request, $idPost, $idPage)
     {
         $this->validate($request,[

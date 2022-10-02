@@ -296,7 +296,7 @@
         function approve(id, idpage) {
             let confirm_Final = confirm("Do you really want to APPROVE?");
             if (confirm_Final) {
-                window.location.href = "/admin-manage-executive-file/" + id
+                window.location.href = "/approve-executive-file/" + id
             }
 
             // alert(id+" "+idpage);

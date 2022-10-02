@@ -11,6 +11,37 @@ use Illuminate\Support\Facades\DB;
 use App\AgendaModel;
 class LegislativeBranchFileController extends Controller
 {
+    public function approveDepartment($idPost)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+
+        if ($department =='super_admin') {
+            # code...
+            $agendas = AgendaModel::where('is_executive', '=', 0)->get();
+        }else{
+            $agendas = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['agendas'=>$agendas]);  
+        }
+        $find = AgendaModel::find($idPost);
+        $find->is_approved = 1;
+        $find->remarks = "";
+        $find->save();
+
+
+        session()->flash('success', 'successfully approved legislative files');
+        return redirect()->back()->with(['agendas'=>$agendas]);  
+    }
     public function removeDepartment(Request $request, $idPost, $idPage)
     {
         $this->validate($request,[
@@ -26,15 +57,15 @@ class LegislativeBranchFileController extends Controller
 
         if ($department =='super_admin') {
             # code...
-            $archives = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
+            $agendas = AgendaModel::where('is_executive', '=', 0)->get();
         }else{
-            $barangay_officials = AgendaModel::where('department_id', '=', $department)->get();
+            $agendas = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 1)->get();
         }
 
         if ($department !='super_admin') {
             # code...
             session()->flash('error', 'only the admin can access the approval');
-            return redirect()->back()->with(['archives'=>$archives]);  
+            return redirect()->back()->with(['agendas'=>$agendas]);  
         }
 
         $find = AgendaModel::find($idPost);
@@ -92,7 +123,7 @@ class LegislativeBranchFileController extends Controller
         }else{
             $agendas = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
         }
-        $listRequest = Department::withCount('agendas')->get();
+        $listRequest = Department::withCount('agendasLegislative')->get();
         $update = $idPost ? AgendaModel::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {
@@ -116,8 +147,6 @@ class LegislativeBranchFileController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
-                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
-                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
                 'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
@@ -145,8 +174,6 @@ class LegislativeBranchFileController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
-                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
-                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
                 'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'idPage' => $department,

@@ -155,8 +155,8 @@
                                                     {{$listRequest->agendas_count}}
                                                 </div></a>   
                                                 @endif
-
-                                                @if ($pageName == 'Legislative Department')
+                                                    
+                                                @if ($pageName == 'Legislative Branch')
                                                 <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
                                                     <div class="{{$listRequest->agendas_legislative_count > 0? 'notif-container':''}}">
                                                     {{$listRequest->agendas_legislative_count}}

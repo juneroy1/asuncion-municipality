@@ -296,7 +296,7 @@
         function approve(id, idpage) {
             let confirm_Final = confirm("Do you really want to APPROVE?");
             if (confirm_Final) {
-                window.location.href = "/admin-manage-legislative-file/" + id
+                window.location.href = "/approve-legislative-file/" + id
             }
 
             // alert(id+" "+idpage);
