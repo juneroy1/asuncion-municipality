@@ -116,10 +116,19 @@
                                                             <form method="POST"
                                                                 action="/remove-org-chart-office/{{ $update->id }}/{{ $idPage }}"
                                                                 enctype="multipart/form-data" class="row">
+                                                            @elseif( $model == 'LegislativeAgendas' )
+                                                                <form method="POST"
+                                                                    action="/remove-legislative-file/{{ $update->id }}/{{ $idPage }}"
+                                                                    enctype="multipart/form-data" class="row">
+                                                                    @elseif( $model == 'ExecutiveAgendas' )
+                                                                    <form method="POST"
+                                                                        action="/remove-legislative-file/{{ $update->id }}/{{ $idPage }}"
+                                                                        enctype="multipart/form-data" class="row">
                                                             @else
                                                                 <form method="POST"
                                                                     action="/remove-list/{{ $update->id }}/{{ $idPage }}"
                                                                     enctype="multipart/form-data" class="row">
+                                                                    {{-- $model == 'ExecutiveAgendas' || --}}
                 @endif
 
                 @csrf

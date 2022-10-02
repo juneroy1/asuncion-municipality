@@ -11,6 +11,41 @@ use Illuminate\Support\Facades\DB;
 use App\AgendaModel;
 class LegislativeBranchFileController extends Controller
 {
+    public function removeDepartment(Request $request, $idPost, $idPage)
+    {
+        $this->validate($request,[
+            'remarks'=>'required',
+            ]);
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+
+        if ($department =='super_admin') {
+            # code...
+            $archives = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
+        }else{
+            $barangay_officials = AgendaModel::where('department_id', '=', $department)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['archives'=>$archives]);  
+        }
+
+        $find = AgendaModel::find($idPost);
+        $find->is_approved = 3;
+        $find->remarks = $request->remarks;
+        $find->save();
+
+        session()->flash('success', 'successfully removed legislative file');
+        return redirect("/admin-manage-legislative-file/$idPage");
+        // return redirect()->back()->with(['archives'=>$archives]);  
+    }
     
     public function indexDepartmentAdmin($department){
         $agendas =  AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 0)->get();
@@ -163,6 +198,7 @@ class LegislativeBranchFileController extends Controller
         $member->is_approved = 2;
         $member->department_id = $department;
         $member->remarks = $request->remarks;
+        $member->is_executive = 0;
         $member->save();
         session()->flash('success', $idPost?'successfully update  agendas ':'successfully added new agendas ');
         return redirect('/admin-manage-legislative-file')->with(['agendas'=>$agendas]);

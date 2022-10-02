@@ -93,9 +93,6 @@
                                                 {{-- <img width="200"  src='departments/{{$Department->image}}'> --}}
                                             {{-- </td> --}}
                                             <td> <a href="/{{$pagePrefix}}/{{$listRequest->id}}">{{$listRequest->name}}</a></td>
-                                          
-                                                
-                                           
                                             <td>
                                                 {{-- <td>{{$Department->number}}</td> --}}
                                                 @if ($pageName == 'Announcement')

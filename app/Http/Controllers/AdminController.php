@@ -20,6 +20,7 @@ use App\BarangayModel;
 use App\ContactNumberOffice;
 use App\OrganizationalChart;
 use Intervention\Image\ImageManagerStatic as Image;
+use App\AgendaModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -326,8 +327,10 @@ class AdminController extends Controller
             $find = ContactNumberOffice::find($idPost); 
         }else if($model == 'OrganizationalChart'){
             $find = OrganizationalChart::find($idPost); 
+        }else if ($model == 'ExecutiveAgendas' || $model == 'LegislativeAgendas' ){
+            $find = AgendaModel::find($idPost); 
         }
-
+        // dd($model);
         return view('admin.remarks', [
             'update' => $find,
             'department' => $department,
