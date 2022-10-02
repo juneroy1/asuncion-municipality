@@ -31,7 +31,12 @@ class Department extends Model
     }
     public function agendas()
     {
-        return $this->hasMany(AgendaModel::class)->where('is_approved', 2);
+        return $this->hasMany(AgendaModel::class)->where('is_approved', 2)->where('is_executive', 1);
+    }
+
+    public function agendasLegislative()
+    {
+        return $this->hasMany(AgendaModel::class)->where('is_approved', 2)->where('is_executive', 0);
     }
     public function updates()
     {

@@ -12,6 +12,37 @@ use App\AgendaModel;
 
 class ExecutiveBranchFileController extends Controller
 {
+    public function indexDepartmentAdmin($department){
+        $agendas =  AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 1)->get();
+        $user = Auth::user();
+        $id = Auth::id();
+        $departmentUser = $user->department_admin_model_id;
+        
+        // dd($departmentUser);
+        return view('admin.executive_agenda', [
+            'agendas'=> $agendas, 
+            'department' => $departmentUser,
+            'idPage' => $department,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+            
+        ]);
+    }
     public function indexDepartment($idPost = false)
     {
         // dd('dadada');
@@ -27,6 +58,7 @@ class ExecutiveBranchFileController extends Controller
             $agendas = AgendaModel::where('department_id', '=', $department)->where('is_executive', '=', 1)->get();
         }
         $listRequest = Department::withCount('agendas')->get();
+        // dd($listRequest[0]->agendas_count);
         $update = $idPost ? AgendaModel::find($idPost):false;
         // dd($listRequest);
         if ($department =='super_admin') {

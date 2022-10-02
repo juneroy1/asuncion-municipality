@@ -14,8 +14,6 @@
      'barangayModelTotal' => $barangayModelTotal?$barangayModelTotal:0,
      'contactNumberOfficeTotal' => $contactNumberOfficeTotal?$contactNumberOfficeTotal:0,
      'organizationalChartTotal' => $organizationalChartTotal?$organizationalChartTotal:0,
-     
-     
      ])
 
 @section('content')
@@ -156,15 +154,15 @@
 
                                                 @if ($pageName == 'Executive Branch')
                                                 <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
-                                                    <div class="{{$listRequest->archive_departments_count > 0? 'notif-container':''}}">
-                                                    {{$listRequest->archive_departments_count}}
+                                                    <div class="{{$listRequest->agendas_count > 0? 'notif-container':''}}">
+                                                    {{$listRequest->agendas_count}}
                                                 </div></a>   
                                                 @endif
 
                                                 @if ($pageName == 'Legislative Department')
                                                 <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
-                                                    <div class="{{$listRequest->archive_departments_count > 0? 'notif-container':''}}">
-                                                    {{$listRequest->archive_departments_count}}
+                                                    <div class="{{$listRequest->agendas_legislative_count > 0? 'notif-container':''}}">
+                                                    {{$listRequest->agendas_legislative_count}}
                                                 </div></a>   
                                                 @endif
 
