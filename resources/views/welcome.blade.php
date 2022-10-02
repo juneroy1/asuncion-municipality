@@ -229,7 +229,7 @@
                             <div class="col-lg-12">
                                 {{-- <div class="section-title">UPDATES</div> --}}
                                 {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                                <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank"
+                                <a style="text-decoration: none" href="/agendas/{{$executive_agendas? $executive_agendas['file']: ''}}" target="_blank"
                                     rel="noopener noreferrer">
                                     <h3 style="text-align: center">EXECUTIVE AGENDA</h3>
                                     <div style="text-align: center;
@@ -257,7 +257,7 @@
                     <div style="cursor: pointer; margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank"
+                                <a style="text-decoration: none" href="/agendas/{{$legislative_agendas? $legislative_agendas['file']: ''}}" target="_blank"
                                     rel="noopener noreferrer">
                                     <h3 style="text-align: center">LEGISLATIVE AGENDA</h3>
                                     <div style="text-align: center;

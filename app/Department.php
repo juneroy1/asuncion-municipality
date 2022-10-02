@@ -9,6 +9,7 @@ use App\Announcement;
 use App\Member;
 use App\LandingImage;
 use App\DepartmentFunctionality;
+use App\AgendaModel;
 
 class Department extends Model
 {
@@ -27,6 +28,10 @@ class Department extends Model
             'department'        =>    $this->department,
             'user_id'        =>    $this->user_id,
         ];
+    }
+    public function agendas()
+    {
+        return $this->hasMany(AgendaModel::class)->where('is_approved', 2);
     }
     public function updates()
     {

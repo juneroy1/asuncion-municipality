@@ -154,6 +154,20 @@
                                                     </div></a>   
                                                 @endif
 
+                                                @if ($pageName == 'Executive Branch')
+                                                <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
+                                                    <div class="{{$listRequest->archive_departments_count > 0? 'notif-container':''}}">
+                                                    {{$listRequest->archive_departments_count}}
+                                                </div></a>   
+                                                @endif
+
+                                                @if ($pageName == 'Legislative Department')
+                                                <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
+                                                    <div class="{{$listRequest->archive_departments_count > 0? 'notif-container':''}}">
+                                                    {{$listRequest->archive_departments_count}}
+                                                </div></a>   
+                                                @endif
+
                                                 @if ($pageName == 'Archive Official')
                                                     <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
                                                         <div class="{{$listRequest->archives_count > 0? 'notif-container':''}}">

@@ -301,6 +301,36 @@
                                         ">{{ $archiveDepartmentTotal > 0 ? $archiveDepartmentTotal : '' }}
                                 </span>
                                 </a></li>
+                        <li class="sidebar-item"> <a
+                                    class="sidebar-link waves-effect waves-dark sidebar-link {{ $title == 'executive_department' ? 'active' : '' }}"
+                                    href="/admin-manage-executive-file" aria-expanded="false"><i
+                                        class="mdi me-2 mdi-table"></i><span class="hide-menu">Manage Executive Branch</span>
+                                    <span style="border-radius: 50px;
+                                        color: white;
+                                        position: absolute;
+                                        background-color: red;
+                                        right: 10px;
+                                        bottom: 3px;
+                                        width: 20px;
+                                        text-align: center;
+                                            ">{{ $executiveBranchCountSuperAdmin > 0 ? $executiveBranchCountSuperAdmin : '' }}
+                                    </span>
+                                    </a></li>
+                        <li class="sidebar-item"> <a
+                                        class="sidebar-link waves-effect waves-dark sidebar-link {{ $title == 'legislative_branch' ? 'active' : '' }}"
+                                        href="/admin-manage-legislative-file" aria-expanded="false"><i
+                                            class="mdi me-2 mdi-table"></i><span class="hide-menu">Manage Legislative Branch</span>
+                                        <span style="border-radius: 50px;
+                                            color: white;
+                                            position: absolute;
+                                            background-color: red;
+                                            right: 10px;
+                                            bottom: 3px;
+                                            width: 20px;
+                                            text-align: center;
+                                                ">{{ $legislativeBranchCountSuperAdmin > 0 ? $legislativeBranchCountSuperAdmin : '' }}
+                                        </span>
+                                        </a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin-barangay-officials" aria-expanded="false"><i
                                     class="mdi me-2 mdi-table"></i><span class="hide-menu">Barangay

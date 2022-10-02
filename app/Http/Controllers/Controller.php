@@ -23,6 +23,7 @@ use App\Member;
 use App\OfficialsAdmin;
 use App\OrganizationalChart;
 use App\Personnel;
+use App\AgendaModel;
 
 class Controller extends BaseController
 {
@@ -49,6 +50,14 @@ class Controller extends BaseController
     public function archiveDepartmentTotal(){
         $archiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '2')->count();
         return $archiveDepartmentTotal;
+    }
+    public function legislativeBranchCountSuperAdmin(){
+        $legislativeBranchCountSuperAdmin = AgendaModel::where('is_approved', '=', '2')->where('is_executive', '=', 0)->count();
+        return $legislativeBranchCountSuperAdmin;
+    }
+    public function executiveBranchCountSuperAdmin(){
+        $executiveBranchCountSuperAdmin = AgendaModel::where('is_approved', '=', '2')->where('is_executive', '=', 1)->count();
+        return $executiveBranchCountSuperAdmin;
     }
     public function barangayModelTotal(){
         $barangayModelTotal = BarangayModel::where('is_approved', '=', '2')->count();

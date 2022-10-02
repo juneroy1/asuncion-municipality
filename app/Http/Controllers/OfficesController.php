@@ -18,7 +18,7 @@ use App\Personnel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use App\AgendaModel;
 class OfficesController extends Controller
 {
     //
@@ -212,6 +212,9 @@ class OfficesController extends Controller
         $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $barangay_officials = BarangayOfficialModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $barangays = BarangayModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
+        $executive_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 1)->orderBy('created_at', 'DESC')->first();
+        $legislative_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 0)->orderBy('created_at', 'DESC')->first();
+        // dd($executive_agendas->title);
         return view('welcome', [
             'updates'=> $updates,
             'latestUpdate'=> $latestUpdate, 
@@ -233,6 +236,8 @@ class OfficesController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'executive_agendas'=> $executive_agendas,
+            'legislative_agendas'=> $legislative_agendas,
             'update'=> false,
                 'edit' => false,
         ]);

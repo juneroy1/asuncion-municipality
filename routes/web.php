@@ -90,6 +90,20 @@ Route::get('/admin-officials-archive/{department}', 'ArchiveController@indexOffi
 Route::get('/approve-officials-archive/{id}', 'ArchiveController@approve')->name('approve-officials-archive');
 Route::post('/remove-officials-archive/{id}/{idPage}', 'ArchiveController@remove')->name('remove-officials-archive');
 
+// executive branch
+Route::get('/admin-manage-executive-file', 'ExecutiveBranchFileController@indexDepartment')->name('department-archive');
+Route::get('/admin-manage-executive-file-edit/{id}', 'ExecutiveBranchFileController@indexDepartment')->name('department-archive');
+Route::post('/admin-manage-executive-file-update/{id}', 'ExecutiveBranchFileController@storeDepartment')->name('department-archive');
+Route::get('/admin-manage-executive-file/{department}', 'ExecutiveBranchFileController@indexDepartmentAdmin')->name('department-archive');
+Route::post('/admin-manage-executive-file', 'ExecutiveBranchFileController@storeDepartment')->name('department-archive_create');
+
+// legislative branch
+Route::get('/admin-manage-legislative-file', 'LegislativeBranchFileController@indexDepartment')->name('department-archive');
+Route::get('/admin-manage-legislative-file-edit/{id}', 'LegislativeBranchFileController@indexDepartment')->name('department-archive');
+Route::post('/admin-manage-legislative-file-update/{id}', 'LegislativeBranchFileController@storeDepartment')->name('department-archive');
+Route::get('/admin-manage-legislative-file/{department}', 'LegislativeBranchFileController@indexDepartmentAdmin')->name('department-archive');
+
+
 
 // depatment archive admin
 Route::get('/admin-department-archive', 'ArchiveController@indexDepartment')->name('department-archive');
