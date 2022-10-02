@@ -1,7 +1,7 @@
 @extends('layouts.master', ['title' => 'welcome', 'subtitle' => ''])
 
 @section('content')
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div style="margin-top: 110px;"  id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -16,7 +16,7 @@
                         <div class="carousel-item">
                 @endif
 
-                <div id="header" style="background: url(landing_images/{{ $image->image }}) center center no-repeat;"
+                <div id="header" style="background-size: cover !important;background: url(landing_images/{{ $image->image }}) center center no-repeat;"
                     class="header">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
