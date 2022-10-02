@@ -69,6 +69,8 @@ class DepartmentFunctionalityController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -93,6 +95,8 @@ class DepartmentFunctionalityController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             ]);
         }
         // return view('admin.functionalities', ['functionalities'=> $functionalities, 'department' => $department]);

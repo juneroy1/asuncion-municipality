@@ -41,6 +41,8 @@ class EmergencyHotlineController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
     public function index($idPost = false)
@@ -79,6 +81,8 @@ class EmergencyHotlineController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -103,6 +107,8 @@ class EmergencyHotlineController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 // 'idPage' => $department,
             ]);
  

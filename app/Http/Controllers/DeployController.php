@@ -62,6 +62,8 @@ class DeployController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             'update'=> false,
             'edit' => false,
         ]);

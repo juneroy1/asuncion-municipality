@@ -66,6 +66,8 @@ class MessageController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             // 'idPage' => $department,
         ]);
     }

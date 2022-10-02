@@ -44,6 +44,8 @@ class MemberController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
     public function indexPersonnel(){
@@ -81,6 +83,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -106,6 +110,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             ]);
         }
     }
@@ -146,6 +152,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -171,6 +179,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             ]);
         }
         // return view('admin.member', ['members'=> $members,'department' => $department]);
@@ -214,6 +224,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -239,6 +251,8 @@ class MemberController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             ]);
         }
         // return view('admin.member', ['members'=> $members,'department' => $department]);
@@ -530,6 +544,8 @@ class MemberController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
     /**

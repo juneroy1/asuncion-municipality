@@ -47,6 +47,8 @@ class ArchiveController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
     public function showArchiveSubmit(Request $request){
@@ -77,6 +79,8 @@ class ArchiveController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
         // $archives = Archive::where('department', 'LIKE', "$searchArchive%")->get();
     }
@@ -119,7 +123,8 @@ class ArchiveController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
-                
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -143,6 +148,8 @@ class ArchiveController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             ]);
         }
        
@@ -174,7 +181,8 @@ class ArchiveController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
-            
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             
         ]);
     }
@@ -204,7 +212,8 @@ class ArchiveController extends Controller
             'barangayModelTotal' => $this->barangayModelTotal(),
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
-            
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
             
         ]);
     }
@@ -245,6 +254,8 @@ class ArchiveController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'update'=> false,
                 'edit' => false,
             ]);
@@ -269,6 +280,8 @@ class ArchiveController extends Controller
                 'barangayModelTotal' => $this->barangayModelTotal(),
                 'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
                 'organizationalChartTotal' => $this->organizationalChartTotal(),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
                 'idPage' => $department,
             ]);
  
