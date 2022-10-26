@@ -7,7 +7,7 @@
         <!-- SEO Meta Tags -->
         <meta name="description" content="Welcome to the official website of LGU ASUNCION">
         <meta name="author" content="Juneroy D. Quinimon">
-    
+
         <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
         <meta property="og:site_name" content="" /> <!-- website name -->
         <meta property="og:site" content="" /> <!-- website link -->
@@ -22,17 +22,26 @@
         <title>Municipality of Asuncion </title>
         
         <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet"> -->
         <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('css/fontawesome-all.css')}}" rel="stylesheet">
         <link href="{{asset('css/swiper.css')}}" rel="stylesheet">
         <link href="{{asset('css/magnific-popup.css')}}" rel="stylesheet">
         <link href="{{asset('css/styles.css')}}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
         <style>
             .test{
                 background-image: url("/images/MunicipalLogo2.png") !important;
                 background-size: cover;
+            }
+            body{
+                font-family: 'Roboto' !important;
+            }
+             h1, h2, h3, h4, h5, h6, p{
+                font-family: 'Roboto' !important;
             }
         </style>
         <!-- Favicon  -->
@@ -110,17 +119,12 @@
 
                             <div class="dropdown-items-divide-hr"></div>
                             @if($subtitle=='archive')
-                            <a class="dropdown-item" href="#header"><span class="item-text">ARCHIVE</span></a>
+                            <a class="dropdown-item" href="#header"><span class="item-text">LEGISLATIVE DIGEST</span></a>
                             @else 
-                            <a class="dropdown-item" href="/archive/"><span class="item-text">ARCHIVE</span></a>
+                            <a class="dropdown-item" href="/archive/"><span class="item-text">LEGISLATIVE DIGEST</span></a>
                             @endif
 
-                            {{-- <div class="dropdown-items-divide-hr"></div>
-                            @if($subtitle=='archive')
-                            <a class="dropdown-item" href="#header"><span class="item-text">ARCHIVE</span></a>
-                            @else 
-                            <a class="dropdown-item" href="/archive/"><span class="item-text">ARCHIVE</span></a>
-                            @endif --}}
+                           
                          
 
                         </div>
@@ -279,27 +283,108 @@
                     {{-- <li class="nav-item">
                         <a class="nav-link page-scroll" href="#callMe">CALL ME</a>
                     </li> --}}
+
                     <li class="nav-item dropdown">
                         @if($title=='projects')
-                        <a class="nav-link page-scroll" href="#header">UPDATES AND PROJECTS <span class="sr-only">(current)</span></a>
+                        <a class="nav-link dropdown-toggle page-scroll" href="#header" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">UPDATES AND ACTIVITIES <span class="sr-only">(current)</span></a>
                         @else 
-                        <a class="nav-link page-scroll" href="/see-all-projects">UPDATES AND PROJECTS </a>
+                        <a class="nav-link dropdown-toggle page-scroll" href="/see-all-projects" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">UPDATES AND ACTIVITIES </a>
                         @endif
-                        {{-- <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">UPDATES AND PROJECTS</a>
+                       
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><span class="item-text">1ST WEDDING</span></a>
-                           <div class="dropdown-items-divide-hr"></div>
+                            @if($subtitle=='help' && $title=='projects')
+                            <a class="dropdown-item" href="#header"><span class="item-text">H-HELP</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/see-all-projects/help"><span class="item-text">H-HELP</span></a>
+                            @endif
+
+                            @if($subtitle=='education' && $title=='projects')
+                            <a class="dropdown-item" href="#header"><span class="item-text">E-EDUCATION</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/see-all-projects/education"><span class="item-text">E-EDUCATION</span></a>
+                            @endif
+
+                             @if($subtitle=='livelyhood' && $title=='projects')
+                            <a class="dropdown-item" href="#header"><span class="item-text">L-LIVELYHOOD</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/see-all-projects/livelyhood"><span class="item-text">L-LIVELYHOOD</span></a>
+                            @endif
+
+                             @if($subtitle=='projects' && $title=='projects')
+                            <a class="dropdown-item" href="#header"><span class="item-text">P-PROJECTS</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/see-all-projects/projects"><span class="item-text">P-PROJECTS</span></a>
+                            @endif
                             
-                            <a class="dropdown-item" href="#"><span class="item-text">BLOOD LETTING</span></a>
+                            
+
+                            
+                         
+
+                        </div>
+                        {{-- @if($title=='offices')
+                        <a class="nav-link page-scroll" href="#header">DEPARTMENTS <span class="sr-only">(current)</span></a>
+                        @else 
+                        <a class="nav-link page-scroll" href="/see-all-offices">DEPARTMENTS </a>
+                        @endif --}}
+
+                        {{--  --}}
+
+                        {{-- @if($title=='departments')
+                        <a class="nav-link dropdown-toggle page-scroll" href="#header" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">DEPARTMENTS<span class="sr-only">(current)</span></a>
+                        @else 
+                        <a class="nav-link dropdown-toggle page-scroll" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">DEPARTMENTS</a>
+                        @endif
+                       
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if($subtitle=='mayorsIffice')
+                            <a class="dropdown-item" href="#header"><span class="item-text">MAYOR'S OFFICE</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/mayorsOffice"><span class="item-text">MAYOR'S OFFICE</span></a>
+                            @endif
+                            
                             <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="#"><span class="item-text">VACCINATION</span></a>
+                           @if($subtitle=='mado')
+                           <a class="dropdown-item" href="#header"><span class="item-text">MADO</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/mado"><span class="item-text">MADO</span></a>
+                            @endif
+
                             <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="#"><span class="item-text">ASUNCION ACTION</span></a>
+                           @if($subtitle=='MHRMO')
+                           <a class="dropdown-item" href="#header"><span class="item-text">MHRMO</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/MHRMO"><span class="item-text">MHRMO</span></a>
+                            @endif
+
+
                             <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item" href="/see-all-projects"><span class="item-text">SEE ALL</span></a>
+                           @if($subtitle=='OIC-MPDC')
+                           <a class="dropdown-item" href="#header"><span class="item-text">OIC-MPDC</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/OIC-MPDC"><span class="item-text">OIC-MPDC</span></a>
+                            @endif
+
+                           <div class="dropdown-items-divide-hr"></div>
+                           @if($subtitle=='OIC-MENRO')
+                           <a class="dropdown-item" href="#header"><span class="item-text">LDRRMO & OIC-MENRO</span></a>
+                            @else 
+                            <a class="dropdown-item" href="/LDRRMO"><span class="item-text">LDRRMO & OIC-MENRO</span></a>
+                            @endif
+                           <div class="dropdown-items-divide-hr"></div>
+                            <a class="dropdown-item" href="/see-all-offices"><span class="item-text">SEE ALL</span></a>
 
                         </div> --}}
                     </li>
+
+                    {{-- <li class="nav-item dropdown">
+                        @if($title=='projects')
+                        <a class="nav-link page-scroll" href="#header">UPDATES AND ACTIVITIES <span class="sr-only">(current)</span></a>
+                        @else 
+                        <a class="nav-link page-scroll" href="/see-all-projects">UPDATES AND ACTIVITIES</a>
+                        @endif
+                        
+                    </li> --}}
                     
                    
     

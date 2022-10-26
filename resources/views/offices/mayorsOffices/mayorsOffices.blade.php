@@ -389,7 +389,7 @@
                                                                             -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
                                                                             box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
                                                                             color: #455a64;" class="container">
-                    <h2 style="text-align: center">ACHIEVEMENTS AND PROJECTS</h2>
+                    <h2 style="text-align: center">PROJECTS AND ACHIEVEMENTS</h2>
                     @foreach ($updates as $update)
                     <a style="text-decoration: none"  href="/update-view/{{$update->id}}">
                         <div style="text-align: center;display: flex;
@@ -669,7 +669,8 @@
                 <br>
                 <br>
                 <br>
-
+                
+                <center><h3><b><a href="#">WHAT WE DO MORE...</a> </b></h3></center>
 
                 <br>
             

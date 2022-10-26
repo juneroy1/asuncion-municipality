@@ -221,7 +221,7 @@ class OfficesController extends Controller
         $emergencyHotlines = EmergencyHotline::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $barangay_officials = BarangayOfficialModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
-        $barangays = BarangayModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
+        $barangays = BarangayModel::where('is_approved', '=', 1)->orderBy('name', 'ASC')->get();
         $executive_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 1)->orderBy('created_at', 'DESC')->first();
         $legislative_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 0)->orderBy('created_at', 'DESC')->first();
         // dd($executive_agendas->title);

@@ -24,6 +24,18 @@
     <link href="/foradmin/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/foradmin/html/css/style.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+            
+            body{
+                font-family: 'Roboto' !important;
+            }
+             h1, h2, h3, h4, h5, h6, p{
+                font-family: 'Roboto' !important;
+            }
+        </style>
 </head>
 
 <body>

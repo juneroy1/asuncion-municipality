@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>THE MUNICIPALITY PROJECTS</h1>
+                        <h1>PROGRAMS AND SERVICES</h1>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>SEE ALL MUNICIPALITY PROJECTS</span>
+                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>SEE OUR PROGRAMS AND SERVICES</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
