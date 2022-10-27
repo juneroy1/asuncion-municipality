@@ -42,14 +42,22 @@
                                             {{-- '/departments/'.$department->image --}}
                                             {{-- landing_images/1631172177.jpg --}}
                                             {{-- /images/Municipal Logo.png --}}
-                            <img style="display: inline; width:40%" src="{{$department->image? '/departments/'.$department->image:'/images/Municipal Logo.png'}}" alt="..."
-                                class="img-thumbnail">
-                            <div style="display: inline-block;margin-left: 40px;">
-                                <h1>{{$department->name}}</h1>
-                                <p>Head office and staff</p>
-
-
-                            </div>
+                            {{-- <img style="display: inline; width:40%" src="{{$department->image? '/departments/'.$department->image:'/images/Municipal Logo.png'}}" alt="..."
+                                class="img-thumbnail"> --}}
+                            
+                        
+                                            <div class="card" style="padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                                                <div style="cursor: pointer;" >
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div style="display: inline-block;margin-left: 10px;">
+                                                                <h1>{{$department->name}}</h1>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                   
 
                         </div>
 

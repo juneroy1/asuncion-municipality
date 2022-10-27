@@ -220,11 +220,24 @@
          </div>
     </div>
     </div>
-    <div class="filter" style="margin-top: 150px">
+    <div class="filter" style="margin-top: 20%;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 style="text-align: center">WOW Asuncion</h1>
+                <div class="col-lg-12" >
+                    {{-- <h1 style="text-align: center">WOW Asuncion</h1> --}}
+                    <section>
+                        <div class="content" style="margin-left: 30vw;">
+                            <h2 style="font-family: &quot;Poppins&quot;, sans-serif !important;font-weight: 900!important;font: 699 10.75rem/8.125rem &quot;Montserrat&quot;, sans-serif;">WOW</h2>
+                            <h2 style="font-family: &quot;Poppins&quot;, sans-serif !important;font-weight: 900!important;font: 699 10.75rem/8.125rem &quot;Montserrat&quot;, sans-serif;">WOW</h2>
+                        
+                            </div>
+                    </section>
+                    <section>
+                        <div class="content" style="margin-left: 55vw;margin-top: 50px;">
+                            <h2 style="font-family: &quot;Poppins&quot;, sans-serif !important;font-weight: 900!important;font: 699 10.75rem/8.125rem &quot;Montserrat&quot;, sans-serif;">ASUNCION</h2>
+                            <h2 style="font-family: &quot;Poppins&quot;, sans-serif !important;font-weight: 900!important;font: 699 10.75rem/8.125rem &quot;Montserrat&quot;, sans-serif;">ASUNCION</h2>
+                        </div>
+                    </section>
                     <video style="width: 100%" controls>
                         <source src="video/Day6 Asuncion final njud ni sure na ha.mp4" type="video/mp4">
                         <source src="video/Day6 Asuncion final njud ni sure na ha.mp4">

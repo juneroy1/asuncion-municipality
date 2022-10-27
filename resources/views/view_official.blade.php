@@ -4,8 +4,9 @@
 @section('content')
         <!-- Header -->
         
-        <header style="background-image: url('/landing_images/1631172177.jpg');    background-attachment: fixed;
-        background-position: bottom;" id="header" class="ex-header">
+             <header style="background-image: url('/landing_images/GIFFmunicipal.gif');background-attachment: inherit;
+    background-position: bottom;
+    background-repeat: no-repeat;background-size: cover;" id="header" class="ex-header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

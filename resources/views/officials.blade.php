@@ -4,15 +4,13 @@
 @section('content')
         <!-- Header -->
         
-        <header style="background-image: url('/landing_images/1631172177.jpg');    background-attachment: fixed;
-        background-position: bottom;" id="header" class="ex-header">
-            <div style="background-color: #113448;
-            border: solid;
-            border-radius: 10px;
-            border-color: rgb(39 81 105);" class="container">
+        <header style="background-image: url('/landing_images/GIFFmunicipal.gif');background-attachment: inherit;
+    background-position: bottom;
+    background-repeat: no-repeat;background-size: cover;" id="header" class="ex-header">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Local Chief Executive</h1>
+                        <h1 style="    font-size: xxx-large;">Local Chief Executive</h1>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -37,7 +35,7 @@
    <div class="row">
        <div class="col-md-12 col-xs-12">
            @foreach ($officials as $key => $official)
-           <a href="/view-official/officials/{{$official->id}}" style="text-decoration: nono; cursor: pointer;">
+           <a href="/view-official/officials/{{$official->id}}" style="text-decoration: none; cursor: pointer;">
                 <div class="container">
                     <div style="text-align: center;display: flex;
                     justify-items: center;

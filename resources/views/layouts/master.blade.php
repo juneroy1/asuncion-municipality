@@ -32,7 +32,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+        
         <style>
+            @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
             .test{
                 background-image: url("/images/MunicipalLogo2.png") !important;
                 background-size: cover;
@@ -57,6 +59,67 @@
             /* Add some padding inside the card container */
             .container {
             padding: 2px 16px;
+            }
+            .content {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: "Poppins", sans-serif !important;
+                    font-weight: 900 !important;
+                    display: flex;
+                    background: #fff;
+                    min-height: 10vh;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+            }
+
+            .content h2 {
+            color: #fff;
+            font-size: 8em;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            }
+
+            .content h2:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 2px #006400;
+            }
+
+            .content h2:nth-child(2) {
+            color: #006400;
+            animation: animate 4s ease-in-out infinite;
+            }
+
+            @keyframes animate {
+            0%,
+            100% {
+                clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+                );
+            }
+
+            50% {
+                clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+                );
+            }
             }
         </style>
         <!-- Favicon  -->
@@ -448,7 +511,9 @@
           
 
         
-    
+      
+
+                    
         @yield('content')
     
     
