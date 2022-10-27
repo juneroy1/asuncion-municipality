@@ -36,7 +36,7 @@
                
            
         <a style="text-decoration: none" href="/update-view/{{$update->id}}">
-            <div class="container" style="cursor: pointer">
+            <div class="container card" style="cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
                 <div style="text-align: center;display: flex;
                 justify-items: center;
                 align-items: center;

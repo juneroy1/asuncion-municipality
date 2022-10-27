@@ -37,11 +37,11 @@
            <br>
                 
                 <div class="container">
-                    <div style="text-align: center;display: flex;
+                    <div class="card" style="text-align: center;display: flex;
                        justify-items: center;
                        align-items: center;
                        justify-content: space-around;
-                       align-content: center;">
+                       align-content: center;flex-direction: row; padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         <img style="display: inline; width:40%" src="/officials/{{$official->image}}" alt="..." class="img-thumbnail">
                         <div style="display: inline-block;">
                             <h1 style="font-size: 28px;" >{{$official->first_name}} {{$official->last_name}}</h1>
@@ -54,7 +54,7 @@
                    </div>
                    <br>
                    <br>
-                   <div class="container" style="display: inline-block;">
+                   <div class="container card" style="display: inline-block;cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
                     <h2>PERSONAL PROFILE</h2>
 
                     <table>

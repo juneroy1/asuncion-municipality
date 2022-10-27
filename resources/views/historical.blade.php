@@ -34,11 +34,11 @@
 
 
     <!-- Privacy Content -->
-    <div class="ex-basic-2">
+    <div class="ex-basic-2" style="padding-top: 10px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container">
+                    <div class="text-container card" style="padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         {{-- <h3>Private Data We Receive And Collect</h3> --}}
                         {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
                         <p style="color:black"><b>The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly

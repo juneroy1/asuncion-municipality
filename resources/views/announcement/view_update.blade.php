@@ -33,30 +33,24 @@
     <div class="row">
         <div class="col-md-12 col-xs-12">
 
-
-            <a  class="popup-with-move-anim"  style="text-decoration: none" href="#{{ $update->id }}">
-                <div class="container" style="cursor: pointer">
-                    <div style="text-align: center;display: flex;
-                                                    justify-items: center;
-                                                    align-items: center;
-                                                    align-content: center;">
-                        <img style="display: inline; width:40%" src="/updates/{{ $update->image }}" alt="..."
-                            class="img-thumbnail">
-                        <div style="display: inline-block;margin-left: 40px;">
-                            <h3>{{ $update->title }}</h3>
-                            <p>{{ $update->description }}</p>
-                            <p ><i>{{ $update->description_local }}</i></p>
-
-                            {{-- <h2>Municipal Mayor's Office</h2> --}}
-                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
-
+             <div >
+                <a  class="popup-with-move-anim"  style="text-decoration: none" href="#{{ $update->id }}">
+                    <div class="container card" style="cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                        <div style="text-align: center;display: flex;
+                                                        justify-items: center;
+                                                        align-items: center;
+                                                        align-content: center;">
+                            <img style="display: inline; width:40%" src="/updates/{{ $update->image }}" alt="..."
+                                class="img-thumbnail">
+                            <div style="display: inline-block;margin-left: 40px;">
+                                <h3>{{ $update->title }}</h3>
+                                <p>{{ $update->description }}</p>
+                                <p ><i>{{ $update->description_local }}</i></p>
+                            </div>
                         </div>
-
                     </div>
-
-
-                </div>
-            </a>
+                </a>
+             </div>
             <br>
 
             <div id="{{ $update->id }}" class="lightbox-basic zoom-anim-dialog mfp-hide">
@@ -85,121 +79,7 @@
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div>
-            {{-- @endforeach --}}
-            {{-- <a style="text-decoration: none" href="#">
-                <div class="container" style="cursor: pointer">
-                    <div style="text-align: center;display: flex;
-                    justify-items: center;
-                    align-items: center;
-                    align-content: center;">
-                    <img style="display: inline; width:40%" src="images/BLOOD LETTING/IMG_6132.JPG" alt="..." class="img-thumbnail">
-                    <div style="display: inline-block;margin-left: 40px;">
-                        <h3 >BLOOD LETTING</h3>
-                        <p>description here</p>
-                    
-                    </div>
-                
-                    </div>
-                    
-                
-                </div>
-            </a>
-                <br> --}}
-            {{-- <a style="text-decoration: none" href="#">
-                    <div class="container" style="cursor: pointer">
-                        <div style="text-align: center;display: flex;
-                        justify-items: center;
-                        align-items: center;
-                        align-content: center;">
-                        <img style="display: inline; width:40%" src="images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail">
-                        <div style="display: inline-block;margin-left: 40px;">
-                            <h3 >VACCINATION</h3>
-                            <p>description here</p>
-                        
-                              
-                        </div>
-                    
-                        </div>
-                        
-                    </div>
-                </a>
-                    <br> --}}
-            {{-- <a style="text-decoration: none" href="#">
-                        <div class="container" style="cursor: pointer">
-                            <div style="text-align: center;display: flex;
-                            justify-items: center;
-                            align-items: center;
-                            align-content: center;">
-                            <img style="display: inline; width:40%" src="images/asuncion_action/asuncion_action.JPG" alt="..." class="img-thumbnail">
-                            <div style="display: inline-block;margin-left: 40px;">
-                                <h3 >ASUNCION ACTION</h3>
-                                <p>description here</p>
-                            
-                                
-                            </div>
-                        
-                            </div>
-                            
-                        
-                        </div>
-                    </a>
-                        <br> --}}
-            {{-- <a style="text-decoration: none" href="#">
-                            <div class="container" style="cursor: pointer">
-                                <div style="text-align: center;display: flex;
-                                justify-items: center;
-                                align-items: center;
-                                align-content: center;">
-                                <img style="display: inline; width:40%" src="images/blessings_turnover/blessings_turnover.JPG" alt="..." class="img-thumbnail">
-                                <div style="display: inline-block;margin-left: 40px;">
-                                    <h3 >BLESSINGS AND TURN OVER</h3>
-                                    <p>description here</p>
-                                
-                                     
-                                </div>
-                            
-                                </div>
-                                
-                            
-                            
-                            </div>
-                        </a>
-                            <br> --}}
-            {{-- <a style="text-decoration: none" href="/pcic">
-                                <div class="container" style="cursor: pointer">
-                                    <div style="text-align: center;display: flex;
-                                    justify-items: center;
-                                    align-items: center;
-                                    align-content: center;">
-                                    <img style="display: inline; width:40%" src="images/officials/group/IMG_1215.JPG" alt="..." class="img-thumbnail">
-                                    <div style="display: inline-block;margin-left: 40px;">
-                                        <h1 >FIRST WEDDING</h1>
-                                        <p>description here</p>
-                                    
-                                     </div>
-                                
-                                    </div>
-                                    
-                                
-                                
-                                </div>
-                            </a>
-                                <br> --}}
-
-            {{-- <div class="container">
-            <div style="text-align: center;">
-                <img style="display: inline; width:25%" src="images/officials/IMG_0614.JPG" alt="..." class="img-thumbnail">
-                <div style="display: inline-block;">
-                    <h1 >name</h1>
-                
-                    <p >position    </p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p>
-    
-                </div>
-              
-               </div>
            
-         </div> --}}
             <br>
         </div>
     </div>
