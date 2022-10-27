@@ -79,7 +79,7 @@
                                         <img src="{{ $edit ? '/landing_images/' . $update->image : '/foradmin/assets/images/users/5.jpg' }}"
                                             width="150" />
                                         <h4 class="card-title mt-2">{{ $edit ? 'Update Image' : 'Upload an Image' }}</h4>
-                                        <input type="file" name="image" class="form-control">
+                                        <input type="file" name="image" class="form-control"  accept="image/*">
                                         <!-- <h6 class="card-subtitle"></h6> -->
                                         <!-- <div class="row text-center justify-content-center">
                                                                     <div class="col-4">
