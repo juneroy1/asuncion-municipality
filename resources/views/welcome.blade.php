@@ -7,24 +7,20 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="height: 100vh;">
             @foreach ($landingImage as $key => $image)
-
                 @if ($key == 0)
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" style="height: 100%;">
                     @else
-                        <div class="carousel-item">
+                        <div class="carousel-item" style="height: 100%;">
                 @endif
-
-                <div id="header" style="background-size: cover !important;background: url(landing_images/{{ $image->image }}) center center no-repeat;"
+                <div id="header" style="height: 100%;background-size: cover !important;background: url(landing_images/{{ $image->image }}) center center no-repeat;"
                     class="header">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
-
                             {{-- IGNORE THIS FOR NOW BUT DO NOT REMOVE --}}
                             {{-- <div class="row">
                                 <div class="col-lg-12">
-
                                     <div style="background-color: #113448;
                                                                             border: solid;
                                                                             border-radius: 10px;
@@ -35,7 +31,6 @@
                                             <h1 style='font: 700 3.5rem/4rem "Poppins";'>{{ $image->title }} </h1>
                                             <p style="color:white">{{ $image->subtitle }}</p>
                                         </a>
-                                   
                                     </div>
                                 </div>
                             </div> --}}
