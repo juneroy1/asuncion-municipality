@@ -61,74 +61,68 @@
     <div class="row">
         <div class="col-md-6">
             <div class="container p-3 m-4">
-                <h1>EMERGENCY HOTLINE NUMBER</h1>
-                <table style="border: solid" class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Number</th>
-                            <th scope="col">Network</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($emergencyHotlines as $emergencyHotline)
-
-
-                            <tr class="table-style">
-                                <th scope="row">#</th>
-                                <td style="color:red">{{ $emergencyHotline->name }}</td>
-                                <td><b>{{ $emergencyHotline->number }}</b></td>
-                                <td>{{ $emergencyHotline->network }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                
+                <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                    <div class="card" style="padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                        <div style="cursor: pointer;" >
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3 style="text-align: center">EMERGENCY HOTLINE</h3>
+                                    <ul style="list-style-type:none;">
+                                        @foreach ($emergencyHotlines as $emergencyHotline)
+                                            <li class="table-style">
+                                                <div style="display: flex;justify-content: space-evenly;align-items: center;">
+                                                    <div style="width: 100px">{{ $emergencyHotline->name }}</div>
+                                                    <div style="width: 300px"><b> - {{ $emergencyHotline->number }} ({{ $emergencyHotline->network }})</b></div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
-          
-
-
-       
-        <div style="cursor: pointer; margin: 20px; padding:50px;padding-bottom: 20px;" class="container-fluid m-10">
-            <div class="row">
-                <div class="col-lg-12">
-                    {{-- <div class="section-title">UPDATES</div> --}}
-                    {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
-                    <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
-                    <h3 style="text-align: center">VISION</h3>
-                    <p style="color:black; text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
-                    </a>
-                </div> <!-- end of col -->
+            <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                    <div class="card" style="padding: 5px; margin-bottom:30px;border-radius: 20px;">
+                        <div style="cursor: pointer; margin: 10px; padding:10px;padding-bottom: 20px;" class="container-fluid m-10">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
+                                    <h3 style="text-align: center">VISION</h3>
+                                    <p style="color:black; text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
+                                    </a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div style="cursor: pointer; margin: 10px;padding:10px;padding-top: 0px;" class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    
+                                    <a href="/vision" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
+                                    <h5>MISSION I</h5>
+                                        <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
+                                        <ul>
+                                            <li>Amuna sa mag-uuma</li>
+                                            <li>Asikaso sa negosyo ug trabaho</li>
+                                            <li>kalinaw ug kahapsay sa katilingban</li>
+                                            <li>Desenting pabahay</li>
+                                            <li>Imprastruktura sa kalambuan</li>
+                                        </ul>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-        </div>
-        <div style="cursor: pointer; margin: 20px;padding:50px;padding-top: 0px;" class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <a href="/vision" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
-                    <h5>MISSION I</h5>
-                        <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
-                        <ul>
-                            <li>Amuna sa mag-uuma</li>
-                            <li>Asikaso sa negosyo ug trabaho</li>
-                            <li>kalinaw ug kahapsay sa katilingban</li>
-                            <li>Desenting pabahay</li>
-                            <li>Imprastruktura sa kalambuan</li>
-                        </ul>
-                    </a>
-                </div> <!-- end of col -->
-            </div>
-        </div>
- 
+            
         </div>
     </div>
-    <!-- end of header -->
-    <!-- end of header -->
-    {{-- class="container" --}}
     <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
-         <div class="card" style="padding: 40px; margin-bottom:30px">
+        <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
         <div style="cursor: pointer;" >
             <div class="row">
                 <div class="col-lg-6">
@@ -231,7 +225,7 @@
          </div>
     </div>
     </div>
-    <div class="filter">
+    <div class="filter" style="margin-top: 150px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -455,7 +449,7 @@
                                 </div> <!-- end of col -->
                                 <div class="col-lg-4">
                                     <h3>{{ $update->title }}</h3>
-                                    <hr class="line-heading">
+                                    <hr style="width: auto" class="line-heading">
                                     <h6>{{ $update->description }}</h6>
                                     <h6>{{ $update->description_local }}</h6>
                                     <br>
@@ -500,7 +494,7 @@
                         <div class="swiper-wrapper">
                             @foreach ($officials as $key => $official)
                                 <div class="swiper-slide">
-                                    <div class="card">
+                                    <div class="card-test">
                                         <a style="margin-left: 50px; text-decoration: none;
                                                                                     margin-right: 50px;"
                                             class="popup-with-move-anim" href="#officials{{ $key }}">
@@ -660,7 +654,7 @@
 
                                     <!-- Slide -->
                                     <div class="swiper-slide">
-                                        <div class="card">
+                                        <div class="card-test">
                                             <a style="margin-left: 50px; text-decoration: none;
                                                                                     margin-right: 50px;"
                                                 class="popup-with-move-anim" href="#barangaysOfficial{{ $key }}">
