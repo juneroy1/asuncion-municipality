@@ -18,22 +18,6 @@
                     class="header">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
-                            {{-- IGNORE THIS FOR NOW BUT DO NOT REMOVE --}}
-                            {{-- <div class="row">
-                                <div class="col-lg-12">
-                                    <div style="background-color: #113448;
-                                                                            border: solid;
-                                                                            border-radius: 10px;
-                                                                            border-color: rgb(39 81 105);"
-                                        class="text-container">
-                                        <a style="text-decoration: none" href="/landingImage-view/{{ $image->id }}"
-                                            target="_blank">
-                                            <h1 style='font: 700 3.5rem/4rem "Poppins";'>{{ $image->title }} </h1>
-                                            <p style="color:white">{{ $image->subtitle }}</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -55,10 +39,47 @@
 
     <div class="row">
         <div class="col-md-6">
+            <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                    <div class="card" style="background: #e8f9e9;padding: 5px; margin-bottom:30px;border-radius: 20px;">
+                        <div style="cursor: pointer; margin: 10px; padding:10px;padding-bottom: 20px;" class="container-fluid m-10">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
+                                    <h3 style="text-align: center">VISION</h3>
+                                    <p style="color:black; text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
+                                    <span style="color:blue">Read More</span>
+                                </a>
+                                </div> 
+                            </div>
+                        </div>
+                        <div style="cursor: pointer; margin: 10px;padding:10px;padding-top: 0px;" class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    
+                                    <a href="/vision" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
+                                    <h5>MISSION I</h5>
+                                        <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
+                                        <ul>
+                                            <li>Amuna sa mag-uuma</li>
+                                            <li>Asikaso sa negosyo ug trabaho</li>
+                                            <li>kalinaw ug kahapsay sa katilingban</li>
+                                            <li>Desenting pabahay</li>
+                                            <li>Imprastruktura sa kalambuan</li>
+                                        </ul>
+                                         <span style="color:blue">Read More</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
             <div class="container p-3 m-4">
                 
                 <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
-                    <div class="card" style="padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                    <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         <div style="cursor: pointer;" >
                             <div class="row">
                                 <div class="col-lg-12">
@@ -80,41 +101,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
-                    <div class="card" style="padding: 5px; margin-bottom:30px;border-radius: 20px;">
-                        <div style="cursor: pointer; margin: 10px; padding:10px;padding-bottom: 20px;" class="container-fluid m-10">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
-                                    <h3 style="text-align: center">VISION</h3>
-                                    <p style="color:black; text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
-                                    </a>
-                                </div> 
-                            </div>
-                        </div>
-                        <div style="cursor: pointer; margin: 10px;padding:10px;padding-top: 0px;" class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    
-                                    <a href="/vision" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
-                                    <h5>MISSION I</h5>
-                                        <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
-                                        <ul>
-                                            <li>Amuna sa mag-uuma</li>
-                                            <li>Asikaso sa negosyo ug trabaho</li>
-                                            <li>kalinaw ug kahapsay sa katilingban</li>
-                                            <li>Desenting pabahay</li>
-                                            <li>Imprastruktura sa kalambuan</li>
-                                        </ul>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            
-        </div>
+        
     </div>
     <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
         <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
@@ -166,8 +153,6 @@
                     <div style="cursor: pointer;margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                {{-- <div class="section-title">UPDATES</div> --}}
-                                {{-- <h2>HISTORICAL BACKGROUND</h2> --}}
                                 <a style="text-decoration: none" href="/agendas/{{$executive_agendas? $executive_agendas['file']: ''}}" target="_blank"
                                     rel="noopener noreferrer">
                                     <h3 style="text-align: center">EXECUTIVE AGENDA</h3>
@@ -175,22 +160,15 @@
                                                                                 justify-items: center;
                                                                                 align-items: center;
                                                                                 align-content: center;">
-                                        {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
                                         <div style="display: inline-block;">
-                
-                                            {{-- <h3>TITLE</h3> --}}
-                
-                                            {{-- <h2></h2> --}}
-                
-                                            {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
                                             <p style="text-align: center">View Executive Agenda...
                                             </p>
-                
+                                            <span style="color:blue">Read More</span>
                                         </div>
                 
                                     </div>
                                 </a>
-                            </div> <!-- end of col -->
+                            </div> 
                         </div>
                     </div>
                     <div style="cursor: pointer; margin: 30px;" class="container">
@@ -205,8 +183,8 @@
                                                                                 align-content: center;">
                                         <div style="display: inline-block;">
                                         <p style="text-align: center">View Legislative Agenda...
-                                            </p>
-                
+                                        </p>
+                                         <span style="color:blue">Read More</span>
                                         </div>
                 
                                     </div>

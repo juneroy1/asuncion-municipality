@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>THE ARCHIVE</h1>
+                        <h1>LEGISLATIVE DIGEST</h1>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -54,7 +54,7 @@
        <div class="col-md-12 col-xs-12">
        
         <a style="text-decoration: none" href="/see-all-offices/mayorsOffices">
-            <div class="container" style="cursor: pointer">
+            <div class="container card" style="cursor: pointer;background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                 <div style="text-align: center;display: flex;
                 justify-items: center;
                 

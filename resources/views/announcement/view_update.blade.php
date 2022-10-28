@@ -35,7 +35,7 @@
 
              <div >
                 <a  class="popup-with-move-anim"  style="text-decoration: none" href="#{{ $update->id }}">
-                    <div class="container card" style="cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                    <div class="container card" style="background: #e8f9e9;cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         <div style="text-align: center;display: flex;
                                                         justify-items: center;
                                                         align-items: center;

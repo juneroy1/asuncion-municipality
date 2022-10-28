@@ -37,7 +37,7 @@
            <br>
                 
                 <div class="container">
-                    <div class="card" style="text-align: center;display: flex;
+                    <div class="card" style="background: #e8f9e9;text-align: center;display: flex;
                        justify-items: center;
                        align-items: center;
                        justify-content: space-around;
@@ -54,7 +54,7 @@
                    </div>
                    <br>
                    <br>
-                   <div class="container card" style="display: inline-block;cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                   <div class="container card" style="background: #e8f9e9;display: inline-block;cursor: pointer; padding: 40px; margin-bottom:30px;border-radius: 20px;">
                     <h2>PERSONAL PROFILE</h2>
 
                     <table>

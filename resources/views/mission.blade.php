@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container card" style="padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                    <div class="text-container card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         <h3>MISSION I</h3>
                         <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
                         <ul>
