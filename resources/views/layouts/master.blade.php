@@ -121,6 +121,18 @@
                 );
             }
             }
+            .fade-in-text {
+                animation: fadeIn 5s;
+                -webkit-animation: fadeIn 5s;
+                -moz-animation: fadeIn 5s;
+                -o-animation: fadeIn 5s;
+                -ms-animation: fadeIn 5s;
+                }
+            
+                @keyframes fadeIn {
+                0% { opacity: -1; }
+                100% { opacity: 1; }
+                }
         </style>
         <!-- Favicon  -->
         <link rel="icon" href="images/LGU LOGO_NOBG.png">
