@@ -41,7 +41,7 @@
                     <div class="text-container card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         {{-- <h3>Private Data We Receive And Collect</h3> --}}
                         {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
-                        <p style="color:black"><b>WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL CALAMITIES AND MAN MADE SHOCKS UNDER A TRUSTWORTHY, RESPONSIVE, EFFICIENT AND PEOPLE-CENTERED GOVERNANCE.</b></p>
+                        <p >WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL CALAMITIES AND MAN MADE SHOCKS UNDER A TRUSTWORTHY, RESPONSIVE, EFFICIENT AND PEOPLE-CENTERED GOVERNANCE.</p>
                         {{-- <p></p> --}}
                         {{-- <div class="row">
                             <div class="col-md-6">

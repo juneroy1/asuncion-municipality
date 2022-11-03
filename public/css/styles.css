@@ -601,7 +601,7 @@ input[type="checkbox"] {
     right: 0;
     bottom: 0;
     left: 0;
-    background: #113448;
+    background: #228b22;
 }
 
 .spinner {
@@ -2031,7 +2031,7 @@ input[type="checkbox"] {
 .copyright {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
-    background-color: #113448;
+    background-color: #228b22;
     text-align: center;
 }
 

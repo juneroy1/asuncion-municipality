@@ -3,8 +3,19 @@
 @section('content')
 
     <!-- Header -->
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <header id="header" class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:white">{{ $department->name }}</h2>
+                                        <h5 style="color:white">
+                                            {{ $department->department ? $department->department->name . ' Section' : '' }}
+                                        </h5>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -12,9 +23,6 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                {{-- in this div insert this --}}
-                {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
-                {{-- style="background-image: url({{ $department->image_wmask? '../../departments_image_wmask/' . $department->image_wmask: '../../landing_images/1631172177.jpg' }}) !important" --}}
                 <div id="header" class="headerMayorOffice" style="background-image: url({{ $department->image? '/departments/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" >
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
@@ -27,19 +35,12 @@
                                                                             border-radius: 10px;
                                                                             border-color: rgb(39 81 105);"
                                         class="text-container">
-                                        {{-- <h1>WELCOME TO THE OFFICIAL WEBSITE OF ASUNCION <span id="js-rotating"></span></h1> --}}
-
-                                        {{-- <h1>{{ $department->d_head_name }}</h1> --}}
-                                        <br>
+                                         <br>
                                         <h2 style="color:white">{{ $department->name }}</h2>
                                         <h5 style="color:white">
                                             {{ $department->department ? $department->department->name . ' Section' : '' }}
                                         </h5>
                                         <br>
-
-                                        {{-- <h2 style="color:white">And Office Personnel</h2> --}}
-                                        {{-- <p class="p-heading p-large">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> --}}
-                                        {{-- <a class="btn-solid-lg page-scroll" href="#details">DISCOVER</a> --}}
                                     </div>
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
@@ -48,10 +49,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                {{-- in this div insert this --}}
-                {{-- style="background-image: url({{ $department->image? '/landing_images/' . $department->image: '/landing_images/1631172177.jpg' }}) !important" --}}
-                {{-- style="background-image: url({{ $department->image_womask? '../../departments_image_womask/' . $department->image_womask: '../../landing_images/1631172177.jpg' }}) !important" --}}
-                <div id="header" class="headerMayorOffice2" style="background-image: url({{ $department->image? '/departments/' . $department->image: '/landing_images/1631172177.jpg' }}) !important">
+               <div id="header" class="headerMayorOffice2" style="background-image: url({{ $department->image? '/departments/' . $department->image: '/landing_images/1631172177.jpg' }}) !important">
                     <div class="header-content">
                         <div style="margin-top: 590px;" class="container">
                             <div class="row">
@@ -62,122 +60,21 @@
                                                                         border-radius: 10px;
                                                                         border-color: rgb(39 81 105);"
                                         class="text-container">
-                                        {{-- <h1>WELCOME TO THE OFFICIAL WEBSITE OF ASUNCION <span id="js-rotating"></span></h1> --}}
-
-                                        {{-- <h1>{{ $department->d_head_name }}</h1> --}}
                                         <br>
                                         <h2 style="color:white">{{ $department->name }}</h2>
                                         <h5 style="color:white">
                                             {{ $department->department ? $department->department->name . ' Section' : '' }}
                                         </h5>
                                         <br>
-                                        {{-- <h2 style="color:white">And Office Personnel</h2> --}}
-                                        {{-- <h1>Mrs. JULIETA A. MALABARBAS</h1>
-                                        <h2 style="color:white">And Office Personnel</h2>
-                                        <h2 style="color:white">Municipal Mayor's Office</h2> --}}
-                                        {{-- <p class="p-heading p-large">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> --}}
-                                        {{-- <a class="btn-solid-lg page-scroll" href="#details">DISCOVER</a> --}}
-                                    </div>
+                                      </div>
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of container -->
                     </div> <!-- end of header-content -->
                 </div>
-                {{-- <div id="header" class="header2">
-                    <div class="header-content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="text-container">
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <h1>Ms. MARY BETH L. ECULIADA. RMT, MPA, MM</h1>
-                                        <h2 style="color:white">And Office Personnel</h2>
-                                        <h2 style="color:white">Municipal Health Office</h2>
-                                     
-                                    </div>
-                                   
-                                </div>
-                            </div> 
-                        </div>
-                    </div> 
-                </div> --}}
+              
             </div>
-            {{-- <div class="carousel-item">
-                <div id="header" class="headerMayorOffice">
-                    <div class="header-content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    
-                                    <div class="text-container">
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <h1>Mrs. JULIETA A. MALABARBAS</h1>
-                                        <h2 style="color:white">And Office Personnel</h2>
-                                        <h2 style="color:white">Municipal Mayor's Office</h2>
-                                     </div>
-                                </div> 
-                            </div> 
-                        </div>
-                    </div> 
-                </div>
-                
-              </div> --}}
-            {{-- <div class="carousel-item">
-                <div id="header" class="headerMayorOffice2">
-                    <div class="header-content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    
-                                    <div class="text-container">
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        <h1>Mrs. JULIETA A. MALABARBAS</h1>
-                                        <h2 style="color:white">And Office Personnel</h2>
-                                        <h2 style="color:white">Municipal Mayor's Office</h2>
-                                     </div>
-                                </div> 
-                            </div>
-                        </div> 
-                    </div> 
-                </div>
-                
-              </div> --}}
+           
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -194,12 +91,9 @@
     <br>
     <br>
     <br>
-    {{-- <div>
-            <a href="#"><h2>Link of online transaction</h2></a>
-        <a href="#"><h2>Link of Archive documents</h2></a>
-        </div> --}}
+ 
 
-    <br>
+    <br> --}}
     <div style="background-color: #eef5f9;
                                     padding: 80px;
                                     border: 1px solid #d7dfe3;
@@ -216,12 +110,7 @@
                 <div style=" display: flex;
                                         justify-content: center;
                                         align-items: center;">
-                    {{-- <img style="display: inline;
-        width: 20%;
-        border-radius: 50%;
-        border-color: black;
-        height: 200px;" src="../images/{{$member->image}}" alt="..." class="img-thumbnail"> --}}
-                    <img style="display: inline;
+                    <img style="object-fit: cover;display: inline;
                                         width: 20%;
                                         border-radius: 50%;
                                         border-color: black;

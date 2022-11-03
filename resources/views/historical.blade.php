@@ -41,9 +41,9 @@
                     <div class="text-container card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         {{-- <h3>Private Data We Receive And Collect</h3> --}}
                         {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
-                        <p style="color:black"><b>The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
+                        <p  >The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
                             endorsed by the Provincial Board of Davao under Resolution Numbers 297 and 393. Two (2) districts were created: The District of Camansa and the District of Saug.
-                        Each District consists of five (5) barrios:</b></p>
+                        Each District consists of five (5) barrios:</p>
                         <div style="display: flex;
                         flex-direction: row;
                         justify-content: space-around;">
@@ -68,30 +68,30 @@
                                 </ul>
                             </div>
                         </div>
-                        <p style="color:black"><b>In the early part of 1948, Executive Order No. 156 promulgated by President Elpidio Quirino, made Asuncion a regular town and originally 
-                            named Municipality New Leyte. On September of the same year, Executive Order No. 173 was issued changing its name to Municipality of Saug.</b></p>
-                        
-                        <p style="color:black"><b>Republic Act No. 1675 was passed in Congress on June 20, 1957 renaming the Municipality of Saug to Municipality if Asuncion in honor of its
-                            Patron Saint Nuestra Senora dela Asuncion.</b></p>
-                        
-                        
-                        <p style="color:black"><b>The early inhabitants of the Municipality were the Aetas and Mandayas. In the early 1930s, migrants from Leyte, Bohol, Cebu and other parts
-                            of the Visayas settled in the town and lived peacefully with the early settlers.</b></p>
+                        <p  >In the early part of 1948, Executive Order No. 156 promulgated by President Elpidio Quirino, made Asuncion a regular town and originally 
+                            named Municipality New Leyte. On September of the same year, Executive Order No. 173 was issued changing its name to Municipality of Saug.</p>
+                
+                        <p  >Republic Act No. 1675 was passed in Congress on June 20, 1957 renaming the Municipality of Saug to Municipality if Asuncion in honor of its
+                            Patron Saint Nuestra Senora dela Asuncion.</p>
                         
                         
-                        <p style="color:black"><b>On June 18, 1966, two new municipalities were created and segregated from the land area of Asuncion. New Corella was created under R.A No. 4747 and
-                            the Municipality of Montevista which was created under R.A 4808.</b></p>
+                        <p  >The early inhabitants of the Municipality were the Aetas and Mandayas. In the early 1930s, migrants from Leyte, Bohol, Cebu and other parts
+                            of the Visayas settled in the town and lived peacefully with the early settlers. </p>
+                        
+                        
+                        <p  > On June 18, 1966, two new municipalities were created and segregated from the land area of Asuncion. New Corella was created under R.A No. 4747 and
+                            the Municipality of Montevista which was created under R.A 4808. </p>
 
-                        <p style="color:black"><b>Again, on March 7, 1979, Batasang Pambansa Blg. 23, created the Municipality of San Vicente (Laak), segregating 15 regular
-                            barangays of the Municipality.</b></p>
+                        <p  > Again, on March 7, 1979, Batasang Pambansa Blg. 23, created the Municipality of San Vicente (Laak), segregating 15 regular
+                            barangays of the Municipality. </p>
                         
                         
-                        <p style="color:black"><b>The Municipality is composed of 26 barangays with a total land area of 41,152 has. On March 15, 2004, President Gloria Macapagal Arroyo signed into Law R.A 9265
+                        <p  > The Municipality is composed of 26 barangays with a total land area of 41,152 has. On March 15, 2004, President Gloria Macapagal Arroyo signed into Law R.A 9265
                             which created the Municipality of San Isidro. The Law was ratified on June 27, 2004. Due to the creation of the Municipality of San Isidro, six (6) barangays were detached from the
-                        Municipality of Asuncion.</b></p>
+                        Municipality of Asuncion. </p>
 
-                        <p style="color:black"><b>At present, the Municipality of Asuncion has twenty (20) barangays (see table 1) with a total land area of 30,422 hectares representing 8.4% of the total land area of the
-                            Province of Davao del Norte.</b></p>
+                        <p  > At present, the Municipality of Asuncion has twenty (20) barangays (see table 1) with a total land area of 30,422 hectares representing 8.4% of the total land area of the
+                            Province of Davao del Norte. </p>
 
 
                             <br>
@@ -216,7 +216,7 @@
                         <p><i>Source: Department of Interior and Local Government (DILG)</i></p>
 
                         <br>
-                        <p><b>Different leaders have managed the Municipality from 1921 to present as follows:</b></p>
+                        <p> Different leaders have managed the Municipality from 1921 to present as follows: </p>
                         <table class="table">
                             <tr>
                                 <td>Ganza Mandaya</td>
