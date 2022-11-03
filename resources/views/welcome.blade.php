@@ -1,7 +1,7 @@
 @extends('layouts.master', ['title' => 'welcome', 'subtitle' => ''])
 
 @section('content')
-    <div style="margin-top: 110px;"  id="carouselExampleIndicators" class="carousel slide" data-interval='4000' data-ride="carousel">
+    <div style="margin-top: 110px;"  id="carouselExampleIndicators" class="carousel slide" data-pause="false" data-interval='4000' data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
