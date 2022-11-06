@@ -61,7 +61,7 @@
                         <div style="cursor: pointer; margin: 10px; padding:10px;padding-bottom: 20px;" class="container-fluid m-10">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a style="text-decoration: none" href="/mission" target="_blank" rel="noopener noreferrer">
+                                    <a style="text-decoration: none" href="/vision" target="_blank" rel="noopener noreferrer">
                                     <h3 style="text-align: center">VISION</h3>
                                     <p style="text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
                                     <span style="color:blue">Read More</span>
@@ -73,7 +73,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     
-                                    <a href="/vision" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
+                                    <a href="/mission" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
                                     <h5>MISSION I</h5>
                                         <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
                                         <ul>
