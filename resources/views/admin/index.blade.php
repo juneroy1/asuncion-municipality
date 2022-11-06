@@ -158,29 +158,38 @@
                                             <label class="col-sm-12">Select Category</label>
                                             <div class="col-sm-12 border-bottom">
                                                 <select name="category" class="form-select shadow-none ps-0 border-0 form-control-line">
-                                                    @if($update->category == 'help')
-                                                        <option selected value="help">help</option>
-                                                    @else
-                                                        <option  value="help">help</option>
-                                                    @endif
+                                                    @if ($update)
+                                                        @if($update->category == 'help')
+                                                            <option selected value="help">H-HELP</option>
+                                                        @else
+                                                            <option  value="help">H-HELP</option>
+                                                        @endif
 
-                                                    @if($update->category == 'education')
-                                                        <option selected value="education">education</option>
-                                                    @else
-                                                        <option  value="education">education</option>
-                                                    @endif
+                                                        @if($update->category == 'education')
+                                                            <option selected value="education">E-EDUCATION</option>
+                                                        @else
+                                                            <option  value="education">E-EDUCATION</option>
+                                                        @endif
 
-                                                    @if($update->category == 'livelihood')
-                                                        <option selected value="livelihood">livelihood</option>
-                                                    @else
-                                                        <option  value="livelihood">livelihood</option>
-                                                    @endif
+                                                        @if($update->category == 'livelihood')
+                                                            <option selected value="livelihood">L-LIVELIHOOD</option>
+                                                        @else
+                                                            <option  value="livelihood">L-LIVELIHOOD</option>
+                                                        @endif
 
-                                                    @if($update->category == 'projects')
-                                                        <option selected value="projects">projects</option>
+                                                        @if($update->category == 'projects')
+                                                            <option selected value="projects">P-PROJECTS</option>
+                                                        @else
+                                                            <option  value="projects">P-PROJECTS</option>
+                                                        @endif
                                                     @else
-                                                        <option  value="projects">projects</option>
+                                                        <option  value="help">H-HELP</option>
+                                                        <option  value="education">E-EDUCATION</option>
+                                                        <option  value="livelihood">L-LIVELIHOOD</option>
+                                                        <option  value="projects">P-PROJECTS</option>
+
                                                     @endif
+                                                    
                                                     
                                                 </select>
                                             </div>

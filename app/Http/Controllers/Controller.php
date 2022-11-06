@@ -35,8 +35,20 @@ class Controller extends BaseController
         return $updateTotal;
     }
 
+    public function updateTotalNotApprove($department){
+        $updateTotal = Update::where('is_approved', '=', '3')->where('department_id',$department)->count();
+
+        return $updateTotal;
+    }
+
     public function announcementTotal(){
         $announcementTotal = Announcement::where('is_approved', '=', '2')->count();
+
+        return $announcementTotal;
+    }
+
+    public function announcementTotalNotApprove($department){
+        $announcementTotal = Announcement::where('is_approved', '=', '3')->where('department_id',$department)->count();
 
         return $announcementTotal;
     }

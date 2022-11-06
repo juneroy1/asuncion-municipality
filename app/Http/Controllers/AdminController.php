@@ -87,9 +87,9 @@ class AdminController extends Controller
                 'pageName' => 'Update',
                 'update'=> false,
                 'edit' => false,
-                'updateTotal' => $this->updateTotal(),
+                'updateTotal' => $this->updateTotalNotApprove($department),
                 'archiveTotal' => $this->archiveTotal(),
-                'announcementTotal' => $this->announcementTotal(),
+                'announcementTotal' => $this->announcementTotalNotApprove($department),
                 'memberTotal' => $this->memberTotal(),
                 'personnelTotal' => $this->personnelTotal(),
                 'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
@@ -215,12 +215,14 @@ class AdminController extends Controller
                 'title'=>'required',
                 'description'=>'required',
                 'description_local'=>'required',
+                'category'=>'required',
              ]);
         }else{
             $this->validate($request,[
                 'title'=>'required',
                 'description'=>'required',
                 'description_local'=>'required',
+                'category'=>'required',
              ]);
         }
         $user = Auth::user();
