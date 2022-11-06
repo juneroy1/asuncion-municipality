@@ -59,6 +59,12 @@ class Controller extends BaseController
         return $archiveTotal;
     }
 
+    public function archiveTotalNotApprove($department){
+        $archiveTotal = Archive::where('is_approved', '=', '2')->where('department_id',$department)->count();
+
+        return $archiveTotal;
+    }
+
     public function archiveDepartmentTotal(){
         $archiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '2')->count();
         return $archiveDepartmentTotal;

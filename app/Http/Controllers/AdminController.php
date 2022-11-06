@@ -88,7 +88,7 @@ class AdminController extends Controller
                 'update'=> false,
                 'edit' => false,
                 'updateTotal' => $this->updateTotalNotApprove($department),
-                'archiveTotal' => $this->archiveTotal(),
+                'archiveTotal' => $this->archiveTotalNotApprove($department),
                 'announcementTotal' => $this->announcementTotalNotApprove($department),
                 'memberTotal' => $this->memberTotal(),
                 'personnelTotal' => $this->personnelTotal(),
