@@ -1,5 +1,12 @@
 @extends('layouts.master', ['title' => 'offices', 'subtitle' => ''])
-
+<style scoped>
+    h1{
+        text-transform: lowercase;
+    }
+    h1::first-letter{
+        text-transform: capitalize;
+    }
+</style>
 @section('content')
     <!-- Header -->
 
