@@ -383,27 +383,27 @@
                        
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if($subtitle=='help' && $title=='projects')
-                            <a class="dropdown-item" href="#header"><span class="item-text">H-HELP</span></a>
+                                <a class="dropdown-item" href="#header"><span class="item-text">H-HELP</span></a>
                             @else 
-                            <a class="dropdown-item" href="/see-all-projects"><span class="item-text">H-HELP</span></a>
+                                <a class="dropdown-item" href="/see-all-projects/help"><span class="item-text">H-HELP</span></a>
                             @endif
 
                             @if($subtitle=='education' && $title=='projects')
-                            <a class="dropdown-item" href="#header"><span class="item-text">E-EDUCATION</span></a>
+                                <a class="dropdown-item" href="#header"><span class="item-text">E-EDUCATION</span></a>
                             @else 
-                            <a class="dropdown-item" href="#"><span class="item-text">E-EDUCATION</span></a>
+                                <a class="dropdown-item" href="/see-all-projects/education"><span class="item-text">E-EDUCATION</span></a>
                             @endif
 
-                             @if($subtitle=='livelyhood' && $title=='projects')
-                            <a class="dropdown-item" href="#header"><span class="item-text">L-LIVELIHOOD</span></a>
+                            @if($subtitle=='livelyhood' && $title=='projects')
+                                <a class="dropdown-item" href="#header"><span class="item-text">L-LIVELIHOOD</span></a>
                             @else 
-                            <a class="dropdown-item" href="#"><span class="item-text">L-LIVELIHOOD</span></a>
+                                <a class="dropdown-item" href="/see-all-projects/livelihood"><span class="item-text">L-LIVELIHOOD</span></a>
                             @endif
 
-                             @if($subtitle=='projects' && $title=='projects')
-                            <a class="dropdown-item" href="#header"><span class="item-text">P-PROJECTS</span></a>
+                            @if($subtitle=='projects' && $title=='projects')
+                                <a class="dropdown-item" href="#header"><span class="item-text">P-PROJECTS</span></a>
                             @else 
-                            <a class="dropdown-item" href="#"><span class="item-text">P-PROJECTS</span></a>
+                                <a class="dropdown-item" href="/see-all-projects/projects"><span class="item-text">P-PROJECTS</span></a>
                             @endif
                             
                             

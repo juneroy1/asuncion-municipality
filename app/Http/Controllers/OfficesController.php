@@ -192,8 +192,13 @@ class OfficesController extends Controller
         ]);
     }
 
-    public function seeProjects(){
-        $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+    public function seeProjects($category = ''){
+        if ($category) {
+            $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();
+        }else{
+            $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        }
+       
         return view('projects.seeAllProjects', [
             'updates'=> $updates,
             'updateTotal' => $this->updateTotal(),
@@ -210,7 +215,7 @@ class OfficesController extends Controller
             'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
             'organizationalChartTotal' => $this->organizationalChartTotal(),
             'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
-                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
 

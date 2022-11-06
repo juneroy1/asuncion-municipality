@@ -256,6 +256,7 @@ class AdminController extends Controller
         $update->description = $request->description;
         $update->description_local = $request->description_local;
         $update->remarks = $request->remarks;
+        $update->category = $request->category;
         $update->user_id = $id;
         $update->is_approved = 2;
         $update->department_id = $department;

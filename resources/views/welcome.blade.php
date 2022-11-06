@@ -11,8 +11,8 @@
             @foreach ($landingImage as $key => $image)
                 @if ($key == 0)
                     <div class="carousel-item active" style="height: 100%;">
-                    @else
-                        <div class="carousel-item" style="height: 100%;">
+                @else
+                    <div class="carousel-item" style="height: 100%;">
                 @endif
                 <div id="header" style="position: relative;height: 100%;background-size: cover !important;background: url(landing_images/{{ $image->image }}) center center no-repeat;"
                     class="header">
@@ -24,6 +24,16 @@
                             font-size: xxx-large;">{{$image->title}}</h2>
                             <h4 style="color: white;
                             font-size: x-large;">{{$image->subtitle}}</h4>
+                        </div>
+                        
+                    </div>
+
+                    <div style="position: absolute; top: -150px;right: 50px;" class="header-content">
+                        <div class="fade-in-text" >
+                        <img style="width: 200px;" src="/landing_images/GIFLOGO.gif" alt="">
+
+                            {{-- <h2 style="color: white;
+                            font-size: xxx-large;">image here</h2> --}}
                         </div>
                         
                     </div>

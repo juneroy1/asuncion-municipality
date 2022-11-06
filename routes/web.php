@@ -257,6 +257,7 @@ Route::get('/see-all-offices-legislative/{name}', 'OfficesController@goToOfficeL
 // });
 
 Route::get('/see-all-projects', 'OfficesController@seeProjects')->name('offices-list');
+Route::get('/see-all-projects/{category}', 'OfficesController@seeProjects')->name('offices-list');
 
 Route::get('/vision', function () {
     return view('vision');

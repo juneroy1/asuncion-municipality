@@ -153,6 +153,38 @@
                                                     class="form-control ps-0 form-control-line">{{ $update ? $update->description_local : '' }}</textarea>
                                             </div>
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-sm-12">Select Category</label>
+                                            <div class="col-sm-12 border-bottom">
+                                                <select name="category" class="form-select shadow-none ps-0 border-0 form-control-line">
+                                                    @if($update->category == 'help')
+                                                        <option selected value="help">help</option>
+                                                    @else
+                                                        <option  value="help">help</option>
+                                                    @endif
+
+                                                    @if($update->category == 'education')
+                                                        <option selected value="education">education</option>
+                                                    @else
+                                                        <option  value="education">education</option>
+                                                    @endif
+
+                                                    @if($update->category == 'livelihood')
+                                                        <option selected value="livelihood">livelihood</option>
+                                                    @else
+                                                        <option  value="livelihood">livelihood</option>
+                                                    @endif
+
+                                                    @if($update->category == 'projects')
+                                                        <option selected value="projects">projects</option>
+                                                    @else
+                                                        <option  value="projects">projects</option>
+                                                    @endif
+                                                    
+                                                </select>
+                                            </div>
+                                        </div> 
 
                                         @if ($edit)
                                             <div class="form-group">
@@ -163,18 +195,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        <!-- <div class="form-group">
-                                                                <label class="col-sm-12">Select Country</label>
-                                                                <div class="col-sm-12 border-bottom">
-                                                                    <select class="form-select shadow-none ps-0 border-0 form-control-line">
-                                                                        <option>London</option>
-                                                                        <option>India</option>
-                                                                        <option>Usa</option>
-                                                                        <option>Canada</option>
-                                                                        <option>Thailand</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div> -->
+                                        
                                         <div class="form-group">
                                             <div class="col-sm-12 d-flex">
                                                 <button type="submit"
