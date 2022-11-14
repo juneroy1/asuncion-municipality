@@ -60,7 +60,7 @@ class Controller extends BaseController
     }
 
     public function archiveTotalNotApprove($department){
-        $archiveTotal = Archive::where('is_approved', '=', '2')->where('department_id',$department)->count();
+        $archiveTotal = Archive::where('is_approved', '=', '3')->where('department_id',$department)->count();
 
         return $archiveTotal;
     }
@@ -69,6 +69,12 @@ class Controller extends BaseController
         $archiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '2')->count();
         return $archiveDepartmentTotal;
     }
+
+     public function archiveDepartmentTotalNotApproved($department){
+        $archiveDepartmentTotal = ArchiveDepartment::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $archiveDepartmentTotal;
+    }
+
     public function legislativeBranchCountSuperAdmin(){
         $legislativeBranchCountSuperAdmin = AgendaModel::where('is_approved', '=', '2')->where('is_executive', '=', 0)->count();
         return $legislativeBranchCountSuperAdmin;
@@ -77,8 +83,14 @@ class Controller extends BaseController
         $executiveBranchCountSuperAdmin = AgendaModel::where('is_approved', '=', '2')->where('is_executive', '=', 1)->count();
         return $executiveBranchCountSuperAdmin;
     }
+    
     public function barangayModelTotal(){
         $barangayModelTotal = BarangayModel::where('is_approved', '=', '2')->count();
+        return $barangayModelTotal;
+    }
+
+    public function barangayModelTotalNotApproved($department){
+        $barangayModelTotal = BarangayModel::where('is_approved', '=', '3')->where('department_id',$department)->count();
         return $barangayModelTotal;
     }
 
@@ -87,8 +99,18 @@ class Controller extends BaseController
         return $barangayOfficialModelTotal;
     }
 
+    public function barangayOfficialModelTotalNotApproved($department){
+        $barangayOfficialModelTotal = BarangayOfficialModel::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $barangayOfficialModelTotal;
+    }
+
     public function contactNumberOfficeTotal(){
         $contactNumberOfficeTotal = ContactNumberOffice::where('is_approved', '=', '2')->count();
+        return $contactNumberOfficeTotal;
+    }
+
+    public function contactNumberOfficeTotalNotApproved($department){
+        $contactNumberOfficeTotal = ContactNumberOffice::where('is_approved', '=', '3')->where('department_id',$department)->count();
         return $contactNumberOfficeTotal;
     }
 
@@ -97,13 +119,27 @@ class Controller extends BaseController
         return $councilorsTotal;
     }
 
+    public function councilorsTotalNotApproved($department){
+        $councilorsTotal = Councilors::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $councilorsTotal;
+    }
+
     public function departmentTotal(){
         $departmentTotal = Department::where('is_approved', '=', '2')->count();
         return $departmentTotal;
     }
 
+    public function departmentTotalNotApproved($department){
+        $departmentTotal = Department::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $departmentTotal;
+    }
+
     public function departmentAdminModelTotal(){
         $departmentAdminModelTotal = DepartmentAdminModel::where('is_approved', '=', '2')->count();
+        return $departmentAdminModelTotal;
+    }
+    public function departmentAdminModelTotalNotApproved($department){
+        $departmentAdminModelTotal = DepartmentAdminModel::where('is_approved', '=', '3')->where('department_id',$department)->count();
         return $departmentAdminModelTotal;
     }
 
@@ -112,8 +148,18 @@ class Controller extends BaseController
         return $departmentFunctionalityTotal;
     }
 
+    public function departmentFunctionalityTotalNotApproved($department){
+        $departmentFunctionalityTotal = DepartmentFunctionality::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $departmentFunctionalityTotal;
+    }
+
     public function emergencyHotlineTotal(){
         $emergencyHotlineTotal = EmergencyHotline::where('is_approved', '=', '2')->count();
+        return $emergencyHotlineTotal;
+    }
+
+    public function emergencyHotlineTotalNotApproved($department){
+        $emergencyHotlineTotal = EmergencyHotline::where('is_approved', '=', '3')->where('department_id',$department)->count();
         return $emergencyHotlineTotal;
     }
 
@@ -122,8 +168,18 @@ class Controller extends BaseController
         return $landingImageTotal;
     }
 
+    public function landingImageTotalNotApproved($department){
+        $landingImageTotal = LandingImage::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $landingImageTotal;
+    }
+
     public function memberTotal(){
         $memberTotal = Member::where('is_approved', '=', '2')->count();
+        return $memberTotal;
+    }
+
+     public function memberTotalNotApproved($department){
+        $memberTotal = Member::where('is_approved', '=', '3')->where('department_id',$department)->count();
         return $memberTotal;
     }
 
@@ -132,13 +188,28 @@ class Controller extends BaseController
         return $memberTotal;
     }
 
+    public function personnelTotalNotApproved($department){
+        $memberTotal = Personnel::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $memberTotal;
+    }
+
     public function officialsAdminTotal(){
         $officialsAdminTotal = OfficialsAdmin::where('is_approved', '=', '2')->count();
         return $officialsAdminTotal;
     }
 
+    public function officialsAdminTotalNotApproved($department){
+        $memberTotal = OfficialsAdmin::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $memberTotal;
+    }
+
     public function organizationalChartTotal(){
         $oganizationalChartTotal = OrganizationalChart::where('is_approved', '=', '2')->count();
         return $oganizationalChartTotal;
+    }
+
+    public function organizationalChartTotalNotApproved($department){
+        $memberTotal = OrganizationalChart::where('is_approved', '=', '3')->where('department_id',$department)->count();
+        return $memberTotal;
     }
 }
