@@ -28,13 +28,13 @@
                         
                     </div>
 
-                    <div style="position: absolute; top: -150px;right: 50px;" class="header-content">
-                        <div class="fade-in-text" >
-                        <img style="width: 200px;" src="/landing_images/GIFLOGO.gif" alt="">
+                    <div style="position: absolute; top: -220px;right: 50px;" class="header-content">
+                    
+                        <img style="width: 200px;" src="/landing_images/logo_asuncion.gif" alt="">
 
                             {{-- <h2 style="color: white;
                             font-size: xxx-large;">image here</h2> --}}
-                        </div>
+                        
                         
                     </div>
                 </div>
