@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use App\Department;
 class RegisterController extends Controller
 {
     /*
@@ -39,6 +39,13 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function showRegistrationForm()
+    {
+        
+        $departments = Department::all();
+        return view('auth.register',["departments"=>$departments]);
     }
 
     /**
