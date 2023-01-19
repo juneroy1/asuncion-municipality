@@ -542,14 +542,14 @@ class AdminController extends Controller
         // $id = Auth::id();
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         if ($department == 'super_admin') {
             # code...
             $updates = Update::all();
         } else {
             $updates = Update::where('department_id', '=', $department)->get();
         }
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $find = Update::find($idPost);
         if ($request->image) {
             # code...

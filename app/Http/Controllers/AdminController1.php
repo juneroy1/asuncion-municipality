@@ -23,7 +23,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         if ($department =='super_admin') {
             # code...
@@ -98,7 +98,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -133,7 +133,7 @@ class AdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
@@ -162,7 +162,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $find = Update::find($idPost);
         return view('admin.remarks', [
             'update'=>$find,
@@ -177,7 +177,7 @@ class AdminController extends Controller
            //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         
       
         //
@@ -230,7 +230,7 @@ class AdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $find = Update::find($idPost);
 
         // echo $find->title; die;
@@ -255,14 +255,14 @@ class AdminController extends Controller
         // $id = Auth::id();
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         if ($department =='super_admin') {
             # code...
             $updates = Update::all();
         }else{
             $updates = Update::where('department', '=', $department)->get();
         }
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $find = Update::find($idPost);
         if ($request->image) {
             # code...

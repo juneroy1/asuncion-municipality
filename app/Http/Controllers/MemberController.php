@@ -49,6 +49,7 @@ class MemberController extends Controller
         ]);
     }
     public function indexPersonnel(){
+        // dd(1);
         $user = Auth::user();
         $id = Auth::id();
         $department = $user->department_admin_model_id;
@@ -60,7 +61,7 @@ class MemberController extends Controller
             $members = Personnel::where('department_id', '=', $department)->get();
         }
 
-        $listRequest = Department::withCount('member')->get();
+        $listRequest = Department::withCount('personnel')->get();
         // dd($listRequest);
         if ($department =='super_admin') {
             return view('admin.before.index', [
@@ -68,7 +69,7 @@ class MemberController extends Controller
                 'department' => $department,
                 'listRequests' => $listRequest,
                 'pageName' => 'Personnel',
-                'pagePrefix' => 'admin-member',
+                'pagePrefix' => 'admin-member-personnel',
                 'showDepartments' => true,
                 'updateTotal' => $this->updateTotal(),
                 'archiveTotal' => $this->archiveTotal(),
@@ -303,7 +304,7 @@ class MemberController extends Controller
         $member->remarks = $request->remarks;
        
         $member->user_id = $id;
-        $member->is_approved = 1;
+        $member->is_approved = 2;
         $member->department_id = $department;
         $member->save();
         session()->flash('success', $idPost?'successfully update personnal group image':'successfully added new personnal group image');

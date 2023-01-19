@@ -23,7 +23,7 @@ class AnnouncementController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         if ($department =='super_admin') {
             # code...
@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $imageName = time().'.'.$request->image->extension(); 
         $request->image->move(public_path('images'), $imageName);
 
@@ -82,7 +82,7 @@ class AnnouncementController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
@@ -113,7 +113,7 @@ class AnnouncementController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        

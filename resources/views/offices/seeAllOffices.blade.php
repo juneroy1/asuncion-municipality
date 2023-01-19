@@ -58,7 +58,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div style="display: inline-block;margin-left: 10px;">
-                                                                <h1>{{$department->name}}</h1>
+                                                                <h1 style="    text-transform: uppercase;">{{$department->name}}</h1>
                                                             </div>
                                                         </div>
                                                     </div> 

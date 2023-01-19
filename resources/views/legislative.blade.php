@@ -39,10 +39,23 @@
                     <a href="/view-official/legislative/{{ $official->id }}"
                         style="text-decoration: none; cursor: pointer;">
                         <div class="container">
-                            <div style="text-align: center;display: flex;
-                           justify-items: center;
-                           align-items: center;
-                           align-content: center;">
+                            <div class="card" style="text-align: center;display: flex;
+                            justify-items: center;
+                            align-items: center;
+                            justify-content: space-between;
+                            align-content: center;
+                            background: #e8f9e9;
+                            text-align: center;
+                            display: flex;
+                            justify-items: center;
+                            align-items: center;
+                            justify-content: space-around;
+                            align-content: center;
+                            flex-direction: row;
+                            padding: 40px;
+                            margin-bottom: 30px;
+                            border-radius: 20px;
+                            ">
                                 <img style="display: inline; width:40%" src="officials/{{ $official->image }}" alt="..."
                                     class="img-thumbnail">
                                 <div style="display: inline-block;">

@@ -163,7 +163,7 @@ class LandingImageController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         if ($department =='super_admin') {
             # code...
@@ -212,7 +212,6 @@ class LandingImageController extends Controller
     public function store(Request $request, $idPost = false)
     {
         $this->validate($request,[
-            'image'=>'required',
             'title'=>'required',
             'subtitle'=>'required',
          ]);

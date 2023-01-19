@@ -42,7 +42,7 @@ class OfficesController extends Controller
 
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
        
             $archives = ArchiveDepartment::all();
@@ -77,7 +77,7 @@ class OfficesController extends Controller
 
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
        
         if ($request->search) {

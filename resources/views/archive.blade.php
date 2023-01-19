@@ -57,11 +57,12 @@
             <div class="container card" style="cursor: pointer;background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                 <div style="text-align: center;display: flex;
                 justify-items: center;
-                
+                flex-direction: column;
                 align-items: center;
                 align-content: center;">
                 @foreach ($archives as $archive)
-                <div >
+                <div style="    padding: 10px;
+                margin: 42px;" >
                     <img src="/images/fileupload.png"
                                             width="150" />
                 

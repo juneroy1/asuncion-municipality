@@ -21,7 +21,7 @@ class DepartmentFunctionalityController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         if ($department =='super_admin') {
             # code...
@@ -70,7 +70,7 @@ class DepartmentFunctionalityController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -94,7 +94,7 @@ class DepartmentFunctionalityController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
@@ -125,7 +125,7 @@ class DepartmentFunctionalityController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        

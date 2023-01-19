@@ -170,7 +170,6 @@ class AnnouncementController extends Controller
         $this->validate($request,[
             'title'=>'required',
             'description'=>'required',
-            'image'=>'required',
             ]);
         //
         $user = Auth::user();

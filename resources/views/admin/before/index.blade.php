@@ -95,6 +95,12 @@
                                             <td> <a href="/{{$pagePrefix}}/{{$listRequest->id}}">{{$listRequest->name}}</a></td>
                                             <td>
                                                 {{-- <td>{{$Department->number}}</td> --}}
+                                                @if ($pageName == 'Personnel')
+                                                    <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
+                                                        <div class="{{$listRequest->personnel_count > 0? 'notif-container':''}}">
+                                                        {{$listRequest->personnel_count}}
+                                                    </div></a>   
+                                                @endif
                                                 @if ($pageName == 'Announcement')
                                                     <a href="/{{$pagePrefix}}/{{$listRequest->id}}">
                                                         <div class="{{$listRequest->announcement_count > 0? 'notif-container':''}}">

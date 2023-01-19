@@ -282,7 +282,7 @@
         function approve(id, idpage) {
             let confirm_Final = confirm("Do you really want to APPROVE?");
             if (confirm_Final) {
-                window.location.href = "/admin-officials-archive/" + id
+                window.location.href = "/approve-officials-archive/" + id
             }
 
             // alert(id+" "+idpage);

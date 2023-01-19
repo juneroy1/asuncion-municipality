@@ -94,13 +94,24 @@
  
 
     <br> --}}
-    <div style="background-color: #eef5f9;
+    <div style=" margin-top: 20px; background-color: #eef5f9;
                                     padding: 80px;
                                     border: 1px solid #d7dfe3;
                                     border-radius: 4px;
                                     -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
                                     box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                    color: #455a64;" class="container">
+                                    color: #455a64;
+                                    background: #e8f9e9;
+                                    text-align: center;
+                                    align-items: center;
+                                    justify-content: space-around;
+                                    align-content: center;
+                                    flex-direction: row;
+                                    margin-bottom: 30px;
+                                    border-radius: 20px;
+                                    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+                                    transition: 0.3s;
+                                    " class="container">
         {{-- <h2 style="text-align: center">OFFICE PERSONNEL</h2> --}}
         <div style="text-align: center;
                                         justify-items: center;
@@ -135,47 +146,70 @@
 
 
         {{-- <img class="card-image" src="images/officials/IMG_0614.JPG" alt="alternative"> --}}
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div style="background-color: #eef5f9;
-                                                                        padding: 80px;
-                                                                        border: 1px solid #d7dfe3;
-                                                                        border-radius: 4px;
-                                                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                        color: #455a64;" class="container">
-                    <h2 style="text-align: center">OFFICE MANDATE</h2>
-                    <div style="text-align: center;display: flex;
-                                                                            justify-items: center;
-                                                                            align-items: center;
-                                                                            align-content: center;">
-                        <div style="display: inline-block;">
+        
+    </div>
+    <br>
 
-
-                            @if ($functionality != null)
-                                <p>{{ $functionality->description }}</p>
-                            @else
-                                <p> </p>
-                            @endif
+    <div class="container">
+        <div class="card" style="background: #e8f9e9;
+        text-align: center;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        justify-content: space-around;
+        align-content: center;
+        flex-direction: row;
+        padding: 40px;
+        margin-bottom: 30px;
+        border-radius: 20px;">
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    {{-- style="background-color: #eef5f9;
+                                                                            padding: 80px;
+                                                                            border: 1px solid #d7dfe3;
+                                                                            border-radius: 4px;
+                                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
+                                                                            color: #455a64;" class="container" --}}
+                    <div >
+                        <h2 style="text-align: center">OFFICE MANDATE</h2>
+                        <div style="text-align: center;display: flex;
+                                                                                justify-items: center;
+                                                                                align-items: center;
+                                                                                align-content: center;">
+                            <div style="display: inline-block;">
+    
+    
+                                @if ($functionality != null)
+                                    <p>{{ $functionality->description }}</p>
+                                @else
+                                    <p> </p>
+                                @endif
+                            </div>
+    
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
 
     <br>
     <div class="row">
         <div class="col-md-12 col-xs-12">
-            <div style="background-color: #eef5f9;
-                                                    padding: 80px;
-                                                    border: 1px solid #d7dfe3;
-                                                    border-radius: 4px;
-                                                    -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                    box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                    color: #455a64;" class="container">
+            <div  class="container">
+                                                    <div class="card" style="background: #e8f9e9;
+                                                    text-align: center;
+                                                    display: flex;
+                                                    justify-items: center;
+                                                    align-items: center;
+                                                    justify-content: space-around;
+                                                    align-content: center;
+                                                    flex-direction: column;
+                                                    padding: 40px;
+                                                    margin-bottom: 30px;
+                                                    border-radius: 20px;">
+                                                   
                 <h2 style="text-align: center">OFFICE PERSONNEL</h2>
                 <div style="text-align: center;
                                                         justify-items: center;
@@ -214,7 +248,7 @@
 
                         <br>
                     </div>
-
+                </div>
 
 
                     {{-- <img class="card-image" src="images/officials/IMG_0614.JPG" alt="alternative"> --}}
@@ -271,13 +305,18 @@
                 <br>
                 <br>
                 <br>
-                <div style="background-color: #eef5f9;
-                                                                            padding: 80px;
-                                                                            border: 1px solid #d7dfe3;
-                                                                            border-radius: 4px;
-                                                                            -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                            box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                            color: #455a64;" class="container">
+                <div  class="container">
+                    <div class="card" style="background: #e8f9e9;
+                    text-align: center;
+                    display: flex;
+                    justify-items: center;
+                    align-items: center;
+                    justify-content: space-around;
+                    align-content: center;
+                    flex-direction: column;
+                    padding: 40px;
+                    margin-bottom: 30px;
+                    border-radius: 20px;">
                     <h2 style="text-align: center">PROJECTS AND ACHIEVEMENTS</h2>
                     @foreach ($updates as $update)
                     <a style="text-decoration: none"  href="/update-view/{{$update->id}}">
@@ -306,13 +345,18 @@
                 <br>
                 <br>
                 <br>
-                <div style="background-color: #eef5f9;
-                                                        padding: 80px;
-                                                        border: 1px solid #d7dfe3;
-                                                        border-radius: 4px;
-                                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                        color: #455a64;" class="container">
+                <div  class="container">
+                    <div class="card" style="background: #e8f9e9;
+                    text-align: center;
+                    display: flex;
+                    justify-items: center;
+                    align-items: center;
+                    justify-content: space-around;
+                    align-content: center;
+                    flex-direction: column;
+                    padding: 40px;
+                    margin-bottom: 30px;
+                    border-radius: 20px;">
                     <h2 style="text-align: center">OUR ARCHIVES</h2>
                     <div style="text-align: center;">
                         {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
@@ -406,15 +450,60 @@
                 <br>
                 <br>
                 <br>
-                <div style="display:flex">
-                    <div style="background-color: #eef5f9;
-                                                                                        padding: 80px;
-                                                                                        border: 1px solid #d7dfe3;
-                                                                                        border-radius: 4px;
-                                                                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                                        color: #455a64;"
-                        class="container">
+                <div style="display:flex;flex-direction: column;">
+                    
+                    <div  class="container">
+                        <div class="card" style="background: #e8f9e9;
+                        text-align: center;
+                        display: flex;
+                        justify-items: center;
+                        align-items: center;
+                        justify-content: space-around;
+                        align-content: center;
+                        flex-direction: column;
+                        padding: 40px;
+                        margin-bottom: 30px;
+                        border-radius: 20px;">
+                        <h2 style="text-align: center">Online Transaction</h2>
+                        <div style="text-align: center;display: flex;
+                                                                                justify-items: center;
+                                                                                align-items: center;
+                                                                                align-content: center;">
+                            {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
+                            <div style="display: inline-block;">
+
+                                {{-- <h3>TITLE</h3> --}}
+
+                                {{-- <h2></h2> --}}
+                                {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
+
+                                {{-- @if ($functionality != null) --}}
+                                <center>
+                                    <p style="text-align: center">We dont have online transaction link</p>
+                                </center>
+                                {{-- <p >{{$functionality->description}}</p> --}}
+                                {{-- @else --}}
+                                <p> </p>
+                                {{-- @endif --}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-4" style="display: flex; flex-direction: column">
+                    <div  class="container">
+                        <div class="card" style="background: #e8f9e9;
+                        text-align: center;
+                        display: flex;
+                        justify-items: center;
+                        align-items: center;
+                        justify-content: space-around;
+                        align-content: center;
+                        flex-direction: column;
+                        padding: 40px;
+                        margin-bottom: 30px;
+                        border-radius: 20px;">
                         <h2 style="text-align: center">CONTACT US</h2>
                         <div style="text-align: center;display: flex;
                                                                                 justify-items: center;
@@ -456,39 +545,6 @@
 
                         </div>
                     </div>
-                    <div style="background-color: #eef5f9;
-                                                                                        padding: 80px;
-                                                                                        border: 1px solid #d7dfe3;
-                                                                                        border-radius: 4px;
-                                                                                        -webkit-box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                                        box-shadow: 0px 5px 20px rgb(0 0 0 / 5%);
-                                                                                        color: #455a64;"
-                        class="container">
-                        <h2 style="text-align: center">Online Transaction</h2>
-                        <div style="text-align: center;display: flex;
-                                                                                justify-items: center;
-                                                                                align-items: center;
-                                                                                align-content: center;">
-                            {{-- <img style="display: inline; width:40%" src=" images/vaccination/vaccination.JPG" alt="..." class="img-thumbnail"> --}}
-                            <div style="display: inline-block;">
-
-                                {{-- <h3>TITLE</h3> --}}
-
-                                {{-- <h2></h2> --}}
-                                {{-- <p class="font-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem ad magnam atque ea, sint iusto alias maiores nostrum, rem aliquid tenetur quae, reprehenderit sit vitae architecto totam consectetur fugiat?</p> --}}
-
-                                {{-- @if ($functionality != null) --}}
-                                <center>
-                                    <p style="text-align: center">We dont have online transaction link</p>
-                                </center>
-                                {{-- <p >{{$functionality->description}}</p> --}}
-                                {{-- @else --}}
-                                <p> </p>
-                                {{-- @endif --}}
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
 
 
@@ -499,6 +555,7 @@
 
                 <!-- Services -->
                 <div id="services" class="cards-2">
+                    
                     <div style="background-color: #eef5f9;
                                                                                 padding: 80px;
                                                                                 border: 1px solid #d7dfe3;

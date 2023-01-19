@@ -29,7 +29,21 @@ class DepartmentFunctionalityController extends Controller
             'idPage' => $department,
             'update'=> false,
             'edit' => false,
-            'updateTotal' => false,
+            'updateTotal' => $this->updateTotalNotApprove($department),
+            'archiveTotal' => $this->archiveTotalNotApprove($department),
+            'announcementTotal' => $this->announcementTotalNotApprove($department),
+            'memberTotal' => $this->memberTotalNotApproved($department),
+            'personnelTotal' => $this->personnelTotalNotApproved($department),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotalNotApproved($department),
+            'landingImageTotal' => $this->landingImageTotalNotApproved($department),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotalNotApproved($department),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotalNotApproved($department),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotalNotApproved($department),
+            'barangayModelTotal' => $this->barangayModelTotalNotApproved($department),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotalNotApproved($department),
+            'organizationalChartTotal' => $this->organizationalChartTotalNotApproved($department),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
         ]);
     }
     public function index($idPost = false)

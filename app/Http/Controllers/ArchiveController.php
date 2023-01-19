@@ -54,7 +54,7 @@ class ArchiveController extends Controller
     public function showArchiveSubmit(Request $request){
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
 
         if ($request->search) {
            $search =  $request->search;
@@ -193,7 +193,7 @@ class ArchiveController extends Controller
         $id = Auth::id();
         $departmentUser = $user->department_admin_model_id;
         
-        // dd($departmentUser);
+        // dd($department);
         return view('admin.archive', [
             'archives'=> $archives, 
             'department' => $departmentUser,
@@ -407,7 +407,7 @@ class ArchiveController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        

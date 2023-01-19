@@ -23,7 +23,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // if ($department =='super_admin') {
             # code...
@@ -40,7 +40,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // if ($department =='super_admin') {
             # code...
@@ -56,7 +56,7 @@ class OfficialsAdminController extends Controller
 
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         $official = OfficialsAdmin::find($idOfficial);
         return view('view_official', ['official'=> $official,'department' => $department,'type' => $type,]);
     }
@@ -68,7 +68,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         if ($department =='super_admin') {
             # code...
@@ -101,7 +101,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -141,7 +141,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
@@ -172,7 +172,7 @@ class OfficialsAdminController extends Controller
         //
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department;
+        $department = $user->department_admin_model_id;
         //
 
        
