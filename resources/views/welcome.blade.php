@@ -171,8 +171,8 @@
                     <div style="cursor: pointer;margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <a style="text-decoration: none" href="/agendas/{{$executive_agendas? $executive_agendas['file']: ''}}" target="_blank"
-                                    rel="noopener noreferrer">
+                            <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
+                                <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer">
                                     <h3 style="text-align: center">EXECUTIVE AGENDA</h3>
                                     <div style="text-align: center;
                                                                                 justify-items: center;
