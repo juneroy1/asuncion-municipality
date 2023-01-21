@@ -63,7 +63,8 @@
                                 <div class="col-lg-12">
                                     <a style="text-decoration: none" href="/vision" target="_blank" rel="noopener noreferrer">
                                     <h3 style="text-align: center">VISION</h3>
-                                    <p style="text-transform: lowercase">WE ENVISION ASUNCION AS A PEACEFUL MUNICIPALITY WHERE THE PEOPLE ARE GOD-FEARING, PROSPEROUS, HIGHLY EDUCATED, LIVE LONG AND HEALTHY LIVES, RESILENT TO NATURAL...read more</p>
+                                    <!-- style="text-transform: uppercase" -->
+                                    <p >We envision Asuncion as a peaceful Municipality where the people are God-fearing, Prosperous, Highly educated, live long and healthy lives, resilent to natural...</p>
                                     <span style="color:blue">Read More</span>
                                 </a>
                                 </div> 
@@ -188,7 +189,7 @@
                             </div> 
                         </div>
                     </div>
-                    <div style="cursor: pointer; margin: 30px;" class="container">
+                    <!-- <div style="cursor: pointer; margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <a style="text-decoration: none" href="/agendas/{{$legislative_agendas? $legislative_agendas['file']: ''}}" target="_blank"
@@ -206,9 +207,9 @@
                 
                                     </div>
                                 </a>
-                            </div> <!-- end of col -->
+                            </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div> <!-- end of col -->
         </div>

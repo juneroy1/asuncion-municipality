@@ -377,16 +377,16 @@
 
                     <li class="nav-item dropdown">
                         @if($title=='projects')
-                        <a class="nav-link dropdown-toggle page-scroll" href="#header" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">UPDATES AND ACTIVITIES <span class="sr-only">(current)</span></a>
+                        <a class="nav-link dropdown-toggle page-scroll" href="#header" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">PROGRAMS AND SERVICES <span class="sr-only">(current)</span></a>
                         @else 
-                        <a class="nav-link dropdown-toggle page-scroll" href="/see-all-projects" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">UPDATES AND ACTIVITIES </a>
+                        <a class="nav-link dropdown-toggle page-scroll" href="/see-all-projects" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">PROGRAMS AND SERVICES </a>
                         @endif
                        
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if($subtitle=='help' && $title=='projects')
-                                <a class="dropdown-item" href="#header"><span class="item-text">H-HELP</span></a>
+                                <a class="dropdown-item" href="#header"><span class="item-text">H-HEALTH</span></a>
                             @else 
-                                <a class="dropdown-item" href="/see-all-projects/help"><span class="item-text">H-HELP</span></a>
+                                <a class="dropdown-item" href="/see-all-projects/help"><span class="item-text">H-HEALTH</span></a>
                             @endif
 
                             @if($subtitle=='education' && $title=='projects')
@@ -470,9 +470,9 @@
 
                     {{-- <li class="nav-item dropdown">
                         @if($title=='projects')
-                        <a class="nav-link page-scroll" href="#header">UPDATES AND ACTIVITIES <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="#header">PROGRAMS AND SERVICES<span class="sr-only">(current)</span></a>
                         @else 
-                        <a class="nav-link page-scroll" href="/see-all-projects">UPDATES AND ACTIVITIES</a>
+                        <a class="nav-link page-scroll" href="/see-all-projects">PROGRAMS AND SERVICES</a>
                         @endif
                         
                     </li> --}}
@@ -481,7 +481,7 @@
     
                     <!-- Dropdown Menu -->          
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT</a>
+                        <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT LGU</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/vision"><span class="item-text">VISION</span></a>
                             <div class="dropdown-items-divide-hr"></div>
