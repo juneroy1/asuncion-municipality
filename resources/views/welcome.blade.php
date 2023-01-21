@@ -102,7 +102,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h3 style="text-align: center">EMERGENCY HOTLINE</h3>
-                                    <ul style="list-style-type:none;">
+                                    <ul style="list-style-type:none; padding: 0;">
                                         @foreach ($emergencyHotlines as $emergencyHotline)
                                             <li class="table-style">
                                                 <div style="display: flex;justify-content: space-evenly;align-items: center;">

@@ -122,7 +122,7 @@
                                             <label class="col-md-12 mb-0">Number</label>
                                             <div class="col-md-12">
                                                 <input name="number" value="{{ $update ? $update->number : '' }}"
-                                                    type="number" placeholder="Title of the update"
+                                                    type="text" placeholder="Title of the update"
                                                     class="form-control ps-0 form-control-line">
                                             </div>
                                         </div>
