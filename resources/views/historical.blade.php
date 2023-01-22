@@ -41,7 +41,7 @@
                     <div class="text-container card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         {{-- <h3>Private Data We Receive And Collect</h3> --}}
                         {{-- <p>Aria also automatically collects and receives certain information from your computer or mobile device, including the activities you perform on our Website, the Platforms, and the Applications, the type of hardware and software you are using (for example, your operating system or browser), and information obtained from cookies. For example, each time you visit the Website or otherwise use the Services, we automatically collect your IP address, browser and device type, access times, the web page from which you came, the regions from which you navigate the web page, and the web page(s) you access (as applicable).</p> --}}
-                        <p  >The Municipality of Asuncion became a regular municipal district of February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
+                        <p  >The Municipality of Asuncion became a regular municipal district on February 23, 1921 by virtue of Executuve Order No. 8, signed by Governor General Francis Burton F. Harrison, duly
                             endorsed by the Provincial Board of Davao under Resolution Numbers 297 and 393. Two (2) districts were created: The District of Camansa and the District of Saug.
                         Each District consists of five (5) barrios:</p>
                         <div style="display: flex;

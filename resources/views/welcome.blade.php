@@ -140,7 +140,7 @@
                                             <div class="col-lg-12">
                                                 <div class="text-container">
                                                      <p style="color:black">The Municipality of Asuncion became a regular
-                                                            municipal district of February 23, 1921 by virtue of Executuve
+                                                            municipal district on February 23, 1921 by virtue of Executuve
                                                             Order No. 8, signed by Governor General Francis Burton F.
                                                             Harrison, duly
                                                             endorsed by the Provincial Board of Davao under Resolution
