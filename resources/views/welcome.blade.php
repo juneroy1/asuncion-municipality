@@ -173,13 +173,13 @@
                             <div class="col-lg-12">
                             <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
                                 <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer">
-                                    <h3 style="text-align: center">EXECUTIVE AGENDA</h3>
+                                    <h3 style="text-align: center">EXECUTIVE AND LEGISLATIVE AGENDA</h3>
                                     <div style="text-align: center;
                                                                                 justify-items: center;
                                                                                 align-items: center;
                                                                                 align-content: center;">
                                         <div style="display: inline-block;">
-                                            <p style="text-align: center">View Executive Agenda...
+                                            <p style="text-align: center">View EXECUTIVE AND LEGISLATIVE AGENDA...
                                             </p>
                                             <span style="color:blue">Read More</span>
                                         </div>

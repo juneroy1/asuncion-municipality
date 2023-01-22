@@ -487,7 +487,7 @@
                             <div class="dropdown-items-divide-hr"></div>
                             <a class="dropdown-item" href="/mission"><span class="item-text">MISSION</span></a>
                             <div class="dropdown-items-divide-hr"></div>
-                            <a class="dropdown-item"  href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer"><span class="item-text">EXECUTIVE AGENDA</span></a>
+                            <a class="dropdown-item"  href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer"><span class="item-text">EXECUTIVE AND LEGISLATIVE AGENDA</span></a>
                             <div class="dropdown-items-divide-hr"></div>
                             <a class="dropdown-item" href="/historical"><span class="item-text">HISTORICAL BACKGROUND</span></a>
                         </div>
