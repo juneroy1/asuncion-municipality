@@ -105,9 +105,9 @@
                                     <ul style="list-style-type:none; padding: 0;">
                                         @foreach ($emergencyHotlines as $emergencyHotline)
                                             <li class="table-style">
-                                                <div style="display: flex;justify-content: space-evenly;align-items: center;">
+                                                <div style="display: flex;justify-content: space-between;align-items: center;">
                                                     <div style="width: 100px">{{ $emergencyHotline->name }}</div>
-                                                    <div style="width: 300px"><b> - {{ $emergencyHotline->number }} ({{ $emergencyHotline->network }})</b></div>
+                                                    <div style="width: 300px"><b>{{ $emergencyHotline->number }} ({{ $emergencyHotline->network }})</b></div>
                                                 </div>
                                             </li>
                                         @endforeach
