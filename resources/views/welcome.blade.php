@@ -64,7 +64,7 @@
                                     <a style="text-decoration: none" href="/vision" target="_blank" rel="noopener noreferrer">
                                     <h3 style="text-align: center">VISION</h3>
                                     <!-- style="text-transform: uppercase" -->
-                                    <p >We envision Asuncion as a peaceful Municipality where the people are God-fearing, Prosperous, Highly educated, live long and healthy lives, resilent to natural...</p>
+                                    <p >We envision Asuncion as a peaceful Municipality where the people are God-fearing, Prosperous, Highly educated, live long and healthy lives, resilient to natural...</p>
                                     <span style="color:blue">Read More</span>
                                 </a>
                                 </div> 
