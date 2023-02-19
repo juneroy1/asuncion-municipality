@@ -18,6 +18,37 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexAdminPersonnel($department){
+        $members = Personnel::where('department_id', '=', $department)->withCount('department')->get();
+        $user = Auth::user();
+        $id = Auth::id();
+        $departmentUser = $user->department_admin_model_id;
+        // dd($departmentUser);
+        return view('admin.member_image', [
+            'members'=> $members, 
+            'department' => $departmentUser,
+            'pageName' => 'Personnel',
+            'idPage' => $department,
+            'member' => false,
+            'update'=> false,
+            'edit' => false,
+            'updateTotal' => $this->updateTotalNotApprove($department),
+                'archiveTotal' => $this->archiveTotalNotApprove($department),
+                'announcementTotal' => $this->announcementTotalNotApprove($department),
+                'memberTotal' => $this->memberTotalNotApproved($department),
+                'personnelTotal' => $this->personnelTotalNotApproved($department),
+                'departmentFunctionalityTotal' => $this->departmentFunctionalityTotalNotApproved($department),
+                'landingImageTotal' => $this->landingImageTotalNotApproved($department),
+                'emergencyHotlineTotal' => $this->emergencyHotlineTotalNotApproved($department),
+                'archiveDepartmentTotal' => $this->archiveDepartmentTotalNotApproved($department),
+                'barangayOfficialModelTotal' => $this->barangayOfficialModelTotalNotApproved($department),
+                'barangayModelTotal' => $this->barangayModelTotalNotApproved($department),
+                'contactNumberOfficeTotal' => $this->contactNumberOfficeTotalNotApproved($department),
+                'organizationalChartTotal' => $this->organizationalChartTotalNotApproved($department),
+                'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+                'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+        ]);
+    }
     public function indexAdmin($department){
         $members = Member::where('department_id', '=', $department)->withCount('department')->get();
         $user = Auth::user();
@@ -451,6 +482,39 @@ class MemberController extends Controller
         session()->flash('success', 'successfully removed Member');
         // return redirect()->back()->with(['anns'=>$anns]);  
         return redirect("admin-member/$idPage");
+    }
+    
+    public function removeMemberPersonnel(Request $request, $idPost, $idPage)
+    {
+        //
+        $user = Auth::user();
+        $id = Auth::id();
+        $department = $user->department_admin_model_id;
+        //
+
+       
+
+        if ($department =='super_admin') {
+            # code...
+            $anns = Personnel::all();
+        }else{
+            $anns = Personnel::where('department_id', '=', $department)->get();
+        }
+
+        if ($department !='super_admin') {
+            # code...
+            session()->flash('error', 'only the admin can access the approval');
+            return redirect()->back()->with(['anns'=>$anns]);  
+        }
+
+        $find = Personnel::find($idPost);
+        $find->is_approved = 3;
+        $find->remarks = $request->remarks;
+        $find->save();
+
+        session()->flash('success', 'successfully removed Member');
+        // return redirect()->back()->with(['anns'=>$anns]);  
+        return redirect("admin-member-personnel/$idPage");
     }
     public function remove(Request $request, $idPost, $idPage)
     {

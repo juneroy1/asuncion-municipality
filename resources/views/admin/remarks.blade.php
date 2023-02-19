@@ -124,6 +124,10 @@
                                                                     <form method="POST"
                                                                         action="/remove-legislative-file/{{ $update->id }}/{{ $idPage }}"
                                                                         enctype="multipart/form-data" class="row">
+                                                                        @elseif( $model == 'Personnel' )
+                                                                        <form method="POST"
+                                                                            action="/remove-member-personnel/{{ $update->id }}/{{ $idPage }}"
+                                                                            enctype="multipart/form-data" class="row">
                                                             @else
                                                                 <form method="POST"
                                                                     action="/remove-list/{{ $update->id }}/{{ $idPage }}"

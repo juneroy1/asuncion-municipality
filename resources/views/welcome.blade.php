@@ -235,8 +235,8 @@
                         </div>
                     </section>
                     <video style="width: 100%" controls>
-                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4" type="video/mp4">
-                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4">
+                        <source src="video/Work On Wonders_ The WOW in Asuncion.mp4" type="video/mp4">
+                        <source src="video/Work On Wonders_ The WOW in Asuncion.mp4">
                         Your browser does not support HTML video.
                     </video>
                 </div> <!-- end of col -->
