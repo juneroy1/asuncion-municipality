@@ -62,9 +62,9 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <a style="text-decoration: none" href="/vision" target="_blank" rel="noopener noreferrer">
-                                    <h3 style="text-align: center">VISION</h3>
+                                    <h3 style="text-align: center">OUR VISION</h3>
                                     <!-- style="text-transform: uppercase" -->
-                                    <p >We envision Asuncion as a peaceful Municipality where the people are God-fearing, Prosperous, Highly educated, live long and healthy lives, resilient to natural...</p>
+                                    <p  style="color: black;">We envision Asuncion as a peaceful municipality where the people are God-fearing, prosperous, highly educated, live long and with  healthy lives, resilient to natural...</p>
                                     <span style="color:blue">Read More</span>
                                 </a>
                                 </div> 
@@ -74,15 +74,14 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     
-                                    <a href="/mission" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center">MISSION</h3>
-                                    <h5>MISSION I</h5>
-                                        <p>To increase individual income by 20% per year <b>ECONOMIC</b></p>
-                                        <ul>
-                                            <li>Amuna sa mag-uuma</li>
-                                            <li>Asikaso sa negosyo ug trabaho</li>
-                                            <li>kalinaw ug kahapsay sa katilingban</li>
-                                            <li>Desenting pabahay</li>
-                                            <li>Imprastruktura sa kalambuan</li>
+                                    <a href="/mission" style="text-decoration: none" target="_blank" rel="noopener noreferrer"><h3 style="text-align: center;color: black;">OUR MISSION</h3>
+                                    <!--<h5>&nsbp;</h5>-->
+                                    <br/>
+                                        <p style="color: black;">Institute a God-centered and morally upright local government unit that is:</p>
+                                        <ul style="color: black;">
+                                            <li>with firm and decisive leadership</li>
+                                             <li>consultative and responsive to the needs of the constituents</li>
+                                             <li>participatory</li>
                                         </ul>
                                          <span style="color:blue">Read More</span>
                                     </a>
@@ -96,18 +95,23 @@
         <div class="col-md-6">
             <div class="container p-3 m-4">
                 
-                <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px;margin-top: 10px;" class="filter">
                     <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
                         <div style="cursor: pointer;" >
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h3 style="text-align: center">EMERGENCY HOTLINE</h3>
+                                    <h3 style="text-align: center;color: black;">EMERGENCY HOTLINE</h3>
                                     <ul style="list-style-type:none; padding: 0;">
                                         @foreach ($emergencyHotlines as $emergencyHotline)
                                             <li class="table-style">
-                                                <div style="display: flex;justify-content: space-between;align-items: center;">
-                                                    <div style="width: 100px">{{ $emergencyHotline->name }}</div>
-                                                    <div style="width: 300px"><b>{{ $emergencyHotline->number }} ({{ $emergencyHotline->network }})</b></div>
+                                                <div style="display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    border-bottom: 1px solid black;
+                                                    margin-bottom: 20px;
+                                                    padding-bottom: 10px;">
+                                                    <div style="width: 150px;font-size: 20px;color: black; ">{{ $emergencyHotline->name }}</div>
+                                                    <div style="width:400px;font-size: 20px;color: black;"><b>{{ $emergencyHotline->number }} ({{ $emergencyHotline->network }})</b></div>
                                                 </div>
                                             </li>
                                         @endforeach
@@ -127,7 +131,7 @@
             <div class="row">
                 <div class="col-lg-6">
                    
-                        <h3 style="text-align: center">HISTORICAL BACKGROUND</h3>
+                        <h3 style="text-align: center;color: black;">HISTORICAL BACKGROUND</h3>
                     <div style="text-align: center;display: flex;
                                                                 justify-items: center;
                                                                 align-items: center;
@@ -171,7 +175,7 @@
                     <div style="cursor: pointer;margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                            <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
+                                <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
                                 <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer">
                                     <h3 style="text-align: center">EXECUTIVE AND LEGISLATIVE AGENDA</h3>
                                     <div style="text-align: center;
@@ -179,7 +183,7 @@
                                                                                 align-items: center;
                                                                                 align-content: center;">
                                         <div style="display: inline-block;">
-                                            <p style="text-align: center">View EXECUTIVE AND LEGISLATIVE AGENDA...
+                                            <p style="text-align: center">View Executive and Legislative Agenda...
                                             </p>
                                             <span style="color:blue">Read More</span>
                                         </div>
@@ -234,9 +238,10 @@
                             <h2 style="font-family: &quot;Poppins&quot;, sans-serif !important;font-weight: 900!important;font: 699 10.75rem/8.125rem &quot;Montserrat&quot;, sans-serif;">ASUNCION</h2>
                         </div>
                     </section>
+                    <h2>Projects That We're Proud Of</h2>
                     <video style="width: 100%" controls>
-                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4" type="video/mp4">
-                        <source src="video/Day6 Asuncion final njud ni sure na ha.mp4">
+                        <source src="video/Work On Wonders_ The WOW in Asuncion.mp4" type="video/mp4">
+                        <source src="video/Work On Wonders_ The WOW in Asuncion.mp4">
                         Your browser does not support HTML video.
                     </video>
                 </div> <!-- end of col -->
@@ -485,7 +490,7 @@
     <div class="slider">
         <div class="row">
             <div class="col-lg-12">
-                <h2>OUR OFFICIALS OF ASUNCION</h2>
+                <h2>OUR LOCAL OFFICIALS</h2>
             </div> <!-- end of col -->
         </div> <!-- end of row -->
         <div class="row">
@@ -510,7 +515,7 @@
                                                     <h3 style="text-transform: uppercase;">{{ $official->first_name }}
                                                         {{ $official->last_name }}</h3>
 
-                                                    <h3>{{ $official->position }}</h3>
+                                                    <h3 style="font-size:18px;">{{ $official->position }}</h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -626,7 +631,7 @@
                 @foreach ($barangays as $barangay)
                     <div style="display: inline-block;;
                                                                 width: 200px;">
-                        <img style="width:200px" src="barangay/{{ $barangay->image }}" alt="...">
+                        <img style="width:100%;" src="barangay/{{ $barangay->image }}" alt="...">
                         <label for="">{{ $barangay->name }}</label>
                     </div>
 
@@ -670,6 +675,7 @@
                                                     <div style="text-transform: uppercase;" class="testimonial-author">
                                                         {{ $barangay_official->first_name }}
                                                         {{ $barangay_official->last_name }}</div>
+                                                        <h6>{{ $barangay_official->position }}</h6>
                                                 </div>
                                             </a>
                                         </div>
@@ -687,7 +693,7 @@
                                                 <h3>{{ $barangay_official->first_name }}
                                                     {{ $barangay_official->last_name }}</h3>
                                                 <hr class="line-heading">
-                                                <h6>{{ $barangay_official->position }}</p>
+                                                <h6>{{ $barangay_official->position }}</h6>
                                                     <div class="container"
                                                         style="display: inline-block;margin-bottom: 140px;">
                                                         <h2>PERSONAL PROFILE</h2>
