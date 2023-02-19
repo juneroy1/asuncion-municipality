@@ -317,7 +317,7 @@
                     padding: 40px;
                     margin-bottom: 30px;
                     border-radius: 20px;">
-                    <h2 style="text-align: center">PROJECTS AND ACHIEVEMENTS</h2>
+                    <h2 style="text-align: center">PROGRAMS AND SERVICES</h2>
                     @foreach ($updates as $update)
                     <a style="text-decoration: none"  href="/update-view/{{$update->id}}">
                         <div style="text-align: center;display: flex;
