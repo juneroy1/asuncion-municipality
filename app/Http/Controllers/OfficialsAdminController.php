@@ -27,7 +27,7 @@ class OfficialsAdminController extends Controller
         //
         // if ($department =='super_admin') {
             # code...
-            $officials = OfficialsAdmin::where('is_approved', '1')->get();
+            $officials = OfficialsAdmin::where('is_approved', '1')->orderBy('order', 'ASC')->get();
         // }else{
         //     $officials = OfficialsAdmin::where('department', '=', $department)->get();
         // }
@@ -62,7 +62,7 @@ class OfficialsAdminController extends Controller
         //
         // if ($department =='super_admin') {
             # code...
-            $officials = OfficialsAdmin::all();
+            $officials = OfficialsAdmin::where('is_approved', '1')->orderBy('order', 'ASC')->get();
         // }else{
         //     $officials = OfficialsAdmin::where('department', '=', $department)->get();
         // }

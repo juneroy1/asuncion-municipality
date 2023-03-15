@@ -46,7 +46,7 @@ class OfficesController extends Controller
     }
     public function list()
     {
-        $departments = DepartmentAdminModel::where('type_office', '1')->where('is_approved', '1')->whereNull('deleted_at')->get();
+        $departments = DepartmentAdminModel::where('type_office', '1')->where('is_approved', '1')->whereNull('deleted_at')->orderBy('order', 'ASC')->get();
         return view('offices.seeAllOffices',[
             "departments"=> $departments,
             'updateTotal' => $this->updateTotal(),
@@ -224,7 +224,7 @@ class OfficesController extends Controller
         $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->limit('10')->get();
         $landingImage = LandingImage::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
         $emergencyHotlines = EmergencyHotline::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
-        $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
+        $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('order', 'ASC')->get();
         $barangay_officials = BarangayOfficialModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $barangays = BarangayModel::where('is_approved', '=', 1)->orderBy('name', 'ASC')->get();
         $executive_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 1)->orderBy('created_at', 'DESC')->first();
