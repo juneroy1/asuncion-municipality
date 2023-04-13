@@ -252,7 +252,7 @@
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <h3 style="text-align: center;color: black;">NEWS</h3>
+                                <h3 style="text-align: center;color: black;">LATEST NEWS</h3>
                                 <div style="text-align: center;display: flex;
                                                                 justify-items: center;
                                                                 align-items: center;

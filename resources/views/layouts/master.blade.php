@@ -546,6 +546,14 @@
                 </li>
                 <li class="nav-item">
                     @if($title=='welcome')
+                    <a class="nav-link page-scroll" href="#header">ASUNCION NEWS<span class="sr-only">(current)</span></a>
+                    @else 
+                    <a class="nav-link page-scroll" href="/">ASUNCION NEWS</a>
+                    @endif
+                   
+                </li>
+                <li class="nav-item">
+                    @if($title=='welcome')
                     <a class="nav-link page-scroll" href="#header">LOOKING FOR... <span class="sr-only">(current)</span></a>
                     @else 
                     <a class="nav-link page-scroll" href="/">LOOKING FOR... </a>
