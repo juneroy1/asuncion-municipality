@@ -139,79 +139,86 @@
         </div>
 
     </div>
-    <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
-        <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
-            <div style="cursor: pointer;">
-                <div class="row">
-                    <div class="col-lg-6">
+    <div class="row">
+        <div class="col-md-6">
+            <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                    <div style="cursor: pointer;">
+                        <div class="row">
+                            <div class="col-lg-12">
 
-                        <h3 style="text-align: center;color: black;">HISTORICAL BACKGROUND</h3>
-                        <div style="text-align: center;display: flex;
+                                <h3 style="text-align: center;color: black;">HISTORICAL BACKGROUND</h3>
+                                <div style="text-align: center;display: flex;
                                                                 justify-items: center;
                                                                 align-items: center;
                                                                 align-content: center;">
-                            <div style="display: inline-block;">
-                                <a style="text-decoration: none" href="/historical" target="_blank"
-                                    rel="noopener noreferrer">
-                                    <div style="text-align: left;" class="ex-basic-2">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="text-container">
-                                                        <p style="color:black">The Municipality of Asuncion became a
-                                                            regular
-                                                            municipal district on February 23, 1921 by virtue of
-                                                            Executuve
-                                                            Order No. 8, signed by Governor General Francis Burton F.
-                                                            Harrison, duly
-                                                            endorsed by the Provincial Board of Davao under Resolution
-                                                            Numbers 297 and 393. Two (2) districts were created: The
-                                                            District of Camansa and the District of Saug.
-                                                            Each District consists of five (5) barrios:</p>
+                                    <div style="display: inline-block;">
+                                        <a style="text-decoration: none" href="/historical" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <div style="text-align: left;" class="ex-basic-2">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="text-container">
+                                                                <p style="color:black">The Municipality of Asuncion
+                                                                    became a
+                                                                    regular
+                                                                    municipal district on February 23, 1921 by virtue of
+                                                                    Executuve
+                                                                    Order No. 8, signed by Governor General Francis
+                                                                    Burton F.
+                                                                    Harrison, duly
+                                                                    endorsed by the Provincial Board of Davao under
+                                                                    Resolution
+                                                                    Numbers 297 and 393. Two (2) districts were created:
+                                                                    The
+                                                                    District of Camansa and the District of Saug.
+                                                                    Each District consists of five (5) barrios:</p>
 
 
-                                                        <span style="color:blue">Read More</span>
+                                                                <span style="color:blue">Read More</span>
 
-                                                    </div>
-                                                </div> <!-- end of text-container-->
+                                                            </div>
+                                                        </div> <!-- end of text-container-->
 
 
 
-                                            </div> <!-- end of col-->
-                                        </div> <!-- end of row -->
-                                    </div> <!-- end of container -->
-                                </a>
+                                                    </div> <!-- end of col-->
+                                                </div> <!-- end of row -->
+                                            </div> <!-- end of container -->
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+
                             </div>
-
-                        </div>
-
-
-
-                    </div>
-                    <div class="col-lg-6">
-                        <div style="cursor: pointer;margin: 30px;" class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
-                                    <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf"
-                                        target="_blank" rel="noopener noreferrer">
-                                        <h3 style="text-align: center">EXECUTIVE AND LEGISLATIVE AGENDA</h3>
-                                        <div style="text-align: center;
+                            <div class="col-lg-12">
+                                <div style="cursor: pointer;margin: 30px;" class="container">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- href="/pdf/LCE AGENDA 2019-2025.pdf" target="_blank" rel="noopener noreferrer" -->
+                                            <a style="text-decoration: none" href="/pdf/LCE AGENDA 2019-2025.pdf"
+                                                target="_blank" rel="noopener noreferrer">
+                                                <h3 style="text-align: center">EXECUTIVE AND LEGISLATIVE AGENDA</h3>
+                                                <div style="text-align: center;
                                                                                 justify-items: center;
                                                                                 align-items: center;
                                                                                 align-content: center;">
-                                            <div style="display: inline-block;">
-                                                <p style="text-align: center">View Executive and Legislative Agenda...
-                                                </p>
-                                                <span style="color:blue">Read More</span>
-                                            </div>
+                                                    <div style="display: inline-block;">
+                                                        <p style="text-align: center">View Executive and Legislative
+                                                            Agenda...
+                                                        </p>
+                                                        <span style="color:blue">Read More</span>
+                                                    </div>
 
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- <div style="cursor: pointer; margin: 30px;" class="container">
+                                <!-- <div style="cursor: pointer; margin: 30px;" class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <a style="text-decoration: none" href="/agendas/{{$legislative_agendas? $legislative_agendas['file']: ''}}" target="_blank"
@@ -232,11 +239,205 @@
                             </div>
                         </div>
                     </div> -->
+                            </div>
+                        </div> <!-- end of col -->
                     </div>
-                </div> <!-- end of col -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="margin: 50px; padding-bottom: 0px !important; margin-bottom: 0px" class="filter">
+                <div class="card" style="background: #e8f9e9;padding: 40px; margin-bottom:30px;border-radius: 20px;">
+                    <div style="cursor: pointer;">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <h3 style="text-align: center;color: black;">NEWS</h3>
+                                <div style="text-align: center;display: flex;
+                                                                justify-items: center;
+                                                                align-items: center;
+                                                                align-content: center;">
+                                    <div style="display: inline-block;">
+                                        <a style="text-decoration: none" href="/historical" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div style="text-align: left;" class="ex-basic-2">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="text-container">
+                                                                        <p style="color:black">The Municipality of
+                                                                            Asuncion
+                                                                            became a
+                                                                            regular
+                                                                            municipal district on February 23, 1921 by
+                                                                            virtue of
+                                                                            Executuve
+                                                                            Order No. 8, signed by Governor General
+                                                                            Francis
+                                                                            Burton F.
+                                                                            Harrison, duly
+                                                                            endorsed by the Provincial Board of Davao
+                                                                            under
+                                                                            Resolution
+                                                                            Numbers 297 and 393. Two (2) districts were
+                                                                            created:
+                                                                            The
+                                                                            District of Camansa and the District of
+                                                                            Saug.
+                                                                            Each District consists of five (5) barrios:
+                                                                        </p>
+
+
+                                                                        <span style="color:blue">Read More</span>
+
+                                                                    </div>
+                                                                </div> <!-- end of text-container-->
+
+
+
+                                                            </div> <!-- end of col-->
+                                                        </div> <!-- end of row -->
+                                                    </div> <!-- end of container -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="text-align: left;" class="ex-basic-2">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="text-container">
+                                                                        <p style="color:black">The Municipality of
+                                                                            Asuncion
+                                                                            became a
+                                                                            regular
+                                                                            municipal district on February 23, 1921 by
+                                                                            virtue of
+                                                                            Executuve
+                                                                            Order No. 8, signed by Governor General
+                                                                            Francis
+                                                                            Burton F.
+                                                                            Harrison, duly
+                                                                            endorsed by the Provincial Board of Davao
+                                                                            under
+                                                                            Resolution
+                                                                            Numbers 297 and 393. Two (2) districts were
+                                                                            created:
+                                                                            The
+                                                                            District of Camansa and the District of
+                                                                            Saug.
+                                                                            Each District consists of five (5) barrios:
+                                                                        </p>
+
+
+                                                                        <span style="color:blue">Read More</span>
+
+                                                                    </div>
+                                                                </div> <!-- end of text-container-->
+
+
+
+                                                            </div> <!-- end of col-->
+                                                        </div> <!-- end of row -->
+                                                    </div> <!-- end of container -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="text-align: left;" class="ex-basic-2">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="text-container">
+                                                                        <p style="color:black">The Municipality of
+                                                                            Asuncion
+                                                                            became a
+                                                                            regular
+                                                                            municipal district on February 23, 1921 by
+                                                                            virtue of
+                                                                            Executuve
+                                                                            Order No. 8, signed by Governor General
+                                                                            Francis
+                                                                            Burton F.
+                                                                            Harrison, duly
+                                                                            endorsed by the Provincial Board of Davao
+                                                                            under
+                                                                            Resolution
+                                                                            Numbers 297 and 393. Two (2) districts were
+                                                                            created:
+                                                                            The
+                                                                            District of Camansa and the District of
+                                                                            Saug.
+                                                                            Each District consists of five (5) barrios:
+                                                                        </p>
+
+
+                                                                        <span style="color:blue">Read More</span>
+
+                                                                    </div>
+                                                                </div> <!-- end of text-container-->
+
+
+
+                                                            </div> <!-- end of col-->
+                                                        </div> <!-- end of row -->
+                                                    </div> <!-- end of container -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="text-align: left;" class="ex-basic-2">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="text-container">
+                                                                        <p style="color:black">The Municipality of
+                                                                            Asuncion
+                                                                            became a
+                                                                            regular
+                                                                            municipal district on February 23, 1921 by
+                                                                            virtue of
+                                                                            Executuve
+                                                                            Order No. 8, signed by Governor General
+                                                                            Francis
+                                                                            Burton F.
+                                                                            Harrison, duly
+                                                                            endorsed by the Provincial Board of Davao
+                                                                            under
+                                                                            Resolution
+                                                                            Numbers 297 and 393. Two (2) districts were
+                                                                            created:
+                                                                            The
+                                                                            District of Camansa and the District of
+                                                                            Saug.
+                                                                            Each District consists of five (5) barrios:
+                                                                        </p>
+
+
+                                                                        <span style="color:blue">Read More</span>
+
+                                                                    </div>
+                                                                </div> <!-- end of text-container-->
+
+
+
+                                                            </div> <!-- end of col-->
+                                                        </div> <!-- end of row -->
+                                                    </div> <!-- end of container -->
+                                                </div>
+                                            </div>
+
+                                        </a>
+                                    </div>
+                                    <hr>
+
+
+                                </div>
+                            </div>
+
+                        </div> <!-- end of col -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 <div class="filter" style="margin-top: 20%;">
     <div class="container">
