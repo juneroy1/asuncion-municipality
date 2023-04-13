@@ -56,9 +56,14 @@ Route::get('/announcement-remarks/{id}', 'AdminController@removePage')->name('re
 
 Route::get('/admin-member', 'MemberController@index')->name('members');
 
+Route::get('/admin-member-personnel/{department}', 'MemberController@indexAdminPersonnel')->name('admin-announcement');
+
 Route::get('/admin-member-personnel', 'MemberController@indexPersonnel')->name('members-personnel');
 Route::post('/admin-member-personnel', 'MemberController@createPersonnel')->name('createPersonnel');
-Route::post('/admin-member-personnel-approve', 'MemberController@approvePersonnel')->name('approvePersonnel');
+Route::get('/admin-member-personnel-approve/{id}', 'MemberController@approvePersonnel')->name('approvePersonnel');
+Route::post('/remove-member-personnel/{id}/{idPage}', 'MemberController@removeMemberPersonnel')->name('remove-department-archive');
+
+// Route::post('/admin-member-personnel-approve/{id}', 'MemberController@approvePersonnel')->name('approvePersonnel');
 Route::get('/admin-member-personnel-disapprove-redirect', 'MemberController@disapprovePersonnelPage')->name('disapprovePersonnel');
 Route::post('/admin-member-personnel-disapprove', 'MemberController@disapprovePersonnel')->name('disapprovePersonnel');
 Route::get('/admin-member-personnel-edit/{id}', 'MemberController@editPersonnel')->name('editPersonnel');

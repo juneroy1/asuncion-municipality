@@ -21,6 +21,7 @@ use App\ContactNumberOffice;
 use App\OrganizationalChart;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\AgendaModel;
+use App\Personnel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -322,7 +323,13 @@ class AdminController extends Controller
             $find = Archive::find($idPost);
             // dd($find);
             
-        }else if($model == 'BarangayOfficialModel'){
+        }
+        else if($model== 'Personnel'){
+            $find = Personnel::find($idPost);
+            // dd($find);
+            
+        }
+        else if($model == 'BarangayOfficialModel'){
             $find = BarangayOfficialModel::find($idPost);
         }else if($model == 'BarangayModel'){
         $find = BarangayModel::find($idPost);

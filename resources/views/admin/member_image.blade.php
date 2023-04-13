@@ -266,7 +266,7 @@
             let confirm_Final = confirm("Do you really want to DISAPPROVE?");
             if (confirm_Final) {
                 // window.location.href = "/admin-remarks/"+id+"/"+idpage
-                window.location.href = "/admin-remarks/" + id + "/" + idpage + "/Member"
+                window.location.href = "/admin-remarks/" + id + "/" + idpage + "/Personnel"
             }
 
             // alert(id+" "+idpage);
@@ -276,7 +276,7 @@
         function approve(id, idpage) {
             let confirm_Final = confirm("Do you really want to APPROVE?");
             if (confirm_Final) {
-                window.location.href = "/approve-member/" + id
+                window.location.href = "/admin-member-personnel-approve/" + id
             }
 
             // alert(id+" "+idpage);
