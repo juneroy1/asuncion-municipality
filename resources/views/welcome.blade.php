@@ -1,8 +1,8 @@
 @extends('layouts.master', ['title' => 'welcome', 'subtitle' => ''])
 
 @section('content')
-<div style="margin-top: 110px;" id="carouselExampleIndicators" class="carousel slide" data-pause="false"
-    data-interval='4000' data-ride="carousel">
+<div style="margin-top: 110px;" id="carouselExampleIndicators" class="carousel slide" data-pause="true"
+    data-interval='10000000' data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -18,6 +18,19 @@
                 <div id="header"
                     style="position: relative;height: 100%;background-size: cover !important;background: url(landing_images/{{ $image->image }}) center center no-repeat;"
                     class="header">
+                    @if($image->is_text_bottom_location > 0)
+                    <div style="position: absolute; bottom: -140px;left: 50px;" class="header-content">
+                        <div class="fade-in-text" style="background: rgb(69 113 69 / 60%);
+                        padding: 20px;
+                        border-radius: 20px;">
+                            <h2 style="color: white;
+                            font-size: xxx-large;">{{$image->title}}</h2>
+                            <h4 style="color: white;
+                            font-size: x-large;">{{$image->subtitle}}</h4>
+                        </div>
+
+                    </div>
+                    @else
                     <div style="position: absolute; top: -150px;left: 50px;" class="header-content">
                         <div class="fade-in-text" style="background: rgb(69 113 69 / 60%);
                         padding: 20px;
@@ -29,6 +42,9 @@
                         </div>
 
                     </div>
+
+                    @endif
+
 
                     <div style="position: absolute; top: -220px;right: 50px;" class="header-content">
 

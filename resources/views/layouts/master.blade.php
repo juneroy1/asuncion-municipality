@@ -455,7 +455,6 @@
 
 
 
-
                     </div>
                     {{-- @if($title=='offices')
                     <a class="nav-link page-scroll" href="#header">DEPARTMENTS <span
@@ -544,42 +543,49 @@
                                 BACKGROUND</span></a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    @if($title=='welcome')
-                    <a class="nav-link page-scroll" href="#header">ASUNCION NEWS<span class="sr-only">(current)</span></a>
-                    @else 
-                    <a class="nav-link page-scroll" href="/">ASUNCION NEWS</a>
-                    @endif
-                   
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#news" id="navbarDropdown" role="button"
+                    aria-haspopup="true" aria-expanded="false">OTHER SERVICES</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/news"><span class="item-text">LATEST NEWS</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                  
+                    <a class="dropdown-item" href="/student_inquiries" target="_blank"
+                        rel="noopener noreferrer"><span class="item-text">STUDENT INQUIRIES</span></a>
+                    
+                </div>
+
                 </li>
                 <li class="nav-item">
                     @if($title=='welcome')
-                    <a class="nav-link page-scroll" href="#header">LOOKING FOR... <span class="sr-only">(current)</span></a>
-                    @else 
-                    <a class="nav-link page-scroll" href="/">LOOKING FOR... </a>
+                    <a class="nav-link page-scroll" href="#search">SEARCH </a>
+                    @else
+                    <a class="nav-link page-scroll" href="/search">SEARCH </a>
                     @endif
-                   
+
                 </li>
-                <!-- end of dropdown menu -->
-                {{--
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
-                </li> --}}
-            </ul>
-            {{-- <span class="nav-item social-icons">
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <span class="hexagon"></span>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <span class="hexagon"></span>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-            </span> --}}
+
+        </div>
+        <!-- end of dropdown menu -->
+        {{--
+        <li class="nav-item">
+            <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+        </li> --}}
+        </ul>
+        {{-- <span class="nav-item social-icons">
+            <span class="fa-stack">
+                <a href="#your-link">
+                    <span class="hexagon"></span>
+                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                </a>
+            </span>
+            <span class="fa-stack">
+                <a href="#your-link">
+                    <span class="hexagon"></span>
+                    <i class="fab fa-twitter fa-stack-1x"></i>
+                </a>
+            </span>
+        </span> --}}
         </div>
     </nav> <!-- end of navbar -->
     <!-- end of navbar -->

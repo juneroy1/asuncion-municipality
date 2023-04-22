@@ -191,7 +191,106 @@ class OfficesController extends Controller
                 'edit' => false,
         ]);
     }
-
+    public function new($category = ''){
+        if ($category) {
+            $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();
+        }else{
+            $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        }
+        return view('projects.new', [
+            'updates'=> $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+        ]);
+    }
+    public function news($category = ''){
+        if ($category) {
+            $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();
+        }else{
+            $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        }
+        return view('projects.news', [
+            'updates'=> $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+        ]);
+    }
+    public function student($category = ''){
+        if ($category) {
+            $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();
+        }else{
+            $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        }
+        return view('projects.student_inquiries', [
+            'updates'=> $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+        ]);
+    }
+    public function search($category = ''){
+        if ($category) {
+            $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();
+        }else{
+            $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        }
+        return view('projects.search', [
+            'updates'=> $updates,
+            'updateTotal' => $this->updateTotal(),
+            'archiveTotal' => $this->archiveTotal(),
+            'announcementTotal' => $this->announcementTotal(),
+            'memberTotal' => $this->memberTotal(),
+            'personnelTotal' => $this->personnelTotal(),
+            'departmentFunctionalityTotal' => $this->departmentFunctionalityTotal(),
+            'landingImageTotal' => $this->landingImageTotal(),
+            'emergencyHotlineTotal' => $this->emergencyHotlineTotal(),
+            'archiveDepartmentTotal' => $this->archiveDepartmentTotal(),
+            'barangayOfficialModelTotal' => $this->barangayOfficialModelTotal(),
+            'barangayModelTotal' => $this->barangayModelTotal(),
+            'contactNumberOfficeTotal' => $this->contactNumberOfficeTotal(),
+            'organizationalChartTotal' => $this->organizationalChartTotal(),
+            'legislativeBranchCountSuperAdmin' => $this->legislativeBranchCountSuperAdmin(),
+            'executiveBranchCountSuperAdmin' => $this->executiveBranchCountSuperAdmin(),
+        ]);
+    }
     public function seeProjects($category = ''){
         if ($category) {
             $updates = Update::where('is_approved', '=', 1)->where('category',$category)->orderBy('created_at', 'DESC')->get();

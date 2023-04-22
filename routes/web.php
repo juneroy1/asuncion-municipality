@@ -262,6 +262,10 @@ Route::get('/see-all-offices-legislative/{name}', 'OfficesController@goToOfficeL
 // });
 
 Route::get('/see-all-projects', 'OfficesController@seeProjects')->name('offices-list');
+Route::get('/news', 'OfficesController@news')->name('offices-list');
+Route::get('/new', 'OfficesController@new')->name('offices-list');
+Route::get('/student_inquiries', 'OfficesController@student')->name('offices-list');
+Route::get('/search', 'OfficesController@search')->name('offices-list');
 Route::get('/see-all-projects/{category}', 'OfficesController@seeProjects')->name('offices-list');
 
 Route::get('/vision', function () {
