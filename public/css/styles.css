@@ -1507,16 +1507,22 @@ input[type="checkbox"] {
     border: none;
     background-color: transparent;
 }
-
-.slider .card-image {
-    border: #113448 solid;
+.image-card-container{
     width: 20rem;
     height: 20rem;
+    max-width: 20rem;
+    max-height: 20rem;
+    overflow: hidden;
+}
+.slider .card-image {
+    border: #113448 solid 0.5px;
+    width: 30rem;
+    height:  30rem;
     margin-right: auto;
     margin-bottom: 0.25rem;
     margin-left: auto;
-    border-radius: 50%;
-    object-fit: cover;
+    border-radius: 40px;
+    object-fit: contain;
 }
 
 .slider .card .card-body {
@@ -2033,6 +2039,12 @@ input[type="checkbox"] {
     padding-bottom: 0.5rem;
     background-color: #228b22;
     text-align: center;
+}
+
+.copyright{
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
 
 .copyright p,
