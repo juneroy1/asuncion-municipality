@@ -44,7 +44,9 @@ class AdminController extends Controller
         //
         if ($department == 'super_admin') {
             # code...
-            $updates = Update::all();
+            $updates = Update::query()
+            ->orderByRaw('ISNULL(priority), priority ASC')
+            ->get();
             // $listRequest = Department::withCount('updates')->get();
         } else {
 

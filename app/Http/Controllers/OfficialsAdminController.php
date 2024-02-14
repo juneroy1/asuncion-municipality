@@ -155,9 +155,14 @@ class OfficialsAdminController extends Controller
         //
         if ($department =='super_admin') {
             # code...
-            $officials = OfficialsAdmin::all();
+            $officials = OfficialsAdmin::query()
+            ->orderByRaw('ISNULL(priority), priority ASC')
+            ->get();
         }else{
-            $officials = OfficialsAdmin::where('department_id', '=', $department)->get();
+            // $officials = OfficialsAdmin::where('department_id', '=', $department)->orderBy('priority', 'ASC')->get();
+            $officials = OfficialsAdmin::where('department_id', '=', $department)->query()
+            ->orderByRaw('ISNULL(priority), priority ASC')
+            ->get();
         }
 
         return view('admin.officials_admin', ['officials'=> $officials,'department' => $department,

@@ -44,8 +44,11 @@ class LandingImageController extends Controller
             
         ]);
     }
+   
     public function indexAdmin($department){
-        $landingImage = LandingImage::where('department_id', '=', $department)->get();
+        $landingImage =  LandingImage::where('department_id', '=', $department)
+        ->orderByRaw('ISNULL(priority), priority ASC')
+        ->get();
         $user = Auth::user();
         $id = Auth::id();
         $departmentUser = $user->department_admin_model_id;
