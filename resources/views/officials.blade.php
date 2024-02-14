@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 style="    font-size: xxx-large;">Local Chief Executive</h1>
+                        <h1 style="    font-size: xxx-large;">LOCAL OFFICIALS</h1>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Officials</span>
+                        <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>LOCAL OFFICIALS</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -47,7 +47,8 @@
                     display: flex;
                     justify-items: center;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: start;
+                    gap: 20px;
                     align-content: center;
                     flex-direction: row;
                     padding: 40px;
@@ -55,12 +56,12 @@
                     border-radius: 20px;
                     ">
                     <img style="display: inline; width:40%" src="officials/{{$official->image}}" alt="..." class="img-thumbnail">
-                    <div style="display: inline-block;">
-                        <h1 style="font-size: 28px;" >{{$official->first_name}} {{$official->last_name}}</h1>
+                    <div style="display: inline-block;text-align:left">
+                        <h1 style="font-size: 28px; margin:0px" >{{$official->first_name}} {{$official->last_name}}</h1>
                     
-                        <h2>{{$official->position}}</h2>
+                        <h2 style="font-size:18px">{{$official->position}}</h2>
                         <br>
-                        <p style="font-style: italic;" class="font-reds"><b>{{$official->quotation}}</b></p>
+                        <p style="font-style: italic;" class="font-reds"><b><i>"{{$official->quotation}}"</i></b></p>
                         
                     </div>
                 

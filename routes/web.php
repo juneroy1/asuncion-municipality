@@ -182,9 +182,21 @@ Route::get('/admin-functionalities', 'DepartmentFunctionalityController@index')-
 Route::get('/admin-functionalities-edit/{idPost}', 'DepartmentFunctionalityController@index')->name('functionalities');
 Route::post('/admin-functionalities-update/{idPost}', 'DepartmentFunctionalityController@store')->name('functionalities');
 Route::get('/admin-functionalities/{department}', 'DepartmentFunctionalityController@indexAdmin')->name('functionalities');
+
 Route::post('/functionalities', 'DepartmentFunctionalityController@store')->name('functionalities_create');
 Route::get('/approve-functionalities/{id}', 'DepartmentFunctionalityController@approve')->name('approve-functionalities');
 Route::post('/remove-functionalities/{id}/{idPage}', 'DepartmentFunctionalityController@remove')->name('remove-functionalities');
+
+
+/**
+ * Priorities part here
+ * 
+ * */ 
+Route::post('/admin-update-priority/update-priority', 'PriorityController@updatePriority')->name('update.priority');
+Route::post('/admin-functionalities/update-priority', 'PriorityController@landingPriority')->name('landing.priority');
+Route::post('/admin-officials/officials-priority', 'PriorityController@officialsPriority')->name('officials.priority');
+
+
 
 // landing images
 

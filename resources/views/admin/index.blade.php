@@ -1,16 +1,9 @@
 @extends('layouts.master_admin', ['title' => 'uploadUpdates', 'subtitle' => ''])
 
 @section('content')
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
+    
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
+       
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
@@ -25,26 +18,12 @@
                         </nav>
                     </div>
                 </div>
-                <!-- <div class="col-md-6 col-4 align-self-center">
-                                                <div class="text-end upgrade-btn">
-                                                    <a href="https://www.wrappixel.com/templates/materialpro/"
-                                                        class="btn btn-danger d-none d-md-inline-block text-white" target="_blank">Upgrade to
-                                                        Pro</a>
-                                                </div>
-                                            </div> -->
+                
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
+       
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Start Page Content -->
-            <!-- ============================================================== -->
-            <!-- Row -->
+           
             <div class="row">
                 @if (\Session::has('error'))
                     <div class="alert alert-danger">
@@ -84,19 +63,7 @@
                                         <h4 class="card-title mt-2">{{ $edit ? 'Update an Image' : 'Upload an Image' }}
                                         </h4>
                                         <input type="file" name="image" class="form-control">
-                                        <!-- <h6 class="card-subtitle"></h6> -->
-                                        <!-- <div class="row text-center justify-content-center">
-                                                                <div class="col-4">
-                                                                    <a href="javascript:void(0)" class="link">
-                                                                        <i class="icon-people" aria-hidden="true"></i>
-                                                                        <span class="value-digit">254</span>
-                                                                    </a></div>
-                                                                <div class="col-4">
-                                                                    <a href="javascript:void(0)" class="link">
-                                                                        <i class="icon-picture" aria-hidden="true"></i>
-                                                                        <span class="value-digit">54</span>
-                                                                    </a></div>
-                                                            </div> -->
+                                        
                                     </center>
                                 </div>
                             </div>
@@ -108,28 +75,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-horizontal form-material mx-2">
-                                        <!-- <div class="form-group">
-                                                                <label class="col-md-12 mb-0">Full Name</label>
-                                                                <div class="col-md-12">
-                                                                    <input type="text" placeholder="Johnathan Doe"
-                                                                        class="form-control ps-0 form-control-line">
-                                                                </div>
-                                                            </div> -->
-                                        <!-- <div class="form-group">
-                                                                <label for="example-email" class="col-md-12">Email</label>
-                                                                <div class="col-md-12">
-                                                                    <input type="email" placeholder="johnathan@admin.com"
-                                                                        class="form-control ps-0 form-control-line" name="example-email"
-                                                                        id="example-email">
-                                                                </div>
-                                                            </div> -->
-                                        <!-- <div class="form-group">
-                                                                <label class="col-md-12 mb-0">Password</label>
-                                                                <div class="col-md-12">
-                                                                    <input type="password" value="password"
-                                                                        class="form-control ps-0 form-control-line">
-                                                                </div>
-                                                            </div> -->
+                                        
                                         <div class="form-group">
                                             <label class="col-md-12 mb-0">Title</label>
                                             <div class="col-md-12">
@@ -228,6 +174,10 @@
                                 <h4 class="card-title">List of updates</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
                                 <div class="table-responsive">
+                                <form action="/admin-update-priority/update-priority" method="POST">
+                                    @csrf 
+
+                               
                                     <table class="table user-table">
                                         <thead>
                                             <tr>
@@ -238,6 +188,7 @@
                                                 <th class="border-top-0">Native Description</th>
                                                 <th class="border-top-0">Remarks</th>
                                                 <th class="border-top-0">Status</th>
+                                                <th class="border-top-0">Priority</th>
                                                 <th class="border-top-0">Action</th>
                                             </tr>
                                         </thead>
@@ -261,6 +212,9 @@
                                                         style="{{ $update->is_approved == 1? 'background:blue;color:white': ($update->is_approved == 2? 'background:green;color:white': 'background:red;color:white') }}">
                                                         {{ $update->is_approved == 1 ? 'Approved' : ($update->is_approved == 2 ? 'Pending' : 'Disapproved') }}
                                                         {{-- {{$update->is_approved == 3 ?$update->remarks:''}} --}}
+                                                    </td>
+                                                    <td>
+                                                    <input class="w-50" type="number" name="priority[{{ $update->id }}]" value="{{ $update->priority }}">
                                                     </td>
                                                     <td>
                                                         {{-- <a href="/admin-remarks/{{$update->id}}">Remove</a> --}}
@@ -289,6 +243,8 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <button type="submit">Update Priorities</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -315,7 +271,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2021 <a href="#"></a>
+        <footer class="footer"> © 2021 212121<a href="#"></a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

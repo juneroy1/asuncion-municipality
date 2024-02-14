@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>LEGISLATIVE BRANCH</span>
+                        <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>LEGISLATIVE BRANCH</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -49,7 +49,8 @@
                             display: flex;
                             justify-items: center;
                             align-items: center;
-                            justify-content: space-around;
+                            justify-content: start;
+                            gap:20px;
                             align-content: center;
                             flex-direction: row;
                             padding: 40px;
@@ -58,7 +59,7 @@
                             ">
                                 <img style="display: inline; width:40%" src="officials/{{ $official->image }}" alt="..."
                                     class="img-thumbnail">
-                                <div style="display: inline-block;">
+                                <div style="display: inline-block;text-align:left;">
                                     <h1 style="font-size: 28px;">{{ $official->first_name }} {{ $official->last_name }}</h1>
                                     <h3>{{ $official->position }}</h3>
                                     {{-- <p >position    </p> --}}
