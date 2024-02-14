@@ -133,7 +133,7 @@ class OfficesController extends Controller
         ->where('is_approved', '=', 1)->get();
         $members = Member::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
         $functionality = DepartmentFunctionality::where('department_id', '=', $id)->where('is_approved', '=', 1)->first();
-        $department = DepartmentAdminModel::where('id', '=', $id)->where('is_approved', '=', 1)->first();
+        // $department = DepartmentAdminModel::where('id', '=', $id)->where('is_approved', '=', 1)->first();
 
         
         $contactNumberOffices = ContactNumberOffice::where('department_id', '=', $id)->where('is_approved', '=', 1)->get();
@@ -147,7 +147,7 @@ class OfficesController extends Controller
         
         $user = Auth::user();
         // $id = Auth::id();
-        $department = $user->department_admin_model_id;
+        // $department = $user? $user->department_admin_model_id:$id;
         //
         $department = DepartmentAdminModel::where('id', '=', $id)->where('is_approved', '=', 1)->first();
         // dd($id);
