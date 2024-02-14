@@ -13,7 +13,7 @@ class ArchiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['showArchive']]);
+        $this->middleware('auth', ['except' => ['showArchive','showArchiveSubmit']]);
     }
     /**
      * Display a listing of the resource.
@@ -54,7 +54,7 @@ class ArchiveController extends Controller
     public function showArchiveSubmit(Request $request){
         $user = Auth::user();
         $id = Auth::id();
-        $department = $user->department_admin_model_id;
+        $department = $user? $user->department_admin_model_id:null;
 
         if ($request->search) {
            $search =  $request->search;
