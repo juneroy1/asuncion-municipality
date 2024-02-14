@@ -321,9 +321,13 @@ class OfficesController extends Controller
     public function welcome(){
         $latestUpdate = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->limit('2')->get();
         $updates = Update::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->limit('10')->get();
-        $landingImage = LandingImage::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        // $landingImage = LandingImage::where('is_approved', '=', 1)->orderBy('created_at', 'DESC')->get();
+        $landingImage = LandingImage::where('is_approved', '=', 1)->orderByRaw('ISNULL(priority), priority ASC')
+        ->get();
         $emergencyHotlines = EmergencyHotline::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
-        $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('order', 'ASC')->get();
+        // $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderBy('order', 'ASC')->get();
+        $officials = OfficialsAdmin::where('is_approved', '=', 1)->orderByRaw('ISNULL(priority), priority ASC')
+        ->get();
         $barangay_officials = BarangayOfficialModel::where('is_approved', '=', 1)->orderBy('created_at', 'ASC')->get();
         $barangays = BarangayModel::where('is_approved', '=', 1)->orderBy('name', 'ASC')->get();
         $executive_agendas = AgendaModel::where('is_approved', '=', 1)->where('is_executive', 1)->orderBy('created_at', 'DESC')->first();
